@@ -1,8 +1,8 @@
-%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%------------------------------------------------------------
-%
+% Praca inżynierska — System zarządzania pracą drukarki 3D
+% Oliwer Urbaniak, Uniwersytet Wrocławski
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \documentclass[a4paper,12pt,reqno]{article}
 %----------------------------------------------------------
 \usepackage{amsfonts}
@@ -20,31 +20,54 @@
 \usepackage{listings}
 \usepackage[toc,page]{appendix}
 \usepackage{url}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{xcolor}
 
-\definecolor{codegreen}{rgb}{0.5, 0.09, 0.09}
+\definecolor{codegreen}{rgb}{0.0, 0.5, 0.0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.94,0.94,0.94}
 \definecolor{gray}{rgb}{0,0.6,0}
 
 \lstdefinestyle{mystyle}{
-    backgroundcolor=\color{backcolour},  
-    commentstyle=\color{codegreen},
-    keywordstyle=\color{blue},
-    numberstyle=\tiny\color{codegray},
-    stringstyle=\color{codepurple},
-		basicstyle=\footnotesize\fontfamily{cmtt}\selectfont,
-    breakatwhitespace=false,         
-    breaklines=true,
-    captionpos=b,
-		language=C++,
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=5pt,                  
-    showspaces=false,                
-    showstringspaces=false,
-    showtabs=false,                  
-    tabsize=2
+	backgroundcolor=\color{backcolour},
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{codeblue},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\footnotesize\fontfamily{cmtt}\selectfont,
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=b,
+	keepspaces=true,
+	numbers=left,
+	numbersep=5pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=2
+}
+
+\lstdefinestyle{jsonStyle}{
+	backgroundcolor=\color{backcolour},
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{codeblue},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\footnotesize\fontfamily{cmtt}\selectfont,
+	breaklines=true,
+	captionpos=b,
+	keepspaces=true,
+	numbers=left,
+	numbersep=5pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=2
 }
  
 \lstset{style=mystyle}
@@ -62,6 +85,10 @@
 }
 %------------------------------------------------------------
 \begin{document}
+	
+% ============================================================
+%  STRONA TYTUŁOWA
+% ============================================================
 
 %\begin{figure}[h]
 %	\centering
@@ -99,37 +126,46 @@ Wydział Fizyki i Astronomii\\
 
 \newpage
 
+% ============================================================
+%  SPIS TREŚCI
+% ============================================================
+
 \tableofcontents
 
 \newpage
-
+% ============================================================
+%  STRESZCZENIE
+% ============================================================
 \begin{flushleft}
 \Large \textbf{Streszczenie}
 \end{flushleft}
 \vspace{1cm}
 
 
- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Niniejsza praca inżynierska opisuje projekt, implementację oraz wykonanie systemu \textit{AddiPi} - rozproszonego systemu zarządzania pracą drukarki 3D przeznaczonego dla laboratorium studenckiego. System umożliwia użytkownikom przesyłanie plików G-code, planowanie oraz monitorowanie zadań do wydruku, a administratorom - pełną kontrolę nad kolejką i użytkownikami.
+
+Architektura systemu oparta jest na podejściu mikroserwisowym. Wyodrębniono sześć niezależnych serwisów backendowych: uwierzytelniania (Auth Service), zarządzania użytkownikami (User Service), obsługi plików (Files Service), kolejkowania zadań (Queue Service), sterowania drukarką (Printer Service) oraz agenta działającego na urządzeniu Raspberry Pi (AddiPi Agent). Całość uzupełnia aplikacja frontendowa zbudowana w React oraz serwis wideo do podglądu kamery.
+
+Komunikacja między serwisami odbywa się za pośrednictwem protokołu HTTP/REST oraz chmurowej kolejki Azure Service Bus. Dane przechowywane są w Azure Cosmos DB, a pliki G-code w Azure Blob Storage. Sterowanie drukarką realizowane jest przez Azure IoT Hub przy użyciu bezpośrednich wywołań metod (Direct Methods) na Raspberry Pi, na którym działa oprogramowane OctoPrint.
+
+System zrealizowano przy użyciu języków TypeScript (Node.js) i Python. Wdrożenie odbywa się w kontenerach Docker, koordynowanych plikiem Docker Compose. Interfejs użytkownika obsługuje uwierzytelnianie tokenem JWT, przesyłanie plików, planowanie zadań, podgląd kamery w czasie rzeczywistym oraz panel administracyjny.
+
+\vspace{0.3cm}
+\textbf{Słowa kluczowe:} mikroserwisy, drukarka 3D, OctoPrint, Raspberry Pi, Azure Iot Hub, Azure Cosmos DB, Docker, TypeScript, Python, REST API, kolejkowanie zadań
 
 \newpage
-\begin{flushleft}
-\Large \textbf{Abstract}
-\end{flushleft}
-\vspace{1cm}
 
+% ============================================================
+%  ROZDZIAŁ 1 — WPROWADZENIE
+% ============================================================
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+\section{Wprowadzenie}
 
-\newpage
-
-\section{Opis pliku}
+\subsection{Motywacja i cel pracy}
 
 
 
-W swojej pracy możesz odnosić się do równań np. do równania (\ref{rownanie}) lub do rysunków, zarówno wektorowych, patrz rys. (\ref{logotyp}) jak i bitmapowych (\ref{wahadla}).
-Możesz też z powodzeniem cytować literaturę pojedynczo
-\cite{Matyka2008} lub kilka pozycji na raz
-\cite{Strzelczyk2021,Chorin1968}. Jeśli chcesz to robić wygodniej załóż tzw, plik bibtex, ale możesz też pracować tak, jak w tym dokumencie.
+Drukarki 3D stanowią obecnie standardowe wyposażenie laboratoriów akademickich, warsztatów studenckich oraz zakładów produkcyjnych zorientowanych na wytwarzanie przyrostowe. Urządzenia te, pomimo rosnącej dostępności i malejących cen, pozostają zasobem współdzielonym - 
 
 
 
