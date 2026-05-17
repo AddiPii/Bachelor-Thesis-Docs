@@ -219,6 +219,25 @@ Na podstawie analizy potrzeb laboratorium studenckiego sformułowano następują
 \end{itemize}
 
 \textbf{Dla administratorów:}
+\begin{itemize}
+	\item Pogląd i zarządzanie wszystkimi użytkownikami systemu.
+	\item Zmiana roli użytkownika (użytkownik/administrator).
+	\item Podgląd i zarządzanie wszystkimi zadaniami druku.
+	\item Potwierdzenie gotowości drukarki do kolejnego zlecenia.
+	\item Dostęp do metryk systemowych (liczba zadań według statusu).
+	zawartość...
+\end{itemize}
+
+\subsection{Wymagania niefunkcjonalne}
+
+\begin{itemize}
+	\item \textbf{Skalowalność} - architektura powinna umożliwiać dodanie kolejnych drukarek bez przebudowy systemu.
+	\item \textbf{Niezawodność} - utrata wiadomości z kolejki nie powinna powodować trwałej utraty zadania.
+	\item \textbf{Bezpieczeństwo} - dostęp do API chroniony tokenami JWT, hasła przechowywane w formie szyfru bcrypt.
+	\item \textbf{Responsywność interfejsu} - aplikacja frontendowa powinna działać zarówno na urządzeniach desktopowych, jak i mobilnych.
+	\item \textbf{Czas odpowiedzi} - operacje API powinny odpowiadać w czasie poniżej 2 sekund w warunkach normalnego obciążenia.
+	\item \textbf{Przenośność} - wszystkie komponenty opakowane w kontenery Docker, uruchamiane jednym poleceniem.
+\end{itemize}
 
 W swojej pracy możesz odnosić się do równań np. do równania (\ref{rownanie}) lub do rysunków, zarówno wektorowych, patrz rys. (\ref{logotyp}) jak i bitmapowych (\ref{wahadla}).
 Możesz też z powodzeniem cytować literaturę pojedynczo
@@ -255,9 +274,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 \qquad
 \end{figure}
 
-
-\subsection{Wymagania niefunkcjonalne}
-
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. \label{Rysunek14}
 .. in the figure \ref{Rysunek14}.
 
@@ -266,11 +282,21 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 \subsubsection{Octoprint}
 
+OctoPrint~\cite{octoprint} jest najpopularniejszym oprogramowaniem do zarządzania drukarkami 3D. Działa jako serwer HTTP na Raspberry Pi i udostępnia interfejs webowy, API REST oraz system wtyczek. Umożliwia zdalne sterowanie drukarką, podgląd z kamery i monitorowanie postępu.
+
+OctoPrint jest jednak przeznaczony dla jednego użytkownika zarządzającego jedną drukarką. Nie oferuje mechanizmu kolejkowania zadań wielu użytkowników, systemu uwierzytelniania opartego na rolach ani integracji z chmurą. W systemie AddiPi OctoPrint pełni rolę lokalnego sterownika drukarki, nad którym nadbudowano opisywaną w tej pracy warstwę zarządzania.
+
 \subsubsection{Mainsail i Fluidd}
+
+Mainsail i Fluidd to nowoczesne interfejsy webowe dla firmware Klipper. Podobnie jak OctoPrint, skierowane są do jednego użytkownika i nie przewidują obsługi kolejki wielu użytkowników.
 
 \subsubsection{Rozwiązania komercyjne}
 
+Oblio, Polar Cloud i Ultimaker Digital Factory to komercyjne platformy zarządzania flotą drukarek 3D w środowisku przemyśłowym i edukacyjnym. Oferują zaawansowane funkcje, jednak wiążą się z kosztami subskrypcji i nie pozwalają na pełną kontrolę nad infrastrukturą - co w warunkach laboratorium akademickiego jest istotną przeszkodą.
+
 \subsubsection{Wnioski}
+
+Żadne z dostępnych rozwiązań o otwartym kodzie źródłowym nie łączy w sobie: systemu uwierzytelniania obsługującego wielu użytkowników, kolejkowania zadań z planowaniem czasowym, integracji z chmurą obliczeniową i sterowaniem przez IoT. System AddiPi wypełnia tę lukę, pozostając jednocześnie w pełni samodziałający i wdrażany lokalnie.
 
 \newpage
 
