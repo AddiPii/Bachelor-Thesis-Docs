@@ -7,7 +7,7 @@ Alexandre~Joel Chorin.
 
 \bibitem{solidworks}
 {Dassault Syst{\`e}mes}.
-\newblock {SOLIDWORKS} — {3D} {CAD} {D}esign {S}oftware.
+\newblock {SOLIDWORKS} -- {3D} {CAD} {D}esign {S}oftware.
 \newblock \url{https://www.solidworks.com}.
 \newblock Dostęp: 2026.
 
@@ -19,7 +19,7 @@ Alexandre~Joel Chorin.
 
 \bibitem{octoprint}
 Gina H{\"a}u{\ss}ge.
-\newblock Octoprint — {T}he snappy web interface for your {3D} printer.
+\newblock Octoprint -- {T}he snappy web interface for your {3D} printer.
 \newblock \url{https://octoprint.org}.
 \newblock Dostęp: 2026.
 
@@ -30,7 +30,7 @@ Maciej Matyka, Arzhang Khalili, and Zbigniew Koza.
 
 \bibitem{react}
 {Meta Platforms, Inc.}
-\newblock React — {T}he library for web and native user interfaces.
+\newblock React -- {T}he library for web and native user interfaces.
 \newblock \url{https://react.dev}.
 \newblock Dostęp: 2026.
 
@@ -60,26 +60,26 @@ Maciej Matyka, Arzhang Khalili, and Zbigniew Koza.
 
 \bibitem{typescript}
 {Microsoft Corporation}.
-\newblock Typescript — {J}ava{S}cript {W}ith {S}yntax {F}or {T}ypes.
+\newblock Typescript -- {J}ava{S}cript {W}ith {S}yntax {F}or {T}ypes.
 \newblock \url{https://www.typescriptlang.org}.
 \newblock Dostęp: 2026.
 
 \bibitem{express}
 {OpenJS Foundation}.
-\newblock Express — {F}ast, unopinionated, minimalist web framework for
+\newblock Express -- {F}ast, unopinionated, minimalist web framework for
   {N}ode.js.
 \newblock \url{https://expressjs.com}.
 \newblock Dostęp: 2026.
 
 \bibitem{nodejs}
 {OpenJS Foundation}.
-\newblock Node.js — {J}ava{S}cript runtime built on {C}hrome's {V}8 engine.
+\newblock Node.js -- {J}ava{S}cript runtime built on {C}hrome's {V}8 engine.
 \newblock \url{https://nodejs.org}.
 \newblock Dostęp: 2026.
 
 \bibitem{zustand}
 Poimandres.
-\newblock Zustand — {B}ear necessities for state management in {R}eact.
+\newblock Zustand -- {B}ear necessities for state management in {R}eact.
 \newblock \url{https://github.com/pmndrs/zustand}.
 \newblock Dostęp: 2026.
 
@@ -91,14 +91,14 @@ Poimandres.
 
 \bibitem{tailwind}
 {Tailwind Labs Inc.}
-\newblock Tailwind {CSS} — {R}apidly build modern websites without ever
+\newblock Tailwind {CSS} -- {R}apidly build modern websites without ever
   leaving your {HTML}.
 \newblock \url{https://tailwindcss.com}.
 \newblock Dostęp: 2026.
 
 \bibitem{vite}
 Evan You et~al.
-\newblock Vite — {N}ext {G}eneration {F}rontend {T}ooling.
+\newblock Vite -- {N}ext {G}eneration {F}rontend {T}ooling.
 \newblock \url{https://vitejs.dev}.
 \newblock Dostęp: 2026.
 
