@@ -204,7 +204,22 @@ Rozdział~\ref{sec:analiza} zawiera analizę wymagań i przegląd istniejących 
 \label{sec:analiza}
 
 \subsection{Wymagania funkcjonalne}
- 
+
+Na podstawie analizy potrzeb laboratorium studenckiego sformułowano następujące wymagania funkcjonalne:
+
+\textbf{Dla użytkowników:}
+\begin{itemize}
+	\item Rejestracja z weryfikacją adresu e-mail (ograniczoną do domeny uczelni \texttt{@uwr.edu.pl}).
+	\item Logowanie z użyciem tokenów JWT (access token + refresh token).
+	\item Przesyłanie plików G-code (maksymalnie 50~MB, format \texttt{.gcode}).
+	\item Planowanie druku na wybrany termin lub dodanie do kolejki ogólnej.
+	\item Przeglądanie własnych zadań z filtrowaniem według statusu.
+	\item Podgląd postępu druku w czasie rzeczywistym (pasek postępu, temperatura dyszy i podłoża, obraz z kamery).
+	\item Anulowanie i ponowne uruchamianie własnych zadań.
+\end{itemize}
+
+\textbf{Dla administratorów:}
+
 W swojej pracy możesz odnosić się do równań np. do równania (\ref{rownanie}) lub do rysunków, zarówno wektorowych, patrz rys. (\ref{logotyp}) jak i bitmapowych (\ref{wahadla}).
 Możesz też z powodzeniem cytować literaturę pojedynczo
 \cite{Matyka2008} lub kilka pozycji na raz
