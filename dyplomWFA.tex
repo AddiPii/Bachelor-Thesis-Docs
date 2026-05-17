@@ -18,20 +18,35 @@
 \usepackage{wrapfig}
 \usepackage{lipsum}  
 \usepackage{listings}
+\usepackage[polish]{babel}
 \usepackage[toc,page]{appendix}
 \usepackage{url}
-\usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
 \usepackage{xcolor}
+\usepackage{makecell}
+
+\renewcommand{\appendixtocname}{Załączniki}   % Nazwa w spisie treści
+\renewcommand{\appendixpagename}{Załączniki}  % Nazwa na osobnej stronie nagłówkowej
+\renewcommand{\appendixname}{Załącznik}        % Nazwa pojedynczego załącznika
+
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,      % Włącza kolorowanie tekstu zamiast ramek
+	linkcolor=black,      % Kolor linków wewnętrznych (np. w spisie treści) - zmień na navy blue lub zostaw black
+	filecolor=magenta,    % Kolor linków do plików lokalnych
+	urlcolor=blue,        % Kolor tradycyjnych linków internetowych (URL)
+	citecolor=blue       % Kolor odnośników do bibliografii
+}
 
 \definecolor{codegreen}{rgb}{0.5, 0.09, 0.09}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.94,0.94,0.94}
 \definecolor{gray}{rgb}{0,0.6,0}
+\definecolor{codeblue}{rgb}{0,0,0.8}
 
 \lstdefinestyle{mystyle}{
 	backgroundcolor=\color{backcolour},
@@ -209,23 +224,22 @@ Na podstawie analizy potrzeb laboratorium studenckiego sformułowano następują
 
 \textbf{Dla użytkowników:}
 \begin{itemize}
-	\item Rejestracja z weryfikacją adresu e-mail (ograniczoną do domeny uczelni \texttt{@uwr.edu.pl}).
-	\item Logowanie z użyciem tokenów JWT (access token + refresh token).
-	\item Przesyłanie plików G-code (maksymalnie 50~MB, format \texttt{.gcode}).
-	\item Planowanie druku na wybrany termin lub dodanie do kolejki ogólnej.
-	\item Przeglądanie własnych zadań z filtrowaniem według statusu.
-	\item Podgląd postępu druku w czasie rzeczywistym (pasek postępu, temperatura dyszy i podłoża, obraz z kamery).
-	\item Anulowanie i ponowne uruchamianie własnych zadań.
+	\item rejestracja z weryfikacją adresu e-mail (ograniczoną do domeny uczelni \texttt{@uwr.edu.pl}),
+	\item logowanie z użyciem tokenów JWT (access token + refresh token),
+	\item przesyłanie plików G-code (maksymalnie 50~MB, format \texttt{.gcode}),
+	\item planowanie druku na wybrany termin lub dodanie do kolejki ogólnej,
+	\item przeglądanie własnych zadań z filtrowaniem według statusu,
+	\item podgląd postępu druku w czasie rzeczywistym (pasek postępu, temperatura dyszy i podłoża, obraz z kamery),
+	\item anulowanie i ponowne uruchamianie własnych zadań.
 \end{itemize}
 
 \textbf{Dla administratorów:}
 \begin{itemize}
-	\item Pogląd i zarządzanie wszystkimi użytkownikami systemu.
-	\item Zmiana roli użytkownika (użytkownik/administrator).
-	\item Podgląd i zarządzanie wszystkimi zadaniami druku.
-	\item Potwierdzenie gotowości drukarki do kolejnego zlecenia.
-	\item Dostęp do metryk systemowych (liczba zadań według statusu).
-	zawartość...
+	\item pogląd i zarządzanie wszystkimi użytkownikami systemu,
+	\item zmiana roli użytkownika (użytkownik/administrator),
+	\item podgląd i zarządzanie wszystkimi zadaniami druku,
+	\item potwierdzenie gotowości drukarki do kolejnego zlecenia,
+	\item dostęp do metryk systemowych (liczba zadań według statusu).
 \end{itemize}
 
 \subsection{Wymagania niefunkcjonalne}
@@ -292,7 +306,7 @@ Mainsail i Fluidd to nowoczesne interfejsy webowe dla firmware Klipper. Podobnie
 
 \subsubsection{Rozwiązania komercyjne}
 
-Oblio, Polar Cloud i Ultimaker Digital Factory to komercyjne platformy zarządzania flotą drukarek 3D w środowisku przemyśłowym i edukacyjnym. Oferują zaawansowane funkcje, jednak wiążą się z kosztami subskrypcji i nie pozwalają na pełną kontrolę nad infrastrukturą - co w warunkach laboratorium akademickiego jest istotną przeszkodą.
+Oblio, Polar Cloud i Ultimaker Digital Factory to komercyjne platformy zarządzania flotą drukarek 3D w środowisku przemysłowym i edukacyjnym. Oferują zaawansowane funkcje, jednak wiążą się z kosztami subskrypcji i nie pozwalają na pełną kontrolę nad infrastrukturą - co w warunkach laboratorium akademickiego jest istotną przeszkodą.
 
 \subsubsection{Wnioski}
 
@@ -311,26 +325,102 @@ Oblio, Polar Cloud i Ultimaker Digital Factory to komercyjne platformy zarządza
 
 \subsubsection{TypeScript / Node.js}
 
+Większość serwisów backendowych oraz aplikacja frontendowa zostały napisane w TypeScript~\cite{typescript} - nadzbiorze języka JavaScript dodającym statyczne typowanie. TypeScript znacznie ułatwia utrzymanie dużych baz kodu dzięki wykrywaniu błędów na etapie kompilacji, podpowiedziom IDE i samodokumentowaniu przez typy.
+
+Node.js~\cite{nodejs} wybrano ze względu na asynchroniczny, nieblokujący model wejścia-wyjścia, który sprawdza się w serwisach obsługujących wiele równoległych połączeń HTTP oraz komunikację z zewnętrznymi usługami (baza danych, kolejka, IoT Hub).
+
 \subsubsection{Python}
 
+Agent działający na platformie Raspberry Pi został zaimplementowany w języku Python~\cite{python}. Biblioteki \texttt{azure-iot-device} oraz \texttt{azure-storage-blob} są w tym środowisku powszechnie dostępne i szczegółowo udokumentowane. Python stanowi standardowe rozwiązanie w przypadku aplikacji uruchamianych na systemach wbudowanych oraz mikrokomputerach jednoukładowych (ang. \textit{Single-Board Computer}, SBC).
 
 \subsection{Framework webowy - Express.js}
 
+Wszystkie serwisy platformy Node.js wykorzystują framework Express.js~\cite{express} w wersji 5.0. Rozwiązanie to charakteryzuje się minimalistyczną architekturą i niskim narzutem wydajnościowym. Framework nie narzuca sztywnej struktury katalogów (ang. \textit{unopinionated framework}), co pozwala na elastyczne dostosowanie architektury każdego z mikroserwisów do jego specyficznych wymagań. Express.js zapewnia również ustandaryzowane mechanizmy obsługi żądań pośredniczących (ang. \textit{middleware}), routingu oraz zarządzania błędami.
+
 \subsection{Baza danych - Azure Cosmos DB}
+
+Azure Cosmos DB~\cite{cosmosdb} to w pełni zarządzana baza NoSQL firmy Microsoft, oferująca globalną dystrybucję danych, elastyczne partycjonowanie oraz obsługę wielu modeli API (SQL, MongoDB, Cassandra, Gremlin, Table). W projekcie AddiPi wykorzystano API SQL (Core), umożliwiające wykonywanie zapytań zbliżonych składnią do języka SQL na dokumentach zapisanych w formacie JSON.
+
+Wybór Azure Cosmos DB został podyktowany następującymi czynnikami:
+\begin{itemize}
+	\item brak konieczności zarządzania infrastrukturą serwera bazy danych dzięki wykorzystaniu modelu PaaS (Platform as a Service),
+	\item elastyczny schemat dokumentów umożliwiający przechowywanie danych o różnej strukturze w ramach jednej bazy danych (\texttt{addipi}), z podziałem na odrębne kontenery (\texttt{users}, \texttt{jobs}, \texttt{refresh-tokens}),
+	\item natywna integracja z ekosystemem Microsoft Azure,
+	\item automatyczne indeksowanie wszystkich pól dokumentów.
+\end{itemize}
 
 \subsection{Przechowywanie plików - Azure Blob Storage}
 
+Pliki G-code przesyłane przez użytkowników są przechowywane w usłudze Azure Blob Storage~\cite{blobstorage}, w kontenerze \texttt{gcode}. Usługa ta zapewnia praktycznie nieograniczoną przestrzeń magazynową, relatywnie niskie koszty przechowywania danych oraz prosty interfejs umożliwiający przesyłanie i pobieranie obiektów binarnych.
+
 \subsection{Kolejkowanie - Azure Service Bus}
+
+Azure Service Bus~\cite{servicebus} to chmurowa usługa kolejkowania komunikatów klasy enterprise firmy Microsoft. W systemie AddiPi pełni rolę brokera komunikatów pomiędzy usługami Files Service (producent komunikatów) oraz Queue Service (konsument).
+
+Kolejka \texttt{print-queue} zapewnia semantykę dostarczania wiadomości typu \newline \texttt{at-least-once}. Oznacza to, że w przypadku awarii usługi konsumenckiej komunikat pozostaje w kolejce i może zostać przetworzony powtórnie po ponownym uruchomieniu konsumenta.
 
 \subsection{Sterowanie urządzeniem - Azure IoT Hub}
 
+Azure IoT Hub~\cite{iothub} to usługa firmy Microsoft przeznaczona do zarządzania urządzeniami Internetu Rzeczy (IoT) w środowisku chmurowym. Umożliwia dwukierunkową komunikację z urządzeniami (Device-to-Cloud oraz Cloud-to-Device), a także wywołanie metod bezpośrednich (Direct Methods), stanowiących synchroniczne wywołania RPC (zdalne wywołanie procedury) wykonane na urządzeniach komunikujących się za pośrednictwem protokołów MQTT lub AMQP.
+
+W projekcie AddiPi usługa Printer Service wywołuje na agencie działającym na urządzeniu Raspberry Pi metody \texttt{startPrint}, \texttt{cancelPrint} oraz \texttt{getStatus}. Agent przesyła następnie telemetrię w postaci zdarzeń, takich jak \texttt{print\_started}, \texttt{print\_progress} czy \texttt{print\_completed}, które są odbierane przez usługę Printer Service za pośrednictwem endpointu kompatybilnego z Azure Event Hubs.
+
+
 \subsection{Frontend - React i Vite}
+
+Interfejs użytkownika został zbudowany z wykorzystaniem biblioteki React~\cite{react} 18 oraz języka TypeScript. Jako serwer deweloperski i narzędzie do budowania aplikacji wykorzystano Vite~\cite{vite}.
+
+Do zarządzania stanem globalnym aplikacji zastosowano bibliotekę Zustand~\cite{zustand}, umożliwiającą współdzielenie danych pomiędzy komponentami aplikacji w uproszczony sposób, bez konieczności implementowania rozbudowanej logiki zarządzania stanem. 
+
+Warstwa stylów została zrealizowana przy użyciu frameworka Tailwind CSS~\cite{tailwind}, który opiera się na wykorzystaniu niewielkich klas CSS reprezentujących pojedyncze właściwości stylów interfejsu użytkownika.
 
 \subsection{Kontenery - Docker i Docker Compose}
 
+Każdy serwis aplikacji posiada własny plik \texttt{Dockerfile} realizujący wieloetapowy proces budowania obrazu kontenera (\textit{multi-stage build}). Rozwiązanie to pozwala na ograniczenie rozmiaru finalnych obrazów oraz oddzielenie środowiska kompilacji od uruchomieniowego.
+
+Docker Compose~\cite{docker} wykorzystano do zarządzania uruchamianiem wszystkich serwisów zarówno w środowisku lokalnym, jak i produkcyjnym. Narzędzie definiuje wspólną sieć \texttt{addipi-network} oraz konfigurację zmiennych środowiskowych odczytywanych z pliku \texttt{.env}.
+
 \subsection{CAD - SolidWorks}
 
+Projekt mechaniczny obudowy urządzenia wykonano w programie \textbf{SolidWorks}~\cite{solidworks}, stanowiącym środowisko do parametrycznego modelowania bryłowego oraz projektowania złożeń mechanicznych. Oprogramowanie umożliwia tworzenie asocjatywnych modeli 3D, w których modyfikacja parametrów części powoduje automatyczną aktualizację złożeń oraz dokumentacji technicznej.
+
+Wybór programu SolidWorks był podyktowany dostępnością oprogramowania w ramach licencji studenckiej oraz szerokim wsparciem dla formatów eksportu modeli, takich jak \texttt{.STEP} (neutralny format wymiany modeli CAD), \texttt{.STL} (format wykorzystywany w procesie przygotowania modeli o druku 3D) oraz \texttt{.3MF} (format wymiany zawierający dodatkowe metadane procesu druku).
+
+Projekt został podzielony na pliki\texttt{.SLDPRT}, reprezentujące pojedyncze części, oraz \texttt{.SLDASM}, definiujące kompletne złożenia mechaniczne.
+
 \subsection{Porównanie wybranych alternatyw}
+
+\begin{table}[h!]
+	\centering
+	\caption{Porównanie baz danych rozważanych w projekcie}
+	\begin{tabular}{lccc}
+		\toprule
+		\textbf{Cecha} & \textbf{Cosmos DB} & \textbf{PostgreSQL} & \textbf{MongoDB Atlas} \\
+		\midrule
+		Model danych & Dokument (JSON) & Relacyjny & Dokument (BSON) \\
+		Zarządzanie & PaaS (bez serwera) & Samodzielny/PaaS & PaaS \\
+		Integracja z Azure & Natywna & Ograniczona & Pośrednia \\
+		\makecell[l]{Elastyczny \\ schemat danych} & Tak & Nie & Tak \\
+		\makecell[l]{Dostępność \\ bezpłatnego planu} & Tak (400 RU/s) & Tak (self-hosted) & Tak (512 MB) \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+	\centering
+	\caption{Porównanie rozwiązań kolejkowania wiadomości}
+	\begin{tabular}{lccc}
+		\toprule
+		\textbf{Cecha} & \textbf{Azure Service Bus} & \textbf{RabbitMQ} & \textbf{Apache Kafka} \\
+		\midrule
+		Model wdrożenia & PaaS & Self-hosted & Self-hosted / PaaS \\
+		Semantyka dostarczania & At-least-once & At-least-once & At-least-once \\
+		Złożoność konfiguracji & Niska & Średnia & Wysoka \\
+		Integracja z Azure & Natywna & Ograniczona & Pośrednia \\
+		Skalowalność & Automatyczna & Ręczna & Wysoka \\
+		\bottomrule
+	\end{tabular}
+\end{table}
 
 \newpage
 

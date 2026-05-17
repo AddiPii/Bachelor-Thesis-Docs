@@ -1,19 +1,105 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{Chorin1968}
 Alexandre~Joel Chorin.
 \newblock Numerical solution of the navier-stokes equations.
 \newblock {\em Mathematics of computation}, 22(104):745--762, 1968.
 
+\bibitem{solidworks}
+{Dassault Syst{\`e}mes}.
+\newblock {SOLIDWORKS} — {3D} {CAD} {D}esign {S}oftware.
+\newblock \url{https://www.solidworks.com}.
+\newblock Dostęp: 2025.
+
+\bibitem{docker}
+{Docker Inc.}
+\newblock Docker {D}ocumentation.
+\newblock \url{https://docs.docker.com}.
+\newblock Dostęp: 2026.
+
 \bibitem{octoprint}
 Gina H{\"a}u{\ss}ge.
 \newblock Octoprint — {T}he snappy web interface for your {3D} printer.
 \newblock \url{https://octoprint.org}.
-\newblock Dostęp: 2025.
+\newblock Dostęp: 2026.
 
 \bibitem{Matyka2008}
 Maciej Matyka, Arzhang Khalili, and Zbigniew Koza.
 \newblock Tortuosity-porosity relation in porous media flow.
 \newblock {\em Physical Review E}, 78(2):026306, 2008.
+
+\bibitem{react}
+{Meta Platforms, Inc.}
+\newblock React — {T}he library for web and native user interfaces.
+\newblock \url{https://react.dev}.
+\newblock Dostęp: 2026.
+
+\bibitem{blobstorage}
+{Microsoft Corporation}.
+\newblock Azure {B}lob {S}torage documentation.
+\newblock \url{https://learn.microsoft.com/en-us/azure/storage/blobs/}.
+\newblock Dostęp: 2026.
+
+\bibitem{cosmosdb}
+{Microsoft Corporation}.
+\newblock Azure {C}osmos {DB} documentation.
+\newblock \url{https://learn.microsoft.com/en-us/azure/cosmos-db/}.
+\newblock Dostęp: 2026.
+
+\bibitem{iothub}
+{Microsoft Corporation}.
+\newblock Azure {I}o{T} {H}ub documentation.
+\newblock \url{https://learn.microsoft.com/en-us/azure/iot-hub/}.
+\newblock Dostęp: 2026.
+
+\bibitem{servicebus}
+{Microsoft Corporation}.
+\newblock Azure {S}ervice {B}us documentation.
+\newblock \url{https://learn.microsoft.com/en-us/azure/service-bus-messaging/}.
+\newblock Dostęp: 2026.
+
+\bibitem{typescript}
+{Microsoft Corporation}.
+\newblock Typescript — {J}ava{S}cript {W}ith {S}yntax {F}or {T}ypes.
+\newblock \url{https://www.typescriptlang.org}.
+\newblock Dostęp: 2026.
+
+\bibitem{express}
+{OpenJS Foundation}.
+\newblock Express — {F}ast, unopinionated, minimalist web framework for
+  {N}ode.js.
+\newblock \url{https://expressjs.com}.
+\newblock Dostęp: 2026.
+
+\bibitem{nodejs}
+{OpenJS Foundation}.
+\newblock Node.js — {J}ava{S}cript runtime built on {C}hrome's {V}8 engine.
+\newblock \url{https://nodejs.org}.
+\newblock Dostęp: 2026.
+
+\bibitem{zustand}
+Poimandres.
+\newblock Zustand — {B}ear necessities for state management in {R}eact.
+\newblock \url{https://github.com/pmndrs/zustand}.
+\newblock Dostęp: 2026.
+
+\bibitem{python}
+{Python Software Foundation}.
+\newblock Python 3 {D}ocumentation.
+\newblock \url{https://docs.python.org/3/}.
+\newblock Dostęp: 2026.
+
+\bibitem{tailwind}
+{Tailwind Labs Inc.}
+\newblock Tailwind {CSS} — {R}apidly build modern websites without ever
+  leaving your {HTML}.
+\newblock \url{https://tailwindcss.com}.
+\newblock Dostęp: 2026.
+
+\bibitem{vite}
+Evan You et~al.
+\newblock Vite — {N}ext {G}eneration {F}rontend {T}ooling.
+\newblock \url{https://vitejs.dev}.
+\newblock Dostęp: 2026.
 
 \end{thebibliography}

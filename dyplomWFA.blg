@@ -4,45 +4,45 @@ The top-level auxiliary file: dyplomWFA.aux
 The style file: plain.bst
 Database file #1: bibliografia.bib
 Warning--I didn't find a database entry for "Strzelczyk2021"
-You've used 3 entries,
+You've used 17 entries,
             2118 wiz_defined-function locations,
-            522 strings with 4450 characters,
-and the built_in function-call counts, 872 in all, are:
-= -- 85
-> -- 32
+            574 strings with 5957 characters,
+and the built_in function-call counts, 3889 in all, are:
+= -- 382
+> -- 136
 < -- 0
-+ -- 13
-- -- 10
-* -- 58
-:= -- 153
-add.period$ -- 10
-call.type$ -- 3
-change.case$ -- 14
++ -- 57
+- -- 40
+* -- 131
+:= -- 665
+add.period$ -- 66
+call.type$ -- 17
+change.case$ -- 70
 chr.to.int$ -- 0
-cite$ -- 3
-duplicate$ -- 29
-empty$ -- 76
-format.name$ -- 10
-if$ -- 178
+cite$ -- 17
+duplicate$ -- 127
+empty$ -- 384
+format.name$ -- 40
+if$ -- 843
 int.to.chr$ -- 0
-int.to.str$ -- 3
+int.to.str$ -- 17
 missing$ -- 2
-newline$ -- 19
-num.names$ -- 6
-pop$ -- 16
+newline$ -- 103
+num.names$ -- 34
+pop$ -- 156
 preamble$ -- 1
-purify$ -- 11
+purify$ -- 53
 quote$ -- 0
-skip$ -- 19
+skip$ -- 90
 stack$ -- 0
-substring$ -- 58
-swap$ -- 3
+substring$ -- 128
+swap$ -- 17
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 12
+type$ -- 68
 warning$ -- 0
-while$ -- 9
-width$ -- 4
-write$ -- 35
+while$ -- 37
+width$ -- 19
+write$ -- 189
 (There was 1 warning)
