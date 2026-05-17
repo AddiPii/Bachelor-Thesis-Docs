@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex dyplomWFA"] 1779058588.51351 "dyplomWFA.aux" "dyplomWFA.bbl" "dyplomWFA" 1779059159.97164 0
-  "./bibliografia.bib" 1779056907.14152 3756 af0929a06b3298da9956dadeb28ddab5 ""
+["bibtex dyplomWFA"] 1779059877.82181 "dyplomWFA.aux" "dyplomWFA.bbl" "dyplomWFA" 1779059878.38921 0
+  "./bibliografia.bib" 1779059872.13258 3756 ca047ff9483b17ebfac4b068588e33bb ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "dyplomWFA.aux" 1779059159.88476 19682 6eb268a3d7e86672793d02d8e23a7f57 "pdflatex"
+  "dyplomWFA.aux" 1779059878.29646 19682 6eb268a3d7e86672793d02d8e23a7f57 "pdflatex"
   (generated)
   "dyplomWFA.bbl"
   "dyplomWFA.blg"
   (rewritten before read)
-["pdflatex"] 1779059159.47431 "dyplomWFA.tex" "dyplomWFA.pdf" "dyplomWFA" 1779059159.97179 0
+["pdflatex"] 1779059877.84316 "dyplomWFA.tex" "dyplomWFA.pdf" "dyplomWFA" 1779059878.3894 0
   "/etc/texmf/web2c/texmf.cnf" 1778443435.62456 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk" 1778443547.02996 31928 60f74928ffe275e71e814cc16739d654 ""
   "/home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk" 1778443546.69596 40112 39e8df8c120cc8a08d6309c68e8710f3 ""
@@ -145,11 +145,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1778443441.63762 134010 f1887e56959c0569e2f0dd6e19ae604f ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1778443460 6814157 84f02840595401b3a65a5ca7e425812f ""
-  "dyplomWFA.aux" 1779059159.88476 19682 6eb268a3d7e86672793d02d8e23a7f57 "pdflatex"
-  "dyplomWFA.bbl" 1779059153.9227 3077 0c2238f4728d1f971ce96af83ea07604 "bibtex dyplomWFA"
-  "dyplomWFA.out" 1779059159.88576 22011 9e2bbe35e72bbf0501ff88fdea513cc6 "pdflatex"
-  "dyplomWFA.tex" 1779059148.06758 29170 fc7408340dc3dd1da6823b6a8cdd9568 ""
-  "dyplomWFA.toc" 1779059159.88576 11541 4bb93c8c2f85039aadb4ccfe9a1ec856 "pdflatex"
+  "dyplomWFA.aux" 1779059878.29646 19682 6eb268a3d7e86672793d02d8e23a7f57 "pdflatex"
+  "dyplomWFA.bbl" 1779059877.83245 3077 dd9f19db5b504a37349d3e7fc6420698 "bibtex dyplomWFA"
+  "dyplomWFA.out" 1779059878.29746 22011 9e2bbe35e72bbf0501ff88fdea513cc6 "pdflatex"
+  "dyplomWFA.tex" 1779059515.53117 29170 fc7408340dc3dd1da6823b6a8cdd9568 ""
+  "dyplomWFA.toc" 1779059878.29846 11541 4bb93c8c2f85039aadb4ccfe9a1ec856 "pdflatex"
   "logo.pdf" 1778443452.19575 15295 cb956cd5178ee8dd0b22c3460be48ea7 ""
   "pendulums.png" 1778443452.19575 296139 f8779e89d77e5855eec5e5baf84fd27b ""
   (generated)
