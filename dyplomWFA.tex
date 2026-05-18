@@ -14,7 +14,15 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{caption}
-\geometry{margin=1.1in}
+
+% --- NOWE MARGINESY (Zgodnie ze zdjęciem) ---
+\geometry{
+	left=35mm,  % Średnia wartość z zakresu 35-40mm
+	right=25mm,
+	top=25mm,
+	bottom=25mm
+}
+
 \usepackage{wrapfig}
 \usepackage{lipsum}  
 \usepackage{listings}
@@ -27,6 +35,17 @@
 \usepackage{array}
 \usepackage{xcolor}
 \usepackage{makecell}
+
+% --- NOWY KRÓJ PISMA I INTERLINIA ---
+\usepackage{mathptmx} % Zamiennik Times New Roman dla LaTeX
+\usepackage{setspace}
+\setstretch{1.5}     % Interlinia 1,5
+
+% --- ROZMIARY TYTUŁÓW (Sekcji) ---
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\fontsize{14}{17}\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\fontsize{14}{17}\bfseries}{\thesubsection}{1em}{}
+
 
 \renewcommand{\appendixtocname}{Załączniki}   % Nazwa w spisie treści
 \renewcommand{\appendixpagename}{Załączniki}  % Nazwa na osobnej stronie nagłówkowej
