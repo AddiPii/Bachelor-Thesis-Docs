@@ -1,0 +1,3551 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="150mm"
+   viewBox="0 0 210 150"
+   version="1.1"
+   id="svg3876"
+   inkscape:export-filename="diagram-architektury.pdf"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="diagram-architektury.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview3878"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.97638868"
+     inkscape:cx="159.77244"
+     inkscape:cy="270.89622"
+     inkscape:window-width="1920"
+     inkscape:window-height="939"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs3873">
+    <marker
+       id="arrow"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path13" />
+    </marker>
+    <mask
+       id="imagine-text-gaps-1gfwhv"
+       maskUnits="userSpaceOnUse">
+      <rect
+         x="0"
+         y="0"
+         width="680"
+         height="620"
+         fill="#ffffff"
+         id="rect16" />
+      <rect
+         x="300.60156"
+         y="28"
+         width="79.792969"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect18" />
+      <rect
+         x="301.3125"
+         y="46"
+         width="77.701172"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect20" />
+      <rect
+         x="263.17188"
+         y="108"
+         width="153.65625"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect22" />
+      <rect
+         x="290.63281"
+         y="126"
+         width="99.052734"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect24" />
+      <rect
+         x="66.3125"
+         y="218"
+         width="87.585938"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect26" />
+      <rect
+         x="51.765625"
+         y="239"
+         width="116.79492"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect28" />
+      <rect
+         x="175.92969"
+         y="218"
+         width="88.344727"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect30" />
+      <rect
+         x="156.30469"
+         y="239"
+         width="127.71094"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect32" />
+      <rect
+         x="295.92969"
+         y="218"
+         width="88.344727"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect34" />
+      <rect
+         x="276.28906"
+         y="239"
+         width="127.74023"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect36" />
+      <rect
+         x="410.09375"
+         y="218"
+         width="100.02051"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect38" />
+      <rect
+         x="395.74219"
+         y="239"
+         width="128.83594"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect40" />
+      <rect
+         x="522.92969"
+         y="218"
+         width="94.339844"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect42" />
+      <rect
+         x="512.19531"
+         y="239"
+         width="115.92773"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect44" />
+      <rect
+         x="185.29688"
+         y="346"
+         width="129.62012"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect46" />
+      <rect
+         x="214.32031"
+         y="364"
+         width="71.683594"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect48" />
+      <rect
+         x="388.41406"
+         y="346"
+         width="123.17188"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect50" />
+      <rect
+         x="415.64062"
+         y="364"
+         width="69.035156"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect52" />
+      <rect
+         x="259.69531"
+         y="434"
+         width="100.82031"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect54" />
+      <rect
+         x="253.64062"
+         y="452"
+         width="113.0332"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect56" />
+      <rect
+         x="410.99219"
+         y="436"
+         width="98.222656"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect58" />
+      <rect
+         x="393.32031"
+         y="454"
+         width="134.01953"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect60" />
+      <rect
+         x="245.91406"
+         y="530"
+         width="88.282227"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect62" />
+      <rect
+         x="227.30469"
+         y="551"
+         width="125.39062"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect64" />
+      <rect
+         x="76.820312"
+         y="484"
+         width="66.461914"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect66" />
+      <rect
+         x="51.96875"
+         y="502"
+         width="116.37891"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect68" />
+      <rect
+         x="36.703125"
+         y="586"
+         width="86.59375"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect70" />
+      <rect
+         x="522.88281"
+         y="387"
+         width="74.234375"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect72" />
+      <rect
+         x="63.992188"
+         y="437"
+         width="72.015625"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect74" />
+    </mask>
+    <marker
+       id="marker3921"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path3919" />
+    </marker>
+    <mask
+       id="mask3983"
+       maskUnits="userSpaceOnUse">
+      <rect
+         x="0"
+         y="0"
+         width="680"
+         height="620"
+         fill="#ffffff"
+         id="rect3923" />
+      <rect
+         x="300.60156"
+         y="28"
+         width="79.792969"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect3925" />
+      <rect
+         x="301.3125"
+         y="46"
+         width="77.701172"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect3927" />
+      <rect
+         x="263.17188"
+         y="108"
+         width="153.65625"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect3929" />
+      <rect
+         x="290.63281"
+         y="126"
+         width="99.052734"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect3931" />
+      <rect
+         x="66.3125"
+         y="218"
+         width="87.585938"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect3933" />
+      <rect
+         x="51.765625"
+         y="239"
+         width="116.79492"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect3935" />
+      <rect
+         x="175.92969"
+         y="218"
+         width="88.344727"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect3937" />
+      <rect
+         x="156.30469"
+         y="239"
+         width="127.71094"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect3939" />
+      <rect
+         x="295.92969"
+         y="218"
+         width="88.344727"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect3941" />
+      <rect
+         x="276.28906"
+         y="239"
+         width="127.74023"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect3943" />
+      <rect
+         x="410.09375"
+         y="218"
+         width="100.02051"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect3945" />
+      <rect
+         x="395.74219"
+         y="239"
+         width="128.83594"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect3947" />
+      <rect
+         x="522.92969"
+         y="218"
+         width="94.339844"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect3949" />
+      <rect
+         x="512.19531"
+         y="239"
+         width="115.92773"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect3951" />
+      <rect
+         x="185.29688"
+         y="346"
+         width="129.62012"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect3953" />
+      <rect
+         x="214.32031"
+         y="364"
+         width="71.683594"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect3955" />
+      <rect
+         x="388.41406"
+         y="346"
+         width="123.17188"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect3957" />
+      <rect
+         x="415.64062"
+         y="364"
+         width="69.035156"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect3959" />
+      <rect
+         x="259.69531"
+         y="434"
+         width="100.82031"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect3961" />
+      <rect
+         x="253.64062"
+         y="452"
+         width="113.0332"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect3963" />
+      <rect
+         x="410.99219"
+         y="436"
+         width="98.222656"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect3965" />
+      <rect
+         x="393.32031"
+         y="454"
+         width="134.01953"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect3967" />
+      <rect
+         x="245.91406"
+         y="530"
+         width="88.282227"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect3969" />
+      <rect
+         x="227.30469"
+         y="551"
+         width="125.39062"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect3971" />
+      <rect
+         x="76.820312"
+         y="484"
+         width="66.461914"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect3973" />
+      <rect
+         x="51.96875"
+         y="502"
+         width="116.37891"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect3975" />
+      <rect
+         x="36.703125"
+         y="586"
+         width="86.59375"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect3977" />
+      <rect
+         x="522.88281"
+         y="387"
+         width="74.234375"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect3979" />
+      <rect
+         x="63.992188"
+         y="437"
+         width="72.015625"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect3981" />
+    </mask>
+    <marker
+       id="marker3987"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path3985" />
+    </marker>
+    <mask
+       id="mask4049"
+       maskUnits="userSpaceOnUse">
+      <rect
+         x="0"
+         y="0"
+         width="680"
+         height="620"
+         fill="#ffffff"
+         id="rect3989" />
+      <rect
+         x="300.60156"
+         y="28"
+         width="79.792969"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect3991" />
+      <rect
+         x="301.3125"
+         y="46"
+         width="77.701172"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect3993" />
+      <rect
+         x="263.17188"
+         y="108"
+         width="153.65625"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect3995" />
+      <rect
+         x="290.63281"
+         y="126"
+         width="99.052734"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect3997" />
+      <rect
+         x="66.3125"
+         y="218"
+         width="87.585938"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect3999" />
+      <rect
+         x="51.765625"
+         y="239"
+         width="116.79492"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4001" />
+      <rect
+         x="175.92969"
+         y="218"
+         width="88.344727"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4003" />
+      <rect
+         x="156.30469"
+         y="239"
+         width="127.71094"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4005" />
+      <rect
+         x="295.92969"
+         y="218"
+         width="88.344727"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4007" />
+      <rect
+         x="276.28906"
+         y="239"
+         width="127.74023"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4009" />
+      <rect
+         x="410.09375"
+         y="218"
+         width="100.02051"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4011" />
+      <rect
+         x="395.74219"
+         y="239"
+         width="128.83594"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4013" />
+      <rect
+         x="522.92969"
+         y="218"
+         width="94.339844"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4015" />
+      <rect
+         x="512.19531"
+         y="239"
+         width="115.92773"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4017" />
+      <rect
+         x="185.29688"
+         y="346"
+         width="129.62012"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4019" />
+      <rect
+         x="214.32031"
+         y="364"
+         width="71.683594"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4021" />
+      <rect
+         x="388.41406"
+         y="346"
+         width="123.17188"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4023" />
+      <rect
+         x="415.64062"
+         y="364"
+         width="69.035156"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4025" />
+      <rect
+         x="259.69531"
+         y="434"
+         width="100.82031"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4027" />
+      <rect
+         x="253.64062"
+         y="452"
+         width="113.0332"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4029" />
+      <rect
+         x="410.99219"
+         y="436"
+         width="98.222656"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4031" />
+      <rect
+         x="393.32031"
+         y="454"
+         width="134.01953"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4033" />
+      <rect
+         x="245.91406"
+         y="530"
+         width="88.282227"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4035" />
+      <rect
+         x="227.30469"
+         y="551"
+         width="125.39062"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4037" />
+      <rect
+         x="76.820312"
+         y="484"
+         width="66.461914"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4039" />
+      <rect
+         x="51.96875"
+         y="502"
+         width="116.37891"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4041" />
+      <rect
+         x="36.703125"
+         y="586"
+         width="86.59375"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4043" />
+      <rect
+         x="522.88281"
+         y="387"
+         width="74.234375"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4045" />
+      <rect
+         x="63.992188"
+         y="437"
+         width="72.015625"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4047" />
+    </mask>
+    <marker
+       id="marker4053"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path4051" />
+    </marker>
+    <mask
+       id="mask4115"
+       maskUnits="userSpaceOnUse">
+      <rect
+         x="0"
+         y="0"
+         width="680"
+         height="620"
+         fill="#ffffff"
+         id="rect4055" />
+      <rect
+         x="300.60156"
+         y="28"
+         width="79.792969"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4057" />
+      <rect
+         x="301.3125"
+         y="46"
+         width="77.701172"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4059" />
+      <rect
+         x="263.17188"
+         y="108"
+         width="153.65625"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4061" />
+      <rect
+         x="290.63281"
+         y="126"
+         width="99.052734"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4063" />
+      <rect
+         x="66.3125"
+         y="218"
+         width="87.585938"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4065" />
+      <rect
+         x="51.765625"
+         y="239"
+         width="116.79492"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4067" />
+      <rect
+         x="175.92969"
+         y="218"
+         width="88.344727"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4069" />
+      <rect
+         x="156.30469"
+         y="239"
+         width="127.71094"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4071" />
+      <rect
+         x="295.92969"
+         y="218"
+         width="88.344727"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4073" />
+      <rect
+         x="276.28906"
+         y="239"
+         width="127.74023"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4075" />
+      <rect
+         x="410.09375"
+         y="218"
+         width="100.02051"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4077" />
+      <rect
+         x="395.74219"
+         y="239"
+         width="128.83594"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4079" />
+      <rect
+         x="522.92969"
+         y="218"
+         width="94.339844"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4081" />
+      <rect
+         x="512.19531"
+         y="239"
+         width="115.92773"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4083" />
+      <rect
+         x="185.29688"
+         y="346"
+         width="129.62012"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4085" />
+      <rect
+         x="214.32031"
+         y="364"
+         width="71.683594"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4087" />
+      <rect
+         x="388.41406"
+         y="346"
+         width="123.17188"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4089" />
+      <rect
+         x="415.64062"
+         y="364"
+         width="69.035156"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4091" />
+      <rect
+         x="259.69531"
+         y="434"
+         width="100.82031"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4093" />
+      <rect
+         x="253.64062"
+         y="452"
+         width="113.0332"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4095" />
+      <rect
+         x="410.99219"
+         y="436"
+         width="98.222656"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4097" />
+      <rect
+         x="393.32031"
+         y="454"
+         width="134.01953"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4099" />
+      <rect
+         x="245.91406"
+         y="530"
+         width="88.282227"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4101" />
+      <rect
+         x="227.30469"
+         y="551"
+         width="125.39062"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4103" />
+      <rect
+         x="76.820312"
+         y="484"
+         width="66.461914"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4105" />
+      <rect
+         x="51.96875"
+         y="502"
+         width="116.37891"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4107" />
+      <rect
+         x="36.703125"
+         y="586"
+         width="86.59375"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4109" />
+      <rect
+         x="522.88281"
+         y="387"
+         width="74.234375"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4111" />
+      <rect
+         x="63.992188"
+         y="437"
+         width="72.015625"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4113" />
+    </mask>
+    <marker
+       id="marker4119"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path4117" />
+    </marker>
+    <marker
+       id="marker4123"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path4121" />
+    </marker>
+    <mask
+       id="mask4185"
+       maskUnits="userSpaceOnUse">
+      <rect
+         x="0"
+         y="0"
+         width="680"
+         height="620"
+         fill="#ffffff"
+         id="rect4125" />
+      <rect
+         x="300.60156"
+         y="28"
+         width="79.792969"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4127" />
+      <rect
+         x="301.3125"
+         y="46"
+         width="77.701172"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4129" />
+      <rect
+         x="263.17188"
+         y="108"
+         width="153.65625"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4131" />
+      <rect
+         x="290.63281"
+         y="126"
+         width="99.052734"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4133" />
+      <rect
+         x="66.3125"
+         y="218"
+         width="87.585938"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4135" />
+      <rect
+         x="51.765625"
+         y="239"
+         width="116.79492"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4137" />
+      <rect
+         x="175.92969"
+         y="218"
+         width="88.344727"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4139" />
+      <rect
+         x="156.30469"
+         y="239"
+         width="127.71094"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4141" />
+      <rect
+         x="295.92969"
+         y="218"
+         width="88.344727"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4143" />
+      <rect
+         x="276.28906"
+         y="239"
+         width="127.74023"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4145" />
+      <rect
+         x="410.09375"
+         y="218"
+         width="100.02051"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4147" />
+      <rect
+         x="395.74219"
+         y="239"
+         width="128.83594"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4149" />
+      <rect
+         x="522.92969"
+         y="218"
+         width="94.339844"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4151" />
+      <rect
+         x="512.19531"
+         y="239"
+         width="115.92773"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4153" />
+      <rect
+         x="185.29688"
+         y="346"
+         width="129.62012"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4155" />
+      <rect
+         x="214.32031"
+         y="364"
+         width="71.683594"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4157" />
+      <rect
+         x="388.41406"
+         y="346"
+         width="123.17188"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4159" />
+      <rect
+         x="415.64062"
+         y="364"
+         width="69.035156"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4161" />
+      <rect
+         x="259.69531"
+         y="434"
+         width="100.82031"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4163" />
+      <rect
+         x="253.64062"
+         y="452"
+         width="113.0332"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4165" />
+      <rect
+         x="410.99219"
+         y="436"
+         width="98.222656"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4167" />
+      <rect
+         x="393.32031"
+         y="454"
+         width="134.01953"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4169" />
+      <rect
+         x="245.91406"
+         y="530"
+         width="88.282227"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4171" />
+      <rect
+         x="227.30469"
+         y="551"
+         width="125.39062"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4173" />
+      <rect
+         x="76.820312"
+         y="484"
+         width="66.461914"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4175" />
+      <rect
+         x="51.96875"
+         y="502"
+         width="116.37891"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4177" />
+      <rect
+         x="36.703125"
+         y="586"
+         width="86.59375"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4179" />
+      <rect
+         x="522.88281"
+         y="387"
+         width="74.234375"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4181" />
+      <rect
+         x="63.992188"
+         y="437"
+         width="72.015625"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4183" />
+    </mask>
+    <marker
+       id="marker4189"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path4187" />
+    </marker>
+    <mask
+       id="mask4251"
+       maskUnits="userSpaceOnUse">
+      <rect
+         x="0"
+         y="0"
+         width="680"
+         height="620"
+         fill="#ffffff"
+         id="rect4191" />
+      <rect
+         x="300.60156"
+         y="28"
+         width="79.792969"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4193" />
+      <rect
+         x="301.3125"
+         y="46"
+         width="77.701172"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4195" />
+      <rect
+         x="263.17188"
+         y="108"
+         width="153.65625"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4197" />
+      <rect
+         x="290.63281"
+         y="126"
+         width="99.052734"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4199" />
+      <rect
+         x="66.3125"
+         y="218"
+         width="87.585938"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4201" />
+      <rect
+         x="51.765625"
+         y="239"
+         width="116.79492"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4203" />
+      <rect
+         x="175.92969"
+         y="218"
+         width="88.344727"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4205" />
+      <rect
+         x="156.30469"
+         y="239"
+         width="127.71094"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4207" />
+      <rect
+         x="295.92969"
+         y="218"
+         width="88.344727"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4209" />
+      <rect
+         x="276.28906"
+         y="239"
+         width="127.74023"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4211" />
+      <rect
+         x="410.09375"
+         y="218"
+         width="100.02051"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4213" />
+      <rect
+         x="395.74219"
+         y="239"
+         width="128.83594"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4215" />
+      <rect
+         x="522.92969"
+         y="218"
+         width="94.339844"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4217" />
+      <rect
+         x="512.19531"
+         y="239"
+         width="115.92773"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4219" />
+      <rect
+         x="185.29688"
+         y="346"
+         width="129.62012"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4221" />
+      <rect
+         x="214.32031"
+         y="364"
+         width="71.683594"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4223" />
+      <rect
+         x="388.41406"
+         y="346"
+         width="123.17188"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4225" />
+      <rect
+         x="415.64062"
+         y="364"
+         width="69.035156"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4227" />
+      <rect
+         x="259.69531"
+         y="434"
+         width="100.82031"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4229" />
+      <rect
+         x="253.64062"
+         y="452"
+         width="113.0332"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4231" />
+      <rect
+         x="410.99219"
+         y="436"
+         width="98.222656"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4233" />
+      <rect
+         x="393.32031"
+         y="454"
+         width="134.01953"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4235" />
+      <rect
+         x="245.91406"
+         y="530"
+         width="88.282227"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4237" />
+      <rect
+         x="227.30469"
+         y="551"
+         width="125.39062"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4239" />
+      <rect
+         x="76.820312"
+         y="484"
+         width="66.461914"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4241" />
+      <rect
+         x="51.96875"
+         y="502"
+         width="116.37891"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4243" />
+      <rect
+         x="36.703125"
+         y="586"
+         width="86.59375"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4245" />
+      <rect
+         x="522.88281"
+         y="387"
+         width="74.234375"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4247" />
+      <rect
+         x="63.992188"
+         y="437"
+         width="72.015625"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4249" />
+    </mask>
+    <marker
+       id="marker4255"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path4253" />
+    </marker>
+    <mask
+       id="mask4317"
+       maskUnits="userSpaceOnUse">
+      <rect
+         x="0"
+         y="0"
+         width="680"
+         height="620"
+         fill="#ffffff"
+         id="rect4257" />
+      <rect
+         x="300.60156"
+         y="28"
+         width="79.792969"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4259" />
+      <rect
+         x="301.3125"
+         y="46"
+         width="77.701172"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4261" />
+      <rect
+         x="263.17188"
+         y="108"
+         width="153.65625"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4263" />
+      <rect
+         x="290.63281"
+         y="126"
+         width="99.052734"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4265" />
+      <rect
+         x="66.3125"
+         y="218"
+         width="87.585938"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4267" />
+      <rect
+         x="51.765625"
+         y="239"
+         width="116.79492"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4269" />
+      <rect
+         x="175.92969"
+         y="218"
+         width="88.344727"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4271" />
+      <rect
+         x="156.30469"
+         y="239"
+         width="127.71094"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4273" />
+      <rect
+         x="295.92969"
+         y="218"
+         width="88.344727"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4275" />
+      <rect
+         x="276.28906"
+         y="239"
+         width="127.74023"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4277" />
+      <rect
+         x="410.09375"
+         y="218"
+         width="100.02051"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4279" />
+      <rect
+         x="395.74219"
+         y="239"
+         width="128.83594"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4281" />
+      <rect
+         x="522.92969"
+         y="218"
+         width="94.339844"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4283" />
+      <rect
+         x="512.19531"
+         y="239"
+         width="115.92773"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4285" />
+      <rect
+         x="185.29688"
+         y="346"
+         width="129.62012"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4287" />
+      <rect
+         x="214.32031"
+         y="364"
+         width="71.683594"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4289" />
+      <rect
+         x="388.41406"
+         y="346"
+         width="123.17188"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4291" />
+      <rect
+         x="415.64062"
+         y="364"
+         width="69.035156"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4293" />
+      <rect
+         x="259.69531"
+         y="434"
+         width="100.82031"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4295" />
+      <rect
+         x="253.64062"
+         y="452"
+         width="113.0332"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4297" />
+      <rect
+         x="410.99219"
+         y="436"
+         width="98.222656"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4299" />
+      <rect
+         x="393.32031"
+         y="454"
+         width="134.01953"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4301" />
+      <rect
+         x="245.91406"
+         y="530"
+         width="88.282227"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4303" />
+      <rect
+         x="227.30469"
+         y="551"
+         width="125.39062"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4305" />
+      <rect
+         x="76.820312"
+         y="484"
+         width="66.461914"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4307" />
+      <rect
+         x="51.96875"
+         y="502"
+         width="116.37891"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4309" />
+      <rect
+         x="36.703125"
+         y="586"
+         width="86.59375"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4311" />
+      <rect
+         x="522.88281"
+         y="387"
+         width="74.234375"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4313" />
+      <rect
+         x="63.992188"
+         y="437"
+         width="72.015625"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4315" />
+    </mask>
+    <marker
+       id="marker4321"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path4319" />
+    </marker>
+    <marker
+       id="marker4325"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path4323" />
+    </marker>
+    <marker
+       id="marker4329"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path4327" />
+    </marker>
+    <marker
+       id="marker4333"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path4331" />
+    </marker>
+    <mask
+       id="mask4395"
+       maskUnits="userSpaceOnUse">
+      <rect
+         x="0"
+         y="0"
+         width="680"
+         height="620"
+         fill="#ffffff"
+         id="rect4335" />
+      <rect
+         x="300.60156"
+         y="28"
+         width="79.792969"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4337" />
+      <rect
+         x="301.3125"
+         y="46"
+         width="77.701172"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4339" />
+      <rect
+         x="263.17188"
+         y="108"
+         width="153.65625"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4341" />
+      <rect
+         x="290.63281"
+         y="126"
+         width="99.052734"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4343" />
+      <rect
+         x="66.3125"
+         y="218"
+         width="87.585938"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4345" />
+      <rect
+         x="51.765625"
+         y="239"
+         width="116.79492"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4347" />
+      <rect
+         x="175.92969"
+         y="218"
+         width="88.344727"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4349" />
+      <rect
+         x="156.30469"
+         y="239"
+         width="127.71094"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4351" />
+      <rect
+         x="295.92969"
+         y="218"
+         width="88.344727"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4353" />
+      <rect
+         x="276.28906"
+         y="239"
+         width="127.74023"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4355" />
+      <rect
+         x="410.09375"
+         y="218"
+         width="100.02051"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4357" />
+      <rect
+         x="395.74219"
+         y="239"
+         width="128.83594"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4359" />
+      <rect
+         x="522.92969"
+         y="218"
+         width="94.339844"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4361" />
+      <rect
+         x="512.19531"
+         y="239"
+         width="115.92773"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4363" />
+      <rect
+         x="185.29688"
+         y="346"
+         width="129.62012"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4365" />
+      <rect
+         x="214.32031"
+         y="364"
+         width="71.683594"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4367" />
+      <rect
+         x="388.41406"
+         y="346"
+         width="123.17188"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4369" />
+      <rect
+         x="415.64062"
+         y="364"
+         width="69.035156"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4371" />
+      <rect
+         x="259.69531"
+         y="434"
+         width="100.82031"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4373" />
+      <rect
+         x="253.64062"
+         y="452"
+         width="113.0332"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4375" />
+      <rect
+         x="410.99219"
+         y="436"
+         width="98.222656"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4377" />
+      <rect
+         x="393.32031"
+         y="454"
+         width="134.01953"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4379" />
+      <rect
+         x="245.91406"
+         y="530"
+         width="88.282227"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4381" />
+      <rect
+         x="227.30469"
+         y="551"
+         width="125.39062"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4383" />
+      <rect
+         x="76.820312"
+         y="484"
+         width="66.461914"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4385" />
+      <rect
+         x="51.96875"
+         y="502"
+         width="116.37891"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4387" />
+      <rect
+         x="36.703125"
+         y="586"
+         width="86.59375"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4389" />
+      <rect
+         x="522.88281"
+         y="387"
+         width="74.234375"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4391" />
+      <rect
+         x="63.992188"
+         y="437"
+         width="72.015625"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4393" />
+    </mask>
+    <marker
+       id="marker4399"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path4397" />
+    </marker>
+    <mask
+       id="mask4461"
+       maskUnits="userSpaceOnUse">
+      <rect
+         x="0"
+         y="0"
+         width="680"
+         height="620"
+         fill="#ffffff"
+         id="rect4401" />
+      <rect
+         x="300.60156"
+         y="28"
+         width="79.792969"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4403" />
+      <rect
+         x="301.3125"
+         y="46"
+         width="77.701172"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4405" />
+      <rect
+         x="263.17188"
+         y="108"
+         width="153.65625"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4407" />
+      <rect
+         x="290.63281"
+         y="126"
+         width="99.052734"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4409" />
+      <rect
+         x="66.3125"
+         y="218"
+         width="87.585938"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4411" />
+      <rect
+         x="51.765625"
+         y="239"
+         width="116.79492"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4413" />
+      <rect
+         x="175.92969"
+         y="218"
+         width="88.344727"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4415" />
+      <rect
+         x="156.30469"
+         y="239"
+         width="127.71094"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4417" />
+      <rect
+         x="295.92969"
+         y="218"
+         width="88.344727"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4419" />
+      <rect
+         x="276.28906"
+         y="239"
+         width="127.74023"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4421" />
+      <rect
+         x="410.09375"
+         y="218"
+         width="100.02051"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4423" />
+      <rect
+         x="395.74219"
+         y="239"
+         width="128.83594"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4425" />
+      <rect
+         x="522.92969"
+         y="218"
+         width="94.339844"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4427" />
+      <rect
+         x="512.19531"
+         y="239"
+         width="115.92773"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4429" />
+      <rect
+         x="185.29688"
+         y="346"
+         width="129.62012"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4431" />
+      <rect
+         x="214.32031"
+         y="364"
+         width="71.683594"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4433" />
+      <rect
+         x="388.41406"
+         y="346"
+         width="123.17188"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4435" />
+      <rect
+         x="415.64062"
+         y="364"
+         width="69.035156"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4437" />
+      <rect
+         x="259.69531"
+         y="434"
+         width="100.82031"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4439" />
+      <rect
+         x="253.64062"
+         y="452"
+         width="113.0332"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4441" />
+      <rect
+         x="410.99219"
+         y="436"
+         width="98.222656"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4443" />
+      <rect
+         x="393.32031"
+         y="454"
+         width="134.01953"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4445" />
+      <rect
+         x="245.91406"
+         y="530"
+         width="88.282227"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4447" />
+      <rect
+         x="227.30469"
+         y="551"
+         width="125.39062"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4449" />
+      <rect
+         x="76.820312"
+         y="484"
+         width="66.461914"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4451" />
+      <rect
+         x="51.96875"
+         y="502"
+         width="116.37891"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4453" />
+      <rect
+         x="36.703125"
+         y="586"
+         width="86.59375"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4455" />
+      <rect
+         x="522.88281"
+         y="387"
+         width="74.234375"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4457" />
+      <rect
+         x="63.992188"
+         y="437"
+         width="72.015625"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4459" />
+    </mask>
+    <marker
+       id="marker4465"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path4463" />
+    </marker>
+    <mask
+       id="mask4527"
+       maskUnits="userSpaceOnUse">
+      <rect
+         x="0"
+         y="0"
+         width="680"
+         height="620"
+         fill="#ffffff"
+         id="rect4467" />
+      <rect
+         x="300.60156"
+         y="28"
+         width="79.792969"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4469" />
+      <rect
+         x="301.3125"
+         y="46"
+         width="77.701172"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4471" />
+      <rect
+         x="263.17188"
+         y="108"
+         width="153.65625"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4473" />
+      <rect
+         x="290.63281"
+         y="126"
+         width="99.052734"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4475" />
+      <rect
+         x="66.3125"
+         y="218"
+         width="87.585938"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4477" />
+      <rect
+         x="51.765625"
+         y="239"
+         width="116.79492"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4479" />
+      <rect
+         x="175.92969"
+         y="218"
+         width="88.344727"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4481" />
+      <rect
+         x="156.30469"
+         y="239"
+         width="127.71094"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4483" />
+      <rect
+         x="295.92969"
+         y="218"
+         width="88.344727"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4485" />
+      <rect
+         x="276.28906"
+         y="239"
+         width="127.74023"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4487" />
+      <rect
+         x="410.09375"
+         y="218"
+         width="100.02051"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4489" />
+      <rect
+         x="395.74219"
+         y="239"
+         width="128.83594"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4491" />
+      <rect
+         x="522.92969"
+         y="218"
+         width="94.339844"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4493" />
+      <rect
+         x="512.19531"
+         y="239"
+         width="115.92773"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4495" />
+      <rect
+         x="185.29688"
+         y="346"
+         width="129.62012"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4497" />
+      <rect
+         x="214.32031"
+         y="364"
+         width="71.683594"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4499" />
+      <rect
+         x="388.41406"
+         y="346"
+         width="123.17188"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4501" />
+      <rect
+         x="415.64062"
+         y="364"
+         width="69.035156"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4503" />
+      <rect
+         x="259.69531"
+         y="434"
+         width="100.82031"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4505" />
+      <rect
+         x="253.64062"
+         y="452"
+         width="113.0332"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4507" />
+      <rect
+         x="410.99219"
+         y="436"
+         width="98.222656"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4509" />
+      <rect
+         x="393.32031"
+         y="454"
+         width="134.01953"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4511" />
+      <rect
+         x="245.91406"
+         y="530"
+         width="88.282227"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4513" />
+      <rect
+         x="227.30469"
+         y="551"
+         width="125.39062"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4515" />
+      <rect
+         x="76.820312"
+         y="484"
+         width="66.461914"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4517" />
+      <rect
+         x="51.96875"
+         y="502"
+         width="116.37891"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4519" />
+      <rect
+         x="36.703125"
+         y="586"
+         width="86.59375"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4521" />
+      <rect
+         x="522.88281"
+         y="387"
+         width="74.234375"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4523" />
+      <rect
+         x="63.992188"
+         y="437"
+         width="72.015625"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4525" />
+    </mask>
+    <marker
+       id="marker4531"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path4529" />
+    </marker>
+    <marker
+       id="marker4535"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path4533" />
+    </marker>
+    <mask
+       id="mask4597"
+       maskUnits="userSpaceOnUse">
+      <rect
+         x="0"
+         y="0"
+         width="680"
+         height="620"
+         fill="#ffffff"
+         id="rect4537" />
+      <rect
+         x="300.60156"
+         y="28"
+         width="79.792969"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4539" />
+      <rect
+         x="301.3125"
+         y="46"
+         width="77.701172"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4541" />
+      <rect
+         x="263.17188"
+         y="108"
+         width="153.65625"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4543" />
+      <rect
+         x="290.63281"
+         y="126"
+         width="99.052734"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4545" />
+      <rect
+         x="66.3125"
+         y="218"
+         width="87.585938"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4547" />
+      <rect
+         x="51.765625"
+         y="239"
+         width="116.79492"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4549" />
+      <rect
+         x="175.92969"
+         y="218"
+         width="88.344727"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4551" />
+      <rect
+         x="156.30469"
+         y="239"
+         width="127.71094"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4553" />
+      <rect
+         x="295.92969"
+         y="218"
+         width="88.344727"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4555" />
+      <rect
+         x="276.28906"
+         y="239"
+         width="127.74023"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4557" />
+      <rect
+         x="410.09375"
+         y="218"
+         width="100.02051"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4559" />
+      <rect
+         x="395.74219"
+         y="239"
+         width="128.83594"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4561" />
+      <rect
+         x="522.92969"
+         y="218"
+         width="94.339844"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4563" />
+      <rect
+         x="512.19531"
+         y="239"
+         width="115.92773"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4565" />
+      <rect
+         x="185.29688"
+         y="346"
+         width="129.62012"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4567" />
+      <rect
+         x="214.32031"
+         y="364"
+         width="71.683594"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4569" />
+      <rect
+         x="388.41406"
+         y="346"
+         width="123.17188"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4571" />
+      <rect
+         x="415.64062"
+         y="364"
+         width="69.035156"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4573" />
+      <rect
+         x="259.69531"
+         y="434"
+         width="100.82031"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4575" />
+      <rect
+         x="253.64062"
+         y="452"
+         width="113.0332"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4577" />
+      <rect
+         x="410.99219"
+         y="436"
+         width="98.222656"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4579" />
+      <rect
+         x="393.32031"
+         y="454"
+         width="134.01953"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4581" />
+      <rect
+         x="245.91406"
+         y="530"
+         width="88.282227"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4583" />
+      <rect
+         x="227.30469"
+         y="551"
+         width="125.39062"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4585" />
+      <rect
+         x="76.820312"
+         y="484"
+         width="66.461914"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4587" />
+      <rect
+         x="51.96875"
+         y="502"
+         width="116.37891"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4589" />
+      <rect
+         x="36.703125"
+         y="586"
+         width="86.59375"
+         height="20"
+         fill="#000000"
+         rx="2"
+         id="rect4591" />
+      <rect
+         x="522.88281"
+         y="387"
+         width="74.234375"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4593" />
+      <rect
+         x="63.992188"
+         y="437"
+         width="72.015625"
+         height="18"
+         fill="#000000"
+         rx="2"
+         id="rect4595" />
+    </mask>
+  </defs>
+  <g
+     inkscape:label="Warstwa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="g85"
+       transform="matrix(0.23297409,0,0,0.23297409,25.407521,2.4324313)">
+      <rect
+         x="260"
+         y="20"
+         width="160"
+         height="44"
+         rx="8"
+         stroke-width="0.5"
+         style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#444441;stroke:#b4b2a9;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="rect79" />
+      <text
+         x="340"
+         y="38"
+         text-anchor="middle"
+         dominant-baseline="central"
+         style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#d3d1c7;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="text81">Użytkownik</text>
+      <text
+         x="340"
+         y="55"
+         text-anchor="middle"
+         dominant-baseline="central"
+         style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#b4b2a9;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="text83">przeglądarka</text>
+    </g>
+    <line
+       x1="340"
+       y1="64"
+       x2="340"
+       y2="100"
+       marker-end="url(#arrow)"
+       mask="url(#imagine-text-gaps-1gfwhv)"
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="line87"
+       transform="matrix(0.23297409,0,0,0.23297409,25.943978,2.6947589)" />
+    <g
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="g95"
+       transform="matrix(0.23297409,0,0,0.23297409,25.943978,2.6947589)">
+      <rect
+         x="220"
+         y="100"
+         width="240"
+         height="44"
+         rx="8"
+         stroke-width="0.5"
+         style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#3c3489;stroke:#afa9ec;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="rect89" />
+      <text
+         x="340"
+         y="118"
+         text-anchor="middle"
+         dominant-baseline="central"
+         style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#cecbf6;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="text91">Frontend (React + Vite)</text>
+      <text
+         x="340"
+         y="135"
+         text-anchor="middle"
+         dominant-baseline="central"
+         style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#afa9ec;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="text93">addipi.vercel.app</text>
+    </g>
+    <line
+       x1="77.382507"
+       y1="33.302361"
+       x2="38.585987"
+       y2="51.037952"
+       marker-end="url(#arrow)"
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:0.41567px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="line97" />
+    <line
+       x1="295"
+       y1="144"
+       x2="220"
+       y2="208"
+       marker-end="url(#arrow)"
+       mask="url(#imagine-text-gaps-1gfwhv)"
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="line99"
+       transform="matrix(0.23297409,0,0,0.23297409,25.943978,2.6947589)" />
+    <line
+       x1="340"
+       y1="144"
+       x2="340"
+       y2="208"
+       marker-end="url(#arrow)"
+       mask="url(#imagine-text-gaps-1gfwhv)"
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="line101"
+       transform="matrix(0.23297409,0,0,0.23297409,25.943978,2.6947589)" />
+    <line
+       x1="385"
+       y1="144"
+       x2="460"
+       y2="208"
+       marker-end="url(#arrow)"
+       mask="url(#imagine-text-gaps-1gfwhv)"
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="line103"
+       transform="matrix(0.24084643,0,0,0.24084643,22.916889,1.5656088)" />
+    <line
+       x1="133.2144"
+       y1="33.877544"
+       x2="171.59084"
+       y2="51.420799"
+       marker-end="url(#arrow)"
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:0.411151px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="line105" />
+    <g
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="g113"
+       transform="matrix(0.23297409,0,0,0.23297409,-4.1725027,2.6781836)">
+      <rect
+         x="30"
+         y="208"
+         width="160"
+         height="56"
+         rx="8"
+         stroke-width="0.5"
+         style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#085041;stroke:#5dcaa5;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="rect107" />
+      <text
+         x="110"
+         y="228"
+         text-anchor="middle"
+         dominant-baseline="central"
+         style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#9fe1cb;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="text109">Auth Service</text>
+      <text
+         x="110"
+         y="248"
+         text-anchor="middle"
+         dominant-baseline="central"
+         style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#5dcaa5;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="text111">JWT · e-mail · :3001</text>
+    </g>
+    <g
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="g121"
+       transform="matrix(0.23297409,0,0,0.23297409,10.99669,2.6781836)">
+      <rect
+         x="140"
+         y="208"
+         width="160"
+         height="56"
+         rx="8"
+         stroke-width="0.5"
+         style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#085041;stroke:#5dcaa5;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="rect115" />
+      <text
+         x="220"
+         y="228"
+         text-anchor="middle"
+         dominant-baseline="central"
+         style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#9fe1cb;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="text117">User Service</text>
+      <text
+         x="220"
+         y="248"
+         text-anchor="middle"
+         dominant-baseline="central"
+         style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#5dcaa5;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="text119">profile · history · :3002</text>
+    </g>
+    <g
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="g129"
+       transform="matrix(0.23297409,0,0,0.23297409,26.167322,2.9277015)">
+      <rect
+         x="260"
+         y="208"
+         width="160"
+         height="56"
+         rx="8"
+         stroke-width="0.5"
+         style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#0c447c;stroke:#85b7eb;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="rect123" />
+      <text
+         x="340"
+         y="228"
+         text-anchor="middle"
+         dominant-baseline="central"
+         style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#b5d4f4;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="text125">Files Service</text>
+      <text
+         x="340"
+         y="248"
+         text-anchor="middle"
+         dominant-baseline="central"
+         style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#85b7eb;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="text127">G-code upload · :5000</text>
+    </g>
+    <g
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="g137"
+       transform="matrix(0.23297409,0,0,0.23297409,40.747193,2.6947589)">
+      <rect
+         x="380"
+         y="208"
+         width="160"
+         height="56"
+         rx="8"
+         stroke-width="0.5"
+         style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#085041;stroke:#5dcaa5;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="rect131" />
+      <text
+         x="460"
+         y="228"
+         text-anchor="middle"
+         dominant-baseline="central"
+         style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#9fe1cb;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="text133">Printer Service</text>
+      <text
+         x="460"
+         y="248"
+         text-anchor="middle"
+         dominant-baseline="central"
+         style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#5dcaa5;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="text135">scheduler · IoT · :3050</text>
+    </g>
+    <g
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="g145"
+       transform="matrix(0.23297409,0,0,0.23297409,56.784077,2.6947589)">
+      <rect
+         x="490"
+         y="208"
+         width="160"
+         height="56"
+         rx="8"
+         stroke-width="0.5"
+         style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#444441;stroke:#b4b2a9;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="rect139" />
+      <text
+         x="570"
+         y="228"
+         text-anchor="middle"
+         dominant-baseline="central"
+         style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#d3d1c7;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="text141">Video Service</text>
+      <text
+         x="570"
+         y="248"
+         text-anchor="middle"
+         dominant-baseline="central"
+         style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#b4b2a9;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="text143">camera URL · :3003</text>
+    </g>
+    <line
+       x1="105.15511"
+       y1="64.200058"
+       x2="86.517311"
+       y2="81.43998"
+       marker-end="url(#arrow)"
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:0.349449px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="line147" />
+    <line
+       x1="109.81467"
+       y1="64.200058"
+       x2="119.13348"
+       y2="81.43998"
+       marker-end="url(#arrow)"
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:0.349449px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="line149" />
+    <g
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="g157"
+       transform="matrix(0.23297409,0,0,0.23297409,25.943978,2.6947589)">
+      <rect
+         x="160"
+         y="338"
+         width="180"
+         height="44"
+         rx="8"
+         stroke-width="0.5"
+         style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#633806;stroke:#ef9f27;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="rect151" />
+      <text
+         x="250"
+         y="356"
+         text-anchor="middle"
+         dominant-baseline="central"
+         style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#fac775;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="text153">Azure Blob Storage</text>
+      <text
+         x="250"
+         y="373"
+         text-anchor="middle"
+         dominant-baseline="central"
+         style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#ef9f27;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="text155">pliki G-code</text>
+    </g>
+    <g
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="g165"
+       transform="matrix(0.23297409,0,0,0.23297409,25.943978,2.6947589)">
+      <rect
+         x="360"
+         y="338"
+         width="180"
+         height="44"
+         rx="8"
+         stroke-width="0.5"
+         style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#633806;stroke:#ef9f27;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="rect159" />
+      <text
+         x="450"
+         y="356"
+         text-anchor="middle"
+         dominant-baseline="central"
+         style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#fac775;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="text161">Azure Service Bus</text>
+      <text
+         x="450"
+         y="373"
+         text-anchor="middle"
+         dominant-baseline="central"
+         style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#ef9f27;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="text163">print-queue</text>
+    </g>
+    <line
+       x1="430"
+       y1="382"
+       x2="350"
+       y2="426"
+       marker-end="url(#arrow)"
+       mask="url(#imagine-text-gaps-1gfwhv)"
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="line167"
+       transform="matrix(0.23297409,0,0,0.23297409,25.943978,2.6947589)" />
+    <g
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="g175"
+       transform="matrix(0.23297409,0,0,0.23297409,14.140654,-0.06129584)">
+      <rect
+         x="220"
+         y="426"
+         width="180"
+         height="44"
+         rx="8"
+         stroke-width="0.5"
+         style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#0c447c;stroke:#85b7eb;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="rect169" />
+      <text
+         x="310"
+         y="444"
+         text-anchor="middle"
+         dominant-baseline="central"
+         style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#b5d4f4;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="text171">Queue Service</text>
+      <text
+         x="310"
+         y="461"
+         text-anchor="middle"
+         dominant-baseline="central"
+         style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#85b7eb;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="text173">Cosmos DB · :3070</text>
+    </g>
+    <line
+       x1="460"
+       y1="264"
+       x2="460"
+       y2="428"
+       marker-end="url(#arrow)"
+       mask="url(#imagine-text-gaps-1gfwhv)"
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="line177"
+       transform="matrix(0.23297409,0,0,0.23297409,25.943978,2.6947589)" />
+    <g
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="g185"
+       transform="matrix(0.23297409,0,0,0.23297409,25.943978,2.6947589)">
+      <rect
+         x="370"
+         y="428"
+         width="180"
+         height="44"
+         rx="8"
+         stroke-width="0.5"
+         style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#633806;stroke:#ef9f27;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="rect179" />
+      <text
+         x="460"
+         y="446"
+         text-anchor="middle"
+         dominant-baseline="central"
+         style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#fac775;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="text181">Azure IoT Hub</text>
+      <text
+         x="460"
+         y="463"
+         text-anchor="middle"
+         dominant-baseline="central"
+         style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#ef9f27;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="text183">Direct Methods · MQTT</text>
+    </g>
+    <line
+       x1="430"
+       y1="472"
+       x2="370"
+       y2="520"
+       marker-end="url(#arrow)"
+       mask="url(#imagine-text-gaps-1gfwhv)"
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="line187"
+       transform="matrix(0.23297409,0,0,0.23297409,25.943978,2.6947589)" />
+    <path
+       d="m 105.15504,123.84145 q 0,-5.59133 13.97868,-9.31932"
+       fill="none"
+       stroke="var(--s)"
+       stroke-width="1"
+       stroke-dasharray="4 3"
+       marker-end="url(#arrow)"
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#c2c0b6;stroke-width:0.232953px;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:0.93192px, 0.698898px"
+       id="path189" />
+    <g
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="g197"
+       transform="matrix(0.23297409,0,0,0.23297409,25.943978,2.6947589)">
+      <rect
+         x="200"
+         y="520"
+         width="180"
+         height="56"
+         rx="8"
+         stroke-width="0.5"
+         style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#712b13;stroke:#f0997b;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="rect191" />
+      <text
+         x="290"
+         y="540"
+         text-anchor="middle"
+         dominant-baseline="central"
+         style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#f5c4b3;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="text193">AddiPi Agent</text>
+      <text
+         x="290"
+         y="560"
+         text-anchor="middle"
+         dominant-baseline="central"
+         style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#f0997b;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="text195">Raspberry Pi · Python</text>
+      <text
+         xml:space="preserve"
+         style="fill:#000000"
+         x="265.09778"
+         y="40.591434"
+         id="text2705"><tspan
+           sodipodi:role="line"
+           id="tspan2703"
+           x="265.09778"
+           y="40.591434">`</tspan></text>
+    </g>
+    <line
+       x1="250"
+       y1="576"
+       x2="110"
+       y2="520"
+       marker-end="url(#arrow)"
+       mask="url(#imagine-text-gaps-1gfwhv)"
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="line199"
+       transform="matrix(0.1780412,0,0,0.1780412,31.949471,31.149182)" />
+    <g
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="g207"
+       transform="matrix(0.23297409,0,0,0.23297409,25.943978,2.6947589)">
+      <rect
+         x="20"
+         y="476"
+         width="180"
+         height="44"
+         rx="8"
+         stroke-width="0.5"
+         style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#444441;stroke:#b4b2a9;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="rect201" />
+      <text
+         x="110"
+         y="494"
+         text-anchor="middle"
+         dominant-baseline="central"
+         style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#d3d1c7;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="text203">OctoPrint</text>
+      <text
+         x="110"
+         y="511"
+         text-anchor="middle"
+         dominant-baseline="central"
+         style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#b4b2a9;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="text205">sterowanie drukarką</text>
+    </g>
+    <line
+       x1="80"
+       y1="520"
+       x2="60"
+       y2="574"
+       marker-end="url(#arrow)"
+       mask="url(#imagine-text-gaps-1gfwhv)"
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="line209"
+       transform="matrix(0.23297409,0,0,0.23297409,25.943978,2.6947589)" />
+    <g
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="g215"
+       transform="matrix(0.23297409,0,0,0.23297409,25.943978,2.6947589)">
+      <rect
+         x="20"
+         y="574"
+         width="120"
+         height="36"
+         rx="8"
+         stroke-width="0.5"
+         style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#444441;stroke:#b4b2a9;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="rect211" />
+      <text
+         x="80"
+         y="596"
+         text-anchor="middle"
+         dominant-baseline="central"
+         style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#d3d1c7;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="text213">Drukarka 3D</text>
+    </g>
+    <path
+       d="M 490,264 Q 540,420 380,540"
+       fill="none"
+       stroke="var(--s)"
+       stroke-width="1"
+       stroke-dasharray="4 3"
+       marker-end="url(#arrow)"
+       mask="url(#imagine-text-gaps-1gfwhv)"
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#c2c0b6;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:4px, 3px"
+       id="path217"
+       transform="matrix(0.23297409,0,0,0.23297409,25.943978,2.6947589)" />
+    <text
+       x="156.40923"
+       y="95.884483"
+       text-anchor="middle"
+       style="color:#ffffff;font-weight:400;font-size:2.79559px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;fill:#c2c0b6;stroke:none;stroke-width:0.232953px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text219">URL kamery</text>
+    <text
+       x="37.437935"
+       y="104.77696"
+       text-anchor="middle"
+       style="color:#ffffff;font-weight:400;font-size:2.79559px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;fill:#c2c0b6;stroke:none;stroke-width:0.232953px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text221">Cosmos DB</text>
+    <line
+       x1="100"
+       y1="455"
+       x2="218"
+       y2="460"
+       marker-end="url(#arrow)"
+       mask="url(#imagine-text-gaps-1gfwhv)"
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="line223"
+       transform="matrix(0.23297409,0,0,0.23297409,14.140654,-0.06129584)" />
+  </g>
+</svg>
