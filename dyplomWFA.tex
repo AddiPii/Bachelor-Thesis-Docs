@@ -35,6 +35,7 @@
 \usepackage{array}
 \usepackage{xcolor}
 \usepackage{makecell}
+\usepackage{float}
 
 % --- NOWY KRÓJ PISMA I INTERLINIA ---
 \usepackage{mathptmx} % Zamiennik Times New Roman dla LaTeX
@@ -451,22 +452,180 @@ Projekt został podzielony na pliki\texttt{.SLDPRT}, reprezentujące pojedyncze 
 
 \subsection{Ogólna struktura}
 
+System AddiPi zbudowany jest w architekturze mikroserwisowej. Każdy serwis stanowi niezależną jednostkę wdrożeniową odpowiedzialną za określoną domenę biznesową oraz komunikuje się z pozostałymi komponentami za pośrednictwem zdefiniowanych interfejsów (HTTP REST lub kolejka komunikatów).
+
+W ramach systemu wyodrębniono następujące komponenty:
+
+\begin{enumerate}
+	\item \textbf{AddiPi Auth Service} (port 3001) - realizuje proces uwierzytelniania użytkowników oraz obsługę tokenów JWT.
+	
+	\item \textbf{AddiPi User Service} (port 3002) - odpowiada za zarządzanie profilami użytkowników oraz historią zadań do wydruku.
+	
+	\item \textbf{AddiPi Files Service} (port 5000) - umożliwia przesyłanie oraz przechowywanie plików G-code.
+	
+	\item \textbf{AddiPi Queue Service} (porty 3070) - odbiera komunikaty z kolejki oraz zapisuje informacje o zadaniach w bazie Azure Cosmos DB.
+	
+	\item \textbf{AddiPi Printer Service} (port 3050) - odpowiada za harmonogramowanie zadań do wydruku, komunikację z Azure IoT Hub oraz odbiór telemetrii urządzenia.
+	
+	\item \textbf{AddiPi Video Service} (port 3003) - odpowiada za rejestrację i udostępnianie adresu URL kamery systemu OctoPrint.
+	
+	\item \textbf{AddiPi Agent} (Raspberry Pi) - agent uruchamiany na urządzeniu Raspberry Pi, pośredniczący pomiędzy Azure IoT Hub a systemem OctoPrint.
+	
+	\item \textbf{AddiPi Frontend} (Vercel / port 5173) - aplikacja webowa zbudowana z wykorzystaniem biblioteki React.
+\end{enumerate}
+
 \subsection{Diagram architektury}
+
+Na rysunku~\ref{fig:architektura} przedstawiono sekwencyjny przepływ danych pomiędzy poszczególnymi komponentami zaprojektowanego systemu.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=1\textwidth]{diagram-architektury.pdf} 
+	\caption{Diagram architektury systemu.}
+	\label{fig:architektura}
+\end{figure}
+
+
+
+\begin{enumerate}
+	\item \textbf{Uwierzytelnianie użytkownika:} Użytkownik loguje się w systemie za pośrednictwem aplikacji klienckiej (frontendowej). Aplikacja nawiązuje komunikację z usługą \textit{Auth Service}, która po pomyślnej weryfikacji tożsamości zwraca parę tokenów JWT (\textit{JSON Web Token}).
+	
+	\item \textbf{Przesyłanie pliku produkcyjnego:} Użytkownik przesyła plik z kodem sterującym (G-code). Aplikacja frontendowa wywołuje punkt końcowy (ang. \textit{endpoint}) \texttt{POST /files/upload} w ramach usługi \textit{Files Service}. Następnie komponent ten zapisuje plik w repozytorium \textit{Azure Blob Storage} oraz publikuje komunikat \texttt{file\_uploaded} w kolejce usługi \textit{Azure Service Bus}.
+	
+	\item \textbf{Inicjalizacja zadania w bazie danych:} Usługa \textit{Queue Service} asynchronicznie odbiera komunikaty z kolejki i na ich podstawie tworzy dokument zadania w bazie danych \textit{Azure Cosmos DB} (w ramach kontenera \texttt{jobs}), przypisując mu status początkowy \texttt{pending} lub \texttt{scheduled}.
+	
+	\item \textbf{Harmonogramowanie i weryfikacja stanu urządzenia:} Usługa \textit{Printer Service} w sposób cykliczny (z interwałem jednominutowym) weryfikuje dostępność zadań oczekujących na realizację. Jeżeli urządzenie drukujące jest wolne, a zadanie spełnia kryteria rozpoczęcia procesu wytwórczego, status transakcji jest zmieniany na \texttt{waiting\_for\_printer\_ready}. System przechodzi wówczas w stan oczekiwania na potwierdzenie gotowości operacyjnej drukarki.
+	
+	\item \textbf{Inicjacja komunikacji IoT:} Po autoryzacji gotowości urządzenia przez użytkownika lub administratora, usługa \textit{Printer Service} zdalnie wywołuje metodę bezpośrednią (ang. \textit{Direct Method}) \texttt{startPrint} na dedykowanym agencie, wykorzystując do tego celu usługę \textit{Azure IoT Hub}.
+	
+	\item \textbf{Zarządzanie procesem drukowania przez agenta:} Komponent \textit{AddiPi Agent} pobiera przypisany plik G-code z repozytorium \textit{Azure Blob Storage}, przekazuje go bezpośrednio do interfejsu oprogramowania \textit{OctoPrint} oraz inicjuje proces drukowania 3D. W trakcie pracy agent w sposób ciągły transmituje dane telemetryczne do usługi \textit{Azure IoT Hub}, raportując bieżący postęp, status ukończenia lub ewentualne błędy krytyczne.
+	
+	\item \textbf{Odbiór telemetrii i aktualizacja stanu:} Usługa \textit{Printer Service} konsumuje strumień danych telemetrycznych za pośrednictwem punktu końcowego zgodnego ze specyfikacją \textit{Azure Event Hubs}, a następnie aktualizuje stan procesu w bazie \textit{Azure Cosmos DB}.
+	
+	\item \textbf{Odświeżanie danych w interfejsie:} Aplikacja kliencka (frontendowa) realizuje cykliczne zapytania sondujące (ang. \textit{polling} z interwałem 5 sekund) do mikroserwisów, zapewniając bieżącą aktualizację stanu systemu prezentowanego użytkownikowi.
+\end{enumerate}
 
 \subsection{Model danych}
 
+W bazie danych \textit{Azure Cosmos DB} dane są strukturyzowane i przechowywane w postaci dokumentów w formacie JSON. Zostały one pogrupowane w logicznych kontenerach, odpowiadających poszczególnym domenom biznesowym systemu.
+
 \subsubsection{Użytkownik (kontener \texttt{users})}
 
-\subsubsection{Zadanie (kontener \texttt{jobs})}
+Dokument przechowuje informacje profilowe użytkowników, dane autoryzacyjne oraz status weryfikacji konta. Przykładową strukturę przedstawiono na listingu~\ref{lst:json_user}.
 
-\subsubsection{Refresh Token (kontener \texttt{refresh-token})}
+\begin{lstlisting}[language=,caption={Przykładowy dokument użytkownika w Azure Cosmos DB},style=jsonStyle, label={lst:json_user}]
+	{
+		"id": "user_<timestamp>",
+		"email": "student@uwr.edu.pl",
+		"firstName": "Jan",
+		"lastName": "Kowalski",
+		"password": "<bcrypt hash>",
+		"role": "user",
+		"isVerified": true,
+		"verificationToken": "<hex>",
+		"verificationTokenExpiry": "2025-01-01T00:00:00Z",
+		"createdAt": "2025-01-01T00:00:00Z",
+		"updatedAt": "2025-01-01T00:00:00Z"
+	}
+\end{lstlisting}
 
+Pole \texttt{role} definiuje uprawnienia w systemie i może przyjmować wartość \texttt{user} (użytkownik standardowy) lub \texttt{admin} (administrator systemu).
+
+\subsubsection{Zadanie do wydruku (kontener \texttt{jobs})}
+
+Dokument zadania (listing~\ref{lst:json_job}) agreguje informacje o pliku sterującym, powiązanym użytkowniku, metrykach czasu oraz bieżącym stanie realizacji procesu produkcyjnego.
+
+\begin{lstlisting}[language=,caption={Przykładowy dokument zadania do wydruku w Cosmos DB},style=jsonStyle, label={lst:json_job}]
+	{
+		"id": "<timestamp string>",
+		"fileId": "20251203_014648_model.gcode",
+		"originalFileName": "model.gcode",
+		"userId": "user_<timestamp>",
+		"userEmail": "student@uwr.edu.pl",
+		"status": "printing",
+		"scheduledAt": "2025-12-01T15:00:00Z",
+		"createdAt": "2025-11-30T10:00:00Z",
+		"startedAt": "2025-12-01T15:01:00Z",
+		"completedAt": "2025-12-01T17:30:00Z",
+		"progress": 87.5,
+		"printTime": 4500,
+		"printTimeLeft": 600,
+		"deviceId": "raspberry-pi-mkt-01",
+		"failureReason": null
+	}
+\end{lstlisting}
+
+Pole \texttt{status} może przyjmować wartości:
+\texttt{pending}, \texttt{scheduled}, \newline
+\texttt{waiting\_for\_printer\_ready},
+\texttt{delayed}, \texttt{printing},
+\texttt{completed}, \texttt{failed},
+\texttt{cancelled}.
+
+\subsubsection{Token odświeżania (kontener \texttt{refresh-tokens})}
+
+W celu zapewnienia bezpiecznej, bezstanowej autoryzacji sesji, tokeny odświeżania (ang. \textit{refresh tokens}) są utrwalane w dedykowanym kontenerze (listing~\ref{lst:json_token}).
+
+\begin{lstlisting}[language=,caption={Przykładowy dokument refresh tokena},style=jsonStyle, label={lst:json_token}]
+	{
+		"id": "<userId>_<timestamp>",
+		"userId": "user_<timestamp>",
+		"token": "<JWT string>",
+		"expiresAt": "2025-12-08T00:00:00Z",
+		"createdAt": "2025-12-01T00:00:00Z"
+	}
+\end{lstlisting}
 
 \subsection{Cykl życia zadania do wydruku}
 
+Zadanie w procesie przetwarzania i realizacji może znajdować się w jednym z następujących stanów:
+
+\begin{itemize}
+	\item \textbf{pending} --- zadanie bez określonego terminu realizacji, oczekujące w kolejce ogólnej systemu.
+	
+	\item \textbf{scheduled} --- zadanie posiadające ściśle zaplanowany termin realizacji, oczekujące na osiągnięcie wskazanego czasu rozpoczęcia. Po nadejściu zaplanowanego czasu zadanie to otrzymuje najwyższy priorytet wykonania.
+	
+	\item \textbf{waiting\_for\_printer\_ready} --- usługa harmonogramująca (ang. \textit{scheduler}) wybrała zadanie do realizacji; system oczekuje na manualne potwierdzenie gotowości urządzenia przez użytkownika.
+	
+	\item \textbf{delayed} --- stan opóźnienia, w którym system oczekuje na potwierdzenie gotowości drukarki dłużej niż 3~h; do użytkownika wysyłane jest automatyczne powiadomienie przypominające.
+	
+	\item \textbf{printing} --- proces drukowania modelu sterującego jest aktywnie realizowany przez oprogramowanie \textit{OctoPrint}.
+	
+	\item \textbf{completed} --- proces drukowania 3D został pomyślnie sfinalizowany.
+	
+	\item \textbf{failed} --- w trakcie realizacji procesu produkcyjnego wystąpił błąd krytyczny uniemożliwiający dalsze drukowanie.
+	
+	\item \textbf{cancelled} --- zadanie zostało anulowane ręcznie przez użytkownika bądź administratora lub automatycznie przez system po upływie 48~h oczekiwania na potwierdzenie gotowości urządzenia.
+\end{itemize}
+
+Na rysunku~\ref{fig:state_machine} przedstawiono formalny model maszyny stanów, obrazujący dopuszczalne przejścia fazowe w cyklu życia zadania produkcyjnego.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{cykl-zycia-zadania.pdf} 
+	\caption{Diagram maszyny stanów cyklu życia zadania do wydruku.}
+	\label{fig:state_machine}
+\end{figure}
+
 \subsection{Bezpieczeństwo i uwierzytelnianie}
 
-\newpage
+W celu zapewnienia poufności danych oraz kontroli dostępu, w systemie zaimplementowano dwutokenowy model uwierzytelniania oparty na standardzie JWT (\textit{JSON Web Token}). Mechanizm ten wykorzystuje dwa rodzaje obiektów:
+
+\begin{itemize}
+	\item \textbf{Access token} --- token dostępu o krótkim czasie autoryzacji (ważny przez 15 minut), przekazywany w nagłówku protokołu HTTP (\texttt{Authorization: Bearer <token>}). Integralność i autentyczność tokenu są weryfikowane kryptograficznie przy użyciu klucza symetrycznego \texttt{JWT\_SECRET}.
+	
+	\item \textbf{Refresh token} --- token odświeżający o wydłużonym czasie ważności (wynoszącym 7 dni), utrwalany w bazie danych \textit{Azure Cosmos DB} oraz przechowywany po stronie aplikacji klienckiej. Podpisywany jest przy użyciu dedykowanego klucza \texttt{JWT\_REFRESH\_SECRET}. Służy do generowania nowej pary tokenów bez konieczności ponownego wprowadzania danych uwierzytelniających przez użytkownika.
+\end{itemize}
+
+Hasła użytkowników nie są przechowywane w bazie danych w postaci jawnej. Do ich zabezpieczenia wykorzystano algorytm funkcjonału skrótu \textit{bcrypt} z parametrem kosztu (ang. \textit{salt rounds}) ustawionym na wartość 10.
+
+Proces rejestracji nowych kont został ze względów bezpieczeństwa ograniczony wyłącznie do adresów poczty elektronicznej w domenie akademickiej \texttt{@uwr.edu.pl}. Pełna aktywacja profilu wymaga weryfikacji dwuetapowej poprzez kliknięcie w unikalny link aktywacyjny przesłany na adres e-mail użytkownika.
+
+Kontrola dostępu na poziomie kodu realizowana jest za pomocą oprogramowania pośredniczącego (ang. \textit{middleware}):
+\begin{itemize}
+	\item \texttt{requireAuth} --- odpowiada za ekstrakcję i weryfikację tokenu dostępu poprzez wysłanie wewnętrznego żądania weryfikacyjnego do punktu końcowego \texttt{POST /auth/verify} usługi \textit{Auth Service}.
+	\item \texttt{requireAdmin} --- realizuje mechanizm kontroli dostępu opartej na rolach (ang. \textit{Role-Based Access Control}, RBAC), sprawdzając, czy zdekodowany profil użytkownika posiada przypisane uprawnienia klasy \texttt{admin}.
+\end{itemize}
 
 % ============================================================
 %  ROZDZIAŁ 5 — IMPLEMENTACJA BACKENDU
