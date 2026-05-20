@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex dyplomWFA"] 1779240280.55799 "dyplomWFA.aux" "dyplomWFA.bbl" "dyplomWFA" 1779240281.12003 0
+["bibtex dyplomWFA"] 1779241904.63792 "dyplomWFA.aux" "dyplomWFA.bbl" "dyplomWFA" 1779241905.24253 0
   "./bibliografia.bib" 1779060150.5266 3747 2c97769d7bde0818a8719e71248f2afa ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "dyplomWFA.aux" 1779240281.03015 21447 1e7dca7f6a2ec4ac96696cededa6711e "pdflatex"
+  "dyplomWFA.aux" 1779241905.17381 22028 5303f0b24130e337be811d3e2f7ea992 "pdflatex"
   (generated)
   "dyplomWFA.bbl"
   "dyplomWFA.blg"
   (rewritten before read)
-["pdflatex"] 1779240280.57013 "dyplomWFA.tex" "dyplomWFA.pdf" "dyplomWFA" 1779240281.12023 0
+["pdflatex"] 1779241904.67115 "dyplomWFA.tex" "dyplomWFA.pdf" "dyplomWFA" 1779241905.24266 0
   "/etc/texmf/web2c/texmf.cnf" 1778443435.62456 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk" 1778504777.11581 20008 57f77999dde6ccfb99116543975b33b2 ""
   "/home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1200.600pk" 1778443546.32995 24132 cc356a9320d183778ed7b0e119032b5a ""
@@ -113,6 +113,7 @@
   "/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg" 1677530001 1829 d8258b7d94f5f955e70c623e525f9f45 ""
   "/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty" 1677530001 80947 75a96bb4c9f40ae31d54a01d924df2ff ""
   "/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty" 1677530001 77021 d05e9115c67855816136d82929db8892 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/ltablex/ltablex.sty" 1407968373 6021 43ef4b327cd0a38df15482bafd67d6df ""
   "/usr/share/texlive/texmf-dist/tex/latex/makecell/makecell.sty" 1249334690 15773 2dd7dde1ec1c2a3d0c85bc3b273e04d8 ""
   "/usr/share/texlive/texmf-dist/tex/latex/polski/ot4cmr.fd" 1629921906 2605 fe3d35a54ea9c9b798eb3aa21b9ef2f6 ""
   "/usr/share/texlive/texmf-dist/tex/latex/polski/polski.sty" 1629921906 13344 a993928ba746ec4e012bfd315bcc48d8 ""
@@ -130,20 +131,22 @@
   "/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty" 1698436711 48766 0b93839be28e9744a24c45075c75b2e2 ""
   "/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty" 1698869629 12667 e4b5eb11e4b7239e6c8a52bbe074a6c6 ""
   "/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty" 1698955022 12935 94a3291359b5f73ff1b19345a6983105 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty" 1698869629 7147 d45559f8a31b8c53ada0640516660003 ""
   "/usr/share/texlive/texmf-dist/tex/latex/url/url.sty" 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty" 1137111090 26220 3701aebf80ccdef248c0c20dd062fea9 ""
   "/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty" 1700082560 55487 80a65caedd3722f4c20a14a69e785d8f ""
+  "/usr/share/texlive/texmf-dist/tex/latex/xltabular/xltabular.sty" 1604525786 3623 13474540f7d9568bf6269d154cad18d4 ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1778443441.63762 134010 f1887e56959c0569e2f0dd6e19ae604f ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1778443460 6814157 84f02840595401b3a65a5ca7e425812f ""
   "cykl-zycia-zadania.pdf" 1779151447.17899 69219 2639c881c91a50ad08f11a69f1f68a44 ""
   "diagram-architektury.pdf" 1779147745.78817 95966 246f6e1390e8d002ec9292c46d2a5642 ""
-  "dyplomWFA.aux" 1779240281.03015 21447 1e7dca7f6a2ec4ac96696cededa6711e "pdflatex"
-  "dyplomWFA.bbl" 1779240280.56714 2705 6c185c25c9adaf5cdca53c0510af67b0 "bibtex dyplomWFA"
-  "dyplomWFA.out" 1779240281.03115 22250 c33a5443622725fb27a62cf11456c5a6 "pdflatex"
-  "dyplomWFA.tex" 1779240279.88167 49102 e72c46adeb3505b78eaa1dc36d92b690 ""
-  "dyplomWFA.toc" 1779240281.03115 11595 6987570fe743dc72e7dabf6ddc64f30d "pdflatex"
+  "dyplomWFA.aux" 1779241905.17381 22028 5303f0b24130e337be811d3e2f7ea992 "pdflatex"
+  "dyplomWFA.bbl" 1779241904.66681 2705 6c185c25c9adaf5cdca53c0510af67b0 "bibtex dyplomWFA"
+  "dyplomWFA.out" 1779241905.17581 22323 a725c239de5d08f2345056259b6e3c2b "pdflatex"
+  "dyplomWFA.tex" 1779241549.23389 52781 45eabf72f32768296222c32eedb2d680 ""
+  "dyplomWFA.toc" 1779241905.17581 11610 67ff9297f19944a6531c20800aec8d32 "pdflatex"
   (generated)
   "dyplomWFA.aux"
   "dyplomWFA.log"

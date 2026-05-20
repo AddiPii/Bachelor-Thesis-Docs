@@ -120,6 +120,12 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/makecell/makecell.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/makecell/makecell.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/xltabular/xltabular.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/xltabular/xltabular.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/ltablex/ltablex.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/ltablex/ltablex.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/mathptmx.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/mathptmx.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
