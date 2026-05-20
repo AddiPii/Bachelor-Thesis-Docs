@@ -37,6 +37,9 @@
 \usepackage{makecell}
 \usepackage{float}
 
+\usepackage{tabularx}
+\usepackage{xltabular}
+
 % --- NOWY KRÓJ PISMA I INTERLINIA ---
 \usepackage{mathptmx} % Zamiennik Times New Roman dla LaTeX
 \usepackage{setspace}
@@ -67,6 +70,18 @@
 \definecolor{backcolour}{rgb}{0.94,0.94,0.94}
 \definecolor{gray}{rgb}{0,0.6,0}
 \definecolor{codeblue}{rgb}{0,0,0.8}
+
+% Kolory dla eleganckiego, odciętego bloku kodu
+\definecolor{vslBackground}{HTML}{F8F9FA}  % Bardzo jasny szary (odcina kod od białej strony)
+\definecolor{vslBorder}{HTML}{E5E7EB}      % Delikatna, nowoczesna ramka wokół kodu
+\definecolor{vslText}{HTML}{111827}        % Ciemnoszary, czytelny tekst kodu
+\definecolor{vslKeyword}{HTML}{0000FF}     % Słowa kluczowe (if, const)
+\definecolor{vslString}{HTML}{A31515}      % Stringi
+\definecolor{vslComment}{HTML}{008000}     % Komentarze
+\definecolor{vslNumber}{HTML}{098658}      % Liczby
+\definecolor{vslType}{HTML}{267F99}        % Typy i Interfejsy
+\definecolor{vslLineNum}{HTML}{9CA3AF}     % Stonowane, szare numery linii
+
 
 \lstdefinestyle{mystyle}{
 	backgroundcolor=\color{backcolour},
@@ -103,6 +118,52 @@
 	showstringspaces=false,
 	showtabs=false,
 	tabsize=2
+}
+
+% Definicja dodatkowych słów kluczowych dla TypeScript
+\lstdefinelanguage{TypeScript}{
+	keywords={abstract, as, break, case, catch, class, const, continue, debugger, declare, default, delete, do, else, enum, export, extends, false, finally, for, from, function, get, if, implements, import, in, instanceof, interface, let, module, namespace, new, null, of, package, private, protected, public, readonly, require, return, set, static, super, switch, this, throw, true, try, type, typeof, var, void, while, with, yield},
+	% Typy i klasy
+	keywords=[2]{string, number, boolean, any, unknown, never, void, null, undefined, object, Promise, Observable},
+	morecomment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	morestring=[b]",
+	morestring=[b]',
+	morestring=[b]`,
+	literate={0}{{\textcolor{vslNumber}{0}}}{1}
+	{1}{{\textcolor{vslNumber}{1}}}{1}
+	{2}{{\textcolor{vslNumber}{2}}}{1}
+	{3}{{\textcolor{vslNumber}{3}}}{1}
+	{4}{{\textcolor{vslNumber}{4}}}{1}
+	{5}{{\textcolor{vslNumber}{5}}}{1}
+	{6}{{\textcolor{vslNumber}{6}}}{1}
+	{7}{{\textcolor{vslNumber}{7}}}{1}
+	{8}{{\textcolor{vslNumber}{8}}}{1}
+	{9}{{\textcolor{vslNumber}{9}}}{1}
+}
+
+\lstdefinestyle{tsStyle}{
+	language=TypeScript,
+	backgroundcolor=\color{backcolour},
+	commentstyle=\color{vslComment}\itshape,
+	keywordstyle=\color{vslKeyword}\bfseries,
+	keywordstyle=[2]\color{vslType}, 
+	stringstyle=\color{vslString},
+	numberstyle=\tiny\color{vslLineNum},
+	basicstyle=\footnotesize\fontfamily{cmtt}\selectfont\color{vslText},
+	breaklines=true,
+	captionpos=b,
+	keepspaces=true,
+	numbers=left,
+	numbersep=8pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=2,
+	% --- NOWE PARAMETRY RAMKI I ODSTĘPÓW ---
+	framesep=5pt,               % Odstęp ramki od kodu w środku
+	xleftmargin=3pt,           % Wcięcie całego bloku z lewej strony
+	xrightmargin=5pt            % Wcięcie bloku z prawej strony
 }
  
 \lstset{style=mystyle}
@@ -272,45 +333,6 @@ Na podstawie analizy potrzeb laboratorium studenckiego sformułowano następują
 	\item \textbf{Czas odpowiedzi} - operacje API powinny odpowiadać w czasie poniżej 2 sekund w warunkach normalnego obciążenia.
 	\item \textbf{Przenośność} - wszystkie komponenty opakowane w kontenery Docker, uruchamiane jednym poleceniem.
 \end{itemize}
-
-W swojej pracy możesz odnosić się do równań np. do równania (\ref{rownanie}) lub do rysunków, zarówno wektorowych, patrz rys. (\ref{logotyp}) jak i bitmapowych (\ref{wahadla}).
-Możesz też z powodzeniem cytować literaturę pojedynczo
-\cite{Matyka2008} lub kilka pozycji na raz
-\cite{Strzelczyk2021,Chorin1968}. Jeśli chcesz to robić wygodniej załóż tzw, plik bibtex, ale możesz też pracować tak, jak w tym dokumencie.
-
-
-
-\begin{equation} 
-\rho\left(\frac{\partial\vec v}{\partial t}+(\vec v\cdot\nabla)\vec v\right) =\rho\vec f - \nabla p + \mu\triangle\vec v, \label{rownanie}
-\end{equation} 
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-
-
-
-
-\begin{figure}[!ht]%
-\centering
-\includegraphics[scale=0.85]{logo.pdf}
-\caption{Podpis rysunku, który jest obrazem wektorowym (EPS). \label{logotyp}}
-\qquad
-\end{figure}   
-
-
-
-
-\begin{figure}[!ht]%
-\centering
-\includegraphics[width=0.8\columnwidth]{pendulums.png}
-\caption{To jest rysunek drugi, kilkadziesiąt wahadeł podwójnych z syntezą dźwięku.\label{wahadla}}%
-%
-\qquad
-\end{figure}
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. \label{Rysunek14}
-.. in the figure \ref{Rysunek14}.
-
 
 \subsection{Przegląd istniejących rozwiązań}
 
@@ -509,6 +531,14 @@ Na rysunku~\ref{fig:architektura} przedstawiono sekwencyjny przepływ danych pom
 
 W bazie danych \textit{Azure Cosmos DB} dane są strukturyzowane i przechowywane w postaci dokumentów w formacie JSON. Zostały one pogrupowane w logicznych kontenerach, odpowiadających poszczególnym domenom biznesowym systemu.
 
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=1\textwidth]{diagram-architektury.pdf} 
+	\caption{Diagram architektury systemu.}
+	\label{fig:db_schema}
+\end{figure}
+
+
 \subsubsection{Użytkownik (kontener \texttt{users})}
 
 Dokument przechowuje informacje profilowe użytkowników, dane autoryzacyjne oraz status weryfikacji konta. Przykładową strukturę przedstawiono na listingu~\ref{lst:json_user}.
@@ -623,7 +653,7 @@ Proces rejestracji nowych kont został ze względów bezpieczeństwa ograniczony
 
 Kontrola dostępu na poziomie kodu realizowana jest za pomocą oprogramowania pośredniczącego (ang. \textit{middleware}):
 \begin{itemize}
-	\item \texttt{requireAuth} --- odpowiada za ekstrakcję i weryfikację tokenu dostępu poprzez wysłanie wewnętrznego żądania weryfikacyjnego do punktu końcowego \texttt{POST /auth/verify} usługi \textit{Auth Service}.
+	\item \texttt{requireAuth} --- odpowiada za ekstrakcję i weryfikację tokenu dostępu poprzez wysłanie wewnętrznego żądania weryfikacyjnego do punktu końcowego \texttt{POST \newline /auth/verify} usługi \textit{Auth Service}.
 	\item \texttt{requireAdmin} --- realizuje mechanizm kontroli dostępu opartej na rolach (ang. \textit{Role-Based Access Control}, RBAC), sprawdzając, czy zdekodowany profil użytkownika posiada przypisane uprawnienia klasy \texttt{admin}.
 \end{itemize}
 
@@ -637,20 +667,212 @@ Kontrola dostępu na poziomie kodu realizowana jest za pomocą oprogramowania po
 
 \subsubsection{Opis ogólny}
 
-\subsubsection{Endpointy API}
+Usługa \textit{Auth Service} odpowiada za procesy uwierzytelniania, autoryzacji oraz zarządzania kontami użytkowników. W zakres jej funkcjonalności wchodzi: rejestracja, logowanie i wylogowanie użytkowników, odświeżanie tokenów sesyjnych oraz weryfikacja adresów poczty elektronicznej.
+
+Komponent ten został zaimplementowany w środowisku uruchomieniowym Node.js z wykorzystaniem frameworka Express.js oraz języka TypeScript. Serwis realizuje operacje wejścia-wyjścia poprzez komunikację z bazą danych \textit{Azure Cosmos DB} (w ramach kontenerów \texttt{users} oraz \texttt{refresh-tokens}). Ponadto integruje się z zewnętrznym serwerem SMTP firmy Google w celu dystrybucji wiadomości aktywacyjnych, wykorzystując do tego celu bibliotekę \texttt{Nodemailer}.
+
+
+\subsubsection{Punkty końcowe API}
+
+W tabeli~\ref{tab:auth_endpoints} zestawiono i opisano punkty końcowe (ang. \textit{endpoints}) udostępniane przez usługę \textit{Auth Service}.
+
+\begin{table}[htbp]
+	\centering
+	\caption{Punkty końcowe usługi Auth Service.}
+	\label{tab:auth_endpoints}
+	\begin{tabular}{llp{7cm}}
+		\toprule
+		\textbf{Metoda} & \textbf{Ścieżka} & \textbf{Opis} \\
+		\midrule
+		POST & \texttt{/auth/register} & Rejestracja nowego użytkownika, walidacja domeny e-mail, generowanie szyfru hasła oraz wysłanie wiadomości z linkiem aktywacyjnym. \\
+		\addlinespace
+		POST & \texttt{/auth/login} & Uwierzytelnienie użytkownika; generowanie i zwrot pary tokenów: \textit{access token} oraz \textit{refresh token}. \\
+		\addlinespace
+		POST & \texttt{/auth/logout} & Unieważnienie tokenu odświeżającego i zakończenie aktywnej sesji użytkownika. \\
+		\addlinespace
+		PATCH & \texttt{/auth/refresh} & Generowanie nowego tokenu dostępu na podstawie ważnego tokenu odświeżającego. \\
+		\addlinespace
+		POST & \texttt{/auth/verify} & Weryfikacja poprawności tokenu dostępu, wykorzystywana wewnętrznie przez pozostałe mikroserwisy. \\
+		\addlinespace
+		GET & \texttt{/auth/verify-email} & Aktywacja konta użytkownika po odebraniu i weryfikacji tokenu z linku aktywacyjnego. \\
+		\addlinespace
+		POST & \texttt{/auth/resend-verification} & Ponowne wygenerowanie i wysłanie wiadomości weryfikacyjnej na adres e-mail. \\
+		\addlinespace
+		GET & \texttt{/health} & Punkt końcowy diagnostyki stanu działania usługi (ang. \textit{health check}). \\
+		\bottomrule
+	\end{tabular}
+\end{table}
 
 \subsubsection{Kluczowe fragmenty implementacji}
 
-\subsubsection{Weryfikacja e-mail}
+Na listingu~\ref{lst:jwt_generation} przedstawiono implementację funkcji odpowiedzialnych za generowanie tokenu dostępu oraz tokenu odświeżającego przy użyciu biblioteki \texttt{jsonwebtoken}.
+
+\begin{lstlisting}[language=TypeScript,caption={Implementacja generowania tokenów JWT (\texttt{token-service.ts})},style=tsStyle,label={lst:jwt_generation}]
+	export function generateAccessToken(user: User): string {
+		const payload: JWTPayload = {
+			userId: user.id,
+			email: user.email,
+			role: user.role
+		};
+		return jwt.sign(payload, CONFIG.JWT_SECRET, { expiresIn: '15m' });
+	}
+	
+	export function generateRefreshToken(user: User): string {
+		return jwt.sign(
+		{ userId: user.id },
+		CONFIG.JWT_REFRESH_SECRET,
+		{ expiresIn: '7d' }
+		);
+	}
+\end{lstlisting}
+
+Proces walidacji tokenu odświeżającego (ang. \textit{refresh token}) jest dwuetapowy. Obejmuje zarówno kryptograficzną weryfikację poprawności podpisu cyfrowego struktury JWT, jak i asynchroniczne sprawdzenie obecności oraz ważności powiązanego rekordu w bazie danych \textit{Azure Cosmos DB}. Takie podejście architektoniczne umożliwia natychmiastowe, zdalne unieważnianie sesji (ang. \textit{token revocation}) w momencie wylogowania się użytkownika z systemu. Kod realizujący tę procedurę zaprezentowano na listingu~\ref{lst:jwt_validation}.
+
+\begin{lstlisting}[language=TypeScript,caption={Implementacja walidacji refresh tokenu (\texttt{token-service.ts})},style=tsStyle,label={lst:jwt_validation}]
+	export async function validateRefreshToken(
+	token: string
+	): Promise<string | null> {
+		try {
+			const decoded = jwt.verify(
+			token,
+			CONFIG.JWT_REFRESH_SECRET
+			) as { userId: string };
+			
+			const query = `SELECT * FROM c
+			WHERE c.token = @token
+			AND c.userId = @userId
+			AND c.expiresAt > @now`;
+			
+			const { resources } = await refreshTokensContainer.items.query({
+				query,
+				parameters: [
+				{ name: '@token', value: token },
+				{ name: '@userId', value: decoded.userId },
+				{ name: '@now', value: new Date().toISOString() }
+				]
+			}).fetchAll();
+			
+			return resources.length > 0 ? decoded.userId : null;
+		} catch {
+			return null;
+		}
+	}
+\end{lstlisting}
+
+\subsubsection{Weryfikacja adresu poczty elektronicznej}
+
+Po pomyślnym zakończeniu procesu rejestracji system generuje unikalny, 64-znakowy token w formacie szesnastkowym. Jest on tworzony przy użyciu kryptograficznie bezpiecznego generatora liczb pseudolosowych z modułu \texttt{crypto} (\texttt{crypto.randomBytes}). Zapewnia to wysoką entropię i odporność na ataki typu \textit{brute-force}.
+
+Wygenerowany identyfikator jest zapisywany w bazie danych wraz z datą ważności, a do użytkownika wysyłana jest wiadomość e-mail zawierająca odsyłacz aktywacyjny skierowany do punktu końcowego systemu:
+\begin{center}
+	\texttt{GET /auth/verify-email?token=<hex>}
+\end{center}
+
+Po odebraniu żądania przez usługę \textit{Auth Service}, system przeprowadza weryfikację poprawności oraz ważności tokenu. W przypadku pozytywnego rezultatu walidacji, atrybut \texttt{isVerified} w dokumencie użytkownika przyjmuje wartość \texttt{true}, a konto zostaje w pełni aktywowane. Na zakończenie procesu serwer wykonuje przekierowanie (ang. \textit{HTTP redirect}) przeglądarki użytkownika do adresu bazowego aplikacji klienckiej.
 
 \subsection{User Service}
 
 \subsubsection{Opis ogólny}
 
-\subsubsection{Endpointy API}
+Usługa \textit{User Service} realizuje zadania związane z zarządzaniem profilami użytkowników, modyfikacją ich uprawnień oraz agregacją danych dotyczących powiązanych zadań wytwórczych. Komponent ten wykonuje operacje odczytu i zapisu danych w ramach kontenerów \texttt{users} oraz \texttt{jobs} w bazie danych \textit{Azure Cosmos DB}.
 
-\subsubsection{Mechanizm autoryzacji}
+Autoryzacja żądań oraz weryfikacja tożsamości użytkowników są realizowane w sposób scentralizowany poprzez przesyłanie wewnętrznych zapytań do punktu końcowego \texttt{POST /auth/verify} opisanej wcześniej usługi \textit{Auth Service}.
 
+\subsubsection{Punkty końcowe API}
+
+W tabeli~\ref{tab:user_endpoints} wyszczególniono i opisano punkty końcowe (ang. \textit{endpoints}) udostępniane przez usługę \textit{User Service}, z uwzględnieniem podziału na operacje standardowe oraz administracyjne.
+
+\begin{xltabular}{\textwidth}{llX}
+	\caption{Punkty końcowe usługi User Service.} \label{tab:user_endpoints} \\
+	\toprule
+	\textbf{Metoda} & \textbf{Ścieżka} & \textbf{Opis} \\
+	\midrule
+	\endfirsthead
+	
+	% Nagłówek powtarzany na kolejnej stronie
+	\multicolumn{3}{c}{{\bfseries \tablename\ \thetable{} -- ciąg dalszy z poprzedniej strony}} \\
+	\toprule
+	\textbf{Metoda} & \textbf{Ścieżka} & \textbf{Opis} \\
+	\midrule
+	\endhead
+	
+	% Linia dolna na stronach, gdzie tabela będzie się dzielić
+	\bottomrule
+	\endfoot
+	
+	% Linia dolna na samym końcu tabeli
+	\bottomrule
+	\endlastfoot
+	
+	GET & \texttt{/users/me} & Pobranie danych profilowych zalogowanego użytkownika. \\
+	\addlinespace
+	PATCH & \texttt{/users/me} & Aktualizacja danych osobowych użytkownika (imię oraz nazwisko). \\
+	\addlinespace
+	GET & \texttt{/users/me/jobs} & Pobranie historii wszystkich zadań przypisanych do zalogowanego użytkownika. \\
+	\addlinespace
+	GET & \texttt{/users/me/stats} & Pobranie statystyk użytkownika, obejmujących m.in. zagregowaną liczbę zadań z podziałem na ich statusy. \\
+	\addlinespace
+	GET & \texttt{/users/jobs/upcoming} & Pobranie listy zadań oczekujących na realizację (posiadających status \texttt{pending} lub \texttt{scheduled}). \\
+	\addlinespace
+	GET & \texttt{/users/jobs/recent-completed} & Pobranie historycznej listy ostatnio sfinalizowanych procesów druku. \\
+	\addlinespace
+	GET & \texttt{/users} & Pobranie rejestru wszystkich użytkowników systemu (dostęp zastrzeżony dla administratora). \\
+	\addlinespace
+	PATCH & \texttt{/users/:id/role} & Modyfikacja roli i poziomu uprawnień użytkownika o wskazanym identyfikatorze (dostęp zastrzeżony dla administratora). \\
+	\addlinespace
+	DELETE & \texttt{/users/:id} & Trwałe usunięcie konta użytkownika na podstawie parametru identyfikatora (dostęp zastrzeżony dla administratora). \\
+	\addlinespace
+	GET & \texttt{/users/:id/jobs} & Pobranie pełnej listy zadań powiązanych z wybranym kontem użytkownika (dostęp zastrzeżony dla administratora). \\
+\end{xltabular}
+
+\subsubsection{Mechanizm autoryzacji żądań}
+
+Na listingu~\ref{lst:middleware_auth_real} zaprezentowano produkcyjną implementację oprogramowania pośredniczącego \texttt{requireAuth}. Komponent ten w pełni wykorzystuje silne typowanie języka TypeScript, w tym parametry generyczne interfejsów \texttt{Request} oraz \texttt{Response} z biblioteki \texttt{express}. 
+
+Procedura autoryzacji polega na bezpiecznej ekstrakcji tokenu dostępu z nagłówka \texttt{Authorization}, a następnie wykonaniu asynchronicznego żądania sieciowego metodą \texttt{POST} do punktu końcowego usługi \textit{Auth Service}. Po odebraniu odpowiedzi struktura danych jest rzutowana na dedykowany typ \texttt{Data}. W przypadku poprawnej walidacji następuje asercja typu obiektu żądania, wstrzyknięcie profilu użytkownika do pola \texttt{user} oraz wywołanie funkcji \texttt{next()}, która przekazuje sterowanie do kolejnego elementu w potoku przetwarzania (ang. \textit{middleware chain}).
+
+\begin{lstlisting}[language=TypeScript,caption={Implementacja oprogramowania pośredniczącego \texttt{requireAuth} (\texttt{requireAuth.ts})},style=tsStyle,label={lst:middleware_auth_real}]
+	import { CONFIG } from "../config/config";
+	import type { Request, Response, NextFunction } from "express";
+	import { Data, AuthUser } from "./mwTypes";
+	
+	const requireAuth = async (
+	req: Request<{}, unknown, {}, {}>,
+	res: Response<{error: string}>,
+	next: NextFunction
+	): Promise<void | {error: string}> => {
+		try {
+			const token: string | undefined = req.headers.authorization?.replace('Bearer ', '');
+			
+			if (!token) {
+				res.status(401).json({ error: 'Missing authentication token' });
+				return;
+			}
+			
+			const response: globalThis.Response = await fetch(`${CONFIG.AUTH_SERVICE_URL}/auth/verify`, {
+				method: 'POST',
+				headers: {
+					'Authorization': `Bearer ${token}`,
+					'Content-Type': 'application/json'
+				}
+			});
+			
+			const data: Data = await response.json() as Data;
+			
+			if (!response.ok) {
+				throw new Error('Authentication failed');
+			}
+			
+			(req as any).user = data.user;
+			
+			next();
+		} catch (err) {
+			res.status(401).json({ error: 'Invalid authentication token' });
+		}
+	};
+	
+	export default requireAuth;
+\end{lstlisting}
 
 \subsection{Files Service}
 

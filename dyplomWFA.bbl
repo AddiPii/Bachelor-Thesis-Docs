@@ -1,10 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{Chorin1968}
-Alexandre~Joel Chorin.
-\newblock Numerical solution of the navier-stokes equations.
-\newblock {\em Mathematics of computation}, 22(104):745--762, 1968.
-
 \bibitem{solidworks}
 {Dassault Syst{\`e}mes}.
 \newblock {SOLIDWORKS} -- {3D} {CAD} {D}esign {S}oftware.
@@ -22,11 +17,6 @@ Gina H{\"a}u{\ss}ge.
 \newblock Octoprint -- {T}he snappy web interface for your {3D} printer.
 \newblock \url{https://octoprint.org}.
 \newblock Dostęp: 2026.
-
-\bibitem{Matyka2008}
-Maciej Matyka, Arzhang Khalili, and Zbigniew Koza.
-\newblock Tortuosity-porosity relation in porous media flow.
-\newblock {\em Physical Review E}, 78(2):026306, 2008.
 
 \bibitem{react}
 {Meta Platforms, Inc.}
