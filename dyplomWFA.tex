@@ -82,6 +82,17 @@
 \definecolor{vslType}{HTML}{267F99}        % Typy i Interfejsy
 \definecolor{vslLineNum}{HTML}{9CA3AF}     % Stonowane, szare numery linii
 
+% Kolory dla eleganckiego bloku kodu (wspólne z tsStyle)
+\definecolor{pyBackground}{HTML}{F8F9FA}   % Jasnoszare tło
+\definecolor{pyBorder}{HTML}{E5E7EB}       % Delikatna ramka
+\definecolor{pyText}{HTML}{111827}         % Główny tekst kodu
+\definecolor{pyKeyword}{HTML}{0000FF}      % Słowa kluczowe (def, if, class)
+\definecolor{pyBuiltin}{HTML}{267F99}      % Wbudowane funkcje/typy (print, len, int)
+\definecolor{pyString}{HTML}{A31515}       % Stringi
+\definecolor{pyComment}{HTML}{008000}      % Komentarze (#)
+\definecolor{pyNumber}{HTML}{098658}       % Liczby
+\definecolor{pyLineNum}{HTML}{9CA3AF}      % Numery linii
+
 
 \lstdefinestyle{mystyle}{
 	backgroundcolor=\color{backcolour},
@@ -161,6 +172,54 @@
 	showtabs=false,
 	tabsize=2,
 	% --- NOWE PARAMETRY RAMKI I ODSTĘPÓW ---
+	framesep=5pt,               % Odstęp ramki od kodu w środku
+	xleftmargin=3pt,           % Wcięcie całego bloku z lewej strony
+	xrightmargin=5pt            % Wcięcie bloku z prawej strony
+}
+
+\lstdefinelanguage{PythonCustom}{
+	% Główne słowa kluczowe
+	keywords={False, None, True, and, as, assert, async, await, break, class, continue, def, del, elif, else, except, finally, for, from, global, if, import, in, is, lambda, nonlocal, not, or, pass, raise, return, try, while, with, yield},
+	% Wbudowane funkcje i typy danych (druga grupa)
+	keywords=[2]{abs, all, any, bin, bool, bytes, chr, dict, dir, divmod, enumerate, eval, exec, filter, float, format, hash, hex, id, input, int, isinstance, len, list, map, max, min, next, object, open, ord, pow, print, range, repr, reversed, round, set, slice, sorted, str, sum, tuple, type, zip, self, cls},
+	sensitive=true,
+	morecomment=[l]{\#},
+	morecomment=[s]{"""}{"""},
+	morecomment=[s]{'''}{'''},
+	morestring=[b]",
+	morestring=[b]',
+	% Stabilne kolorowanie liczb
+	literate={0}{{\textcolor{pyNumber}{0}}}{1}
+	{2}{{\textcolor{pyNumber}{2}}}{1}
+	{1}{{\textcolor{pyNumber}{1}}}{1}
+	{3}{{\textcolor{pyNumber}{3}}}{1}
+	{4}{{\textcolor{pyNumber}{4}}}{1}
+	{5}{{\textcolor{pyNumber}{5}}}{1}
+	{6}{{\textcolor{pyNumber}{6}}}{1}
+	{7}{{\textcolor{pyNumber}{7}}}{1}
+	{8}{{\textcolor{pyNumber}{8}}}{1}
+	{9}{{\textcolor{pyNumber}{9}}}{1}
+}
+
+\lstdefinestyle{pyStyle}{
+	language=PythonCustom,
+	backgroundcolor=\color{pyBackground},
+	commentstyle=\color{pyComment}\itshape,
+	keywordstyle=\color{pyKeyword}\bfseries,
+	keywordstyle=[2]\color{pyBuiltin}, % Kolorowanie wbudowanych funkcji
+	stringstyle=\color{pyString},
+	numberstyle=\tiny\color{pyLineNum},
+	basicstyle=\footnotesize\fontfamily{cmtt}\selectfont\color{pyText},
+	breaklines=true,
+	captionpos=b,
+	keepspaces=true,
+	numbers=left,
+	numbersep=8pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=4, % Python standardowo używa wcięć na 4 spacje
+	% --- PARAMETRY RAMKI I ODSTĘPÓW ---
 	framesep=5pt,               % Odstęp ramki od kodu w środku
 	xleftmargin=3pt,           % Wcięcie całego bloku z lewej strony
 	xrightmargin=5pt            % Wcięcie bloku z prawej strony
@@ -878,7 +937,55 @@ Procedura autoryzacji polega na bezpiecznej ekstrakcji tokenu dostępu z nagłó
 
 \subsubsection{Opis ogólny}
 
-\subsubsection{Przepływ przesyłania pliku}
+Usługa \textit{Files Service} stanowi mikroserwis zaimplementowany w języku Python z wykorzystaniem mikroframeworka Flask. Komponent ten odpowiada za asynchroniczne przyjmowanie plików z kodem sterującym (G-code) od aplikacji klienckiej, ich bezpieczne utrwalanie w repozytorium obiektowym \textit{Azure Blob Storage} oraz rozgłaszanie zdarzeń systemowych za pośrednictwem magistrali komunikatów \textit{Azure Service Bus}.
+
+\subsubsection{Procedura przetwarzania i przesyłania plików}
+
+Przebieg procesu przesyłania pliku oraz jego rejestracji w systemie realizowany jest sekwencyjnie według następującego scenariusza:
+
+\begin{enumerate}
+	\item \textbf{Inicjacja żądania:} Aplikacja kliencka wysyła żądanie \texttt{POST /files/upload} zawierające plik zakodowany w formacie \texttt{multipart/form-data}.
+	\item \textbf{Weryfikacja uprawnień:} Oprogramowanie pośredniczące \texttt{require\_auth} deleguje proces walidacji tokenu uwierzytelniającego do usługi \textit{Auth Service}.
+	\item \textbf{Walidacja potoku wejściowego:} System weryfikuje poprawność formatu pliku (akceptowane jest wyłącznie rozszerzenie \texttt{.gcode}), jego rozmiar (wprowadzono limit do 50~MB) oraz opcjonalnie strukturę wewnętrzną (w przypadku aktywacji flagi konfiguracyjnej \texttt{STRICT\_CONTENT\_CHECK}).
+	\item \textbf{Sanitaryzacja i unikalność nazw:} Nazwa pliku wejściowego jest modyfikowana poprzez dodanie prefiksu czasowego zawierającego kompletną datę i godzinę odebrania żądania (np. \texttt{20251203\_014648\_model.gcode}), co zapobiega konfliktom nadpisywania zasobów.
+	\item \textbf{Utrwalenie zasobu:} Plik w formacie binarnym zostaje przesłany i zapisany w dedykowanym kontenerze \texttt{gcode} w ramach usługi \textit{Azure Blob Storage}.
+	\item \textbf{Publikacja zdarzenia:} Do kolejki \texttt{print-queue} magistrali \textit{Azure Service Bus} wysyłany jest komunikat w formacie JSON, który inicjuje dalsze etapy cyklu życia zadania.
+\end{enumerate}
+
+Na rysunku~\ref{fig:upload_flow} zobrazowano schematyczny przepływ danych podczas procedury przesyłania i kolejkowania pliku G-code.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{przeplyw-przesylania-pliku.pdf} 
+	\caption{Przepływ przesyłania pliku G-code --- od zapytania HTTP do integracji z kolejką.}
+	\label{fig:upload_flow}
+\end{figure}
+
+Na listingu~\ref{lst:flask_upload} zaprezentowano implementację końcowego etapu obsługi żądania w ramach kontrolera usługi \textit{Files Service}. Po pomyślnej walidacji i zapisie pliku w repozytorium obiektowym, struktura danych reprezentująca zdarzenie jest serializowana do formatu JSON i przekazywana do metody nadawczej klienta \textit{Azure Service Bus}. Całość operacji została otoczona blokiem obsługi wyjątków (\texttt{try-except}), co gwarantuje stabilność działania mikroserwisu i zwrócenie ustrukturyzowanej odpowiedzi o błędzie w formacie JSON wraz ze statusem HTTP 500 w przypadku awarii infrastruktury chmuwej.
+
+\begin{lstlisting}[language=Python,caption={Implementacja publikacji komunikatu w Azure Service Bus (\texttt{files\_controller.py})},style=pyStyle,label={lst:flask_upload}]
+	message = {
+		'event': 'file_uploaded',
+		'fileId': filename,
+		'originalFileName': original_filename,
+		'userId': user_id,
+		'userEmail': user_email,
+		'timestamp': str(time.time()),
+		'scheduledAt': request.form.get('scheduledAt')
+	}
+	
+	sb_client = current_app.config.get('SERVICE_BUS_CLIENT')
+	if sb_client:
+		with sb_client:
+			sender = sb_client.get_queue_sender(queue_name='print-queue')
+			sender.send_messages([{'body': json.dumps(message)}])
+	
+	return jsonify({'status': 'success', 'fileId': filename}), 200
+	
+except Exception as e:
+	return jsonify({'error': str(e)}), 500
+\end{lstlisting}
+
 
 
 \subsection{Queue Service}
