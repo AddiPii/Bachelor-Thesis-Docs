@@ -649,10 +649,12 @@ Na rysunku~\ref{fig:architektura} przedstawiono sekwencyjny przepływ danych pom
 
 W bazie danych \textit{Azure Cosmos DB} dane są strukturyzowane i przechowywane w postaci dokumentów w formacie JSON. Zostały one pogrupowane w logicznych kontenerach, odpowiadających poszczególnym domenom biznesowym systemu.
 
-\begin{figure}[htbp]
+Na rysunku~\ref{fig:db_schema} przedstawiono diagram encji i relacji (ang. \textit{Entity-Relationship Diagram}, ERD) zaprojektowanej bazy danych \texttt{addipi-cosmos}, sporządzony w klasycznej notacji Chena. Diagram ten odwzorowuje logiczne powiązania referencyjne pomiędzy dokumentami w poszczególnych kontenerach.
+
+\begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{diagram-architektury.pdf} 
-	\caption{Diagram architektury systemu.}
+	\includegraphics[width=1\textwidth]{diagram-DB.pdf} 
+	\caption{Diagram bazy danych \texttt{addipi-cosmos} w notacji Chena.}
 	\label{fig:db_schema}
 \end{figure}
 
@@ -774,6 +776,8 @@ Kontrola dostępu na poziomie kodu realizowana jest za pomocą oprogramowania po
 	\item \texttt{requireAuth} --- odpowiada za ekstrakcję i weryfikację tokenu dostępu poprzez wysłanie wewnętrznego żądania weryfikacyjnego do punktu końcowego \texttt{POST \newline /auth/verify} usługi \textit{Auth Service}.
 	\item \texttt{requireAdmin} --- realizuje mechanizm kontroli dostępu opartej na rolach (ang. \textit{Role-Based Access Control}, RBAC), sprawdzając, czy zdekodowany profil użytkownika posiada przypisane uprawnienia klasy \texttt{admin}.
 \end{itemize}
+
+\newpage
 
 % ============================================================
 %  ROZDZIAŁ 5 — IMPLEMENTACJA BACKENDU

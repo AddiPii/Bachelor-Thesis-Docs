@@ -28,9 +28,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="1.3700194"
-     inkscape:cx="320.43342"
-     inkscape:cy="231.01863"
+     inkscape:zoom="3.875"
+     inkscape:cx="361.03226"
+     inkscape:cy="178.19355"
      inkscape:window-width="1920"
      inkscape:window-height="939"
      inkscape:window-x="0"
@@ -1197,4 +1197,18 @@
       </cc:Work>
     </rdf:RDF>
   </metadata>
+  <rect
+     style="fill:#ffffff;stroke-width:0.37458"
+     id="rect1081"
+     width="78.5867"
+     height="7.810482"
+     x="325.30847"
+     y="311.07458" />
+  <rect
+     style="fill:#ffffff;stroke-width:0.291754"
+     id="rect1081-3"
+     width="47.675411"
+     height="7.810482"
+     x="345.12198"
+     y="150.64313" />
 </svg>
