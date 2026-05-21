@@ -350,22 +350,20 @@ Wydział Fizyki i Astronomii\\
 % ============================================================
 %  STRESZCZENIE
 % ============================================================
-\begin{flushleft}
-\Large \textbf{Streszczenie}
-\end{flushleft}
-\vspace{1cm}
+\clearpage
+\section*{Streszczenie}
+\addcontentsline{toc}{section}{Streszczenie}
 
+Niniejsza praca inżynierska opisuje projekt, implementację oraz walidację rozproszonego systemu zarządzania procesami druku trójwymiarowego o nazwie \textit{AddiPi}, dedykowanego dla akademickich laboratoriów studenckich. Opracowane rozwiązanie umożliwia użytkownikom zdalne przesyłanie plików z kodem sterującym (G-code), harmonogramowanie oraz monitorowanie stanu realizacji zadań w czasie rzeczywistym. Administratorom systemu udostępniono natomiast moduły pełnej kontroli nad kolejką produkcyjną, urządzeniami oraz profilami użytkowników.
 
-Niniejsza praca inżynierska opisuje projekt, implementację oraz wykonanie systemu \textit{AddiPi} - rozproszonego systemu zarządzania pracą drukarki 3D przeznaczonego dla laboratorium studenckiego. System umożliwia użytkownikom przesyłanie plików G-code, planowanie oraz monitorowanie zadań do wydruku, a administratorom - pełną kontrolę nad kolejką i użytkownikami.
+Architektura systemu została oparta na paradygmacie mikroserwisowym. W strukturze backendowej wyodrębniono sześć niezależnych komponentów: usługę uwierzytelniania (\textit{Auth Service}), zarządzania profilami (\textit{User Service}), obsługi plików (\textit{Files Service}), orkiestracji kolejki zadań (\textit{Queue Service}), sterowania urządzeniem (\textit{Printer Service}) oraz agenta sprzętowego (\textit{AddiPi Agent}) uruchamianego na platformie Raspberry Pi. Warstwę prezentacji stanowi aplikacja kliencka (frontendowa) zbudowana z wykorzystaniem biblioteki React, którą uzupełnia dedykowany serwis wideo (\textit{Video Service}) odpowiedzialny za dystrybucję strumienia wizyjnego.
 
-Architektura systemu oparta jest na podejściu mikroserwisowym. Wyodrębniono sześć niezależnych serwisów backendowych: uwierzytelniania (Auth Service), zarządzania użytkownikami (User Service), obsługi plików (Files Service), kolejkowania zadań (Queue Service), sterowania drukarką (Printer Service) oraz agenta działającego na urządzeniu Raspberry Pi (AddiPi Agent). Całość uzupełnia aplikacja frontendowa zbudowana w React oraz serwis wideo do podglądu kamery.
+Komunikacja wewnątrz systemu realizowana jest hybrydowo --- za pomocą synchronicznego protokołu HTTP (architektura REST API) oraz asynchronicznej, chmurowej kolejki \textit{Azure Service Bus}. Dane aplikacyjne są utrwalane w wielomodelowej bazie danych \textit{Azure Cosmos DB}, a pliki G-code w repozytorium obiektowym \textit{Azure Blob Storage}. Zarządzanie i sterowanie fizyczną drukarką 3D odbywa się za pośrednictwem usługi \textit{Azure IoT Hub} przy użyciu mechanizmu metod bezpośrednich (ang. \textit{Direct Methods}) wywoływanych na mikrokomputerze, na którym osadzono oprogramowanie serwerowe \textit{OctoPrint}.
 
-Komunikacja między serwisami odbywa się za pośrednictwem protokołu HTTP/REST oraz chmurowej kolejki Azure Service Bus. Dane przechowywane są w Azure Cosmos DB, a pliki G-code w Azure Blob Storage. Sterowanie drukarką realizowane jest przez Azure IoT Hub przy użyciu bezpośrednich wywołań metod (Direct Methods) na Raspberry Pi, na którym działa oprogramowane OctoPrint.
+Poszczególne serwisy zaimplementowano w językach TypeScript (środowisko Node.js) oraz Python. Proces wdrożenia środowiska oparto na technologii konteneryzacji Docker, koordynowanej za pomocą narzędzia Docker Compose. 
 
-System zrealizowano przy użyciu języków TypeScript (Node.js) i Python. Wdrożenie odbywa się w kontenerach Docker, koordynowanych plikiem Docker Compose. Interfejs użytkownika obsługuje uwierzytelnianie tokenem JWT, przesyłanie plików, planowanie zadań, podgląd kamery w czasie rzeczywistym oraz panel administracyjny.
-
-\vspace{0.3cm}
-\textbf{Słowa kluczowe:} mikroserwisy, drukarka 3D, OctoPrint, Raspberry Pi, Azure Iot Hub, Azure Cosmos DB, Docker, TypeScript, Python, REST API, kolejkowanie zadań
+\vspace{0.5cm}
+\noindent\textbf{Słowa kluczowe:} mikroserwisy, drukowanie 3D, OctoPrint, Raspberry Pi, Azure IoT Hub, Azure Cosmos DB, Docker, TypeScript, Python, REST API, systemy rozproszone.
 
 \newpage
 
@@ -374,39 +372,42 @@ System zrealizowano przy użyciu języków TypeScript (Node.js) i Python. Wdroż
 % ============================================================
 
 \section{Wprowadzenie}
+\label{sec:introduction}
 
 \subsection{Motywacja i cel pracy}
 
+Drukarki 3D stanowią obecnie standardowe wyposażenie laboratoriów akademickich, warsztatów studenckich oraz zakładów produkcyjnych zorientowanych na wytwarzanie przyrostowe. Urządzenia te, pomimo rosnącej dostępności i malejących cen, pozostają zasobem współdzielonym --- ich liczba w danej jednostce jest zwykle ograniczona, a czas wytwarzania pojedynczego modelu fizycznego może wynosić od kilkunastu minut do wielu godzin. W środowisku akademickim oraz przemysłowym rodzi to naturalne wyzwania logistyczne i organizacyjne, takie jak konieczność ręcznego rezerwowania terminów, brak przejrzystości w strukturze kolejki zadań oraz brak możliwości zdalnego monitorowania stanu operacyjnego maszyn.
 
-
-Drukarki 3D stanowią obecnie standardowe wyposażenie laboratoriów akademickich, warsztatów studenckich oraz zakładów produkcyjnych zorientowanych na wytwarzanie przyrostowe. Urządzenia te, pomimo rosnącej dostępności i malejących cen, pozostają zasobem współdzielonym - ich liczba jest zwykle ograniczona, a czas drukowania pojedynczego modelu może wynosić od kilkunastu minut do wielu godzin. W środowisku akademickim oraz przemysłowym rodzi to naturalne problemy organizacyjne: konieczność ręcznego umawiania się na czas druku, brak przejrzystości stanu kolejki oraz niemożność zdalnego monitorowania postępu pracy.
-
-Celem niniejszej pracy jest zaprojektowanie i implementacja systemu \textit{AddiPi}, który automatyzuje proces zarządzania drukarką 3D w laboratorium studenckim. System pozwala użytkownikom na:
+Głównym celem niniejszej pracy jest zaprojektowanie, implementacja oraz walidacja rozproszonego systemu \textit{AddiPi}, którego zadaniem jest pełna automatyzacja i orkiestracja procesów zarządzania drukarkami 3D w środowisku laboratorium studenckiego. Opracowane oprogramowanie udostępnia użytkownikom funkcjonalności w zakresie:
 \begin{itemize}
-	\item przesyłanie plików G-code przez przeglądarkę internetową,
-	\item planowanie druków na określony termin lub dodawanie ich do kolejki,
-	\item śledzenie postępu druku w czasie rzeczywistym, wraz z podglądem kamery,
-	\item otrzymywanie powiadomień o zakończeniu lub błędzie druku.
+	\item asynchronicznego przesyłania plików z kodem sterującym (G-code) za pośrednictwem aplikacji klienckiej,
+	\item elastycznego harmonogramowania procesów druku na określony termin lub lokowania ich w ogólnej kolejce systemu,
+	\item śledzenia bieżących metryk postępu prac w czasie rzeczywistym wraz z bezpośrednim podglądem wizyjnym,
+	\item automatycznego otrzymywania powiadomień o pomyślnym zakończeniu bądź awarii procesu produkcyjnego.
 \end{itemize}
 
-
-Administratorzy laboratorium zyskują natomiast narzędzia do zarządzania użytkownikami, przeglądania historii wszystkich zadań oraz sterowania kolejką i urządzeniami.
+Personelowi administracyjnemu laboratorium system zapewnia dedykowane narzędzia do zarządzania profilami użytkowników i ich uprawnieniami, audytu historii wszystkich operacji oraz zdalnego sterowania infrastrukturą sprzętową i priorytetami kolejki.
 
 \subsection{Zakres pracy}
 
-Praca obejmuje:
+Zakres rzeczowy zrealizowanego projektu inżynierskiego obejmuje:
 \begin{enumerate}
-	\item analizę wymagań systemu i wybór technologii,
-	\item projekt architektury mikroserwisowej,
-	\item implementację wszystkich komponentów backendowych i frontendowych,
-	\item konfigurację infrastruktury chmurowej (Microsoft Azure),
-	\item wdrożenie systemu przy użyciu kontenerów Docker,
-	\item testy poprawności działania.
+	\item przeprowadzenie analizy wymagań funkcjonalnych i niefunkcjonalnych oraz wybór technologii,
+	\item opracowanie projektu rozproszonej architektury mikroserwisowej,
+	\item implementację komponentów serwerowych (backendowych) oraz aplikacji klienckiej (frontendowej),
+	\item konfigurację i integrację dedykowanej infrastruktury chmurowej w modelu PaaS (\textit{Microsoft Azure}),
+	\item konteneryzację oraz automatyzację procesu wdrożenia systemu przy użyciu narzędzi \textit{Docker} oraz \textit{Docker Compose},
+	\item przeprowadzenie testów weryfikacyjnych i walidacji poprawności działania całego ekosystemu.
 \end{enumerate}
 
 \subsection{Struktura pracy}
 
-Rozdział~\ref{sec:analiza} zawiera analizę wymagań i przegląd istniejących rozwiązań. Rozdział~\ref{sec:technologie} omawia wybrane technologie i uzasadnia decyzje projektowe. Rozdział~\ref{sec:architektura} opisuje architekturę systemu. Rozdziały~\ref{sec:backend}--\ref{sec:agent} szczegółowo omawiają implementację poszczególnych komponentów programowych. Rozdział~\ref{sec:cad} opisuje projekt mechaniczny obudowy w SolidWorks. Rozdział~\ref{sec:rpi} omawia konfigurację Raspberry Pi, automatyzację przez cron i tunel Cloudflare. Rozdział~\ref{sec:wdrozenie} dotyczy wdrożenia i infrastruktury chmurowej Azure. Rozdział~\ref{sec:testy} przedstawia wyniki testów. Praca kończy się podsumowaniem w roziale~\ref{sec:podsumowanie}.
+Niniejsza praca dyplomowa została podzielona na logiczne segmenty, których zawartość odzwierciedla kolejne etapy realizacji projektu. Rozdział~\ref{sec:analiza} zawiera szczegółową analizę wymagań funkcjonalnych i niefunkcjonalnych oraz krytyczny przegląd istniejących rozwiązań rynkowych. W rozdziale~\ref{sec:technologie} omówiono wybrane technologie programistyczne i chmurowe wraz z technicznym uzasadnieniem podjętych decyzji projektowych. Projekt samej architektury rozproszonej oraz przepływy danych w systemie zostały opisane w rozdziale~\ref{sec:architektura}. 
+
+Szczegółowa implementacja poszczególnych komponentów programowych, z uwzględnieniem warstwy serwerowej, klienckiej oraz komponentów pomocniczych, stanowi treść rozdziałów od~\ref{sec:backend} do~\ref{sec:agent}. Z kolei w rozdziale~\ref{sec:cad} przedstawiono proces projektowania mechanicznego i trójwymiarowego modelowania obudowy urządzenia w programie \textit{SolidWorks}. Specyfika konfiguracji mikrokomputera sterującego, automatyzacja zadań systemowych przez mechanizm \textit{cron} oraz konfiguracja bezpiecznego tunelu sieciowego \textit{Cloudflare} zostały przybliżone w rozdziale~\ref{sec:rpi}. 
+
+Końcowe etapy prac, obejmujące orkiestrację infrastruktury chmurowej \textit{Microsoft Azure} oraz procesy konteneryzacji środowiska, opisano w rozdziale~\ref{sec:wdrozenie}. Rezultaty przeprowadzonych testów weryfikacyjnych oraz walidację poprawności działania gotowego ekosystemu zaprezentowano w rozdziale~\ref{sec:testy}. Całość pracy kończy się podsumowaniem oraz wnioskami końcowymi, zawartymi w rozdziale~\ref{sec:podsumowanie}.
+
 
 \newpage
 
@@ -419,58 +420,61 @@ Rozdział~\ref{sec:analiza} zawiera analizę wymagań i przegląd istniejących 
 
 \subsection{Wymagania funkcjonalne}
 
-Na podstawie analizy potrzeb laboratorium studenckiego sformułowano następujące wymagania funkcjonalne:
+Na podstawie szczegółowej analizy specyfiki oraz potrzeb akademickiego laboratorium studenckiego sformułowano następujące wymagania funkcjonalne, z podziałem na role użytkownika standardowego oraz administratora systemu.
 
-\textbf{Dla użytkowników:}
+\noindent\textbf{W obszarze kont użytkowników (rola standardowa):}
 \begin{itemize}
-	\item rejestracja z weryfikacją adresu e-mail (ograniczoną do domeny uczelni \texttt{@uwr.edu.pl}),
-	\item logowanie z użyciem tokenów JWT (access token + refresh token),
-	\item przesyłanie plików G-code (maksymalnie 50~MB, format \texttt{.gcode}),
-	\item planowanie druku na wybrany termin lub dodanie do kolejki ogólnej,
-	\item przeglądanie własnych zadań z filtrowaniem według statusu,
-	\item podgląd postępu druku w czasie rzeczywistym (pasek postępu, temperatura dyszy i podłoża, obraz z kamery),
-	\item anulowanie i ponowne uruchamianie własnych zadań.
+	\item rejestracja konta powiązana z dwuetapową weryfikacją adresu e-mail, ograniczoną wyłącznie do domeny akademickiej \texttt{@uwr.edu.pl},
+	\item bezpieczne uwierzytelnianie i autoryzacja z wykorzystaniem mechanizmu podwójnych tokenów JWT (\textit{access token} oraz \textit{refresh token}),
+	\item asynchroniczne przesyłanie plików z kodem sterującym (G-code) o maksymalnym rozmiarze pojedynczego wolumenu do 50~MB i rozszerzeniu \texttt{.gcode},
+	\item elastyczne harmonogramowanie procesów wytwórczych na wybrany termin kalendarzowy lub lokowanie ich w ogólnej kolejce systemu,
+	\item przeglądanie historii własnych zleceń produkcyjnych z opcją dynamicznego filtrowania według stanów maszyny,
+	\item monitorowanie parametrów środowiskowych i postępu procesu druku 3D w czasie rzeczywistym (weryfikacja paska postępu, temperatury dyszy oraz stołu roboczego, a także podgląd wizyjny z kamery),
+	\item możliwość manualnego anulowania lub ponownego inicjowania własnych zadań.
 \end{itemize}
 
-\textbf{Dla administratorów:}
+\noindent\textbf{W obszarze administracji i nadzoru (rola administratora):}
 \begin{itemize}
-	\item pogląd i zarządzanie wszystkimi użytkownikami systemu,
-	\item zmiana roli użytkownika (użytkownik/administrator),
-	\item podgląd i zarządzanie wszystkimi zadaniami druku,
-	\item potwierdzenie gotowości drukarki do kolejnego zlecenia,
-	\item dostęp do metryk systemowych (liczba zadań według statusu).
+	\item wgląd w rejestr kont oraz zarządzanie profilami wszystkich użytkowników systemu,
+	\item dynamiczna modyfikacja poziomu uprawnień i ról użytkowników (nadawanie statusu \texttt{user} lub \texttt{admin}),
+	\item kompleksowe zarządzanie globalną kolejką oraz historią wszystkich zarejestrowanych zadań drukowania,
+	\item zdalne potwierdzanie fizycznej i operacyjnej gotowości urządzenia do podjęcia kolejnego cyklu produkcyjnego,
+	\item dostęp do zagregowanych metryk systemowych, obejmujących m.in. statystyki zadań z podziałem na statusy.
 \end{itemize}
 
 \subsection{Wymagania niefunkcjonalne}
 
+W celu zapewnienia odpowiedniej jakości, wydajności oraz stabilności działania rozproszonej platformy informatycznej, określono następujące wymagania jakościowe (niefunkcjonalne):
+
 \begin{itemize}
-	\item \textbf{Skalowalność} - architektura powinna umożliwiać dodanie kolejnych drukarek bez przebudowy systemu.
-	\item \textbf{Niezawodność} - utrata wiadomości z kolejki nie powinna powodować trwałej utraty zadania.
-	\item \textbf{Bezpieczeństwo} - dostęp do API chroniony tokenami JWT, hasła przechowywane w formie szyfru bcrypt.
-	\item \textbf{Responsywność interfejsu} - aplikacja frontendowa powinna działać zarówno na urządzeniach desktopowych, jak i mobilnych.
-	\item \textbf{Czas odpowiedzi} - operacje API powinny odpowiadać w czasie poniżej 2 sekund w warunkach normalnego obciążenia.
-	\item \textbf{Przenośność} - wszystkie komponenty opakowane w kontenery Docker, uruchamiane jednym poleceniem.
+	\item \textbf{Skalowalność} --- architektura rozproszona powinna umożliwiać bezproblemową integrację i rejestrację kolejnych fizycznych urządzeń drukujących bez konieczności modyfikacji lub przebudowy rdzenia systemu.
+	\item \textbf{Niezawodność i tolerancja błędów} --- asynchroniczne przetwarzanie komunikatów z wykorzystaniem magistrali powinno gwarantować, że chwilowa niedostępność komponentów nie spowoduje trwałej utraty zlecenia druku ani niespójności stanów w bazie danych.
+	\item \textbf{Bezpieczeństwo danych} --- autoryzacja dostępu do interfejsów programistycznych REST API realizowana za pomocą kryptograficznie podpisanych tokenów JWT, natomiast hasła użytkowników bezwzględnie utrwalane w bazie danych w postaci kryptograficznych skrótów (ang. \textit{hashes}) wygenerowanych algorytmem \textit{bcrypt}.
+	\item \textbf{Responsywność interfejsu} --- warstwa prezentacji (aplikacja frontendowa) musi zostać zaprojektowana zgodnie z paradygmaciem RWD (ang. \textit{Responsive Web Design}), zapewniając pełną ergonomię i poprawność wyświetlania zarówno na urządzeniach stacjonarnych, jak i mobilnych.
+	\item \textbf{Wydajność czasowa} --- czas odpowiedzi punktów końcowych API na zapytania synchroniczne nie powinien przekraczać 2 sekund w warunkach standardowego, nominalnego obciążenia infrastruktury.
+	\item \textbf{Przenośność i konteneryzacja} --- wszystkie komponenty, mikroserwisy oraz bazy danych wchodzące w skład systemu muszą zostać spakowane w niezależne kontenery środowiska \textit{Docker}, umożliwiając pełne uruchomienie całego ekosystemu za pomocą jednego polecenia skryptowego (\textit{Docker Compose}).
 \end{itemize}
 
 \subsection{Przegląd istniejących rozwiązań}
 
-\subsubsection{Octoprint}
+\subsubsection{OctoPrint}
 
-OctoPrint~\cite{octoprint} jest najpopularniejszym oprogramowaniem do zarządzania drukarkami 3D. Działa jako serwer HTTP na Raspberry Pi i udostępnia interfejs webowy, API REST oraz system wtyczek. Umożliwia zdalne sterowanie drukarką, podgląd z kamery i monitorowanie postępu.
+Oprogramowanie \textit{OctoPrint}~\cite{octoprint} stanowi obecnie jedno z najpopularniejszych rozwiązań typu \textit{open-source} dedykowanych do zdalnego zarządzania i monitorowania pojedynczych drukarek 3D. System ten, uruchamiany najczęściej jako usługa serwerowa w środowisku Linux na mikrokomputerze Raspberry Pi, udostępnia responsywny interfejs webowy, programistyczny interfejs REST API oraz rozbudowany ekosystem wtyczek (ang. \textit{plugins}). Umożliwia on bezpośrednie kontrolowanie parametrów mechanicznych i termicznych drukarki, wizualizację kodu sterującego, podgląd wideo z kamery oraz analizę postępu prac.
 
-OctoPrint jest jednak przeznaczony dla jednego użytkownika zarządzającego jedną drukarką. Nie oferuje mechanizmu kolejkowania zadań wielu użytkowników, systemu uwierzytelniania opartego na rolach ani integracji z chmurą. W systemie AddiPi OctoPrint pełni rolę lokalnego sterownika drukarki, nad którym nadbudowano opisywaną w tej pracy warstwę zarządzania.
+Głównym ograniczeniem platformy \textit{OctoPrint} jest jednak jej monolityczna architektura, zaprojektowana z myślą o pojedynczym użytkowniku zarządzającym wyłącznie jedną maszyną. Oprogramowanie to nie oferuje natywnych mechanizmów globalnego kolejkowania zadań dla wielu niezależnych kont, zaawansowanego systemu kontroli dostępu opartego na rolach (RBAC) ani integracji z infrastrukturą chmurową. Z tego względu w projekcie \textit{AddiPi} system \textit{OctoPrint} został wykorzystany wyłącznie w charakterze lokalnego, niskopoziomowego sterownika sprzętowego, nad którym nadbudowano rozproszoną warstwę orkiestracji i zarządzania.
 
-\subsubsection{Mainsail i Fluidd}
+\subsubsection{Mainsail oraz Fluidd}
 
-Mainsail i Fluidd to nowoczesne interfejsy webowe dla firmware Klipper. Podobnie jak OctoPrint, skierowane są do jednego użytkownika i nie przewidują obsługi kolejki wielu użytkowników.
+Ekosystemy \textit{Mainsail} oraz \textit{Fluidd} to nowoczesne, wysoce zoptymalizowane interfejsy webowe współpracujące bezpośrednio z oprogramowaniem układowym (firmware) \textit{Klipper}. Charakteryzują się one niskim narzutem wydajnościowym oraz zaawansowanymi algorytmami kompensacji drgań maszyn. Podobnie jednak jak w przypadku oprogramowania \textit{OctoPrint}, ich architektura została zorientowana na scenariusz jednorodny (jeden operator --- jedno urządzenie) i nie przewiduje mechanizmów współdzielenia zasobów sprzętowych ani wielodostępowej orkiestracji kolejki zadań.
 
-\subsubsection{Rozwiązania komercyjne}
+\subsubsection{Platformy komercyjne}
 
-Oblio, Polar Cloud i Ultimaker Digital Factory to komercyjne platformy zarządzania flotą drukarek 3D w środowisku przemysłowym i edukacyjnym. Oferują zaawansowane funkcje, jednak wiążą się z kosztami subskrypcji i nie pozwalają na pełną kontrolę nad infrastrukturą - co w warunkach laboratorium akademickiego jest istotną przeszkodą.
+Rozwiązania takie jak \textit{3DprinterOS}, \textit{Polar Cloud} czy \textit{Ultimaker Digital Factory} to komercyjne systemy klasy \textit{fleet management}, przeznaczone do scentralizowanego zarządzania rozproszoną flotą drukarek trójwymiarowych w sektorze przemysłowym oraz edukacyjnym. Platformy te udostępniają zaawansowane moduły analityczne i kolejki zadań, jednak ich implementacja wiąże się z wysokimi, cyklicznymi kosztami subskrypcyjnymi. Dodatkowo są to systemy zamknięte, działające w modelu SaaS (\textit{Software as a Service}), co uniemożliwia pełną kontrolę nad integralnością i lokalizacją przetwarzanych danych --- w specyficznych warunkach laboratoriów akademickich stanowi to istotną barierę wdrożeniową.
 
-\subsubsection{Wnioski}
+\subsubsection{Wnioski końcowe}
 
-Żadne z dostępnych rozwiązań o otwartym kodzie źródłowym nie łączy w sobie: systemu uwierzytelniania obsługującego wielu użytkowników, kolejkowania zadań z planowaniem czasowym, integracji z chmurą obliczeniową i sterowaniem przez IoT. System AddiPi wypełnia tę lukę, pozostając jednocześnie w pełni samodziałający i wdrażany lokalnie.
+Przeprowadzona analiza wykazała, że żadne z dostępnych na rynku rozwiązań o otwartym kodzie źródłowym nie łączy w sobie wielodostępowego systemu uwierzytelniania, asynchronicznego kolejkowania zadań z funkcją planowania kalendarzowego, bezpośredniej integracji z chmurą obliczeniową oraz sterowania bazującego na paradygmacie Internetu Rzeczy (IoT). Projekt \textit{AddiPi} skutecznie wypełnia tę lukę technologiczną. Stanowi on autonomiczne, bezpieczne i wysoce elastyczne środowisko, które pozwala na pełną niezależność infrastrukturalną przy jednoczesnym zachowaniu niskich kosztów utrzymania systemu.
+
 
 \newpage
 
@@ -481,64 +485,63 @@ Oblio, Polar Cloud i Ultimaker Digital Factory to komercyjne platformy zarządza
 \section{Wybór technologii}
 \label{sec:technologie}
 
-\subsection{Języki programowania}
+\subsection{Język programowania oraz środowisko uruchomieniowe}
 
-\subsubsection{TypeScript / Node.js}
+\subsubsection{TypeScript oraz Node.js}
 
-Większość serwisów backendowych oraz aplikacja frontendowa zostały napisane w TypeScript~\cite{typescript} - nadzbiorze języka JavaScript dodającym statyczne typowanie. TypeScript znacznie ułatwia utrzymanie dużych baz kodu dzięki wykrywaniu błędów na etapie kompilacji, podpowiedziom IDE i samodokumentowaniu przez typy.
+Większość serwisów backendowych oraz aplikację frontendową zaimplementowano w języku TypeScript~\cite{typescript}, będącym nadzbiorem języka JavaScript, który wprowadza statyczne typowanie. Wybór ten znacząco ułatwia utrzymanie rozbudowanych baz kodu poprzez wykrywanie błędów na etapie kompilacji, zaawansowane wsparcie środowisk programistycznych (IDE) oraz samodokumentowanie struktury danych za pomocą typów.
 
-Node.js~\cite{nodejs} wybrano ze względu na asynchroniczny, nieblokujący model wejścia-wyjścia, który sprawdza się w serwisach obsługujących wiele równoległych połączeń HTTP oraz komunikację z zewnętrznymi usługami (baza danych, kolejka, IoT Hub).
+Platformę Node.js~\cite{nodejs} wybrano ze względu na asynchroniczny, nieblokujący model wejścia-wyjścia. Rozwiązanie to charakteryzuje się wysoką wydajnością w systemach obsługujących liczne, równoległe połączenia HTTP oraz intensywną komunikację z usługami zewnętrznymi, takimi jak bazy danych, kolejki komunikatów czy usługa \textit{Azure IoT Hub}.
 
 \subsubsection{Python}
 
 Agent działający na platformie Raspberry Pi został zaimplementowany w języku Python~\cite{python}. Biblioteki \texttt{azure-iot-device} oraz \texttt{azure-storage-blob} są w tym środowisku powszechnie dostępne i szczegółowo udokumentowane. Python stanowi standardowe rozwiązanie w przypadku aplikacji uruchamianych na systemach wbudowanych oraz mikrokomputerach jednoukładowych (ang. \textit{Single-Board Computer}, SBC).
 
-\subsection{Framework webowy - Express.js}
+\subsection{Framework webowy --- Express.js}
 
-Wszystkie serwisy platformy Node.js wykorzystują framework Express.js~\cite{express} w wersji 5.0. Rozwiązanie to charakteryzuje się minimalistyczną architekturą i niskim narzutem wydajnościowym. Framework nie narzuca sztywnej struktury katalogów (ang. \textit{unopinionated framework}), co pozwala na elastyczne dostosowanie architektury każdego z mikroserwisów do jego specyficznych wymagań. Express.js zapewnia również ustandaryzowane mechanizmy obsługi żądań pośredniczących (ang. \textit{middleware}), routingu oraz zarządzania błędami.
+Wszystkie serwisy warstwy Node.js wykorzystują framework Express.js~\cite{express} w wersji stabilnej 5.0. Rozwiązanie to charakteryzuje się minimalistyczną architekturą i niskim narzutem wydajnościowym. Framework nie narzuca sztywnej struktury katalogów (ang. \textit{unopinionated framework}), co pozwala na elastyczne dostosowanie architektury każdego z mikroserwisów do jego specyficznych wymagań. Express.js zapewnia również ustandaryzowane mechanizmy obsługi żądań pośredniczących (ang. \textit{middleware}), routingu oraz zarządzania błędami.
 
-\subsection{Baza danych - Azure Cosmos DB}
+\subsection{Baza danych --- Azure Cosmos DB}
 
-Azure Cosmos DB~\cite{cosmosdb} to w pełni zarządzana baza NoSQL firmy Microsoft, oferująca globalną dystrybucję danych, elastyczne partycjonowanie oraz obsługę wielu modeli API (SQL, MongoDB, Cassandra, Gremlin, Table). W projekcie AddiPi wykorzystano API SQL (Core), umożliwiające wykonywanie zapytań zbliżonych składnią do języka SQL na dokumentach zapisanych w formacie JSON.
+\textit{Azure Cosmos DB}~\cite{cosmosdb} to w pełni zarządzana, wielomodelowa baza danych typu NoSQL, oferująca globalną dystrybucję danych, elastyczne partycjonowanie oraz natywną obsługę zróżnicowanych interfejsów programistycznych (SQL, MongoDB, Cassandra, Gremlin, Table). W projekcie \textit{AddiPi} wykorzystano interfejs API SQL (Core), który umożliwia wykonywanie zapytań w standardzie zbliżonym do języka SQL na dokumentach w formacie JSON.
 
-Wybór Azure Cosmos DB został podyktowany następującymi czynnikami:
+Wybór tej technologii został podyktowany następującymi czynnikami:
 \begin{itemize}
-	\item brak konieczności zarządzania infrastrukturą serwera bazy danych dzięki wykorzystaniu modelu PaaS (Platform as a Service),
-	\item elastyczny schemat dokumentów umożliwiający przechowywanie danych o różnej strukturze w ramach jednej bazy danych (\texttt{addipi}), z podziałem na odrębne kontenery (\texttt{users}, \texttt{jobs}, \texttt{refresh-tokens}),
-	\item natywna integracja z ekosystemem Microsoft Azure,
-	\item automatyczne indeksowanie wszystkich pól dokumentów.
+	\item \textbf{Model usługowy PaaS (Platform as a Service)} --- pełne zarządzanie infrastrukturą przez dostawcę chmurowego eliminuje konieczność administracji serwerem bazy danych,
+	\item \textbf{Elastyczny schemat danych} --- poszczególne mikroserwisy przechowują obiekty o zróżnicowanej, heterogenicznej strukturze w ramach jednej bazy danych (\texttt{addipi}), z podziałem na dedykowane kontenery (\texttt{users}, \texttt{jobs}, \texttt{refresh-tokens}),
+	\item \textbf{Natywna integracja} --- bezszwowe współdziałanie z pozostałymi komponentami ekosystemu chmurowego \textit{Microsoft Azure},
+	\item \textbf{Automatyczne indeksowanie} --- domyślne indeksowanie wszystkich pól w strukturze dokumentu, co optymalizuje czas wykonywania zapytań.
 \end{itemize}
 
-\subsection{Przechowywanie plików - Azure Blob Storage}
+\subsection{Repozytorium obiektowe --- Azure Blob Storage}
 
-Pliki G-code przesyłane przez użytkowników są przechowywane w usłudze Azure Blob Storage~\cite{blobstorage}, w kontenerze \texttt{gcode}. Usługa ta zapewnia praktycznie nieograniczoną przestrzeń magazynową, relatywnie niskie koszty przechowywania danych oraz prosty interfejs umożliwiający przesyłanie i pobieranie obiektów binarnych.
+Pliki G-code przesyłane przez użytkowników są przechowywane w usłudze repozytorium obiektowego \textit{Azure Blob Storage}~\cite{blobstorage} w ramach dedykowanego kontenera o nazwie \texttt{gcode}. Usługa ta zapewnia niemal nieograniczoną przestrzeń magazynową, wysoki poziom dostępności, relatywnie niskie koszty utrzymania danych oraz zoptymalizowany interfejs API dedykowany do bezpiecznego przesyłania i pobierania dużych obiektów binarnych (ang. \textit{Binary Large Objects}, BLOB).
 
-\subsection{Kolejkowanie - Azure Service Bus}
+\subsection{Broker komunikatów --- Azure Service Bus}
 
-Azure Service Bus~\cite{servicebus} to chmurowa usługa kolejkowania komunikatów klasy enterprise firmy Microsoft. W systemie AddiPi pełni rolę brokera komunikatów pomiędzy usługami Files Service (producent komunikatów) oraz Queue Service (konsument).
+\textit{Azure Service Bus}~\cite{servicebus} to chmurowa usługa kolejkowania komunikatów i zarządzania strumieniami danych klasy korporacyjnej. W architekturze systemu \textit{AddiPi} pełni ona kluczową rolę brokera komunikatów (ang. \textit{message broker}) odpowiedzialnego za asynchroniczne i bezprzerwowe pośrednictwo pomiędzy usługą \textit{Files Service} (producentem komunikatów) a komponentem \textit{Queue Service} (konsumentem).
 
-Kolejka \texttt{print-queue} zapewnia semantykę dostarczania wiadomości typu \newline \texttt{at-least-once}. Oznacza to, że w przypadku awarii usługi konsumenckiej komunikat pozostaje w kolejce i może zostać przetworzony powtórnie po ponownym uruchomieniu konsumenta.
+Dedykowana kolejka \texttt{print-queue} zapewnia niezawodną semantykę dostarczania wiadomości typu \textit{at-least-once} (co najmniej raz). Rozwiązanie to gwarantuje, że w przypadku awarii usługi konsumenckiej lub utraty połączenia sieciowego, komunikat nie zostanie skasowany --- pozostaje on zabezpieczony w strukturze magistrali chmurowej i może zostać przetworzony powtórnie po przywróceniu operacyjności konsumenta, co bezpośrednio realizuje wymaganie niefunkcjonalne dotyczące tolerancji błędów.
 
-\subsection{Sterowanie urządzeniem - Azure IoT Hub}
+\subsection{Sterowanie urządzeniem --- Azure IoT Hub}
 
-Azure IoT Hub~\cite{iothub} to usługa firmy Microsoft przeznaczona do zarządzania urządzeniami Internetu Rzeczy (IoT) w środowisku chmurowym. Umożliwia dwukierunkową komunikację z urządzeniami (Device-to-Cloud oraz Cloud-to-Device), a także wywołanie metod bezpośrednich (Direct Methods), stanowiących synchroniczne wywołania RPC (zdalne wywołanie procedury) wykonane na urządzeniach komunikujących się za pośrednictwem protokołów MQTT lub AMQP.
+\textit{Azure IoT Hub}~\cite{iothub} to usługa chmurowa przeznaczona do scentralizowanego zarządzania, bezpiecznego uwierzytelniania oraz monitorowania urządzeń Internetu Rzeczy (IoT). Usługa ta umożliwia pełną dwukierunkową komunikację (ang. \textit{Device-to-Cloud} oraz \textit{\newline Cloud-to-Device}), a także udostępnia mechanizm metod bezpośrednich (ang. \textit{Direct Methods}). Metody te stanowią synchroniczny wzorzec wywołań typu RPC (ang. \textit{Remote Procedure Call}), realizowany na urządzeniach brzegowych komunikujących się za pośrednictwem protokołów MQTT lub AMQP.
 
-W projekcie AddiPi usługa Printer Service wywołuje na agencie działającym na urządzeniu Raspberry Pi metody \texttt{startPrint}, \texttt{cancelPrint} oraz \texttt{getStatus}. Agent przesyła następnie telemetrię w postaci zdarzeń, takich jak \texttt{print\_started}, \texttt{print\_progress} czy \texttt{print\_completed}, które są odbierane przez usługę Printer Service za pośrednictwem endpointu kompatybilnego z Azure Event Hubs.
+W architekturze systemu \textit{AddiPi} usługa \textit{Printer Service} zdalnie wywołuje na agencie (uruchomionym na platformie Raspberry Pi) metody bezpośrednie: \texttt{startPrint}, \newline\texttt{cancelPrint} oraz \texttt{getStatus}. W odpowiedzi zwrotnej agent transmituje asynchroniczny strumień danych telemetrycznych w postaci zdarzeń systemowych (m.in. \texttt{print\_started}, \texttt{print\_progress} czy \texttt{print\_completed}). Komunikaty te są agregowane przez usługę \textit{Printer Service} za pośrednictwem punktu końcowego zgodnego ze specyfikacją \textit{Azure Event Hubs}.
 
+\subsection{Interfejs użytkownika --- React oraz Vite}
 
-\subsection{Frontend - React i Vite}
+Warstwa prezentacji (interfejs użytkownika) została zaimplementowana z wykorzystaniem biblioteki \textit{React}~\cite{react} w wersji 18 oraz języka TypeScript. W charakterze środowiska deweloperskiego oraz narzędzia do automatyzacji procesu budowania (ang. \textit{bundler}) aplikacji wykorzystano framework \textit{Vite}~\cite{vite}, co pozwoliło na optymalizację czasu kompilacji kodu źródłowego.
 
-Interfejs użytkownika został zbudowany z wykorzystaniem biblioteki React~\cite{react} 18 oraz języka TypeScript. Jako serwer deweloperski i narzędzie do budowania aplikacji wykorzystano Vite~\cite{vite}.
+Do zarządzania globalnym stanem aplikacji klienckiej zastosowano bibliotekę \textit{Zustand}~\cite{zustand}. Rozwiązanie to umożliwia wydajne współdzielenie danych pomiędzy komponentami drzewa DOM w sposób bezstanowy, eliminując konieczność implementowania nadmiarowej i złożonej architektury (takiej jak \textit{Redux}) przy jednoczesnym zachowaniu wysokiej reaktywności interfejsu.
 
-Do zarządzania stanem globalnym aplikacji zastosowano bibliotekę Zustand~\cite{zustand}, umożliwiającą współdzielenie danych pomiędzy komponentami aplikacji w uproszczony sposób, bez konieczności implementowania rozbudowanej logiki zarządzania stanem. 
+Projekt graficzny oraz warstwa stylów zostały zrealizowane przy użyciu frameworka \textit{Tailwind CSS}~\cite{tailwind}. Narzędzie to bazuje na architekturze klas narzędziowych (ang. \textit{utility-first}), w której style interfejsu są komponowane bezpośrednio w strukturze kodu za pomocą predefiniowanych klas reprezentujących pojedyncze właściwości kaskadowych arkuszy stylów.
 
-Warstwa stylów została zrealizowana przy użyciu frameworka Tailwind CSS~\cite{tailwind}, który opiera się na wykorzystaniu niewielkich klas CSS reprezentujących pojedyncze właściwości stylów interfejsu użytkownika.
+\subsection{Konteneryzacja --- Docker oraz Docker Compose}
 
-\subsection{Kontenery - Docker i Docker Compose}
+W celu zapewnienia powtarzalności środowiska uruchomieniowego, każdy z mikroserwisów wchodzących w skład ekosystemu posiada dedykowany plik konfiguracyjny \newline\texttt{Dockerfile}. Proces budowania obrazów realizuje mechanizm wieloetapowy (ang. \textit{multi-stage build}). Podejście to pozwala na drastyczne ograniczenie rozmiaru finalnych obrazów kontenerów oraz całkowite odizolowanie środowiska kompilacji i zależności deweloperskich od produkcyjnego środowiska uruchomieniowego.
 
-Każdy serwis aplikacji posiada własny plik \texttt{Dockerfile} realizujący wieloetapowy proces budowania obrazu kontenera (\textit{multi-stage build}). Rozwiązanie to pozwala na ograniczenie rozmiaru finalnych obrazów oraz oddzielenie środowiska kompilacji od uruchomieniowego.
-
-Docker Compose~\cite{docker} wykorzystano do zarządzania uruchamianiem wszystkich serwisów zarówno w środowisku lokalnym, jak i produkcyjnym. Narzędzie definiuje wspólną sieć \texttt{addipi-network} oraz konfigurację zmiennych środowiskowych odczytywanych z pliku \texttt{.env}.
+Narzędzie \textit{Docker Compose}~\cite{docker} wykorzystano do zautomatyzowanej orkiestracji i zarządzania cyklem życia wszystkich kontenerów zarówno w środowisku lokalnym, jak i produkcyjnym. Narzędzie to definiuje odizolowaną, wspólną sieć wirtualną \texttt{addipi-\allowbreak{}network} oraz odpowiada za bezpieczne wstrzykiwanie zmiennych środowiskowych odczytywanych z pliku \texttt{.env}.
 
 \subsection{CAD - SolidWorks}
 
@@ -546,13 +549,27 @@ Projekt mechaniczny obudowy urządzenia wykonano w programie \textbf{SolidWorks}
 
 Wybór programu SolidWorks był podyktowany dostępnością oprogramowania w ramach licencji studenckiej oraz szerokim wsparciem dla formatów eksportu modeli, takich jak \texttt{.STEP} (neutralny format wymiany modeli CAD), \texttt{.STL} (format wykorzystywany w procesie przygotowania modeli o druku 3D) oraz \texttt{.3MF} (format wymiany zawierający dodatkowe metadane procesu druku).
 
-Projekt został podzielony na pliki\texttt{.SLDPRT}, reprezentujące pojedyncze części, oraz \texttt{.SLDASM}, definiujące kompletne złożenia mechaniczne.
+Projekt został podzielony na pliki \texttt{.SLDPRT}, reprezentujące pojedyncze części, oraz \texttt{.SLDASM}, definiujące kompletne złożenia mechaniczne.
 
 \subsection{Porównanie wybranych alternatyw}
+
+Proces projektowania systemu wymagał wielokryterialnej analizy dostępnych rozwiązań technologicznych. Decyzje architektoniczne oparto na kryteriach takich jak: stopień integracji z chmurą obliczeniową, łatwość skalowania, nakłady na zarządzanie infrastrukturą oraz spójność ekosystemu programistycznego. Zbiorcze zestawienie wszystkich podjętych decyzji projektowych, wybranych technologii oraz odrzuconych alternatyw przedstawiono na rysunku~\ref{fig:tech_comparison}.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.95\textwidth]{tech-comparison.pdf} 
+	\caption{Zbiorcze zestawienie wybranej architektury technologicznej, odrzuconych alternatyw oraz kluczowych powodów decyzyjnych.}
+	\label{fig:tech_comparison}
+\end{figure}
+
+Głównym założeniem przy wyborze warstwy backendowej oraz frontendowej było ujednolicenie stosu technologicznego wokół języka TypeScript oraz środowiska Node.js. Pozwoliło to na współdzielenie typów danych między aplikacją webową (React 18 + Vite) a usługami serwerowymi, co znacząco przyspieszyło proces implementacji. Wyjątek stanowi mikrousługa \textit{Files Service} oraz komponent agenta uruchamiany na platformie Raspberry Pi, gdzie ze względu na specyfikę obsługi interfejsów sprzętowych zdecydowano się na wykorzystanie języka Python. 
+
+Kluczowe znaczenie dla stabilności systemu miało precyzyjne dobranie silnika bazy danych oraz mechanizmu wymiany komunikatów. Szczegółowe porównanie cech rozważanych systemów bazodanowych oraz systemów kolejkowych zestawiono odpowiednio w tabeli~\ref{tab:porownanie_baz} oraz tabeli~\ref{tab:porownanie_kolejek}.
 
 \begin{table}[h!]
 	\centering
 	\caption{Porównanie baz danych rozważanych w projekcie}
+	\label{tab:porownanie_baz}
 	\begin{tabular}{lccc}
 		\toprule
 		\textbf{Cecha} & \textbf{Cosmos DB} & \textbf{PostgreSQL} & \textbf{MongoDB Atlas} \\
@@ -566,9 +583,12 @@ Projekt został podzielony na pliki\texttt{.SLDPRT}, reprezentujące pojedyncze 
 	\end{tabular}
 \end{table}
 
+Jak wynika z tabeli~\ref{tab:porownanie_baz}, baza Azure Cosmos DB została wybrana ze względu na bezobsługowy model bezserwerowy (Serverless PaaS) oraz natywną integrację z ekosystemem Azure. Elastyczny schemat JSON idealnie odpowiada dynamicznej strukturze danych generowanych przez sensory IoT, eliminując narzut związany z migracjami schematu w tradycyjnych bazach relacyjnych (takich jak PostgreSQL).
+
 \begin{table}[h!]
 	\centering
 	\caption{Porównanie rozwiązań kolejkowania wiadomości}
+	\label{tab:porownanie_kolejek}
 	\begin{tabular}{lccc}
 		\toprule
 		\textbf{Cecha} & \textbf{Azure Service Bus} & \textbf{RabbitMQ} & \textbf{Apache Kafka} \\
@@ -582,8 +602,10 @@ Projekt został podzielony na pliki\texttt{.SLDPRT}, reprezentujące pojedyncze 
 	\end{tabular}
 \end{table}
 
-\newpage
+W przypadku infrastruktury kolejki (tab. \ref{tab:porownanie_kolejek}), usługa Azure Service Bus przewyższyła alternatywy brakiem konieczności samodzielnego zarządzania serwerem oraz wbudowaną automatyczną skalowalnością. Narzut konfiguracyjny rozwiązań takich jak Apache Kafka okazał się nieuzasadniony w stosunku do skali projektu, natomiast Azure Service Bus zapewnił wymaganą semantykę dostarczania wiadomości \textit{at-least-once} bezpośrednio po uruchomieniu usługi.
 
+Ostatnim etapem konfiguracji było zdefiniowanie środowiska uruchomieniowego. Odrzucono złożone systemy orkiestracji (Kubernetes) oraz instalacje bezpośrednie (bare metal) na rzecz narzędzia Docker + Compose. Zapewniło to pełną przenośność kodu, powtarzalność wdrożeń przy użyciu wieloetapowego budowania obrazów (\textit{multi-stage build}) oraz bezpieczną izolację usług w ramach dedykowanej sieci wirtualnej o nazwie \texttt{addipi-\allowbreak{}network}.
+\newpage
 % ============================================================
 %  ROZDZIAŁ 4 — ARCHITEKTURA SYSTEMU
 % ============================================================
@@ -1322,7 +1344,46 @@ W tabeli~\ref{tab:video_endpoints} zestawiono i opisano punkty końcowe (ang. \t
 
 \subsection{Struktura aplikacji}
 
+Aplikacja frontendowa zbudowana jest w React 18 z TypeScript, z użyciem Vite jako narzędzia deweloperskiego i bundlera. Routing realizuje React Router v6. Zarządzanie stanem globalnym (dane użytkownika, status drukarki, metryki) odbywa się przez Zustand z middleware \texttt{persist} (przechowywanie preferencji motywu i języka w localStorage).
+
+Struktura katalogów:
+
+\begin{itemize}
+	\item \texttt{src/components/} — komponenty wielokrotnego użytku: \texttt{Card}, \texttt{StatusBadge}, \texttt{ProgressBar}, \texttt{ConfirmDialog}, \texttt{Layout}, \texttt{LoadingSpinner}.
+	\item \texttt{src/pages/} — strony: \texttt{HomePage}, \texttt{LoginPage}, \texttt{RegisterPage}, \texttt{DashboardPage}, \texttt{UploadPage}, \texttt{ProfilePage}, \texttt{PrintControlPage}, \texttt{AdminDashboard}.
+	\item \texttt{src/services/api.ts} — klient Axios dla wszystkich serwisów.
+	\item \texttt{src/store/useStore.ts} — globalny store Zustand.
+	\item \texttt{src/i18n/} — internacjonalizacja (i18next), tłumaczenia PL/EN.
+	\item \texttt{src/types/} — typy TypeScript (\texttt{User}, \texttt{Job}, \texttt{PrinterStatus} itd.).
+	\item \texttt{src/utils/formatters.ts} — funkcje pomocnicze (formatowanie dat, rozmiaru, czasu trwania).
+\end{itemize}
+
 \subsection{Klient API}
+
+Komunikacja z backendiem odbywa się przez klasę \texttt{ApiClient} w pliku \texttt{api.ts}, która tworzy osobne instancje Axios dla każdego serwisu (Auth, User, Printer, Files). Interceptory Axios automatycznie dołączają token JWT do nagłówka \texttt{Authorization} i obsługują odświeżanie tokenu w przypadku odpowiedzi 401:
+
+\begin{lstlisting}[language=,caption={Interceptor automatycznego odświeżania tokenu — api.ts},style=jsonStyle]
+	client.interceptors.response.use(
+	response => response,
+	async (error) => {
+		if (error.response?.status === 401) {
+			const refreshToken = localStorage.getItem('refreshToken');
+			if (refreshToken) {
+				const { data } = await authClient.patch(
+				'/auth/refresh',
+				{ refreshToken }
+				);
+				localStorage.setItem('accessToken', data.accessToken);
+				localStorage.setItem('refreshToken', data.refreshToken);
+				error.config.headers.Authorization =
+				`Bearer ${data.accessToken}`;
+				return axios.request(error.config);
+			}
+		}
+		return Promise.reject(error);
+	}
+	);
+\end{lstlisting}
 
 \subsection{Routing i ochrona tras}
 
