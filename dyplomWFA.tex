@@ -1146,16 +1146,167 @@ W tabeli~\ref{tab:queue_endpoints} zestawiono punkty końcowe udostępniane prze
 
 \subsubsection{Opis ogólny}
 
-\subsubsection{Harmonogram}
+Usługa \textit{Printer Service} stanowi centralny komponent orkiestracji systemu, odpowiedzialny za zaawansowane harmonogramowanie, weryfikację stanów urządzeń oraz nadzór nad realizacją procesów wytwórczych. Mikroserwis ten został zaimplementowany w języku TypeScript i składa się z trzech autonomicznych podsystemów logicznych:
 
-\subsubsection{Monitor gotowości}
+\begin{itemize}
+	\item \textbf{Harmonogram zadań} (uruchamiany cyklicznie z interwałem jednominutowym) --- odpowiada za sekwencyjny wybór kolejnego zadania produkcyjnego przeznaczonego do realizacji na podstawie kryteriów czasowych.
+	
+	\item \textbf{Monitor gotowości urządzenia} (uruchamiany cyklicznie z interwałem pięciominutowym) --- nadzoruje i weryfikuje statusy zadań oczekujących na manualne potwierdzenie gotowości drukarki, egzekwując zdefiniowane limity czasowe (ang. \textit{timeouts}).
+	
+	\item \textbf{Odbiornik telemetrii} (ang. \textit{Telemetry Listener}) --- asynchroniczny komponent zintegrowany z usługą \textit{Azure Event Hubs}, którego zadaniem jest ciągły odbiór zdarzeń telemetrycznych transmitowanych przez agenta sprzętowego oraz bieżąca aktualizacja stanów zadań w bazie danych.
+\end{itemize}
 
-\subsubsection{Listener telemetrii}
+\subsubsection{Mechanizm harmonogramowania}
 
-\subsubsection{Enpointy HTTP API}
+W ramach każdej minutowej iteracji usługa harmonogramująca wykonuje sekwencję operacji kontrolno-decyzyjnych:
+
+\begin{enumerate}
+	\item \textbf{Weryfikacja aktywnego procesu:} System sprawdza, czy w bazie danych istnieje zadanie o statusie \texttt{printing}. W przypadku wykrycia aktywnego procesu drukowania, bieżąca iteracja harmonogramu zostaje natychmiast przerwana.
+	
+	\item \textbf{Weryfikacja stanu oczekiwania:} System kontroluje, czy proces nie został wstrzymany przez zadanie oczekujące na potwierdzenie fizycznej gotowości drukarki. Jeżeli takie zadanie istnieje, wybór kolejnej pozycji z kolejki zostaje pominięty.
+	
+	\item \textbf{Wybór i alokacja zasobu:} W przypadku braku blokad, system wyszukuje zadanie o statusie \texttt{pending} lub \texttt{scheduled} o najwcześniejszej sygnaturze czasowej (\texttt{scheduledAt}), a następnie dokonuje atomowej zmiany jego statusu na \newline\texttt{waiting\_for\_printer\_ready}.
+\end{enumerate}
+
+Na listingu~\ref{lst:start_scheduled_jobs} zaprezentowano implementację logiki wyboru oraz rezerwacji zadania, z uwzględnieniem dialektu zapytań SQL specyficznego dla bazy danych \textit{Azure Cosmos DB}.
+
+
+\begin{lstlisting}[language=TypeScript,caption={Implementacja mechanizmu wyboru i rezerwacji zadań z kolejki (\texttt{startScheduledJobs.ts})},style=tsStyle,label={lst:start_scheduled_jobs}]
+const query = `
+	SELECT TOP 1 * FROM c
+	WHERE (c.status = 'scheduled' OR c.status = 'pending')
+	AND (c.scheduledAt <= "${now}"
+	OR IS_NULL(c.scheduledAt)
+	OR NOT IS_DEFINED(c.scheduledAt))
+	ORDER BY c.scheduledAt ASC
+`;
+const { resources: jobs } = await container.items.query(query).fetchAll();
+
+for (const job of jobs) {
+	if(!job.id) continue;
+	
+	job.status = 'waiting_for_printer_ready';
+	job.waitingStartedAt = nowDate;
+	
+	await container.item(job.id, job.id).replace(job);
+}
+\end{lstlisting}
+
+\subsubsection{Monitor gotowości urządzenia}
+
+Monitor gotowości odpowiada za stałe nadzorowanie zadań znajdujących się w stanach \texttt{waiting\_for\_printer\_ready} oraz \texttt{delayed}. Komponent ten realizuje wielopoziomowy, deterministyczny proces przypomnień i eskalacji stanów:
+
+\begin{itemize}
+	\item \textbf{Po 60 minutach} --- następuje wyzwolenie i wysłanie pierwszego powiadomienia przypominającego.
+	\item \textbf{Po 3 godzinach} --- następuje wysłanie drugiego powiadomienia przypominającego.
+	\item \textbf{Po 12 godzinach} --- system dokonuje automatycznej zmiany statusu zadania na \texttt{delayed}.
+	\item \textbf{Po 48 godzinach} --- proces oczekiwania zostaje przerwany, a zadanie otrzymuje status terminalny \texttt{cancelled}.
+\end{itemize}
+
+Dystrybucja komunikatów alarmowych i powiadomień realizowana jest za pośrednictwem uniwersalnego mechanizmu sieciowego typu Webhook, którego adres docelowy jest definiowany w konfiguracji systemu poprzez zmienną środowiskową \texttt{ALERT\_WEBHOOK\_URL}.
+
+\subsubsection{Odbiornik telemetrii}
+
+Usługa \textit{Printer Service} konsumuje strumień danych telemetrycznych za pośrednictwem punktu końcowego zgodnego ze specyfikacją \textit{Azure Event Hubs}, który jest natywnie udostępniany przez usługę \textit{Azure IoT Hub}. W tabeli~\ref{tab:telemetry_events} zestawiono typy zdarzeń telemetrycznych generowanych przez agenta sprzętowego oraz powiązane z nimi akcje modyfikacji dokumentów w bazie danych \textit{Azure Cosmos DB}.
+
+\begin{table}[H]
+	\centering
+	\caption{Zdarzenia telemetryczne przetwarzane przez usługę Printer Service.}
+	\label{tab:telemetry_events}
+	\begin{tabular}{lp{8.5cm}}
+		\toprule
+		\textbf{Zdarzenie} & \textbf{Akcja w bazie danych Azure Cosmos DB} \\
+		\midrule
+		\texttt{print\_started} & Zmiana statusu zadania na \texttt{printing} oraz rejestracja sygnatury czasowej w polu \texttt{startedAt}. \\
+		\addlinespace
+		\texttt{print\_progress} & Sukcesywna aktualizacja metryk postępu w polach \texttt{progress}, \texttt{printTime} oraz \texttt{printTimeLeft}. \\
+		\addlinespace
+		\texttt{print\_completed} & Zmiana statusu na \texttt{completed} wraz z zapisem czasu zakończenia (\texttt{completedAt}) i całkowitego czasu trwania procesu (\texttt{printDuration}). \\
+		\addlinespace
+		\texttt{print\_failed} & Zmiana statusu na \texttt{failed} oraz utrwalenie kodu błędu lub przyczyny awarii w polu \texttt{failureReason}. \\
+		\addlinespace
+		\texttt{print\_cancelled} & Zmiana statusu na \texttt{cancelled} oraz rejestracja momentu przerwania pracy w polu \texttt{cancelledAt}. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\subsubsection{Punkty końcowe HTTP API}
+
+W tabeli~\ref{tab:printer_endpoints} zestawiono i opisano punkty końcowe (ang. \textit{endpoints}) wystawione przez interfejs sieciowy usługi \textit{Printer Service}.
+
+\begin{xltabular}{\textwidth}{llX}
+	\caption{Punkty końcowe usługi Printer Service.} \label{tab:printer_endpoints} \\
+	\toprule
+	\textbf{Metoda} & \textbf{Ścieżka} & \textbf{Opis} \\
+	\midrule
+	\endfirsthead
+	
+	% Nagłówek powtarzany na kolejnej stronie w przypadku podziału
+	\multicolumn{3}{c}{{\bfseries \tablename\ \thetable{} -- ciąg dalszy z poprzedniej strony}} \\
+	\toprule
+	\textbf{Metoda} & \textbf{Ścieżka} & \textbf{Opis} \\
+	\midrule
+	\endhead
+	
+	% Linia dolna na stronach, gdzie tabela się dzieli
+	\bottomrule
+	\endfoot
+	
+	% Linia dolna na samym końcu tabeli
+	\bottomrule
+	\endlastfoot
+	
+	GET & \texttt{/printer/jobs} & Pobranie spaginowanej listy zadań z obsługą dynamicznego filtrowania wyników. \\
+	\addlinespace
+	GET & \texttt{/printer/jobs/:id} & Pobranie szczegółowych parametrów i metryk wybranego zadania. \\
+	\addlinespace
+	GET & \texttt{/printer/jobs/:id/progress} & Pobranie bieżących informacji o postępie i szacowanym czasie zakończenia aktywnego procesu druku. \\
+	\addlinespace
+	POST & \texttt{/printer/jobs/:id/cancel} & Wymuszenie przerwania i anulowania zadania drukowania (dostęp zastrzeżony dla administratora). \\
+	\addlinespace
+	POST & \texttt{/printer/jobs/:id/retry} & Ponowne dodanie wybranego (np. przerwanego) zadania do kolejki produkcyjnej. \\
+	\addlinespace
+	POST & \texttt{/printer/jobs/:id/confirm-ready} & Zdalne potwierdzenie fizycznej gotowości urządzenia i stołu roboczego przez użytkownika. \\
+	\addlinespace
+	DELETE & \texttt{/printer/jobs/:id} & Trwałe usunięcie rekordu zadania z bazy danych (dostęp zastrzeżony dla administratora). \\
+	\addlinespace
+	GET & \texttt{/printer/status} & Odpytanie usługi \textit{Azure IoT Hub} i pobranie aktualnego stanu operacyjnego fizycznej drukarki 3D. \\
+	\addlinespace
+	GET & \texttt{/printer/metrics} & Pobranie zagregowanych metryk statystycznych systemowych zadań z podziałem na statusy. \\
+	\addlinespace
+	GET & \texttt{/health} & Punkt końcowy diagnostyki stanu działania mikroserwisu (ang. \textit{health check}). \\
+\end{xltabular}
 
 
 \subsection{Video Service}
+
+\subsubsection{Opis ogólny}
+
+Usługa \textit{Video Service} to mikroserwis zaimplementowany w środowisku uruchomieniowym Node.js z wykorzystaniem frameworka Express.js oraz języka JavaScript. Komponent ten odpowiada za tymczasowe przechowywanie aktualnego adresu URL strumienia wideo z kamery systemu \textit{OctoPrint} w pamięci operacyjnej serwera (ang. \textit{in-memory storage}), co eliminuje konieczność ciągłego odpytywania bazy danych o wolnozmienne parametry sieciowe.
+
+Agent uruchamiany na mikrokomputerze Raspberry Pi rejestruje bieżący adres kamery (lokalny adres IP lub adres publiczny udostępniany za pośrednictwem tunelu sieciowego \textit{Cloudflare}) po każdym zainicjowaniu systemu operacyjnego. Aplikacja kliencka (frontendowa) cyklicznie pobiera ten adres i renderuje dynamiczny strumień wideo bezpośrednio w interfejsie użytkownika w elemencie \texttt{<img>} z wykorzystaniem formatu MJPEG (\textit{Motion JPEG}).
+
+\subsubsection{Punkty końcowe API}
+
+W tabeli~\ref{tab:video_endpoints} zestawiono i opisano punkty końcowe (ang. \textit{endpoints}) udostępniane przez interfejs sieciowy usługi \textit{Video Service}.
+
+\begin{table}[htbp]
+	\centering
+	\caption{Punkty końcowe usługi Video Service.}
+	\label{tab:video_endpoints}
+	\begin{tabular}{llp{7cm}}
+		\toprule
+		\textbf{Metoda} & \textbf{Ścieżka} & \textbf{Opis} \\
+		\midrule
+		POST & \texttt{/camera-url} & Rejestracja lub aktualizacja nowego adresu URL strumienia wideo z kamery. \\
+		\addlinespace
+		GET & \texttt{/camera-url} & Pobranie aktualnego adresu URL kamery w celu poprawnego wyrenderowania podglądu. \\
+		\addlinespace
+		GET & \texttt{/health} & Punkt końcowy diagnostyki stanu działania mikroserwisu (ang. \textit{health check}). \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
 
 \newpage
 
