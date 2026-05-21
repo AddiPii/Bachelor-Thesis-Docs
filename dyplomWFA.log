@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.10)  21 MAY 2026 02:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.10)  21 MAY 2026 03:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -528,33 +528,33 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 \Hy@SectionHShift=\skip62
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 65.
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 24
-2.
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 30
+1.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 ) (./dyplomWFA.aux)
 \openout1 = `dyplomWFA.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 242.
-LaTeX Font Info:    ... okay on input line 242.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 242.
-LaTeX Font Info:    ... okay on input line 242.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 242.
-LaTeX Font Info:    ... okay on input line 242.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 242.
-LaTeX Font Info:    ... okay on input line 242.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 242.
-LaTeX Font Info:    ... okay on input line 242.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 242.
-LaTeX Font Info:    ... okay on input line 242.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 242.
-LaTeX Font Info:    ... okay on input line 242.
-LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 242.
-LaTeX Font Info:    ... okay on input line 242.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 242.
-LaTeX Font Info:    ... okay on input line 242.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 242.
-LaTeX Font Info:    ... okay on input line 242.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 301.
+LaTeX Font Info:    ... okay on input line 301.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 301.
+LaTeX Font Info:    ... okay on input line 301.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 301.
+LaTeX Font Info:    ... okay on input line 301.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 301.
+LaTeX Font Info:    ... okay on input line 301.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 301.
+LaTeX Font Info:    ... okay on input line 301.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 301.
+LaTeX Font Info:    ... okay on input line 301.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 301.
+LaTeX Font Info:    ... okay on input line 301.
+LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 301.
+LaTeX Font Info:    ... okay on input line 301.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 301.
+LaTeX Font Info:    ... okay on input line 301.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 301.
+LaTeX Font Info:    ... okay on input line 301.
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count322
@@ -621,7 +621,7 @@ Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count328
-Package hyperref Info: Link coloring ON on input line 242.
+Package hyperref Info: Link coloring ON on input line 301.
 (./dyplomWFA.out) (./dyplomWFA.out)
 \@outlinefile=\write3
 \openout3 = `dyplomWFA.out'.
@@ -671,36 +671,36 @@ File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 \openout4 = `dyplomWFA.toc'.
 
 [6]
-Overfull \hbox (1.49762pt too wide) in paragraph at lines 302--303
+Overfull \hbox (1.49762pt too wide) in paragraph at lines 361--362
 []\T1/ptm/m/n/12 Architektura sys-temu oparta jest na po-dej-±ciu mi-kro-ser-wi
 -so-wym. Wy-od-r¦b-niono sze±¢
  []
 
 
-Overfull \hbox (4.09145pt too wide) in paragraph at lines 302--303
+Overfull \hbox (4.09145pt too wide) in paragraph at lines 361--362
 \T1/ptm/m/n/12 nie-za-le»-nych ser-wi-sów bac-ken-do-wych: uwie-rzy-tel-nia-nia
  (Auth Se-rvice), za-rz¡-dza-nia u»yt-
  []
 
 
-Overfull \hbox (1.69772pt too wide) in paragraph at lines 304--305
+Overfull \hbox (1.69772pt too wide) in paragraph at lines 363--364
 []\T1/ptm/m/n/12 Komunikacja mi¦-dzy ser-wi-sami od-bywa si¦ za po-±red-nic-twe
 m pro-to-koªu HTT-P/REST
  []
 
 [7]
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 3
-27.
+86.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 ) [8] [9]
-Overfull \hbox (18.38045pt too wide) in paragraph at lines 367--368
+Overfull \hbox (18.38045pt too wide) in paragraph at lines 426--427
 []\T1/ptm/m/n/12 rejestracja z we-ry-fi-ka-cj¡ ad-resu e-mail (ogra-ni-czon¡ do
  do-meny uczelni \T1/cmtt/m/n/12 @uwr.edu.pl\T1/ptm/m/n/12 ), 
  []
 
 [10] [11] [12] [13] [14]
-Overfull \hbox (3.01532pt too wide) in paragraph at lines 467--468
+Overfull \hbox (3.01532pt too wide) in paragraph at lines 526--527
 \T1/ptm/m/n/12 syªa na-st¦p-nie te-le-me-tri¦ w po-staci zda-rze«, ta-kich jak 
 \T1/cmtt/m/n/12 print_started\T1/ptm/m/n/12 , \T1/cmtt/m/n/12 print_progress
  []
@@ -709,81 +709,81 @@ Overfull \hbox (3.01532pt too wide) in paragraph at lines 467--468
 <diagram-architektury.pdf, id=758, 597.50786pt x 426.79132pt>
 File: diagram-architektury.pdf Graphic file (type pdf)
 <use diagram-architektury.pdf>
-Package pdftex.def Info: diagram-architektury.pdf  used on input line 564.
+Package pdftex.def Info: diagram-architektury.pdf  used on input line 623.
 (pdftex.def)             Requested size: 426.79135pt x 304.85391pt.
 [17] [18 <./diagram-architektury.pdf>]
 File: diagram-architektury.pdf Graphic file (type pdf)
 <use diagram-architektury.pdf>
-Package pdftex.def Info: diagram-architektury.pdf  used on input line 595.
+Package pdftex.def Info: diagram-architektury.pdf  used on input line 654.
 (pdftex.def)             Requested size: 426.79135pt x 304.85391pt.
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 601.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 660.
 [19]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 605.
+nput line 664.
 [20] [21]
 <cykl-zycia-zadania.pdf, id=979, 511.9125pt x 421.575pt>
 File: cykl-zycia-zadania.pdf Graphic file (type pdf)
 <use cykl-zycia-zadania.pdf>
-Package pdftex.def Info: cykl-zycia-zadania.pdf  used on input line 694.
+Package pdftex.def Info: cykl-zycia-zadania.pdf  used on input line 753.
 (pdftex.def)             Requested size: 426.79135pt x 351.47673pt.
 [22]
-Overfull \hbox (30.15753pt too wide) in paragraph at lines 704--705
+Overfull \hbox (30.15753pt too wide) in paragraph at lines 763--764
 \T1/ptm/m/n/12 nut), prze-ka-zy-wany w na-gªówku pro-to-koªu HTTP (\T1/cmtt/m/n
 /12 Authorization: Bearer <token>\T1/ptm/m/n/12 ).
  []
 
 [23 <./cykl-zycia-zadania.pdf>]
-Underfull \hbox (badness 1540) in paragraph at lines 748--749
+Underfull \hbox (badness 1540) in paragraph at lines 807--808
 []|\T1/ptm/m/n/12 Uwierzytelnienie u»yt-kow-nika; ge-ne-ro-
  []
 
 
-Overfull \hbox (2.039pt too wide) in paragraph at lines 742--763
+Overfull \hbox (2.039pt too wide) in paragraph at lines 801--822
  [][] 
  []
 
 [24]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 770.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 829.
 [25]
-Overfull \hbox (6.62183pt too wide) in paragraph at lines 788--789
+Overfull \hbox (6.62183pt too wide) in paragraph at lines 847--848
 \T1/ptm/m/n/12 muje za-równo kryp-to-gra-ficzn¡ we-ry-fi-ka-cj¦ po-praw-no-±ci 
 pod-pisu cy-fro-wego struk-tury JWT,
  []
 
 [26] [27]
-Underfull \hbox (badness 10000) in paragraph at lines 885--885
+Underfull \hbox (badness 10000) in paragraph at lines 944--944
 []|\T1/ptm/m/n/12 Aktualizacja da-nych oso-bo-wych
  []
 
 
-Underfull \hbox (badness 4328) in paragraph at lines 885--885
+Underfull \hbox (badness 4328) in paragraph at lines 944--944
 []|\T1/ptm/m/n/12 Pobranie hi-sto-rii wszyst-kich za-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 885--885
+Underfull \hbox (badness 10000) in paragraph at lines 944--944
 []|\T1/ptm/m/n/12 Pobranie sta-ty-styk u»yt-kow-nika,
  []
 
 
-Underfull \hbox (badness 3758) in paragraph at lines 885--885
+Underfull \hbox (badness 3758) in paragraph at lines 944--944
 \T1/ptm/m/n/12 obej-mu-j¡-cych m.in. za-gre-go-wan¡
  []
 
 
-Underfull \hbox (badness 1038) in paragraph at lines 885--885
+Underfull \hbox (badness 1038) in paragraph at lines 944--944
 \T1/ptm/m/n/12 liczb¦ za-da« z po-dzia-ªem na ich
  []
 
 
-Underfull \hbox (badness 4279) in paragraph at lines 885--885
+Underfull \hbox (badness 4279) in paragraph at lines 944--944
 \T1/ptm/m/n/12 nie« u»yt-kow-nika o wska-za-nym
  []
 
 
-Underfull \hbox (badness 1521) in paragraph at lines 885--885
+Underfull \hbox (badness 1521) in paragraph at lines 944--944
 []|\T1/ptm/m/n/12 Trwaªe usu-ni¦-cie konta u»yt-kow-
  []
 
@@ -792,48 +792,66 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.885 \end{xltabular}
+l.944 \end{xltabular}
                      ] [29] [30] [31]
 <przeplyw-przesylania-pliku.pdf, id=1194, 511.9125pt x 301.125pt>
 File: przeplyw-przesylania-pliku.pdf Graphic file (type pdf)
 <use przeplyw-przesylania-pliku.pdf>
-Package pdftex.def Info: przeplyw-przesylania-pliku.pdf  used on input line 959
-.
+Package pdftex.def Info: przeplyw-przesylania-pliku.pdf  used on input line 101
+8.
 (pdftex.def)             Requested size: 426.79135pt x 251.05481pt.
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
-) [32 <./przeplyw-przesylania-pliku.pdf>] [33] [34] [35] [36] [37] [38] [39] [4
-0] [41] (./dyplomWFA.bbl
+) [32 <./przeplyw-przesylania-pliku.pdf>]
+Overfull \hbox (5.23775pt too wide) in paragraph at lines 1056--1057
+[]\T1/ptm/m/n/12 Dodatkowo ser-wis udo-st¦p-nia de-dy-ko-wany in-ter-fejs pro-g
+ra-mi-styczny HTTP API, który
+ []
+
+
+Overfull \hbox (5.52641pt too wide) in paragraph at lines 1060--1061
+\T1/ptm/m/n/12 ryjny (ang. \T1/ptm/m/it/12 dead-lettering/abandonment\T1/ptm/m/
+n/12 ) po-przez wy-wo-ªa-nie me-tody \T1/cmtt/m/n/12 abandonMessage()\T1/ptm/m/
+n/12 ,
+ []
+
+[33] [34]
+Underfull \hbox (badness 10000) in paragraph at lines 1133--1134
+\T1/ptm/m/n/12 kod \T1/cmtt/m/n/12 204 No Content \T1/ptm/m/n/12 w przy-padku
+ []
+
+[35] [36] [37] [38] [39] [40] [41] [42] [43] (./dyplomWFA.bbl
 Underfull \hbox (badness 1286) in paragraph at lines 40--44
 []\T1/ptm/m/n/12 Microsoft Cor-po-ra-tion.  Azure IoT Hub do-cu-men-ta-tion.  [
 ][]$\T1/cmtt/m/n/12 https : / / learn .
  []
 
-[42]) [43] [44] (./dyplomWFA.aux)
+[44]) [45] [46] (./dyplomWFA.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `dyplomWFA.out' has not changed.
-(rerunfilecheck)             Checksum: 23BCE9B89EBA3404F46CA22D2368D100;22419.
+(rerunfilecheck)             Checksum: 8B5C475B1BF4199F5E54E0B45135DEC2;22531.
  ) 
 Here is how much of TeX's memory you used:
- 17890 strings out of 476147
- 279819 string characters out of 5794719
- 2149975 words of memory out of 5000000
- 39248 multiletter control sequences out of 15000+600000
- 602294 words of font info for 87 fonts, out of 8000000 for 9000
+ 18005 strings out of 476147
+ 281381 string characters out of 5794719
+ 2132975 words of memory out of 5000000
+ 39304 multiletter control sequences out of 15000+600000
+ 602609 words of font info for 88 fonts, out of 8000000 for 9000
  34 hyphenation exceptions out of 8191
  79i,15n,93p,793b,2155s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600
-pk> </home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1200.60
-0pk></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on dyplomWFA.pdf (44 pages, 420995 bytes).
+ </home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecit1000.600
+pk> </home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.60
+0pk> </home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1200.6
+00pk></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on dyplomWFA.pdf (46 pages, 436341 bytes).
 PDF statistics:
- 1673 PDF objects out of 1728 (max. 8388607)
- 1320 compressed objects within 14 object streams
- 370 named destinations out of 1000 (max. 500000)
+ 1778 PDF objects out of 2073 (max. 8388607)
+ 1399 compressed objects within 14 object streams
+ 428 named destinations out of 1000 (max. 500000)
  1024 words of extra memory for PDF output out of 10000 (max. 10000000)
 

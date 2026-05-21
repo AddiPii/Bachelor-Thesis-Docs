@@ -93,6 +93,17 @@
 \definecolor{pyNumber}{HTML}{098658}       % Liczby
 \definecolor{pyLineNum}{HTML}{9CA3AF}      % Numery linii
 
+% Kolory dla eleganckiego bloku kodu (wspólne z ts i py Style)
+\definecolor{jsBackground}{HTML}{F8F9FA}   % Jasnoszare tło
+\definecolor{jsBorder}{HTML}{E5E7EB}       % Delikatna ramka
+\definecolor{jsText}{HTML}{111827}         % Główny tekst kodu
+\definecolor{jsKeyword}{HTML}{0000FF}      % Słowa kluczowe (const, let, function)
+\definecolor{jsBuiltin}{HTML}{267F99}      % Wbudowane obiekty i funkcje (console, Math, JSON)
+\definecolor{jsString}{HTML}{A31515}       % Stringi
+\definecolor{jsComment}{HTML}{008000}      % Komentarze
+\definecolor{jsNumber}{HTML}{098658}       % Liczby
+\definecolor{jsLineNum}{HTML}{9CA3AF}      % Numery linii
+
 
 \lstdefinestyle{mystyle}{
 	backgroundcolor=\color{backcolour},
@@ -219,6 +230,54 @@
 	showstringspaces=false,
 	showtabs=false,
 	tabsize=4, % Python standardowo używa wcięć na 4 spacje
+	% --- PARAMETRY RAMKI I ODSTĘPÓW ---
+	framesep=5pt,               % Odstęp ramki od kodu w środku
+	xleftmargin=3pt,           % Wcięcie całego bloku z lewej strony
+	xrightmargin=5pt            % Wcięcie bloku z prawej strony
+}
+
+\lstdefinelanguage{JavaScript}{
+	% Główne słowa kluczowe JavaScript
+	keywords={async, await, break, case, catch, class, const, continue, debugger, default, delete, do, else, export, extends, false, finally, for, from, function, get, if, import, in, instanceof, let, new, null, of, return, set, static, super, switch, this, throw, true, try, typeof, var, void, while, with, yield},
+	% Wbudowane obiekty, globalne zmienne i metody (druga grupa)
+	keywords={window, document, console, log, error, warn, Object, Array, String, Number, Boolean, Function, Promise, JSON, Math, Date, RegExp, Map, Set, parseInt, parseFloat, isNaN},
+	sensitive=true,
+	morecomment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	morestring=[b]",
+	morestring=[b]',
+	morestring=[b]`, % Obsługa template literals
+	% Stabilne kolorowanie liczb
+	literate={0}{{\textcolor{jsNumber}{0}}}{1}
+	{1}{{\textcolor{jsNumber}{1}}}{1}
+	{2}{{\textcolor{jsNumber}{2}}}{1}
+	{3}{{\textcolor{jsNumber}{3}}}{1}
+	{4}{{\textcolor{jsNumber}{4}}}{1}
+	{5}{{\textcolor{jsNumber}{5}}}{1}
+	{6}{{\textcolor{jsNumber}{6}}}{1}
+	{7}{{\textcolor{jsNumber}{7}}}{1}
+	{8}{{\textcolor{jsNumber}{8}}}{1}
+	{9}{{\textcolor{jsNumber}{9}}}{1}
+}
+
+\lstdefinestyle{jsStyle}{
+	language=JavaScript,
+	backgroundcolor=\color{jsBackground},
+	commentstyle=\color{jsComment}\itshape,
+	keywordstyle=\color{jsKeyword}\bfseries,
+	keywordstyle=\color{jsBuiltin}, % Kolorowanie wbudowanych obiektów (morski)
+	stringstyle=\color{jsString},
+	numberstyle=\tiny\color{jsLineNum},
+	basicstyle=\footnotesize\fontfamily{cmtt}\selectfont\color{jsText},
+	breaklines=true,
+	captionpos=b,
+	keepspaces=true,
+	numbers=left,
+	numbersep=8pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=2, % Standardowe 2 spacje dla JS
 	% --- PARAMETRY RAMKI I ODSTĘPÓW ---
 	framesep=5pt,               % Odstęp ramki od kodu w środku
 	xleftmargin=3pt,           % Wcięcie całego bloku z lewej strony
@@ -767,55 +826,55 @@ W tabeli~\ref{tab:auth_endpoints} zestawiono i opisano punkty końcowe (ang. \te
 Na listingu~\ref{lst:jwt_generation} przedstawiono implementację funkcji odpowiedzialnych za generowanie tokenu dostępu oraz tokenu odświeżającego przy użyciu biblioteki \texttt{jsonwebtoken}.
 
 \begin{lstlisting}[language=TypeScript,caption={Implementacja generowania tokenów JWT (\texttt{token-service.ts})},style=tsStyle,label={lst:jwt_generation}]
-	export function generateAccessToken(user: User): string {
-		const payload: JWTPayload = {
-			userId: user.id,
-			email: user.email,
-			role: user.role
-		};
-		return jwt.sign(payload, CONFIG.JWT_SECRET, { expiresIn: '15m' });
-	}
-	
-	export function generateRefreshToken(user: User): string {
-		return jwt.sign(
-		{ userId: user.id },
-		CONFIG.JWT_REFRESH_SECRET,
-		{ expiresIn: '7d' }
-		);
-	}
+export function generateAccessToken(user: User): string {
+	const payload: JWTPayload = {
+		userId: user.id,
+		email: user.email,
+		role: user.role
+	};
+	return jwt.sign(payload, CONFIG.JWT_SECRET, { expiresIn: '15m' });
+}
+
+export function generateRefreshToken(user: User): string {
+	return jwt.sign(
+	{ userId: user.id },
+	CONFIG.JWT_REFRESH_SECRET,
+	{ expiresIn: '7d' }
+	);
+}
 \end{lstlisting}
 
 Proces walidacji tokenu odświeżającego (ang. \textit{refresh token}) jest dwuetapowy. Obejmuje zarówno kryptograficzną weryfikację poprawności podpisu cyfrowego struktury JWT, jak i asynchroniczne sprawdzenie obecności oraz ważności powiązanego rekordu w bazie danych \textit{Azure Cosmos DB}. Takie podejście architektoniczne umożliwia natychmiastowe, zdalne unieważnianie sesji (ang. \textit{token revocation}) w momencie wylogowania się użytkownika z systemu. Kod realizujący tę procedurę zaprezentowano na listingu~\ref{lst:jwt_validation}.
 
 \begin{lstlisting}[language=TypeScript,caption={Implementacja walidacji refresh tokenu (\texttt{token-service.ts})},style=tsStyle,label={lst:jwt_validation}]
-	export async function validateRefreshToken(
-	token: string
-	): Promise<string | null> {
-		try {
-			const decoded = jwt.verify(
-			token,
-			CONFIG.JWT_REFRESH_SECRET
-			) as { userId: string };
-			
-			const query = `SELECT * FROM c
-			WHERE c.token = @token
-			AND c.userId = @userId
-			AND c.expiresAt > @now`;
-			
-			const { resources } = await refreshTokensContainer.items.query({
-				query,
-				parameters: [
-				{ name: '@token', value: token },
-				{ name: '@userId', value: decoded.userId },
-				{ name: '@now', value: new Date().toISOString() }
-				]
-			}).fetchAll();
-			
-			return resources.length > 0 ? decoded.userId : null;
-		} catch {
-			return null;
-		}
+export async function validateRefreshToken(
+token: string
+): Promise<string | null> {
+	try {
+		const decoded = jwt.verify(
+		token,
+		CONFIG.JWT_REFRESH_SECRET
+		) as { userId: string };
+		
+		const query = `SELECT * FROM c
+		WHERE c.token = @token
+		AND c.userId = @userId
+		AND c.expiresAt > @now`;
+		
+		const { resources } = await refreshTokensContainer.items.query({
+			query,
+			parameters: [
+			{ name: '@token', value: token },
+			{ name: '@userId', value: decoded.userId },
+			{ name: '@now', value: new Date().toISOString() }
+			]
+		}).fetchAll();
+		
+		return resources.length > 0 ? decoded.userId : null;
+	} catch {
+		return null;
 	}
+}
 \end{lstlisting}
 
 \subsubsection{Weryfikacja adresu poczty elektronicznej}
@@ -891,46 +950,46 @@ Na listingu~\ref{lst:middleware_auth_real} zaprezentowano produkcyjną implement
 Procedura autoryzacji polega na bezpiecznej ekstrakcji tokenu dostępu z nagłówka \texttt{Authorization}, a następnie wykonaniu asynchronicznego żądania sieciowego metodą \texttt{POST} do punktu końcowego usługi \textit{Auth Service}. Po odebraniu odpowiedzi struktura danych jest rzutowana na dedykowany typ \texttt{Data}. W przypadku poprawnej walidacji następuje asercja typu obiektu żądania, wstrzyknięcie profilu użytkownika do pola \texttt{user} oraz wywołanie funkcji \texttt{next()}, która przekazuje sterowanie do kolejnego elementu w potoku przetwarzania (ang. \textit{middleware chain}).
 
 \begin{lstlisting}[language=TypeScript,caption={Implementacja oprogramowania pośredniczącego \texttt{requireAuth} (\texttt{requireAuth.ts})},style=tsStyle,label={lst:middleware_auth_real}]
-	import { CONFIG } from "../config/config";
-	import type { Request, Response, NextFunction } from "express";
-	import { Data, AuthUser } from "./mwTypes";
-	
-	const requireAuth = async (
-	req: Request<{}, unknown, {}, {}>,
-	res: Response<{error: string}>,
-	next: NextFunction
-	): Promise<void | {error: string}> => {
-		try {
-			const token: string | undefined = req.headers.authorization?.replace('Bearer ', '');
-			
-			if (!token) {
-				res.status(401).json({ error: 'Missing authentication token' });
-				return;
-			}
-			
-			const response: globalThis.Response = await fetch(`${CONFIG.AUTH_SERVICE_URL}/auth/verify`, {
-				method: 'POST',
-				headers: {
-					'Authorization': `Bearer ${token}`,
-					'Content-Type': 'application/json'
-				}
-			});
-			
-			const data: Data = await response.json() as Data;
-			
-			if (!response.ok) {
-				throw new Error('Authentication failed');
-			}
-			
-			(req as any).user = data.user;
-			
-			next();
-		} catch (err) {
-			res.status(401).json({ error: 'Invalid authentication token' });
+import { CONFIG } from "../config/config";
+import type { Request, Response, NextFunction } from "express";
+import { Data, AuthUser } from "./mwTypes";
+
+const requireAuth = async (
+req: Request<{}, unknown, {}, {}>,
+res: Response<{error: string}>,
+next: NextFunction
+): Promise<void | {error: string}> => {
+	try {
+		const token: string | undefined = req.headers.authorization?.replace('Bearer ', '');
+		
+		if (!token) {
+			res.status(401).json({ error: 'Missing authentication token' });
+			return;
 		}
-	};
-	
-	export default requireAuth;
+		
+		const response: globalThis.Response = await fetch(`${CONFIG.AUTH_SERVICE_URL}/auth/verify`, {
+			method: 'POST',
+			headers: {
+				'Authorization': `Bearer ${token}`,
+				'Content-Type': 'application/json'
+			}
+		});
+		
+		const data: Data = await response.json() as Data;
+		
+		if (!response.ok) {
+			throw new Error('Authentication failed');
+		}
+		
+		(req as any).user = data.user;
+		
+		next();
+	} catch (err) {
+		res.status(401).json({ error: 'Invalid authentication token' });
+	}
+};
+
+export default requireAuth;
 \end{lstlisting}
 
 \subsection{Files Service}
@@ -992,9 +1051,95 @@ except Exception as e:
 
 \subsubsection{Opis ogólny}
 
-\subsubsection{Listener kolejki}
+Usługa \textit{Queue Service} to mikroserwis zaimplementowany w środowisku uruchomieniowym Node.js przy użyciu języka TypeScript oraz standardu modułów ECMAScript (ang. \textit{ECMAScript Modules}, ESM). Głównym zadaniem komponentu jest asynchroniczne i bezprzerwowe nasłuchiwanie (ang. \textit{listening}) komunikatów publikowanych w magistrali \textit{Azure Service Bus}, a następnie ich transformacja i utrwalanie w postaci dokumentów zadań produkcyjnych w bazie danych \textit{Azure Cosmos DB}.
 
-\subsubsection{Endpointy HTTP API}
+Dodatkowo serwis udostępnia dedykowany interfejs programistyczny HTTP API, który umożliwia innym komponentom systemu (w tym aplikacji klienckiej) monitorowanie stanu kolejki oraz zarządzanie priorytetami zadań.
+
+\subsubsection{Mechanizm nasłuchiwania kolejki}
+
+Na listingu~\ref{lst:queue_listener} przedstawiono implementację procedury odpowiedzialnej za rejestrację i obsługę potoku zdarzeń pochodzących z kolejki chmurowej. Logika biznesowa realizuje bezpieczne parsowanie komunikatów w formacie JSON oraz obsługuje scenariusz awaryjny (ang. \textit{dead-lettering/abandonment}) poprzez wywołanie metody \texttt{abandonMessage()}, co pozwala na zachowanie spójności danych w przypadku wystąpienia błędów infrastrukturalnych.
+
+\begin{lstlisting}[language=JavaScript,caption={Implementacja mechanizmu nasłuchiwania kolejki (\texttt{printQueueListener.js})},style=jsStyle,label={lst:queue_listener}]
+export function startPrintQueueListener(container, receiver) {
+	if (!container) throw new Error('container is required for printQueueListener');
+	if (!receiver) throw new Error('receiver is required for printQueueListener');
+	
+	const messageHandler = async (message) => {
+		try {
+			let data = message.body;
+			if (typeof data === 'string') {
+				try { 
+					data = JSON.parse(data); 
+				} catch(e) { 
+					await receiver.abandonMessage(message); 
+					return; 
+				}
+			}
+			
+			if (!data || data.event !== 'file_uploaded') {
+				return;
+			}
+			
+			const job = {
+				id: Date.now().toString(),
+				fileId: data.fileId,
+				originalFileName: data.originalFileName || null,
+				userId: data.userId,
+				userEmail: data.userEmail,
+				status: data.scheduledAt ? 'scheduled' : 'pending',
+				scheduledAt: data.scheduledAt || null,
+				createdAt: getLocalISO(),
+			};
+			
+			try {
+				await container.items.upsert(job);
+			} catch(upErr) {
+				throw upErr;
+			}
+		} catch(err) {
+			try { 
+				await receiver.abandonMessage(message); 
+			} catch(e) { 
+				// Obsluga bledu komunikacji z repozytorium kolejki
+			}
+		}
+	};
+	
+	const errorHandler = (error) => {
+		console.error('EVENT ERROR:', error);
+	};
+	
+	receiver.subscribe({ 
+		processMessage: messageHandler, 
+		processError: errorHandler 
+	});
+}
+\end{lstlisting}
+
+\subsubsection{Punkty końcowe HTTP API}
+
+W tabeli~\ref{tab:queue_endpoints} zestawiono punkty końcowe udostępniane przez interfejs sieciowy usługi \textit{Queue Service}.
+
+\begin{table}[htbp]
+	\centering
+	\caption{Punkty końcowe usługi Queue Service.}
+	\label{tab:queue_endpoints}
+	\begin{tabular}{llp{7cm}}
+		\toprule
+		\textbf{Metoda} & \textbf{Ścieżka} & \textbf{Opis} \\
+		\midrule
+		GET & \texttt{/queue} & Pobranie spaginowanej listy zadań z możliwością definiowania filtrów wyszukiwania. \\
+		\addlinespace
+		GET & \texttt{/queue/next} & Pobranie kolejnego zadania przeznaczonego bezpośrednio do realizacji (zwraca kod \texttt{204 No Content} w przypadku braku pozycji). \\
+		\addlinespace
+		PATCH & \texttt{/queue/cancel/:id} & Anulowanie wybranego zadania drukowania (dostęp ograniczony do roli administratora). \\
+		\addlinespace
+		GET & \texttt{/queues} & Pobranie metryk i informacji o stanie kolejek w ramach usługi \textit{Azure Service Bus} (dostęp dla administratora). \\
+		\addlinespace
+		GET & \texttt{/health} & Punkt końcowy diagnostyki stanu działania mikroserwisu (ang. \textit{health check}). \\
+		\bottomrule
+	\end{tabular}
+\end{table}
 
 
 \subsection{Printer Service}
