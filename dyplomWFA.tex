@@ -1423,27 +1423,93 @@ function ProtectedRoute({ children, requireAdmin = false }: { children: React.Re
 }
 \end{lstlisting}
 
-\subsection{Ekrany aplikacji}
+\subsection{Ekrany aplikacji klienckiej}
 
-\subsubsection{Strona główna}
+\subsubsection{Strona główna systemu}
 
-Strona główna wyświetla aktualny status drukarki, postęp bieżącego zadania, listę ostatnich ukończonych druków oraz nadchodzące zaplanowane zadania. Dane odświeżane są co 5 sekund.
+Strona główna (ang. \textit{landing page}) agreguje i prezentuje kluczowe parametry operacyjne całego ekosystemu. Na widoku tym wyświetlany jest aktualny status fizycznej drukarki 3D, postęp procentowy i czasowy realizacji bieżącego procesu produkcyjnego, rejestr ostatnio ukończonych wydruków oraz lista nadchodzących zadań zaplanowanych w kolejce. W celu zapewnienia wysokiej reaktywności, dane prezentowane w interfejsie są cyklicznie odświeżane z interwałem 5 sekund. Graficzną reprezentację tego ekranu przedstawiono na rysunku~\ref{fig:website_home}.
 
-\subsubsection{Dashboard użytkownika}
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=0.47\textheight,keepaspectratio]{strona-glowna.png} 
+	\caption{Widok strony głównej portalu \textit{AddiPi}.}
+	\label{fig:website_home}
+\end{figure}
 
-Dashboard prezentuje statystyki własnych zadań (liczba wg statusu), aktywne zadanie z paskiem postępu i czasem pozostałym oraz filtrowalną listę historii. Użytkownik może anulować aktywne zadanie, ponowić nieudane lub przejść do ekranu kontroli druku.
+\subsubsection{Panel użytkownika}
 
+Panel użytkownika (ang. \textit{User Dashboard}) stanowi spersonalizowane centrum dowodzenia procesami wytwórczymi przypisanymi do danego konta. Widok ten zaprezentowano na rysunku~\ref{fig:website_dashboard}. Ekran ten udostępnia:
+\begin{itemize}
+	\item zagregowane statystyki zadań (liczbę przesłanych zleceń z podziałem na statusy),
+	\item parametry aktywnego procesu drukowania, obejmujące dynamiczny pasek postępu oraz estymowany czas pozostały do zakończenia operacji,
+	\item kompletną historię operacji z modułem wyszukiwania i filtrowania danych.
+\end{itemize}
 
-\subsubsection{Upload i planowanie}
+Z poziomu tego panelu zalogowany operator posiada uprawnienia do manualnego anulowania aktywnego zadania, ponownego zakolejkowania procesu zakończenia niepowodzeniem (ang. \textit{retry flow}) oraz bezpośredniego przejścia do dedykowanego ekranu szczegółowej kontroli procesu drukowania.
 
-\subsubsection{Kontrola druku}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{dashboard.png} 
+	\caption{Widok panelu użytkownika portalu \textit{AddiPi}.}
+	\label{fig:website_dashboard}
+\end{figure}
+
+\subsubsection{Przesyłanie i planowanie zadań}
+
+Ekran przesyłania plików (\texttt{UploadPage}), zaprezentowany na rysunku~\ref{fig:website_upload}, udostępnia użytkownikom intuicyjny interfejs typu \textit{drag-and-drop} (przeciągnij i upuść). Komponent ten realizuje wstępną walidację po stronie klienta, weryfikując poprawne rozszerzenie (\texttt{.gcode}) oraz dopuszczalny rozmiar przesyłanego wolumenu. 
+
+Widok został wyposażony w opcjonalny moduł harmonogramowania terminu realizacji zadania, bazujący na selektorze daty i godziny (ang. \textit{date-time picker}). Interfejs w sposób reaktywny informuje operatora o statusie operacji sieciowej, wyświetlając dedykowane komunikaty o poprawnym przetworzeniu lub błędzie zapytania HTTP.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.95\textwidth]{upload-print.png} 
+	\caption{Widok panelu przesyłania i planowania zadań w portalu \textit{AddiPi}.}
+	\label{fig:website_upload}
+\end{figure}
+
+\subsubsection{Kontrola procesu drukowania}
+
+Dedykowany ekran kontroli procesu drukowania (\texttt{PrintControlPage}), zaprezentowany na rysunku~\ref{fig:website_control}, agreguje szczegółowe parametry techniczne aktywnego zlecenia. Widok ten udostępnia dynamiczny pasek postępu, bieżące odczyty temperatury dyszy ekstrudera oraz stołu roboczego, a także strumień wideo z kamery systemu \textit{OctoPrint}. Strumień ten, przesyłany asynchronicznie w formacie MJPEG, jest renderowany bezpośrednio w strukturze dokumentu w elemencie \texttt{<img>}.
+
+Interfejs został wyposażony w panel akcji operacyjnych, który umożliwia uprawnionym użytkownikom wstrzymanie lub wznowienie procesu wytwórczego oraz zdalne potwierdzenie fizycznej gotowości urządzenia do pracy. Poniżej sekcji wizualnej prezentowane są metryki i parametry konfiguracyjne powiązane z realizowanym zadaniem.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{print-control.png} 
+	\caption{Widok panelu kontroli procesu drukowania w portalu \textit{AddiPi}.}
+	\label{fig:website_control}
+\end{figure}
 
 \subsubsection{Panel administracyjny}
 
+Panel administracyjny (ang. \textit{Admin Dashboard}) udostępnia personelowi zarządzającemu globalny wgląd w rejestry wszystkich kont użytkowników oraz zadań produkcyjnych w systemie. Dane te są prezentowane w postaci ustrukturyzowanych tabel zaimplementowanych z modułami zaawansowanego sortowania, wyszukiwania i filtrowania, co zobrazowano na rysunku~\ref{fig:admin_panel}.
 
-\subsection{Internacjonalizacja}
+Z poziomu tego widoku administrator posiada uprawnienia do:
+\begin{itemize}
+	\item modyfikacji uprawnień i ról użytkowników (nadawanie statusu \texttt{admin} lub \texttt{user}),
+	\item trwałego usuwania profili użytkowników z bazy danych,
+	\item kompleksowego zarządzania cyklem życia wszystkich zadań w kolejce, włączając w to ich wymuszone anulowanie, ponowne zakolejkowanie lub usunięcie z rejestru.
+\end{itemize}
 
-\subsection{Obsługa motywu}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{admin-panel.png} 
+	\caption{Widok panelu administracyjnego portalu \textit{AddiPi}.}
+	\label{fig:admin_panel}
+\end{figure}
+
+\subsection{Internacjonalizacja aplikacji}
+
+W celu zapewnienia uniwersalności oraz dostępności systemu, interfejs użytkownika został przygotowany w dwóch wersjach językowych: polskiej (ustawionej jako domyślna) oraz angielskiej. Warstwa translacji opiera się na bibliotece \textit{i18next}, a same tłumaczenia poszczególnych fraz i etykiet są przechowywane w ustrukturyzowanych plikach formatu JSON (\texttt{pl.json} oraz \texttt{en.json}), zlokalizowanych w dedykowanym katalogu \texttt{src/i18n/locales/}.
+
+Przełączanie wersji językowej realizowane jest w sposób dynamiczny i asynchroniczny, eliminując konieczność ponownego przeładowania struktury dokumentu DOM przez przeglądarkę internetową. Jako dowód poprawnego działania mechanizmu umiędzynarodowienia (ang. \textit{internationalization}), na opisanym wcześniej rysunku~\ref{fig:website_upload} zaprezentowano widok panelu przesyłania zadań z aktywnym językiem angielskim.
+
+\subsection{Zarządzanie motywami graficznymi interfejsu}
+
+Aplikacja kliencka w pełni obsługuje dwa warianty wizualne interfejsu użytkownika: motyw jasny (ang. \textit{light mode}) oraz ciemny (ang. \textit{dark mode}). Architektura tego mechanizmu bazuje na natywnych zmiennych CSS (ang. \textit{CSS custom properties}), które zdefiniowano w selektorach \texttt{:root} oraz \texttt{.dark}. Są one dynamicznie interpretowane i wstrzykiwane przez silnik frameworka \textit{Tailwind CSS}.
+
+Bieżąca preferencja operatora dotycząca wybranego schematu kolorów jest utrwalana w pamięci podręcznej \texttt{localStorage} z wykorzystaniem mechanizmu automatycznej persystencji stanu globalnego biblioteki \textit{Zustand}. Pozwala to na zachowanie wybranego wariantu przy kolejnych sesjach użytkownika. Dla porównania walorów wizualnych, na przytoczonym wcześniej rysunku~\ref{fig:admin_panel} przedstawiono interfejs panelu administracyjnego z aktywnym motywem jasnym, podczas gdy pozostałe ekrany zobrazowano w domyślnym wariancie ciemnym.
+
 
 \newpage
 

@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex dyplomWFA"] 1779406724.97342 "dyplomWFA.aux" "dyplomWFA.bbl" "dyplomWFA" 1779406725.61631 0
+["bibtex dyplomWFA"] 1779411431.24245 "dyplomWFA.aux" "dyplomWFA.bbl" "dyplomWFA" 1779411432.27915 0
   "./bibliografia.bib" 1779060150.5266 3747 2c97769d7bde0818a8719e71248f2afa ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "dyplomWFA.aux" 1779406725.54072 26145 a6c454388991caa09bf821fad407c90c "pdflatex"
+  "dyplomWFA.aux" 1779411432.16578 28235 473f55c40d9b41add3391e0280610457 "pdflatex"
   (generated)
   "dyplomWFA.bbl"
   "dyplomWFA.blg"
   (rewritten before read)
-["pdflatex"] 1779406724.98876 "dyplomWFA.tex" "dyplomWFA.pdf" "dyplomWFA" 1779406725.61647 0
+["pdflatex"] 1779411431.27422 "dyplomWFA.tex" "dyplomWFA.pdf" "dyplomWFA" 1779411432.2793 0
   "/etc/texmf/web2c/texmf.cnf" 1778443435.62456 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecit1000.600pk" 1779325020.33418 26704 be106c85f7c76012ed82c73002c20233 ""
   "/home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk" 1778504777.11581 20008 57f77999dde6ccfb99116543975b33b2 ""
@@ -29,7 +29,10 @@
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/zptmcm7v.tfm" 1136768653 1032 20febbd0f0c9a48eb78616f897008286 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/zptmcm7y.tfm" 1136768653 1520 ad7b3c1a480a03b3e41b5fbb13d938f2 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecit1000.tfm" 1136768653 1536 34ad639b0caa1b405dc14b9703b4e5b9 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecit1200.tfm" 1136768653 1536 931f72ad28a2b51c41231609a9d95d3a ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1200.tfm" 1136768653 3584 f80ddd985bd00e29e9a6047ebd9d4781 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecst1200.tfm" 1136768653 1536 e738ac7d579e4c3492ee78c82b105fd9 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectc1200.tfm" 1136768653 1536 dc72001edeb3a38d08b29c8d2bdf55f2 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectt1000.tfm" 1136768653 1536 06717a2b50de47d4087ac0e6cd759455 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectt1200.tfm" 1136768653 1536 487c9b46984a816c7ed238d0674595c7 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -104,6 +107,7 @@
   "/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty" 1705871765 11026 182c63f139a71afd30a28e5f1ed2cd1c ""
   "/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def" 1705871765 14249 e67cb186717b7ab18d14a4875e7e98b5 ""
   "/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def" 1705871765 117112 05831178ece2cad4d9629dcf65099b11 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/hyphenat/hyphenat.sty" 1252025529 5798 0437b031e663035b68539cf7ac7c8eeb ""
   "/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty" 1655478651 22555 6d8e155cfef6d82c3d5c742fea7c992e ""
   "/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty" 1665067230 13815 760b0c02f691ea230f5359c4e1de23a7 ""
   "/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def" 1704491087 30006 57b07afb710ee2f649c65cfbafda39c1 ""
@@ -144,15 +148,20 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1778443441.63762 134010 f1887e56959c0569e2f0dd6e19ae604f ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1778443460 6814157 84f02840595401b3a65a5ca7e425812f ""
   "Diagram-DB.pdf" 1779371832.31182 26685 5c07f3a9ecb3bf327a193231ac7fd06d ""
+  "admin-panel.png" 1779410467.03147 106940 eca2a79c7e2268b958bc5ad6dbc8f0e1 ""
   "cykl-zycia-zadania.pdf" 1779151447.17899 69219 2639c881c91a50ad08f11a69f1f68a44 ""
+  "dashboard.png" 1779409484.20693 89119 f11bb1d42d2a9995ea275c6de73170da ""
   "diagram-architektury.pdf" 1779147745.78817 95966 246f6e1390e8d002ec9292c46d2a5642 ""
-  "dyplomWFA.aux" 1779406725.54072 26145 a6c454388991caa09bf821fad407c90c "pdflatex"
-  "dyplomWFA.bbl" 1779406724.98572 2705 6c185c25c9adaf5cdca53c0510af67b0 "bibtex dyplomWFA"
-  "dyplomWFA.out" 1779406725.54172 23729 a7ec98bec5d45e8f78b010da484a7575 "pdflatex"
-  "dyplomWFA.tex" 1779406724.87781 91001 58bf544e27a0498c12966c469c624003 ""
-  "dyplomWFA.toc" 1779406725.54172 12052 e2b102c096cc9f2847988259d9134dd9 "pdflatex"
+  "dyplomWFA.aux" 1779411432.16578 28235 473f55c40d9b41add3391e0280610457 "pdflatex"
+  "dyplomWFA.bbl" 1779411431.26977 2705 6c185c25c9adaf5cdca53c0510af67b0 "bibtex dyplomWFA"
+  "dyplomWFA.out" 1779411432.16878 24287 a23f63f620ff44db6062fd29e24026d5 "pdflatex"
+  "dyplomWFA.tex" 1779411352.33025 99720 7b1c557629d01b7136a4635e495c817d ""
+  "dyplomWFA.toc" 1779411432.16978 12159 cad1f2fe460f966db4af82c7fa705705 "pdflatex"
+  "print-control.png" 1779410618.49219 77489 e05defd3c41a513c6ad70695ba1cb3cc ""
   "przeplyw-przesylania-pliku.pdf" 1779323990.95354 85327 657ef376de0f3759b81ed23908086ea0 ""
+  "strona-glowna.png" 1779409137.31002 103904 c7c4211c5937e8b45919a63fbe61e32c ""
   "tech-comparison.pdf" 1779373010.13903 21596 01c5ea6d9aae7cfd715b7df4a0f2a472 ""
+  "upload-print.png" 1779410325.96887 41255 1152b669f80badcf0ac84d4b4f34ae4c ""
   (generated)
   "dyplomWFA.aux"
   "dyplomWFA.log"
