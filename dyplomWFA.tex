@@ -39,6 +39,7 @@
 
 \usepackage{tabularx}
 \usepackage{xltabular}
+\usepackage[htt]{hyphenat}
 
 % --- NOWY KRÓJ PISMA I INTERLINIA ---
 \usepackage{mathptmx} % Zamiennik Times New Roman dla LaTeX
@@ -784,7 +785,7 @@ Na rysunku~\ref{fig:state_machine} przedstawiono formalny model maszyny stanów,
 W celu zapewnienia poufności danych oraz kontroli dostępu, w systemie zaimplementowano dwutokenowy model uwierzytelniania oparty na standardzie JWT (\textit{JSON Web Token}). Mechanizm ten wykorzystuje dwa rodzaje obiektów:
 
 \begin{itemize}
-	\item \textbf{Access token} --- token dostępu o krótkim czasie autoryzacji (ważny przez 15 minut), przekazywany w nagłówku protokołu HTTP (\texttt{Authorization: Bearer <token>}). Integralność i autentyczność tokenu są weryfikowane kryptograficznie przy użyciu klucza symetrycznego \texttt{JWT\_SECRET}.
+	\item \textbf{Access token} --- token dostępu o krótkim czasie autoryzacji (ważny przez 15 minut), przekazywany w nagłówku protokołu HTTP (\texttt{Authorization: Bearer \newline<token>}). Integralność i autentyczność tokenu są weryfikowane kryptograficznie przy użyciu klucza symetrycznego \texttt{JWT\_SECRET}.
 	
 	\item \textbf{Refresh token} --- token odświeżający o wydłużonym czasie ważności (wynoszącym 7 dni), utrwalany w bazie danych \textit{Azure Cosmos DB} oraz przechowywany po stronie aplikacji klienckiej. Podpisywany jest przy użyciu dedykowanego klucza \texttt{JWT\_REFRESH\_SECRET}. Służy do generowania nowej pary tokenów bez konieczności ponownego wprowadzania danych uwierzytelniających przez użytkownika.
 \end{itemize}
@@ -1339,59 +1340,99 @@ W tabeli~\ref{tab:video_endpoints} zestawiono i opisano punkty końcowe (ang. \t
 % ============================================================
 %  ROZDZIAŁ 6 — FRONTEND
 % ============================================================
-\section{Implementacja frontendu}
+\section{Implementacja warstwy prezentacji}
 \label{sec:frontend}
 
-\subsection{Struktura aplikacji}
+\subsection{Struktura architektoniczna aplikacji klienckiej}
 
-Aplikacja frontendowa zbudowana jest w React 18 z TypeScript, z użyciem Vite jako narzędzia deweloperskiego i bundlera. Routing realizuje React Router v6. Zarządzanie stanem globalnym (dane użytkownika, status drukarki, metryki) odbywa się przez Zustand z middleware \texttt{persist} (przechowywanie preferencji motywu i języka w localStorage).
+Aplikacja frontendowa została zaimplementowana z wykorzystaniem biblioteki \textit{React} w wersji 18 oraz języka TypeScript. Jako środowisko deweloperskie i narzędzie budujące (ang. \textit{bundler}) wykorzystano \textit{Vite}, natomiast zarządzanie mapowaniem adresów URL i nawigacją realizowane jest przy użyciu biblioteki \textit{React Router} w wersji 6.
 
-Struktura katalogów:
+Zarządzanie globalnym stanem aplikacji klienckiej (obejmującym dane profilowe zalogowanego użytkownika, bieżący status operacyjny drukarki oraz metryki systemowe) powierzono bibliotece \textit{Zustand}. W celu zachowania ciągłości sesji i preferencji interfejsu (takich jak motyw graficzny czy wybrany język), wykorzystano oprogramowanie pośredniczące \texttt{persist}, które automatyzuje proces synchronizacji i trwałego przechowywania danych w pamięci podręcznej \texttt{localStorage} przeglądarki internetowej.
 
+Struktura drzewa katalogów aplikacji została zorganizowana w sposób modułowy i przedstawia się następująco:
 \begin{itemize}
-	\item \texttt{src/components/} — komponenty wielokrotnego użytku: \texttt{Card}, \texttt{StatusBadge}, \texttt{ProgressBar}, \texttt{ConfirmDialog}, \texttt{Layout}, \texttt{LoadingSpinner}.
-	\item \texttt{src/pages/} — strony: \texttt{HomePage}, \texttt{LoginPage}, \texttt{RegisterPage}, \texttt{DashboardPage}, \texttt{UploadPage}, \texttt{ProfilePage}, \texttt{PrintControlPage}, \texttt{AdminDashboard}.
-	\item \texttt{src/services/api.ts} — klient Axios dla wszystkich serwisów.
-	\item \texttt{src/store/useStore.ts} — globalny store Zustand.
-	\item \texttt{src/i18n/} — internacjonalizacja (i18next), tłumaczenia PL/EN.
-	\item \texttt{src/types/} — typy TypeScript (\texttt{User}, \texttt{Job}, \texttt{PrinterStatus} itd.).
-	\item \texttt{src/utils/formatters.ts} — funkcje pomocnicze (formatowanie dat, rozmiaru, czasu trwania).
+	\item \texttt{src/components/} --- komponenty interfejsu użytkownika wielokrotnego użytku, odpowiadające za renderowanie pojedynczych elementów (m.in. \texttt{Card}, \texttt{StatusBadge}, \texttt{ProgressBar}, \texttt{ConfirmDialog}, \texttt{Layout}, \texttt{LoadingSpinner}),
+	\item \texttt{src/pages/} --- komponenty wysokiego poziomu reprezentujące autonomiczne widoki aplikacji (m.in. \texttt{HomePage}, \texttt{LoginPage}, \texttt{RegisterPage}, \texttt{DashboardPage}, \texttt{UploadPage}, \texttt{ProfilePage}, \texttt{PrintControlPage}, \texttt{AdminDashboard}),
+	\item \texttt{src/services/api.ts} --- implementacja scentralizowanego klienta API odpowiedzialnego za komunikację sieciową z backendową warstwą mikroserwisów,
+	\item \texttt{src/store/useStore.ts} --- implementacja globalnego magazynu stanu (ang. \textit{store}) biblioteki \textit{Zustand},
+	\item \texttt{src/i18n/} --- konfiguracja internacjonalizacji aplikacji oparta na bibliotece \textit{i18next} wraz z plikami translacji interfejsu,
+	\item \texttt{src/types/} --- definicje interfejsów i typów języka TypeScript, w tym struktur \texttt{User}, \texttt{Job} oraz \texttt{PrinterStatus},
+	\item \texttt{src/utils/formatters.ts} --- funkcje pomocnicze realizujące operacje bezstanowe, takie jak formatowanie dat, rozmiarów plików czy czasu.
 \end{itemize}
 
-\subsection{Klient API}
+\subsection{Scentralizowany klient API}
 
-Komunikacja z backendiem odbywa się przez klasę \texttt{ApiClient} w pliku \texttt{api.ts}, która tworzy osobne instancje Axios dla każdego serwisu (Auth, User, Printer, Files). Interceptory Axios automatycznie dołączają token JWT do nagłówka \texttt{Authorization} i obsługują odświeżanie tokenu w przypadku odpowiedzi 401:
+Komunikacja z rozproszoną warstwą backendową realizowana jest przez klasę \texttt{ApiClient} zdefiniowaną w module \texttt{api.ts}. Klasa ta enkapsuluje i konfiguruje niezależne instancje biblioteki \textit{Axios} dedykowane dla poszczególnych mikroserwisów systemu (\textit{Auth Service}, \textit{User Service}, \textit{Printer Service} oraz \textit{Files Service}).
 
-\begin{lstlisting}[language=,caption={Interceptor automatycznego odświeżania tokenu — api.ts},style=jsonStyle]
-	client.interceptors.response.use(
+W celu automatyzacji obsługi protokołu HTTP, w konfiguracji instancji zaimplementowano mechanizmy przechwytujące (ang. \textit{interceptors}). Odpowiadają one za automatyczne wstrzykiwanie tokenu dostępu do nagłówka \texttt{Authorization} (w standardzie \textit{Bearer}) dla każdego żądania wychodzącego, a także realizują asynchroniczną procedurę odświeżania sesji w przypadku przechwycenia odpowiedzi z kodem błędu HTTP 401 (\textit{Unauthorized}).
+
+Na listingu~\ref{lst:axios_interceptor} przedstawiono implementację interceptora odpowiedzi, który w sposób reaktywny zarządza odświeżaniem tokenów i ponawianiem pierwotnych żądań sieciowych.
+
+
+\begin{lstlisting}[language=TypeScript,caption={Implementacja interceptora automatycznego odświeżania tokenów JWT (\texttt{api.ts})},style=tsStyle,label={lst:axios_interceptor}]
+client.interceptors.response.use(
 	response => response,
-	async (error) => {
+	async (error: AxiosError) => {
 		if (error.response?.status === 401) {
-			const refreshToken = localStorage.getItem('refreshToken');
-			if (refreshToken) {
-				const { data } = await authClient.patch(
-				'/auth/refresh',
-				{ refreshToken }
-				);
-				localStorage.setItem('accessToken', data.accessToken);
-				localStorage.setItem('refreshToken', data.refreshToken);
-				error.config.headers.Authorization =
-				`Bearer ${data.accessToken}`;
-				return axios.request(error.config);
+			try {
+				const refreshToken = localStorage.getItem('refreshToken');
+				if (refreshToken) {
+					const { data } =
+					await this.authClient.patch<
+						Omit<AuthResponse, 'user'>
+					>(
+						'/auth/refresh',
+						{ refreshToken }
+					);
+					localStorage.setItem('accessToken', data.accessToken);
+					localStorage.setItem('refreshToken', data.refreshToken);
+					if (error.config) {
+						error.config.headers.Authorization = `Bearer ${data.accessToken}`;
+						return axios.request(error.config);
+					}
+				}
+			} catch {
+				this.logout();
 			}
 		}
 		return Promise.reject(error);
 	}
-	);
+);
 \end{lstlisting}
 
-\subsection{Routing i ochrona tras}
+\subsection{Mechanizm routingu i ochrona tras}
+
+W celu zapewnienia selektywnej kontroli dostępu do zasobów warstwy prezentacji, w aplikacji zaimplementowano mechanizm tras chronionych (ang. \textit{protected routes}). Wykorzystuje on autorski komponent opakowujący, który dynamicznie weryfikuje stan sesji użytkownika. Dostęp do widoków domenowych wymaga aktywnego uwierzytelnienia, podczas gdy trasy administracyjne realizują dodatkową autoryzację opartą na rolach (RBAC), sprawdzając uprawnienia użytkownika przed wyrenderowaniem komponentów docelowych.
+
+Na listingu~\ref{lst:protected_route} zaprezentowano deklaratywną implementację komponentu \texttt{ProtectedRoute}, zintegrowanego z globalnym magazynem stanu systemu.
+
+\begin{lstlisting}[language=TypeScript,caption={Implementacja komponentu tras chronionych (\texttt{App.tsx})},style=tsStyle,label={lst:protected_route}]
+function ProtectedRoute({ children, requireAdmin = false }: { children: React.ReactNode; requireAdmin?: boolean }) {
+	
+	const { isAuthenticated, user } = useStore();
+	
+	if (!isAuthenticated) {
+		return <Navigate to="/login" replace />;
+	}
+	
+	if (requireAdmin && user?.role !== 'admin') {
+		return <Navigate to="/" replace />;
+	}
+	
+	return <>{children}</>;
+}
+\end{lstlisting}
 
 \subsection{Ekrany aplikacji}
 
 \subsubsection{Strona główna}
 
+Strona główna wyświetla aktualny status drukarki, postęp bieżącego zadania, listę ostatnich ukończonych druków oraz nadchodzące zaplanowane zadania. Dane odświeżane są co 5 sekund.
+
 \subsubsection{Dashboard użytkownika}
+
+Dashboard prezentuje statystyki własnych zadań (liczba wg statusu), aktywne zadanie z paskiem postępu i czasem pozostałym oraz filtrowalną listę historii. Użytkownik może anulować aktywne zadanie, ponowić nieudane lub przejść do ekranu kontroli druku.
+
 
 \subsubsection{Upload i planowanie}
 

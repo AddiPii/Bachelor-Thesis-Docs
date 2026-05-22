@@ -60,71 +60,71 @@
 \contentsline {subsection}{\numberline {5.6}Video Service}{47}{subsection.5.6}%
 \contentsline {subsubsection}{\numberline {5.6.1}Opis ogólny}{47}{subsubsection.5.6.1}%
 \contentsline {subsubsection}{\numberline {5.6.2}Punkty końcowe API}{47}{subsubsection.5.6.2}%
-\contentsline {section}{\numberline {6}Implementacja frontendu}{48}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Struktura aplikacji}{48}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Klient API}{48}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Routing i ochrona tras}{49}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Ekrany aplikacji}{49}{subsection.6.4}%
-\contentsline {subsubsection}{\numberline {6.4.1}Strona główna}{49}{subsubsection.6.4.1}%
-\contentsline {subsubsection}{\numberline {6.4.2}Dashboard użytkownika}{49}{subsubsection.6.4.2}%
-\contentsline {subsubsection}{\numberline {6.4.3}Upload i planowanie}{49}{subsubsection.6.4.3}%
-\contentsline {subsubsection}{\numberline {6.4.4}Kontrola druku}{49}{subsubsection.6.4.4}%
-\contentsline {subsubsection}{\numberline {6.4.5}Panel administracyjny}{49}{subsubsection.6.4.5}%
-\contentsline {subsection}{\numberline {6.5}Internacjonalizacja}{49}{subsection.6.5}%
-\contentsline {subsection}{\numberline {6.6}Obsługa motywu}{49}{subsection.6.6}%
-\contentsline {section}{\numberline {7}Agent Raspberry Pi - AddiPi Agent}{50}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Opis ogólny}{50}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Architektura agenta}{50}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Połączenie z IoT Hub}{50}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Obsługiwane metody bezpośrednie}{50}{subsection.7.4}%
-\contentsline {subsection}{\numberline {7.5}Przebieg obsługi metody startPrint}{50}{subsection.7.5}%
-\contentsline {subsection}{\numberline {7.6}Telemetria}{50}{subsection.7.6}%
-\contentsline {subsection}{\numberline {7.7}Komunikacja z OctoPrint}{50}{subsection.7.7}%
-\contentsline {section}{\numberline {8}Obudowa urządzenia - projekt CAD}{51}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Cel i zakres projektu mechanicznego}{51}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Moduł CASE - obudowa Raspberry Pi z kamerą}{51}{subsection.8.2}%
-\contentsline {subsubsection}{\numberline {8.2.1}Podstawa projektowa}{51}{subsubsection.8.2.1}%
-\contentsline {subsubsection}{\numberline {8.2.2}Zakres modyfikacji}{51}{subsubsection.8.2.2}%
-\contentsline {subsubsection}{\numberline {8.2.3}Mocowanie kamery}{51}{subsubsection.8.2.3}%
-\contentsline {subsubsection}{\numberline {8.2.4}Struktura plików CASE}{51}{subsubsection.8.2.4}%
-\contentsline {subsection}{\numberline {8.3}Moduł STAND - podstawka regulowana}{51}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}Złożenie całości}{51}{subsection.8.4}%
-\contentsline {subsection}{\numberline {8.5}Parametry wydruku}{51}{subsection.8.5}%
-\contentsline {subsection}{\numberline {8.6}Instrukcja montażu}{51}{subsection.8.6}%
-\contentsline {section}{\numberline {9}Konfiguracja Raspberry Pi}{52}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Opis środowiska}{52}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Instalacja agenta}{52}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Automatyczne uruchamianie agenta przez systemd}{52}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Tunel Cloudflare - ekspozycja kamery}{52}{subsection.9.4}%
-\contentsline {subsubsection}{\numberline {9.4.1}Instalacja cloudflared}{52}{subsubsection.9.4.1}%
-\contentsline {subsubsection}{\numberline {9.4.2}Skrypt publikowania URL kamery}{52}{subsubsection.9.4.2}%
-\contentsline {subsubsection}{\numberline {9.4.3}Cykliczne odnawianie URL}{52}{subsubsection.9.4.3}%
-\contentsline {subsection}{\numberline {9.5}Konfiguracja crontab}{52}{subsection.9.5}%
-\contentsline {subsubsection}{\numberline {9.5.1}Uzasadnienie parametrów}{52}{subsubsection.9.5.1}%
-\contentsline {subsection}{\numberline {9.6}Problem z dostępnością sieci przy starcie}{52}{subsection.9.6}%
-\contentsline {subsection}{\numberline {9.7}Podsumowanie konfiguracji Raspberry Pi}{52}{subsection.9.7}%
-\contentsline {section}{\numberline {10}Wdrożenie i infrastruktura}{53}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Infrastruktura chmurowa}{53}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Inicjalizacja infrastruktury}{53}{subsection.10.2}%
-\contentsline {subsection}{\numberline {10.3}Konteneryzacja - Dockerfiles}{53}{subsection.10.3}%
-\contentsline {subsection}{\numberline {10.4}Docker Compose}{53}{subsection.10.4}%
-\contentsline {subsection}{\numberline {10.5}Zmienne środowiskowe}{53}{subsection.10.5}%
-\contentsline {subsection}{\numberline {10.6}Wdrożenie frontendu}{53}{subsection.10.6}%
-\contentsline {subsection}{\numberline {10.7}Wdrożenie agenta}{53}{subsection.10.7}%
-\contentsline {section}{\numberline {11}Testowanie systemu}{54}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Metodologia testowania}{54}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}Testy jednostkowe - Auth Service}{54}{subsection.11.2}%
-\contentsline {subsection}{\numberline {11.3}Testy integracyjne przez Postman}{54}{subsection.11.3}%
-\contentsline {subsection}{\numberline {11.4}Test end-to-end - pełny przepływ druku}{54}{subsection.11.4}%
-\contentsline {subsection}{\numberline {11.5}Testy wydajnościowe i obserwacje}{54}{subsection.11.5}%
-\contentsline {section}{\numberline {12}Podsumowanie}{55}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Osiągnięcia}{55}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}Napotkane trudności}{55}{subsection.12.2}%
-\contentsline {subsection}{\numberline {12.3}Możliwości rozwoju}{55}{subsection.12.3}%
-\contentsline {subsection}{\numberline {12.4}Wnioski}{55}{subsection.12.4}%
-\contentsline {section}{Załączniki}{58}{section*.12}%
-\contentsline {section}{\numberline {A}Konfiguracja środowiska deweloperskiego}{58}{appendix.a.A}%
-\contentsline {subsection}{\numberline {A.1}Wymagania}{58}{subsection.a.A.1}%
-\contentsline {subsection}{\numberline {A.2}Pierwsze uruchomienie}{58}{subsection.a.A.2}%
-\contentsline {section}{\numberline {B}Struktura repozytoriów}{58}{appendix.a.B}%
-\contentsline {section}{\numberline {C}Endpointy API - podsumowanie}{58}{appendix.a.C}%
+\contentsline {section}{\numberline {6}Implementacja warstwy prezentacji}{48}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Struktura architektoniczna aplikacji klienckiej}{48}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Scentralizowany klient API}{49}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Mechanizm routingu i ochrona tras}{50}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Ekrany aplikacji}{51}{subsection.6.4}%
+\contentsline {subsubsection}{\numberline {6.4.1}Strona główna}{51}{subsubsection.6.4.1}%
+\contentsline {subsubsection}{\numberline {6.4.2}Dashboard użytkownika}{51}{subsubsection.6.4.2}%
+\contentsline {subsubsection}{\numberline {6.4.3}Upload i planowanie}{51}{subsubsection.6.4.3}%
+\contentsline {subsubsection}{\numberline {6.4.4}Kontrola druku}{51}{subsubsection.6.4.4}%
+\contentsline {subsubsection}{\numberline {6.4.5}Panel administracyjny}{51}{subsubsection.6.4.5}%
+\contentsline {subsection}{\numberline {6.5}Internacjonalizacja}{51}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}Obsługa motywu}{51}{subsection.6.6}%
+\contentsline {section}{\numberline {7}Agent Raspberry Pi - AddiPi Agent}{52}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Opis ogólny}{52}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Architektura agenta}{52}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Połączenie z IoT Hub}{52}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Obsługiwane metody bezpośrednie}{52}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Przebieg obsługi metody startPrint}{52}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}Telemetria}{52}{subsection.7.6}%
+\contentsline {subsection}{\numberline {7.7}Komunikacja z OctoPrint}{52}{subsection.7.7}%
+\contentsline {section}{\numberline {8}Obudowa urządzenia - projekt CAD}{53}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Cel i zakres projektu mechanicznego}{53}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Moduł CASE - obudowa Raspberry Pi z kamerą}{53}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}Podstawa projektowa}{53}{subsubsection.8.2.1}%
+\contentsline {subsubsection}{\numberline {8.2.2}Zakres modyfikacji}{53}{subsubsection.8.2.2}%
+\contentsline {subsubsection}{\numberline {8.2.3}Mocowanie kamery}{53}{subsubsection.8.2.3}%
+\contentsline {subsubsection}{\numberline {8.2.4}Struktura plików CASE}{53}{subsubsection.8.2.4}%
+\contentsline {subsection}{\numberline {8.3}Moduł STAND - podstawka regulowana}{53}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Złożenie całości}{53}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Parametry wydruku}{53}{subsection.8.5}%
+\contentsline {subsection}{\numberline {8.6}Instrukcja montażu}{53}{subsection.8.6}%
+\contentsline {section}{\numberline {9}Konfiguracja Raspberry Pi}{54}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Opis środowiska}{54}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Instalacja agenta}{54}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Automatyczne uruchamianie agenta przez systemd}{54}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Tunel Cloudflare - ekspozycja kamery}{54}{subsection.9.4}%
+\contentsline {subsubsection}{\numberline {9.4.1}Instalacja cloudflared}{54}{subsubsection.9.4.1}%
+\contentsline {subsubsection}{\numberline {9.4.2}Skrypt publikowania URL kamery}{54}{subsubsection.9.4.2}%
+\contentsline {subsubsection}{\numberline {9.4.3}Cykliczne odnawianie URL}{54}{subsubsection.9.4.3}%
+\contentsline {subsection}{\numberline {9.5}Konfiguracja crontab}{54}{subsection.9.5}%
+\contentsline {subsubsection}{\numberline {9.5.1}Uzasadnienie parametrów}{54}{subsubsection.9.5.1}%
+\contentsline {subsection}{\numberline {9.6}Problem z dostępnością sieci przy starcie}{54}{subsection.9.6}%
+\contentsline {subsection}{\numberline {9.7}Podsumowanie konfiguracji Raspberry Pi}{54}{subsection.9.7}%
+\contentsline {section}{\numberline {10}Wdrożenie i infrastruktura}{55}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Infrastruktura chmurowa}{55}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Inicjalizacja infrastruktury}{55}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Konteneryzacja - Dockerfiles}{55}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Docker Compose}{55}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.5}Zmienne środowiskowe}{55}{subsection.10.5}%
+\contentsline {subsection}{\numberline {10.6}Wdrożenie frontendu}{55}{subsection.10.6}%
+\contentsline {subsection}{\numberline {10.7}Wdrożenie agenta}{55}{subsection.10.7}%
+\contentsline {section}{\numberline {11}Testowanie systemu}{56}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Metodologia testowania}{56}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Testy jednostkowe - Auth Service}{56}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Testy integracyjne przez Postman}{56}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.4}Test end-to-end - pełny przepływ druku}{56}{subsection.11.4}%
+\contentsline {subsection}{\numberline {11.5}Testy wydajnościowe i obserwacje}{56}{subsection.11.5}%
+\contentsline {section}{\numberline {12}Podsumowanie}{57}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Osiągnięcia}{57}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Napotkane trudności}{57}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}Możliwości rozwoju}{57}{subsection.12.3}%
+\contentsline {subsection}{\numberline {12.4}Wnioski}{57}{subsection.12.4}%
+\contentsline {section}{Załączniki}{60}{section*.12}%
+\contentsline {section}{\numberline {A}Konfiguracja środowiska deweloperskiego}{60}{appendix.a.A}%
+\contentsline {subsection}{\numberline {A.1}Wymagania}{60}{subsection.a.A.1}%
+\contentsline {subsection}{\numberline {A.2}Pierwsze uruchomienie}{60}{subsection.a.A.2}%
+\contentsline {section}{\numberline {B}Struktura repozytoriów}{60}{appendix.a.B}%
+\contentsline {section}{\numberline {C}Endpointy API - podsumowanie}{60}{appendix.a.C}%
