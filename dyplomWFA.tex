@@ -1516,16 +1516,65 @@ Bieżąca preferencja operatora dotycząca wybranego schematu kolorów jest utrw
 % ============================================================
 %  ROZDZIAŁ 7 — AGENT RASPBERRY PI
 % ============================================================
-\section{Agent Raspberry Pi - AddiPi Agent}
+\section{Agent sprzętowy --- AddiPi Agent}
 \label{sec:agent}
 
 \subsection{Opis ogólny}
 
-\subsection{Architektura agenta}
+Komponent \textit{AddiPi Agent} stanowi lokalną warstwę oprogramowania uruchamianą bezpośrednio na mikrokomputerze Raspberry Pi. Pełni on rolę dwukierunkowego pośrednika (ang. \textit{proxy}) pomiędzy rozproszoną architekturzą chmurową (usługami \textit{Azure IoT Hub} oraz \textit{Azure Blob Storage}) a niskopoziomowym, lokalnym interfejsem sterującym drukarki 3D, którym zarządza serwer \textit{OctoPrint}.
+
+Agent został zaimplementowany w języku Python. Architektura operacyjna tego komponentu została zaprojektowana w taki sposób, aby funkcjonował on jako proces działający w pętli ciągłej. W zależności od konfiguracji docelowej, jego cyklem życia zarządza demon systemowy oprogramowania układowego \texttt{systemd} lub odizolowany kontener środowiska \textit{Docker}.
+
+\subsection{Struktura obiektowa i architektura klas}
+
+W celu zapewnienia wysokiej modularności oraz łatwości rozbudowy kodu źródłowego, architekturę agenta podzielono na trzy główne klasy o ściśle zdefiniowanych odpowiedzialnościach (zgodnie z zasadą pojedynczej odpowiedzialności):
+
+\begin{itemize}
+	\item \textbf{PrinterAgent} --- implementuje nadrzędną logikę biznesową aplikacji brzegowej. Odpowiada za utrzymywanie stałego połączenia z usługą \textit{Azure IoT Hub}, asynchroniczny pobór plików sterujących z repozytorium chmurowego, transmisję strumienia danych telemetrycznych oraz nadrzędne monitorowanie stanów procesu produkcyjnego.
+	
+	\item \textbf{OctoPrintClient} --- stanowi warstwę abstrakcji nad interfejsem sieciowym REST API systemu \textit{OctoPrint}. Klasa ta enkapsuluje operacje wejścia-wyjścia odpowiedzialne za odczyt bieżących temperatur i stanów mechanicznych drukarki, buforowanie plików w pamięci lokalnej urządzenia, a także bezpośrednie sterowanie procesem wytwórczym (rozpoczynanie, wstrzymywanie i anulowanie druku).
+	
+	\item \textbf{ConfigLoader} --- komponent pomocniczy odpowiedzialny za bezpieczne wczytywanie parametrów startowych, sekretów chmurowych oraz zmiennych środowiskowych utrwalonych w pliku konfiguracyjnym \texttt{.env}.
+\end{itemize}
 
 \subsection{Połączenie z IoT Hub}
 
+Agent sprzętowy inicjuje i utrzymuje stałe połączenie z usługą \textit{Azure IoT Hub} za pośrednictwem protokołu MQTT, wykorzystując do tego celu unikalny ciąg uwierzytelniający urządzenia (ang. \textit{device connection string}). Na listingu~\ref{lst:python_iot_init} przedstawiono fragment kodu odpowiedzialny za instancjonowanie asynchronicznego klienta oraz rejestrację funkcji zwrotnej (ang. \textit{callback function}) dedykowanej do obsługi przychodzących żądań RPC.
+
+\begin{lstlisting}[language=Python,caption={Inicjalizacja klienta usługi Azure IoT Hub (\texttt{printer\_agent.py})}, style=pyStyle, label={lst:python_iot_init}]
+	self.iot_client = IoTHubDeviceClient.create_from_connection_string(
+		device_connection_string
+	)
+	
+	self.iot_client.connect()
+	
+	self.iot_client.on_method_request_received = (
+		self.handle_method_request
+	)
+\end{lstlisting}
+
 \subsection{Obsługiwane metody bezpośrednie}
+
+Komponent realizuje zestaw metod bezpośrednich (ang. \textit{Direct Methods}) udostępnianych przez chmurę obliczeniową. W tabeli~\ref{tab:agent_methods} wyszczególniono metody zaimplementowane w strukturze agenta wraz z ich parametrami wejściowymi oraz opisem wywoływanych akcji.
+
+\begin{table}[h!]
+	\centering
+	\caption{Metody bezpośrednie obsługiwane przez agenta sprzętowego.}
+	\label{tab:agent_methods}
+	\begin{tabular}{llp{7cm}}
+		\toprule
+		\textbf{Metoda} & \textbf{Parametry wejściowe} & \textbf{Opis operacji systemowej} \\
+		\midrule
+		
+		\texttt{startPrint} & \texttt{fileId}, \texttt{jobId} & Pobranie pliku z Azure Blob Storage, przesłanie go do \textit{OctoPrint} oraz uruchomienie procesu drukowania \\
+		
+		\texttt{cancelPrint} & --- & Anulowanie aktywnego procesu wytwórczego za pośrednictwem interfejsu API systemu \textit{OctoPrint} \\
+		
+		\texttt{getStatus} & --- & Pobranie aktualnego statusu drukarki, postępu zadania oraz temperatur urządzenia \\
+		
+		\bottomrule
+	\end{tabular}
+\end{table}
 
 \subsection{Przebieg obsługi metody startPrint}
 
