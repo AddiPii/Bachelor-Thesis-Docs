@@ -1297,7 +1297,7 @@ W tabeli~\ref{tab:printer_endpoints} zestawiono i opisano punkty końcowe (ang. 
 	\addlinespace
 	DELETE & \texttt{/printer/jobs/:id} & Trwałe usunięcie rekordu zadania z bazy danych (dostęp zastrzeżony dla administratora). \\
 	\addlinespace
-	GET & \texttt{/printer/status} & Odpytanie usługi \textit{Azure IoT Hub} i pobranie aktualnego stanu operacyjnego fizycznej drukarki 3D. \\
+	GET & \texttt{/printer/status} & Pobranie aktualnego stanu operacyjnego fizycznej drukarki 3D. \\
 	\addlinespace
 	GET & \texttt{/printer/metrics} & Pobranie zagregowanych metryk statystycznych systemowych zadań z podziałem na statusy. \\
 	\addlinespace
@@ -1442,7 +1442,7 @@ Panel użytkownika (ang. \textit{User Dashboard}) stanowi spersonalizowane centr
 \begin{itemize}
 	\item zagregowane statystyki zadań (liczbę przesłanych zleceń z podziałem na statusy),
 	\item parametry aktywnego procesu drukowania, obejmujące dynamiczny pasek postępu oraz estymowany czas pozostały do zakończenia operacji,
-	\item kompletną historię operacji z modułem wyszukiwania i filtrowania danych.
+	\item kompletną historię druków z modułem wyszukiwania i filtrowania danych.
 \end{itemize}
 
 Z poziomu tego panelu zalogowany operator posiada uprawnienia do manualnego anulowania aktywnego zadania, ponownego zakolejkowania procesu zakończenia niepowodzeniem (ang. \textit{retry flow}) oraz bezpośredniego przejścia do dedykowanego ekranu szczegółowej kontroli procesu drukowania.
