@@ -346,6 +346,12 @@ INPUT ./admin-panel.png
 INPUT ./admin-panel.png
 INPUT ./admin-panel.png
 INPUT ./admin-panel.png
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectt1440.tfm
+INPUT ./agent_startprint_initialversion.pdf
+INPUT ./agent_startprint_initialversion.pdf
+INPUT ./agent_startprint_initialversion.pdf
+INPUT ./agent_startprint_initialversion.pdf
+INPUT ./agent_startprint_initialversion.pdf
 INPUT ./dyplomWFA.bbl
 INPUT ./dyplomWFA.bbl
 INPUT dyplomWFA.bbl
@@ -357,6 +363,7 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
 INPUT dyplomWFA.aux
 INPUT ./dyplomWFA.out
 INPUT ./dyplomWFA.out
+INPUT /home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1440.600pk
 INPUT /home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecit1000.600pk
 INPUT /home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk
 INPUT /home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1200.600pk

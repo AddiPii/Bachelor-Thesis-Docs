@@ -1587,11 +1587,68 @@ Komponent realizuje zestaw metod bezpośrednich (ang. \textit{Direct Methods}) u
 	\end{tabular}
 \end{table}
 
-\subsection{Przebieg obsługi metody startPrint}
+\subsection{Przebieg obsługi metody bezpośredniej \texttt{startPrint}}
 
-\subsection{Telemetria}
+Inicjalizacja procesu wytwórczego przez system chmurowy opiera się na synchronicznym wywołaniu metody bezpośredniej \texttt{startPrint}. Na rysunku~\ref{fig:startPrint_sequence} zaprezentowano diagram sekwencji obrazujący przepływ sterowania oraz interakcje pomiędzy agentem sprzętowym, usługami chmurowymi a serwerem \textit{OctoPrint}.
 
-\subsection{Komunikacja z OctoPrint}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{agent_startprint_initialversion.pdf} 
+	\caption{Diagram sekwencji obsługi metody bezpośredniej \texttt{startPrint} przez \textit{Azure IoT Hub}.}
+	\label{fig:startPrint_sequence}
+\end{figure}
+
+Szczegółowy proces obsługi omawianego żądania realizowany jest sekwencyjnie według następującego scenariusza:
+
+\begin{enumerate}
+	\item Agent odbiera żądanie \textit{Direct Method} zawierające parametry \texttt{fileId} oraz \texttt{jobId}.
+	
+	\item Następuje sprawdzenie stanu operacyjnego oraz gotowości mechanicznej drukarki 3D przy użyciu metody \texttt{OctoPrintClient.is\_printer\_ready()}.
+	
+	\item Plik G-code o wskazanym identyfikatorze jest pobierany z \textit{Azure Blob Storage} i buforowany w lokalnym katalogu tymczasowym \texttt{/tmp/addipi\_files/}.
+	
+	\item Agent przesyła pobrany plik do systemu \textit{OctoPrint} poprzez wywołanie punktu końcowego \texttt{POST /api/files/local} z parametrem \texttt{select=true}. (co wymusza automatyczny wybór pliku do druku).)
+	
+	\item Wyzwolenie fizycznego procesu drukowania realizowane jest poprzez zapytanie do punktu końcowego \texttt{POST /api/job} z poleceniem strukturalnym \texttt{start}.
+	
+	\item Agent wysyła zdarzenie telemetryczne \texttt{print\_started} do usługi \textit{Azure IoT Hub}.
+\end{enumerate}
+
+
+
+\subsection{Transmisja danych telemetrycznych}
+
+W trakcie aktywnego procesu produkcyjnego, agent sprzętowy w sposób ciągły monitoruje stan urządzenia w ramach dedykowanej pętli sprawdzającej. Dane telemetryczne są transmitowane do usługi \textit{Azure IoT Hub} cyklicznie z interwałem 10 sekund. Struktura oraz format przesyłanego komunikatu w formacie JSON zostały szczegółowo zaprezentowane na listingu~\ref{lst:json_telemetry}.
+
+\begin{lstlisting}[language=,caption={Format struktury wiadomości telemetrycznej transmitowanej do chmury.},style=jsonStyle,label={lst:json_telemetry}]
+	{
+		"event": "print_progress",
+		"timestamp": "2025-12-01T14:30:00.000000",
+		"deviceId": "raspberry-pi-mkt-01",
+		"jobId": "1764722864093",
+		"progress": 45.5,
+		"printTime": 1800,
+		"printTimeLeft": 2200,
+		"state": "Printing"
+	}
+\end{lstlisting}
+
+\subsection{Niskopoziomowa komunikacja z serwerem OctoPrint}
+
+Klasa \texttt{OctoPrintClient} hermetyzuje i realizuje komunikację sieciową z systemem \textit{OctoPrint} w ramach lokalnej sieci komputerowej (z wykorzystaniem lokalnego mapowania adresów, np. \texttt{http://prusai3mk3.local}). Autoryzacja i bezpieczeństwo zapytań HTTP są zapewniane poprzez wstrzykiwanie unikalnego klucza dostępowego do nagłówka \texttt{X-Api-Key} każdego żądania.
+
+Na listingu~\ref{lst:octoprint_methods} zestawiono kluczowe operacje zaimplementowane w strukturze omawianej klasy wraz z przypisanymi do nich punktami końcowymi (ang. \textit{endpoints}) oraz strukturami poleceń lokalnego interfejsu REST API.
+
+\begin{lstlisting}[language={},caption={Struktura metod klasy \texttt{OctoPrintClient} i ich mapowanie na punkty końcowe API.},style=tsStyle,label={lst:octoprint_methods}]
+	// Definicja kluczowych metod wchodzacych w sklad klasy OctoPrintClient:
+	
+	get_printer_state()        --->  GET  /api/printer
+	upload_and_select_file()   --->  POST /api/files/local
+	start_print()              --->  POST /api/job    { "command": "start" }
+	cancel_print()             --->  POST /api/job    { "command": "cancel" }
+	get_job_info()             --->  GET  /api/job
+\end{lstlisting}
+
 
 \newpage
 
