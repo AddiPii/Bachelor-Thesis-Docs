@@ -821,32 +821,43 @@ Komponent ten został zaimplementowany w środowisku uruchomieniowym Node.js z w
 
 W tabeli~\ref{tab:auth_endpoints} zestawiono i opisano punkty końcowe (ang. \textit{endpoints}) udostępniane przez usługę \textit{Auth Service}.
 
-\begin{table}[htbp]
-	\centering
-	\caption{Punkty końcowe usługi Auth Service.}
-	\label{tab:auth_endpoints}
-	\begin{tabular}{llp{7cm}}
-		\toprule
-		\textbf{Metoda} & \textbf{Ścieżka} & \textbf{Opis} \\
-		\midrule
-		POST & \texttt{/auth/register} & Rejestracja nowego użytkownika, walidacja domeny e-mail, generowanie szyfru hasła oraz wysłanie wiadomości z linkiem aktywacyjnym. \\
-		\addlinespace
-		POST & \texttt{/auth/login} & Uwierzytelnienie użytkownika; generowanie i zwrot pary tokenów: \textit{access token} oraz \textit{refresh token}. \\
-		\addlinespace
-		POST & \texttt{/auth/logout} & Unieważnienie tokenu odświeżającego i zakończenie aktywnej sesji użytkownika. \\
-		\addlinespace
-		PATCH & \texttt{/auth/refresh} & Generowanie nowego tokenu dostępu na podstawie ważnego tokenu odświeżającego. \\
-		\addlinespace
-		POST & \texttt{/auth/verify} & Weryfikacja poprawności tokenu dostępu, wykorzystywana wewnętrznie przez pozostałe mikroserwisy. \\
-		\addlinespace
-		GET & \texttt{/auth/verify-email} & Aktywacja konta użytkownika po odebraniu i weryfikacji tokenu z linku aktywacyjnego. \\
-		\addlinespace
-		POST & \texttt{/auth/resend-verification} & Ponowne wygenerowanie i wysłanie wiadomości weryfikacyjnej na adres e-mail. \\
-		\addlinespace
-		GET & \texttt{/health} & Punkt końcowy diagnostyki stanu działania usługi (ang. \textit{health check}). \\
-		\bottomrule
-	\end{tabular}
-\end{table}
+\begin{xltabular}{\textwidth}{llX}
+	\caption{Punkty końcowe usługi Auth Service.} \label{tab:auth_endpoints} \\
+	\toprule
+	\textbf{Metoda} & \textbf{Ścieżka} & \textbf{Opis} \\
+	\midrule
+	\endfirsthead
+	
+	\multicolumn{3}{c}%
+	{{\bfseries \tablename\ \thetable{} -- Kontynuacja z poprzedniej strony}} \\
+	\toprule
+	\textbf{Metoda} & \textbf{Ścieżka} & \textbf{Opis} \\
+	\midrule
+	\endhead
+	
+	\bottomrule
+	\endfoot
+	
+	\bottomrule
+	\endlastfoot
+	
+	POST & \texttt{/auth/register} & Rejestracja nowego użytkownika, walidacja domeny e-mail, generowanie szyfru hasła oraz wysłanie wiadomości z linkiem aktywacyjnym. \\
+	\addlinespace
+	POST & \texttt{/auth/login} & Uwierzytelnienie użytkownika; generowanie i zwrot pary tokenów: \textit{access token} oraz \textit{refresh token}. \\
+	\addlinespace
+	POST & \texttt{/auth/logout} & Unieważnienie tokenu odświeżającego i zakończenie aktywnej sesji użytkownika. \\
+	\addlinespace
+	PATCH & \texttt{/auth/refresh} & Generowanie nowego tokenu dostępu na podstawie ważnego tokenu odświeżającego. \\
+	\addlinespace
+	POST & \texttt{/auth/verify} & Weryfikacja poprawności tokenu dostępu, wykorzystywana wewnętrznie przez pozostałe mikroserwisy. \\
+	\addlinespace
+	GET & \texttt{/auth/verify-email} & Aktywacja konta użytkownika po odebraniu i weryfikacji tokenu z linku aktywacyjnego. \\
+	\addlinespace
+	POST & \texttt{/auth/resend-verification} & Ponowne wygenerowanie i wysłanie wiadomości weryfikacyjnej na adres e-mail. \\
+	\addlinespace
+	GET & \texttt{/health} & Punkt końcowy diagnostyki stanu działania usługi (ang. \textit{health check}). \\
+\end{xltabular}
+
 
 \subsubsection{Kluczowe fragmenty implementacji}
 
@@ -1240,7 +1251,7 @@ Usługa \textit{Printer Service} konsumuje strumień danych telemetrycznych za p
 	\centering
 	\caption{Zdarzenia telemetryczne przetwarzane przez usługę Printer Service.}
 	\label{tab:telemetry_events}
-	\begin{tabular}{lp{8.5cm}}
+	\begin{tabular}{lp{10cm}}
 		\toprule
 		\textbf{Zdarzenie} & \textbf{Akcja w bazie danych Azure Cosmos DB} \\
 		\midrule
