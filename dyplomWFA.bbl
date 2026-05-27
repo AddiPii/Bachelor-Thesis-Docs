@@ -1,5 +1,10 @@
 \begin{thebibliography}{10}
 
+\bibitem{jwt}
+M.~Jones, J.~Bradley, and N.~Sakimura.
+\newblock {RFC} 7519: {JSON} {W}eb {T}oken ({JWT}).
+\newblock Technical report, IETF, 2015.
+
 \bibitem{octoprint}
 Gina H{\"a}u{\ss}ge.
 \newblock Octoprint -- {T}he snappy web interface for your {3D} printer.

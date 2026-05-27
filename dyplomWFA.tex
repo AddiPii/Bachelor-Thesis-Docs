@@ -426,7 +426,7 @@ Na podstawie szczegółowej analizy specyfiki oraz potrzeb akademickiego laborat
 \noindent\textbf{W obszarze kont użytkowników (rola standardowa):}
 \begin{itemize}
 	\item rejestracja konta powiązana z dwuetapową weryfikacją adresu e-mail, ograniczoną wyłącznie do domeny akademickiej \texttt{@uwr.edu.pl},
-	\item bezpieczne uwierzytelnianie i autoryzacja z wykorzystaniem mechanizmu podwójnych tokenów JWT (\textit{access token} oraz \textit{refresh token}),
+	\item bezpieczne uwierzytelnianie i autoryzacja z wykorzystaniem mechanizmu podwójnych tokenów JWT (\textit{access token} oraz \textit{refresh token}) \cite{jwt},
 	\item asynchroniczne przesyłanie plików z kodem sterującym (G-code) o maksymalnym rozmiarze pojedynczego wolumenu do 50~MB i rozszerzeniu \texttt{.gcode},
 	\item elastyczne harmonogramowanie procesów wytwórczych na wybrany termin kalendarzowy lub lokowanie ich w ogólnej kolejce systemu,
 	\item przeglądanie historii własnych zleceń produkcyjnych z opcją dynamicznego filtrowania według stanów maszyny,
@@ -782,7 +782,7 @@ Na rysunku~\ref{fig:state_machine} przedstawiono formalny model maszyny stanów,
 
 \subsection{Bezpieczeństwo i uwierzytelnianie}
 
-W celu zapewnienia poufności danych oraz kontroli dostępu, w systemie zaimplementowano dwutokenowy model uwierzytelniania oparty na standardzie JWT (\textit{JSON Web Token}). Mechanizm ten wykorzystuje dwa rodzaje obiektów:
+W celu zapewnienia poufności danych oraz kontroli dostępu, w systemie zaimplementowano dwutokenowy model uwierzytelniania oparty na standardzie JWT (\textit{JSON Web Token}) \cite{jwt}. Mechanizm ten wykorzystuje dwa rodzaje obiektów:
 
 \begin{itemize}
 	\item \textbf{Access token} --- token dostępu o krótkim czasie autoryzacji (ważny przez 15 minut), przekazywany w nagłówku protokołu HTTP (\texttt{Authorization: Bearer \newline<token>}). Integralność i autentyczność tokenu są weryfikowane kryptograficznie przy użyciu klucza symetrycznego \texttt{JWT\_SECRET}.
@@ -861,7 +861,7 @@ W tabeli~\ref{tab:auth_endpoints} zestawiono i opisano punkty końcowe (ang. \te
 
 \subsubsection{Kluczowe fragmenty implementacji}
 
-Na listingu~\ref{lst:jwt_generation} przedstawiono implementację funkcji odpowiedzialnych za generowanie tokenu dostępu oraz tokenu odświeżającego przy użyciu biblioteki \texttt{jsonwebtoken}.
+Na listingu~\ref{lst:jwt_generation} przedstawiono implementację funkcji odpowiedzialnych za generowanie tokenu dostępu oraz tokenu odświeżającego przy użyciu biblioteki \texttt{jsonwebtoken} \cite{jwt}.
 
 \begin{lstlisting}[language=TypeScript,caption={Implementacja generowania tokenów JWT (\texttt{token-service.ts})},style=tsStyle,label={lst:jwt_generation}]
 export function generateAccessToken(user: User): string {
