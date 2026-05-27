@@ -80,51 +80,51 @@
 \contentsline {subsection}{\numberline {7.5}Przebieg obsługi metody bezpośredniej \texttt {startPrint}}{59}{subsection.7.5}%
 \contentsline {subsection}{\numberline {7.6}Transmisja danych telemetrycznych}{60}{subsection.7.6}%
 \contentsline {subsection}{\numberline {7.7}Niskopoziomowa komunikacja z serwerem OctoPrint}{60}{subsection.7.7}%
-\contentsline {section}{\numberline {8}Obudowa urządzenia - projekt CAD}{62}{section.8}%
+\contentsline {section}{\numberline {8}Projekt mechaniczny obudowy i pozycjonowania zestawu}{62}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Cel i zakres projektu mechanicznego}{62}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Moduł CASE - obudowa Raspberry Pi z kamerą}{62}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.2}Moduł CASE --- obudowa Raspberry Pi z kamerą}{62}{subsection.8.2}%
 \contentsline {subsubsection}{\numberline {8.2.1}Podstawa projektowa}{62}{subsubsection.8.2.1}%
-\contentsline {subsubsection}{\numberline {8.2.2}Zakres modyfikacji}{62}{subsubsection.8.2.2}%
-\contentsline {subsubsection}{\numberline {8.2.3}Mocowanie kamery}{62}{subsubsection.8.2.3}%
-\contentsline {subsubsection}{\numberline {8.2.4}Struktura plików CASE}{62}{subsubsection.8.2.4}%
-\contentsline {subsection}{\numberline {8.3}Moduł STAND - podstawka regulowana}{62}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}Złożenie całości}{62}{subsection.8.4}%
-\contentsline {subsection}{\numberline {8.5}Parametry wydruku}{62}{subsection.8.5}%
-\contentsline {subsection}{\numberline {8.6}Instrukcja montażu}{62}{subsection.8.6}%
-\contentsline {section}{\numberline {9}Konfiguracja Raspberry Pi}{63}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Opis środowiska}{63}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Instalacja agenta}{63}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Automatyczne uruchamianie agenta przez systemd}{63}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Tunel Cloudflare - ekspozycja kamery}{63}{subsection.9.4}%
-\contentsline {subsubsection}{\numberline {9.4.1}Instalacja cloudflared}{63}{subsubsection.9.4.1}%
-\contentsline {subsubsection}{\numberline {9.4.2}Skrypt publikowania URL kamery}{63}{subsubsection.9.4.2}%
-\contentsline {subsubsection}{\numberline {9.4.3}Cykliczne odnawianie URL}{63}{subsubsection.9.4.3}%
-\contentsline {subsection}{\numberline {9.5}Konfiguracja crontab}{63}{subsection.9.5}%
-\contentsline {subsubsection}{\numberline {9.5.1}Uzasadnienie parametrów}{63}{subsubsection.9.5.1}%
-\contentsline {subsection}{\numberline {9.6}Problem z dostępnością sieci przy starcie}{63}{subsection.9.6}%
-\contentsline {subsection}{\numberline {9.7}Podsumowanie konfiguracji Raspberry Pi}{63}{subsection.9.7}%
-\contentsline {section}{\numberline {10}Wdrożenie i infrastruktura}{64}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Infrastruktura chmurowa}{64}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Inicjalizacja infrastruktury}{64}{subsection.10.2}%
-\contentsline {subsection}{\numberline {10.3}Konteneryzacja - Dockerfiles}{64}{subsection.10.3}%
-\contentsline {subsection}{\numberline {10.4}Docker Compose}{64}{subsection.10.4}%
-\contentsline {subsection}{\numberline {10.5}Zmienne środowiskowe}{64}{subsection.10.5}%
-\contentsline {subsection}{\numberline {10.6}Wdrożenie frontendu}{64}{subsection.10.6}%
-\contentsline {subsection}{\numberline {10.7}Wdrożenie agenta}{64}{subsection.10.7}%
-\contentsline {section}{\numberline {11}Testowanie systemu}{65}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Metodologia testowania}{65}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}Testy jednostkowe - Auth Service}{65}{subsection.11.2}%
-\contentsline {subsection}{\numberline {11.3}Testy integracyjne przez Postman}{65}{subsection.11.3}%
-\contentsline {subsection}{\numberline {11.4}Test end-to-end - pełny przepływ druku}{65}{subsection.11.4}%
-\contentsline {subsection}{\numberline {11.5}Testy wydajnościowe i obserwacje}{65}{subsection.11.5}%
-\contentsline {section}{\numberline {12}Podsumowanie}{66}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Osiągnięcia}{66}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}Napotkane trudności}{66}{subsection.12.2}%
-\contentsline {subsection}{\numberline {12.3}Możliwości rozwoju}{66}{subsection.12.3}%
-\contentsline {subsection}{\numberline {12.4}Wnioski}{66}{subsection.12.4}%
-\contentsline {section}{Załączniki}{69}{section*.18}%
-\contentsline {section}{\numberline {A}Konfiguracja środowiska deweloperskiego}{69}{appendix.a.A}%
-\contentsline {subsection}{\numberline {A.1}Wymagania}{69}{subsection.a.A.1}%
-\contentsline {subsection}{\numberline {A.2}Pierwsze uruchomienie}{69}{subsection.a.A.2}%
-\contentsline {section}{\numberline {B}Struktura repozytoriów}{69}{appendix.a.B}%
-\contentsline {section}{\numberline {C}Endpointy API - podsumowanie}{69}{appendix.a.C}%
+\contentsline {subsubsection}{\numberline {8.2.2}Zakres modyfikacji}{63}{subsubsection.8.2.2}%
+\contentsline {subsubsection}{\numberline {8.2.3}Mocowanie kamery}{64}{subsubsection.8.2.3}%
+\contentsline {subsubsection}{\numberline {8.2.4}Struktura plików CASE}{64}{subsubsection.8.2.4}%
+\contentsline {subsection}{\numberline {8.3}Moduł STAND - podstawka regulowana}{64}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Złożenie całości}{64}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Parametry wydruku}{64}{subsection.8.5}%
+\contentsline {subsection}{\numberline {8.6}Instrukcja montażu}{64}{subsection.8.6}%
+\contentsline {section}{\numberline {9}Konfiguracja Raspberry Pi}{65}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Opis środowiska}{65}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Instalacja agenta}{65}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Automatyczne uruchamianie agenta przez systemd}{65}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Tunel Cloudflare - ekspozycja kamery}{65}{subsection.9.4}%
+\contentsline {subsubsection}{\numberline {9.4.1}Instalacja cloudflared}{65}{subsubsection.9.4.1}%
+\contentsline {subsubsection}{\numberline {9.4.2}Skrypt publikowania URL kamery}{65}{subsubsection.9.4.2}%
+\contentsline {subsubsection}{\numberline {9.4.3}Cykliczne odnawianie URL}{65}{subsubsection.9.4.3}%
+\contentsline {subsection}{\numberline {9.5}Konfiguracja crontab}{65}{subsection.9.5}%
+\contentsline {subsubsection}{\numberline {9.5.1}Uzasadnienie parametrów}{65}{subsubsection.9.5.1}%
+\contentsline {subsection}{\numberline {9.6}Problem z dostępnością sieci przy starcie}{65}{subsection.9.6}%
+\contentsline {subsection}{\numberline {9.7}Podsumowanie konfiguracji Raspberry Pi}{65}{subsection.9.7}%
+\contentsline {section}{\numberline {10}Wdrożenie i infrastruktura}{66}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Infrastruktura chmurowa}{66}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Inicjalizacja infrastruktury}{66}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Konteneryzacja - Dockerfiles}{66}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Docker Compose}{66}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.5}Zmienne środowiskowe}{66}{subsection.10.5}%
+\contentsline {subsection}{\numberline {10.6}Wdrożenie frontendu}{66}{subsection.10.6}%
+\contentsline {subsection}{\numberline {10.7}Wdrożenie agenta}{66}{subsection.10.7}%
+\contentsline {section}{\numberline {11}Testowanie systemu}{67}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Metodologia testowania}{67}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Testy jednostkowe - Auth Service}{67}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Testy integracyjne przez Postman}{67}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.4}Test end-to-end - pełny przepływ druku}{67}{subsection.11.4}%
+\contentsline {subsection}{\numberline {11.5}Testy wydajnościowe i obserwacje}{67}{subsection.11.5}%
+\contentsline {section}{\numberline {12}Podsumowanie}{68}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Osiągnięcia}{68}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Napotkane trudności}{68}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}Możliwości rozwoju}{68}{subsection.12.3}%
+\contentsline {subsection}{\numberline {12.4}Wnioski}{68}{subsection.12.4}%
+\contentsline {section}{Załączniki}{71}{section*.19}%
+\contentsline {section}{\numberline {A}Konfiguracja środowiska deweloperskiego}{71}{appendix.a.A}%
+\contentsline {subsection}{\numberline {A.1}Wymagania}{71}{subsection.a.A.1}%
+\contentsline {subsection}{\numberline {A.2}Pierwsze uruchomienie}{71}{subsection.a.A.2}%
+\contentsline {section}{\numberline {B}Struktura repozytoriów}{71}{appendix.a.B}%
+\contentsline {section}{\numberline {C}Endpointy API - podsumowanie}{71}{appendix.a.C}%

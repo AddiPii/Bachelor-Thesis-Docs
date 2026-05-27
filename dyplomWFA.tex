@@ -1650,21 +1650,61 @@ Na listingu~\ref{lst:octoprint_methods} zestawiono kluczowe operacje zaimplement
 \end{lstlisting}
 
 
+W celu zobrazowania środowiska niskopoziomowego, z którym bezpośrednio integruje się opisywany agent sprzętowy, na rysunku~\ref{fig:octoprint_panel} przedstawiono natywny panel graficzny oprogramowania serwerowego \textit{OctoPrint}. Widok ten odzwierciedla stan aktywnego procesu drukowania, z którego klasa \texttt{OctoPrintClient} asynchronicznie parsuje metryki czasu, postępu oraz bieżące parametry termiczne dyszy i stołu roboczego.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{octoprint-panel.png} 
+	\caption{Interfejs systemu \textit{OctoPrint} z widokiem aktywnego procesu druku.}
+	\label{fig:octoprint_panel}
+\end{figure}
 \newpage
 
 % ============================================================
 %  ROZDZIAŁ 8 — OBUDOWA CAD
 % ============================================================
-\section{Obudowa urządzenia - projekt CAD}
+\section{Projekt mechaniczny obudowy i pozycjonowania zestawu}
 \label{sec:cad}
 
 \subsection{Cel i zakres projektu mechanicznego}
 
-\subsection{Moduł CASE - obudowa Raspberry Pi z kamerą}
+Kompletna implementacja systemu \textit{AddiPi} --- poza warstwą stricte programową --- wymaga fizycznego osadzenia mikrokomputera Raspberry Pi w bezpośrednim sąsiedztwie urządzenia wytwórczego wraz z integracją modułu kamery cyfrowej monitorującej stół roboczy drukarki 3D. 
+
+W ramach niniejszej pracy inżynierskiej opracowano, a następnie wytworzono technologią przyrostową dedykowany zestaw komponentów mechanicznych. Został on podzielony na dwa główne moduły strukturalne:
+
+\begin{itemize}
+	\item \textbf{CASE} --- obudowa ochronna mikrokomputera Raspberry Pi zintegrowana z gniazdem montażowym modułu kamery brzegowej,
+	
+	\item \textbf{STAND} --- regulowane ramię pozycjonujące (uchwyt), umożliwiające swobodną zmianę kąta widzenia i stabilizację zestawu względem pola roboczego drukarki 3D.
+\end{itemize}
+
+Trójwymiarowe modele geometryczne (CAD) opracowano w programie \textit{SolidWorks} (format \texttt{.SLDPRT} dla pojedynczych części oraz \texttt{.SLDASM} dla złożeń).
+
+W celu zapewnienia otwartości projektu, w repozytorium zasobów systemu --- obok natywnych formatów oprogramowania \textit{SolidWorks} --- umieszczono modele w neutralnym formacie wymiany danych \texttt{.STEP}, umożliwiającym dalszą edycję w innych środowiskach CAD, a także pliki \texttt{.3MF} i \texttt{.gcode} przygotowane do wydruku na drukarce Prusa MK3S wyposażonej w dyszę o średnicy 0{,}6~mm z wykorzystaniem filamentu PLA.
+
+\subsection{Moduł CASE --- obudowa Raspberry Pi z kamerą}
 
 \subsubsection{Podstawa projektowa}
 
+Moduł CASE nie został zaprojektowany od podstaw --- jako bazę konstrukcyjną wykorzystano otwarty projekt udostępniony w serwisie \textit{GrabCAD} przez \textit{219 Design}~\cite{grabcad219}, opublikowany na licencji \textbf{CC BY 4.0}.
+
+Oryginalny model geometryczny dedykowany był dla platformy \textbf{Raspberry Pi 4 Model B}. Ze względu na zastosowanie w systemie \textit{AddiPi} urządzenia \textbf{Raspberry Pi 3 Model B}, konieczne było wprowadzenie szeregu modyfikacji konstrukcyjnych.
+
 \subsubsection{Zakres modyfikacji}
+
+Głównym zadaniem w ramach adaptacji modelu było przeprojektowanie komponentu \texttt{BottomShell}, stanowiąca część korpusu obudowy.
+
+Najistotniejsze różnice konstrukcyjne, które determinowały konieczność modyfikacji makra bryłowego obudowy, obejmowały następujące aspekty:
+\begin{itemize}
+	\item \textbf{Interfejs zasilania} --- zmianę standardu i lokalizacji złącza zasilającego z formatu USB-C (stosowanego w nowszej architekturze generacji czwartej) na gniazdo micro-USB, charakterystyczne dla wersji Raspberry Pi 3,
+	\item \textbf{Układ portów USB-A i LAN} --- odwrócenie i przesunięcie pozycji bloków złączy USB oraz gniazda ethernetowego RJ-45 względem krawędzi płytki PCB,
+	\item \textbf{Złącza peryferyjne i multimedialne} --- całkowitą zmianę położenia oraz gabarytów pełnowymiarowego portu HDMI i dedykowanego złącza taśmy interfejsu kamery (CSI).
+\end{itemize}
+
+Projekt geometryczny uwzględniał fakt, że obie platformy charakteryzują się identycznymi wymiarami zewnętrznymi laminatu bazowego ($85,0 \times 56,0$~mm) oraz zachowują ten sam standard rozstawu otworów montażowych ($58,0 \times 49,0$~mm, dedykowany dla śrub i tulei dystansowych w rozmiarze M2.5). Pozwoliło to na zachowanie oryginalnej struktury geometrycznej górnej pokrywy obudowy oraz elementów mocujących. 
+
+Proces modyfikacji modelu \texttt{BottomShell} w środowisku \textit{SolidWorks} polegał na usunięciu dotychczasowych operacji wyciągnięć wycięć i zastąpieniu ich nowymi operacjami szkicu, sparametryzowanymi pod kątem rzeczywistego rozmieszczenia złączy Raspberry Pi 3. 
+
 
 \subsubsection{Mocowanie kamery}
 
@@ -1775,7 +1815,7 @@ Na listingu~\ref{lst:octoprint_methods} zestawiono kluczowe operacje zaimplement
 %  BIBLIOGRAFIA
 % ============================================================
 
-\bibliographystyle{plain}
+\bibliographystyle{unsrt}
 \bibliography{bibliografia}\textsc{}
 
 \newpage
