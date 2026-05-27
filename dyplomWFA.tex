@@ -1690,7 +1690,7 @@ Moduł CASE nie został zaprojektowany od podstaw --- jako bazę konstrukcyjną 
 
 Oryginalny model geometryczny dedykowany był dla platformy \textbf{Raspberry Pi 4 Model B}. Ze względu na zastosowanie w systemie \textit{AddiPi} urządzenia \textbf{Raspberry Pi 3 Model B}, konieczne było wprowadzenie szeregu modyfikacji konstrukcyjnych.
 
-\subsubsection{Zakres modyfikacji}
+\subsubsection{Zakres modyfikacji geometrycznych}
 
 Głównym zadaniem w ramach adaptacji modelu było przeprojektowanie komponentu \texttt{BottomShell}, stanowiąca część korpusu obudowy.
 
@@ -1706,18 +1706,110 @@ Projekt geometryczny uwzględniał fakt, że obie platformy charakteryzują się
 Proces modyfikacji modelu \texttt{BottomShell} w środowisku \textit{SolidWorks} polegał na usunięciu dotychczasowych operacji wyciągnięć wycięć i zastąpieniu ich nowymi operacjami szkicu, sparametryzowanymi pod kątem rzeczywistego rozmieszczenia złączy Raspberry Pi 3. 
 
 
-\subsubsection{Mocowanie kamery}
-
-\subsubsection{Struktura plików CASE}
+\subsubsection{Integracja strukturalna i mocowanie modułu kamery brzegowej}
 
 
-\subsection{Moduł STAND - podstawka regulowana}
+Obudowa CASE została wyposażona w zintegrowany uchwyt modułu kamery Raspberry Pi (w wersji v1 lub v2, wyposażonej odpowiednio w sensor \textit{OV5647} lub \textit{IMX219}).
 
-\subsection{Złożenie całości}
+Uchwyt pozycjonuje kamerę pod stałym kątem skierowanym w stronę pola roboczego drukarki 3D. Taśma sygnałowa interfejsu CSI prowadzona jest wewnątrz obudowy za pomocą dedykowanego kanału kablowego.
+
+\subsubsection{Struktura plików i organizacja zasobów modułu CASE}
+
+	W celu zapewnienia przejrzystości oraz ułatwienia ewentualnej replikacji lub dalszej modyfikacji projektu mechanicznego, zasoby cyfrowe powiązane z modułem \texttt{CASE} zostały ustrukturyzowane w dedykowanym repozytorium. W tabeli~\ref{tab:case_file_structure} zestawiono strukturę katalogów oraz opisano zawartość poszczególnych zbiorów danych.
+
+\begin{table}[h!]
+	\centering
+	\caption{Struktura katalogów i plików produkcyjnych modułu CASE}
+	\label{tab:case_file_structure}
+	\begin{tabular}{lp{10cm}}
+		\toprule
+		\textbf{Katalog / plik} & \textbf{Zawartość} \\
+		\midrule
+		
+		\texttt{CASE/files/} & Edytowalne modele SolidWorks (\texttt{.SLDPRT}, \texttt{.SLDASM}) oraz modele w formacie wymiany \texttt{.STEP} \\
+		
+		\texttt{CASE/gcode/} & Wygenerowane pliki G-code przygotowane dla drukarki Prusa MK3S z dyszą 0{,}6~mm i filamentem PLA \\
+		
+		\texttt{CASE/Ready To Print/} & Modele \texttt{.3MF} oraz \texttt{.STL} przygotowane do otwarcia w programie PrusaSlicer \\
+		
+		\texttt{CASE/grabcad/} & Oryginalne pliki referencyjne projektu GrabCAD dla Raspberry Pi 4 \\
+		
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\subsection{Moduł STAND --- regulowany mechanizm pozycjonujący}
+
+Moduł \texttt{STAND} stanowi zaprojektowany od podstaw, autorski mechanizm wsporczy, umożliwiający precyzyjne pozycjonowanie obudowy \texttt{CASE} wraz z kamerą względem ramy kinematycznej drukarki 3D. 
+
+Konstrukcja ramienia opiera się na połączeniach przegubowych i zapewnia dwa stopnie swobody. Układ ten pozwala na płynną regulację kąta nachylenia osi optycznej obiektywu w płaszczyźnie pionowej oraz dostosowanie wysokości punktu akwizycji obrazu. Dzięki temu możliwe jest optymalne dopasowanie pola widzenia (ang. \textit{Field of View}, FOV) do specyfiki geometrii przestrzeni roboczej danego urządzenia. Fizyczne wdrożenie gotowego zestawu montażowego zamontowanego przy drukarce 3D przedstawiono na rysunku~\ref{fig:physical_stand}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{physical-stand.jpeg} 
+	\caption{Gotowa konstrukcja mechaniczna zainstalowana przy urządzeniu wytwórczym.}
+	\label{fig:physical_stand}
+\end{figure}
+
+Parametryczne modele źródłowe środowiska \textit{SolidWorks} są przechowywane w dedykowanym katalogu \texttt{STAND/own parts/}. Z kolei pliki przygotowane do bezpośredniego procesu przygotowania druku (w formatach \texttt{.3MF} oraz \texttt{.STL}) zlokalizowano w folderze \texttt{STAND/Ready To Print/}, a skompilowane instrukcje sterujące G-code umieszczono w katalogu \texttt{STAND/gcode/}.
+
+\subsection{Złożenie kompletnego modelu geometrycznego}
+
+Plik źródłowy \texttt{CAD/Full Assembly.SLDASM} zawiera kompletne złożenie (ang. \textit{assembly}) obu zaprojektowanych modułów (\texttt{CASE} oraz \texttt{STAND}) wraz z zaimportowanym modelem mikrokomputera Raspberry Pi, pełniącym funkcję komponentu referencyjnego. Definicja relacji montażowych (ang. \textit{mates}) wewnątrz struktury modelu umożliwia weryfikację poprawności dopasowania tolerancji wymiarowych, przeprowadzenie analizy potencjalnych kolizji geometrycznych oraz kontrolę parametrów montażowych przed rozpoczęciem docelowego procesu wytwarzania przyrostowego. 
+
+Trójwymiarową wizualizację tak przygotowanego środowiska projektowego przedstawiono na rysunku~\ref{fig:full_assembly}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{full-assembly.jpeg} 
+	\caption{Trójwymiarowy widok złożeniowy modułów CASE oraz STAND w środowisku CAD.}
+	\label{fig:full_assembly}
+\end{figure}
 
 \subsection{Parametry wydruku}
 
-\subsection{Instrukcja montażu}
+W celu zapewnienia powtarzalności geometrycznej, odpowiedniej wytrzymałości mechanicznej struktury oraz optymalizacji czasu produkcji elementów obudowy, zdefiniowano zestaw rekomendowanych parametrów procesu technologicznego. W tabeli~\ref{tab:print_parameters} zestawiono szczegółowe nastawy CAM przygotowane dla środowiska programu typu slicer.
+
+\begin{table}[H]
+	\centering
+	\caption{Zalecane parametry druku 3D elementów obudowy systemu.}
+	\label{tab:print_parameters}
+	\begin{tabular}{lp{10cm}}
+		\toprule
+		\textbf{Parametr} & \textbf{Wartość} \\
+		\midrule
+		
+		Materiał & PLA \\
+		
+		Średnica dyszy & 0{,}6~mm \\
+		
+		Wysokość warstwy & 0{,}2~mm (profil \textit{Quality}) \\
+		
+		Wypełnienie & 20\% (wzór Gyroid) \\
+		
+		Podpory & Niewymagane dla większości modeli \\
+		
+		Orientacja wydruku & Zgodna z konfiguracją w plikach \texttt{.3MF} \\
+		
+		Drukarka referencyjna & Prusa MK3S \\
+		
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\subsection{Procedura montażu zestawu mechanicznego}
+
+Proces montażu oraz kalibracji przestrzennej zestawu komponentów mechanicznych realizowany jest sekwencyjnie według następującego scenariusza:
+
+\begin{enumerate}
+	\item \textbf{Wytworzenie komponentów:} Wydrukowanie elementów składowych obudowy i ramienia na podstawie plików sterujących \texttt{.gcode} lub projektów technologicznych \texttt{.3MF} oraz \texttt{.STL} zlokalizowanych w katalogach \texttt{Ready To Print}.
+	\item \textbf{Instalacja elektroniki:} Zamontowanie mikrokomputera Raspberry Pi w dolnej części obudowy (\texttt{BottomShell}) z wykorzystaniem czterech śrub montażowych M2.5 oraz dedykowanych nakrętek.
+	\item \textbf{Integracja magistrali CSI:} Podłączenie taśmy sygnałowej interfejsu CSI do modułu kamery oraz precyzyjne przeprowadzenie jej przez dedykowany przepust osłonowy w korpusie obudowy.
+	\item \textbf{Asemblacja korpusu:} Zamknięcie obudowy poprzez nałożenie górnej pokrywy (\texttt{TopShell}) oraz mechaniczne zabezpieczenie konstrukcji za pomocą zintegrowanych zatrzasków geometrycznych.
+	\item \textbf{Połączenie modułów:} Osadzenie zmontowanego modułu \texttt{CASE} na regulowanym ramieniu wsporczym \texttt{STAND} wraz z nastawieniem wymaganego kąta pochylenia osi optycznej.
+	\item \textbf{Kalibracja pola widzenia:} Ustawienie kompletnego zestawu w sąsiedztwie drukarki 3D w sposób zapewniający bezkolizyjną pracę maszyn oraz pełną akwizycję geometryczną całego pola roboczego urządzenia.
+\end{enumerate}
+
 
 \newpage
 
