@@ -297,11 +297,11 @@ INPUT ./diagram-architektury.pdf
 INPUT ./diagram-architektury.pdf
 INPUT ./diagram-architektury.pdf
 INPUT ./diagram-architektury.pdf
-INPUT ./Diagram-DB.pdf
-INPUT ./Diagram-DB.pdf
-INPUT ./Diagram-DB.pdf
-INPUT ./Diagram-DB.pdf
-INPUT ./Diagram-DB.pdf
+INPUT ./AddiPi-CosmosDB.pdf
+INPUT ./AddiPi-CosmosDB.pdf
+INPUT ./AddiPi-CosmosDB.pdf
+INPUT ./AddiPi-CosmosDB.pdf
+INPUT ./AddiPi-CosmosDB.pdf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8t.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectt1000.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8t.tfm
