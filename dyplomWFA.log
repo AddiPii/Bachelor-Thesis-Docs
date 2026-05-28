@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.10)  28 MAY 2026 03:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.10)  28 MAY 2026 03:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1157,32 +1157,12 @@ t/l/it/12 one-shot \T1/ptm/m/n/12 za-pre-zen-to-wano na li-stingu [].
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 2072--2072
-[]|\T1/ptm/b/n/12 Usªuga / kom-po-
+[]|\T1/ptm/b/n/12 Mechanizm uru-cho-
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 2072--2072
 []|\T1/ptm/b/n/12 Mechanizm uru-cho-
- []
-
-
-Underfull \hbox (badness 2990) in paragraph at lines 2072--2072
-[]|\T1/ptm/b/n/12 Opis re-ali-zo-wa-nej od-po-wie-dzial-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2072--2072
-[]|\T1/ptm/b/n/12 Usªuga / kom-po-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2072--2072
-[]|\T1/ptm/b/n/12 Mechanizm uru-cho-
- []
-
-
-Underfull \hbox (badness 2990) in paragraph at lines 2072--2072
-[]|\T1/ptm/b/n/12 Opis re-ali-zo-wa-nej od-po-wie-dzial-
  []
 
 
@@ -1191,8 +1171,8 @@ Underfull \hbox (badness 2689) in paragraph at lines 2072--2072
  []
 
 
-Underfull \hbox (badness 8132) in paragraph at lines 2072--2072
-[]|\T1/ptm/m/n/12 Niskopoziomowe ste-ro-wa-nie dru-
+Underfull \hbox (badness 10000) in paragraph at lines 2072--2072
+[]|\T1/ptm/m/n/12 Niskopoziomowe ste-ro-wa-nie dru-kark¡
  []
 
 
@@ -1201,13 +1181,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 2072--2072
  []
 
 
-Underfull \hbox (badness 6792) in paragraph at lines 2072--2072
-\T1/ptm/m/n/12 nia wy-cho-dz¡-cego, ini-cjo-wane z
+Underfull \hbox (badness 10000) in paragraph at lines 2072--2072
+[]|\T1/ptm/m/it/12 Cloudflare
  []
 
 
-Underfull \hbox (badness 5652) in paragraph at lines 2072--2072
-[]|\T1/ptm/m/n/12 Odnowienie ad-resu
+Underfull \hbox (badness 3590) in paragraph at lines 2072--2072
+\T1/ptm/m/n/12 cho-dz¡-cego, ini-cjo-wane z opó¹-nie-niem
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2072--2072
+[]|\T1/ptm/m/n/12 Odnowienie
  []
 
 [74
@@ -1265,7 +1250,7 @@ pk> </home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecit1000.60
 share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/times/utmri8a.pfb>
-Output written on dyplomWFA.pdf (81 pages, 4803994 bytes).
+Output written on dyplomWFA.pdf (81 pages, 4803984 bytes).
 PDF statistics:
  2672 PDF objects out of 2984 (max. 8388607)
  2055 compressed objects within 21 object streams
