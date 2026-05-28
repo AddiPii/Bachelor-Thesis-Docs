@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="100%"
+   viewBox="0 0 680 404"
+   role="img"
+   style=""
+   version="1.1"
+   id="svg139"
+   sodipodi:docname="cad_assembly.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview141"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.4019617"
+     inkscape:cx="262.48934"
+     inkscape:cy="202.21665"
+     inkscape:window-width="1920"
+     inkscape:window-height="939"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg139" />
+  <title
+     style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     id="title2">Schemat złożenia modułów CAD obudowy AddiPi</title>
+  <desc
+     style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     id="desc4">Strukturalny diagram pokazujący hierarchię plików CAD projektu obudowy: moduł CASE z BottomShell (zmodyfikowanym pod RPi 3B), TopShell i uchwytem kamery oraz moduł STAND z elementami podstawki, składające się na Full Assembly.</desc>
+  <defs
+     id="defs9">
+    <marker
+       id="arrow"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M2 1L8 5L2 9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path6" />
+    </marker>
+    <marker
+       id="arrow-5"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path335" />
+    </marker>
+    <marker
+       id="arrow-3"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path6-5" />
+    </marker>
+  </defs>
+  <!-- Full Assembly (root) -->
+  <g
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="g17"
+     transform="matrix(0.88149884,0,0,0.88149884,56.874205,-0.59912147)">
+    <rect
+       x="220"
+       y="20"
+       width="240"
+       height="44"
+       rx="8"
+       stroke-width="0.5"
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#444441;stroke:#b4b2a9;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="rect11" />
+    <text
+       x="340"
+       y="36"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#d3d1c7;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text13">Full Assembly.SLDASM</text>
+    <text
+       x="340"
+       y="54"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#b4b2a9;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text15">złożenie główne SolidWorks</text>
+  </g>
+  <!-- gałęzie do modułów -->
+  <line
+     x1="312.50891"
+     y1="55.816803"
+     x2="215.54404"
+     y2="91.07679"
+     marker-end="url(#arrow)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:none;stroke:#9c9a92;stroke-width:1.32229px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="line19" />
+  <line
+     x1="400.65887"
+     y1="55.816803"
+     x2="497.62357"
+     y2="91.07679"
+     marker-end="url(#arrow)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:none;stroke:#9c9a92;stroke-width:1.32229px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="line21" />
+  <!-- CASE module -->
+  <g
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="g29"
+     transform="matrix(0.88149884,0,0,0.88149884,56.874205,-0.59912147)">
+    <rect
+       x="40"
+       y="104"
+       width="280"
+       height="44"
+       rx="8"
+       stroke-width="0.5"
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#085041;stroke:#5dcaa5;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="rect23" />
+    <text
+       x="180"
+       y="120"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#9fe1cb;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text25">CASE (rasp + cam)</text>
+    <text
+       x="180"
+       y="138"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#5dcaa5;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text27">obudowa RPi z kamerą</text>
+  </g>
+  <!-- STAND module -->
+  <g
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="g37"
+     transform="matrix(0.88149884,0,0,0.88149884,56.874205,-0.59912147)">
+    <rect
+       x="360"
+       y="104"
+       width="280"
+       height="44"
+       rx="8"
+       stroke-width="0.5"
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#3c3489;stroke:#afa9ec;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="rect31" />
+    <text
+       x="500"
+       y="120"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#cecbf6;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text33">STAND</text>
+    <text
+       x="500"
+       y="138"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#afa9ec;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text35">regulowana podstawka</text>
+  </g>
+  <!-- CASE parts -->
+  <line
+     x1="209.92856"
+     y1="129.68742"
+     x2="210.35034"
+     y2="169.93593"
+     marker-end="url(#arrow)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:none;stroke:#9c9a92;stroke-width:1.15339px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="line41" />
+  <line
+     x1="158.07005"
+     y1="129.40483"
+     x2="122.09628"
+     y2="167.25877"
+     marker-end="url(#arrow-3)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.4964px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#arrow-3)"
+     id="line41-6"
+     inkscape:transform-center-x="-20.312526"
+     inkscape:transform-center-y="2.8201744" />
+  <line
+     x1="290.42313"
+     y1="129.90363"
+     x2="329.73831"
+     y2="169.60667"
+     marker-end="url(#arrow)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:none;stroke:#9c9a92;stroke-width:0.767173px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="line43" />
+  <!-- BottomShell (zmodyfikowany) -->
+  <g
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="g53"
+     transform="matrix(0.65202093,0,0,0.65202093,-15.103023,42.689974)">
+    <rect
+       x="30"
+       y="192"
+       width="200"
+       height="64"
+       rx="8"
+       stroke-width="0.5"
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#712b13;stroke:#f0997b;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="rect45" />
+    <text
+       x="130"
+       y="212"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#f5c4b3;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text47">BottomShell.SLDPRT</text>
+    <text
+       x="130"
+       y="230"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#f0997b;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text49">zmodyfikowany (RPi 3B)</text>
+    <text
+       x="130"
+       y="246"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#f0997b;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text51">micro-USB, porty USB-A</text>
+  </g>
+  <!-- TopShell -->
+  <g
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="g63"
+     transform="matrix(0.65202093,0,0,0.65202093,49.186325,43.217567)">
+    <rect
+       x="150"
+       y="192"
+       width="180"
+       height="64"
+       rx="8"
+       stroke-width="0.5"
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#085041;stroke:#5dcaa5;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="rect55" />
+    <text
+       x="240"
+       y="212"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#9fe1cb;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text57">TopShell.SLDPRT</text>
+    <text
+       x="240"
+       y="230"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#5dcaa5;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text59">bez zmian (RPi 4 ≡ 3)</text>
+    <text
+       x="240"
+       y="246"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#5dcaa5;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text61">otwory montażowe M2.5</text>
+  </g>
+  <!-- Camera mount -->
+  <g
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="g73"
+     transform="matrix(0.65202093,0,0,0.65202093,105.33175,43.217567)">
+    <rect
+       x="270"
+       y="192"
+       width="180"
+       height="64"
+       rx="8"
+       stroke-width="0.5"
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#085041;stroke:#5dcaa5;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="rect65" />
+    <text
+       x="360"
+       y="212"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#9fe1cb;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text67">CameraMount.SLDPRT</text>
+    <text
+       x="360"
+       y="230"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#5dcaa5;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text69">uchwyt modułu CSI</text>
+    <text
+       x="360"
+       y="246"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#5dcaa5;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text71">kanał kabla taśmowego</text>
+  </g>
+  <!-- STAND parts -->
+  <line
+     x1="482.09396"
+     y1="129.43648"
+     x2="470.23172"
+     y2="170.35674"
+     marker-end="url(#arrow)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:none;stroke:#9c9a92;stroke-width:1.32229px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="line75" />
+  <line
+     x1="539.10303"
+     y1="127.34772"
+     x2="573.43597"
+     y2="168.08893"
+     marker-end="url(#arrow)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:none;stroke:#9c9a92;stroke-width:1.07413px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="line77" />
+  <g
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="g87"
+     transform="matrix(0.65202093,0,0,0.65202093,178.60896,43.217567)">
+    <rect
+       x="360"
+       y="192"
+       width="180"
+       height="64"
+       rx="8"
+       stroke-width="0.5"
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#3c3489;stroke:#afa9ec;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="rect79" />
+    <text
+       x="450"
+       y="212"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#cecbf6;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text81">Base.SLDPRT</text>
+    <text
+       x="450"
+       y="230"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#afa9ec;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text83">element podstawy</text>
+    <text
+       x="450"
+       y="246"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#afa9ec;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text85">własny projekt (own parts)</text>
+  </g>
+  <g
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="g97"
+     transform="matrix(0.65202093,0,0,0.65202093,230.58153,43.217567)">
+    <rect
+       x="500"
+       y="192"
+       width="170"
+       height="64"
+       rx="8"
+       stroke-width="0.5"
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#3c3489;stroke:#afa9ec;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="rect89" />
+    <text
+       x="585"
+       y="212"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#cecbf6;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text91">Arm.SLDPRT</text>
+    <text
+       x="585"
+       y="230"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#afa9ec;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text93">regulowane ramię</text>
+    <text
+       x="585"
+       y="246"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#afa9ec;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text95">własny projekt (own parts)</text>
+  </g>
+  <!-- Formaty eksportu -->
+  <rect
+     x="17.053213"
+     y="260.32468"
+     width="647.42822"
+     height="14.103977"
+     rx="4.176959"
+     fill="var(--bg2)"
+     opacity="0.6"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:0.6;fill:#262624;stroke:none;stroke-width:0.959422px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="rect99" />
+  <text
+     x="356.58398"
+     y="270.9024"
+     text-anchor="middle"
+     style="color:#ffffff;font-weight:400;font-size:10.5779px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#c2c0b6;stroke:none;stroke-width:0.881496px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="text101">formaty eksportu dla każdego modułu</text>
+  <g
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="g109"
+     transform="matrix(0.88149884,0,0,0.88149884,6.874205,-0.59912147)">
+    <rect
+       x="40"
+       y="320"
+       width="120"
+       height="44"
+       rx="8"
+       stroke-width="0.5"
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#444441;stroke:#b4b2a9;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="rect103" />
+    <text
+       x="100"
+       y="338"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#d3d1c7;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text105">.SLDPRT</text>
+    <text
+       x="100"
+       y="355"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#b4b2a9;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text107">edytowalny CAD</text>
+  </g>
+  <g
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="g117"
+     transform="matrix(0.88149884,0,0,0.88149884,6.874205,-0.59912147)">
+    <rect
+       x="180"
+       y="320"
+       width="120"
+       height="44"
+       rx="8"
+       stroke-width="0.5"
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#444441;stroke:#b4b2a9;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="rect111" />
+    <text
+       x="240"
+       y="338"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#d3d1c7;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text113">.STEP</text>
+    <text
+       x="240"
+       y="355"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#b4b2a9;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text115">wymiana CAD</text>
+  </g>
+  <g
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="g125"
+     transform="matrix(0.88149884,0,0,0.88149884,6.874205,-0.59912147)">
+    <rect
+       x="320"
+       y="320"
+       width="120"
+       height="44"
+       rx="8"
+       stroke-width="0.5"
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#444441;stroke:#b4b2a9;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="rect119" />
+    <text
+       x="380"
+       y="338"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#d3d1c7;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text121">.3MF</text>
+    <text
+       x="380"
+       y="355"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#b4b2a9;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text123">Slicer</text>
+  </g>
+  <g
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="g125-2"
+     transform="matrix(0.88149884,0,0,0.88149884,130.86959,-0.643047)">
+    <rect
+       x="320"
+       y="320"
+       width="120"
+       height="44"
+       rx="8"
+       stroke-width="0.5"
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#444441;stroke:#b4b2a9;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="rect119-9" />
+    <text
+       x="380"
+       y="338"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#d3d1c7;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text121-1">.STL</text>
+    <text
+       x="380"
+       y="355"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#b4b2a9;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text123-2"><tspan
+         sodipodi:role="line"
+         id="tspan671"
+         x="380"
+         y="355">Slicer</tspan><tspan
+         sodipodi:role="line"
+         id="tspan673"
+         x="380"
+         y="370" /></text>
+  </g>
+  <g
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="g133"
+     transform="matrix(0.88149884,0,0,0.88149884,132.87421,-0.59912147)">
+    <rect
+       x="460"
+       y="320"
+       width="120"
+       height="44"
+       rx="8"
+       stroke-width="0.5"
+       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#633806;stroke:#ef9f27;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="rect127" />
+    <text
+       x="520"
+       y="338"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#fac775;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text129">.gcode</text>
+    <text
+       x="520"
+       y="355"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#ef9f27;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="text131">Prusa MK3S / PLA</text>
+  </g>
+  <!-- CC BY 4.0 nota -->
+  <rect
+     x="16.093872"
+     y="329.08173"
+     width="647.80621"
+     height="17.629984"
+     rx="4.3187089"
+     fill="var(--bg2)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#262624;stroke:none;stroke-width:0.975565px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="rect135" />
+  <text
+     x="356.58398"
+     y="341.42194"
+     text-anchor="middle"
+     style="color:#ffffff;font-weight:400;font-size:10.5779px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#c2c0b6;stroke:none;stroke-width:0.881496px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="text137">BottomShell oparty na projekcie GrabCAD 219 Design (CC BY 4.0) — adaptacja pod Raspberry Pi 3 Model B</text>
+</svg>

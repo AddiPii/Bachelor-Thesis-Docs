@@ -1755,16 +1755,24 @@ Parametryczne modele źródłowe środowiska \textit{SolidWorks} są przechowywa
 
 \subsection{Złożenie kompletnego modelu geometrycznego}
 
-Plik źródłowy \texttt{CAD/Full Assembly.SLDASM} zawiera kompletne złożenie (ang. \textit{assembly}) obu zaprojektowanych modułów (\texttt{CASE} oraz \texttt{STAND}) wraz z zaimportowanym modelem mikrokomputera Raspberry Pi, pełniącym funkcję komponentu referencyjnego. Definicja relacji montażowych (ang. \textit{mates}) wewnątrz struktury modelu umożliwia weryfikację poprawności dopasowania tolerancji wymiarowych, przeprowadzenie analizy potencjalnych kolizji geometrycznych oraz kontrolę parametrów montażowych przed rozpoczęciem docelowego procesu wytwarzania przyrostowego. 
+Plik źródłowy \texttt{CAD/Full Assembly.SLDASM} zawiera kompletne złożenie (ang. \textit{assembly}) obu zaprojektowanych modułów (\texttt{CASE} oraz \texttt{STAND}) wraz z zaimportowanym modelem mikrokomputera Raspberry Pi, pełniącym funkcję komponentu referencyjnego. Definicja relacji montażowych (ang. \textit{mates}) wewnątrz struktury modelu umożliwia weryfikację poprawności dopasowania tolerancji wymiarowych, przeprowadzenie analizy potencjalnych kolizji geometrycznych oraz kontrolę parametrów montażowych przed rozpoczęciem docelowego procesu wytwarzania przyrostowego.
 
-Trójwymiarową wizualizację tak przygotowanego środowiska projektowego przedstawiono na rysunku~\ref{fig:full_assembly}.
+Wizualizację trójwymiarową tak przygotowanego środowiska projektowego przedstawiono na rysunku~\ref{fig:full_assembly}. Z kolei na rysunku~\ref{fig:cad_schematic} zaprezentowano strukturalny schemat hierarchii plików i formatów eksportu, który szczegółowo obrazuje architekturę całego pakietu mechanicznego --- od parametrycznych plików źródłowych części, przez fazę przygotowania wydruku (slicing), aż po końcowy kod maszynowy.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{full-assembly.jpeg} 
+	\includegraphics[width=0.75\textwidth]{Full_Assembly.png} 
 	\caption{Trójwymiarowy widok złożeniowy modułów CASE oraz STAND w środowisku CAD.}
 	\label{fig:full_assembly}
 \end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{cad_assembly.pdf} 
+	\caption{Struktura hierarchiczna złożeń, komponentów oraz formatów produkcyjnych modułów CAD.}
+	\label{fig:cad_schematic}
+\end{figure}
+
 
 \subsection{Parametry wydruku}
 
@@ -1820,6 +1828,15 @@ Proces montażu oraz kalibracji przestrzennej zestawu komponentów mechanicznych
 \label{sec:rpi}
 
 \subsection{Opis środowiska}
+
+Raspberry Pi 3 Model B pełni rolę lokalnego węzła systemu AddiPi. Działa jako:
+\begin{itemize}
+	\item host dla oprogramowania OctoPrint sterującego drukarką przez USB,
+	\item środowisko uruchomieniowe agenta AddiPi (proces Python),
+	\item dostawca strumienia wideo z kamery CSI do Video Service.
+\end{itemize}
+
+Na urządzeniu zainstalowany jest system \textbf{OctoPi} — oficjalny obraz Raspberry Pi OS oparty na Raspberry Pi OS Lite z preinstalowanym OctoPrint. Python 3 i pip dostępne są w obrazie domyślnie.
 
 \subsection{Instalacja agenta}
 

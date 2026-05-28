@@ -122,7 +122,7 @@
 \contentsline {subsection}{\numberline {12.2}Napotkane trudności}{71}{subsection.12.2}%
 \contentsline {subsection}{\numberline {12.3}Możliwości rozwoju}{71}{subsection.12.3}%
 \contentsline {subsection}{\numberline {12.4}Wnioski}{71}{subsection.12.4}%
-\contentsline {section}{Załączniki}{74}{section*.23}%
+\contentsline {section}{Załączniki}{74}{section*.24}%
 \contentsline {section}{\numberline {A}Konfiguracja środowiska deweloperskiego}{74}{appendix.a.A}%
 \contentsline {subsection}{\numberline {A.1}Wymagania}{74}{subsection.a.A.1}%
 \contentsline {subsection}{\numberline {A.2}Pierwsze uruchomienie}{74}{subsection.a.A.2}%
