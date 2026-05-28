@@ -10,7 +10,7 @@
 \usepackage{geometry}
 \usepackage{color}
 \usepackage{amssymb,amsmath}
-\usepackage{polski}
+%\usepackage{polski}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{caption}
@@ -40,6 +40,15 @@
 \usepackage{tabularx}
 \usepackage{xltabular}
 \usepackage[htt]{hyphenat}
+
+% --- POLSKIE ZNAKI W LISTINGACH ---
+\usepackage{listings}
+\lstset{
+	extendedchars=true,
+	inputencoding=utf8,
+	literate={ą}{{\k{a}}}1 {ć}{{\'c}}1 {ę}{{\k{e}}}1 {ł}{{\l{}}}1 {ń}{{\'n}}1 {ó}{{\'o}}1 {ś}{{\'s}}1 {ź}{{\'z}}1 {ż}{{\'z}}1
+	{Ą}{{\k{A}}}1 {Ć}{{\'C}}1 {Ę}{{\k{E}}}1 {Ł}{{\L{}}}1 {Ń}{{\'N}}1 {Ó}{{\'O}}1 {Ś}{{\'S}}1 {Ź}{{\'Z}}1 {Ż}{{\'Z}}1
+}
 
 % --- NOWY KRÓJ PISMA I INTERLINIA ---
 \usepackage{mathptmx} % Zamiennik Times New Roman dla LaTeX
@@ -186,7 +195,12 @@
 	% --- NOWE PARAMETRY RAMKI I ODSTĘPÓW ---
 	framesep=5pt,               % Odstęp ramki od kodu w środku
 	xleftmargin=3pt,           % Wcięcie całego bloku z lewej strony
-	xrightmargin=5pt            % Wcięcie bloku z prawej strony
+	xrightmargin=5pt,            % Wcięcie bloku z prawej strony
+	extendedchars=true,
+	inputencoding=utf8,
+	literate={A}{A}1 % Reset i zachowanie domyślnych mapowań
+	{ą}{{\k{a}}}1 {ć}{{\'c}}1 {ę}{{\k{e}}}1 {ł}{{\l{}}}1 {ń}{{\'n}}1 {ó}{{\'o}}1 {ś}{{\'s}}1 {ź}{{\'z}}1 {ż}{{\'z}}1
+	{Ą}{{\k{A}}}1 {Ć}{{\'C}}1 {Ę}{{\k{E}}}1 {Ł}{{\L{}}}1 {Ń}{{\'N}}1 {Ó}{{\'O}}1 {Ś}{{\'S}}1 {Ź}{{\'Z}}1 {Ż}{{\'Z}}1
 }
 
 \lstdefinelanguage{PythonCustom}{
@@ -282,7 +296,20 @@
 	% --- PARAMETRY RAMKI I ODSTĘPÓW ---
 	framesep=5pt,               % Odstęp ramki od kodu w środku
 	xleftmargin=3pt,           % Wcięcie całego bloku z lewej strony
-	xrightmargin=5pt            % Wcięcie bloku z prawej strony
+	xrightmargin=5pt,            % Wcięcie bloku z prawej strony
+	extendedchars=true,
+	inputencoding=utf8,
+	literate={A}{A}1 % Reset i zachowanie domyślnych mapowań
+	{ą}{{\k{a}}}1 {ć}{{\'c}}1 {ę}{{\k{e}}}1 {ł}{{\l{}}}1 {ń}{{\'n}}1 {ó}{{\'o}}1 {ś}{{\'s}}1 {ź}{{\'z}}1 {ż}{{\'z}}1
+	{Ą}{{\k{A}}}1 {Ć}{{\'C}}1 {Ę}{{\k{E}}}1 {Ł}{{\L{}}}1 {Ń}{{\'N}}1 {Ó}{{\'O}}1 {Ś}{{\'S}}1 {Ź}{{\'Z}}1 {Ż}{{\'Z}}1
+}
+
+\lstdefinestyle{plListing}{
+	extendedchars=true,
+	inputencoding=utf8,
+	literate={A}{A}1 % Reset i zachowanie domyślnych mapowań
+	{ą}{{\k{a}}}1 {ć}{{\'c}}1 {ę}{{\k{e}}}1 {ł}{{\l{}}}1 {ń}{{\'n}}1 {ó}{{\'o}}1 {ś}{{\'s}}1 {ź}{{\'z}}1 {ż}{{\'z}}1
+	{Ą}{{\k{A}}}1 {Ć}{{\'C}}1 {Ę}{{\k{E}}}1 {Ł}{{\L{}}}1 {Ń}{{\'N}}1 {Ó}{{\'O}}1 {Ś}{{\'S}}1 {Ź}{{\'Z}}1 {Ż}{{\'Z}}1
 }
  
 \lstset{style=mystyle}
@@ -1138,7 +1165,7 @@ export function startPrintQueueListener(container, receiver) {
 			try { 
 				await receiver.abandonMessage(message); 
 			} catch(e) { 
-				// Obsluga bledu komunikacji z repozytorium kolejki
+				// Obsługa błędu komunikacji z repozytorium kolejki
 			}
 		}
 	};
@@ -1640,7 +1667,7 @@ Klasa \texttt{OctoPrintClient} hermetyzuje i realizuje komunikację sieciową z 
 Na listingu~\ref{lst:octoprint_methods} zestawiono kluczowe operacje zaimplementowane w strukturze omawianej klasy wraz z przypisanymi do nich punktami końcowymi (ang. \textit{endpoints}) oraz strukturami poleceń lokalnego interfejsu REST API.
 
 \begin{lstlisting}[language={},caption={Struktura metod klasy \texttt{OctoPrintClient} i ich mapowanie na punkty końcowe API.},style=tsStyle,label={lst:octoprint_methods}]
-	// Definicja kluczowych metod wchodzacych w sklad klasy OctoPrintClient:
+	// Definicja kluczowych metod wchodzących w skład klasy OctoPrintClient:
 	
 	get_printer_state()        --->  GET  /api/printer
 	upload_and_select_file()   --->  POST /api/files/local
@@ -1829,36 +1856,221 @@ Proces montażu oraz kalibracji przestrzennej zestawu komponentów mechanicznych
 
 \subsection{Opis środowiska}
 
-Raspberry Pi 3 Model B pełni rolę lokalnego węzła systemu AddiPi. Działa jako:
+Mikrokomputer \textit{Raspberry Pi 3 Model B} pełni funkcję węzła brzegowego systemu \textit{AddiPi}. Odpowiada on za trzy kluczowe zadania:
 \begin{itemize}
-	\item host dla oprogramowania OctoPrint sterującego drukarką przez USB,
-	\item środowisko uruchomieniowe agenta AddiPi (proces Python),
-	\item dostawca strumienia wideo z kamery CSI do Video Service.
+	\item uruchamianie serwera \textit{OctoPrint} komunikującego się z drukarką przez interfejs USB,
+	\item wykonywanie kodu agenta \textit{AddiPi Agent} zaimplementowanego w języku Python,
+	\item udostępnianie strumienia wideo z kamery CSI do zewnętrznej usługi \textit{Video Service}.
 \end{itemize}
 
-Na urządzeniu zainstalowany jest system \textbf{OctoPi} — oficjalny obraz Raspberry Pi OS oparty na Raspberry Pi OS Lite z preinstalowanym OctoPrint. Python 3 i pip dostępne są w obrazie domyślnie.
+Bazy systemowej dostarcza \textit{OctoPi} --- oficjalny, minimalistyczny obraz \textit{Raspberry Pi OS Lite} z preinstalowanym środowiskiem \textit{OctoPrint}. Interpreter \textit{Python 3} oraz menedżer \texttt{pip} są w tej dystrybucji dostępne domyślnie, co wyeliminowało potrzebę konfiguracji środowiska bazowego.
 
 \subsection{Instalacja agenta}
 
-\subsection{Automatyczne uruchamianie agenta przez systemd}
-
-\subsection{Tunel Cloudflare - ekspozycja kamery}
-
-\subsubsection{Instalacja cloudflared}
-
-\subsubsection{Skrypt publikowania URL kamery}
-
-\subsubsection{Cykliczne odnawianie URL}
+Procedura instalacji komponentu \textit{AddiPi Agent} sprowadza się do pobrania zasobów z repozytorium systemowego, wdrożenia pakietów zależnych oraz konfiguracji zmiennych środowiskowych. Sekwencję wymaganych poleceń powłoki systemu operacyjnego zaprezentowano na listingu~\ref{lst:agent_install}.
 
 
-\subsection{Konfiguracja crontab}
+\begin{lstlisting}[language=bash,style=plListing,caption={Instalacja i inicjalizacja agenta na platformie Raspberry Pi.},label={lst:agent_install}]
+	# Klonowanie repozytorium projektu
+	git clone https://github.com/AddiPii/AddiPi-Agent.git
+	cd AddiPi-Agent
+	
+	# Instalacja zależności Python
+	python3 -m pip install -r requirements.txt
+	
+	# Konfiguracja zmiennych środowiskowych
+	cp .env.example .env
+	nano .env
+	
+	# Uzupełnienie wymaganych parametrów:
+	# DEVICE_CONNECTION_STRING, STORAGE_CONN
+	# OCTOPRINT_API_KEY, OCTOPRINT_URL
+\end{lstlisting}
 
-\subsubsection{Uzasadnienie parametrów}
+\subsection{Automatyzacja uruchamiania za pomocą systemd}
+
+W celu zapewnienia bezobsługowości systemu brzegowego i automatycznego restartu aplikacji po awarii lub restarcie mikrokomputera, skonfigurowano dedykowaną usługę \textit{systemd}. Plik konfiguracyjny jednostki (ang. \textit{unit file}) zlokalizowano w ścieżce \texttt{/etc/systemd/system/addipi-agent.service}, a jego strukturę zaprezentowano na listingu~\ref{lst:systemd_unit}.
+
+\begin{lstlisting}[language=bash,style=plListing,caption={Plik jednostki konfiguracji addipi-agent.service dla menedżera systemd.},label={lst:systemd_unit}]
+	[Unit]
+	Description=AddiPi Printer Agent
+	After=network-online.target
+	Wants=network-online.target
+	
+	[Service]
+	Type=simple
+	User=pi
+	WorkingDirectory=/home/pi/AddiPi-Agent
+	ExecStart=/usr/bin/python3 src/app.py
+	Restart=always
+	RestartSec=10
+	EnvironmentFile=/home/pi/AddiPi-Agent/.env
+	
+	[Install]
+	WantedBy=multi-user.target
+\end{lstlisting}
+
+Dyrektywa \texttt{After=network-online.target} gwarantuje uruchomienie skryptu dopiero po poprawnym zainicjowaniu stosu sieciowego. Zapobiega to błędom gniazd sieciowych (ang. \textit{sockets}) podczas próby nawiązania połączenia przez protokół MQTT z usługą \textit{Azure IoT Hub}. Aktywację i uruchomienie demona realizuje się sekwencyjnie za pomocą poleceń systemowych: \texttt{sudo systemctl daemon-reload}, \texttt{sudo systemctl enable addipi-agent} oraz \texttt{sudo systemctl start addipi-agent}. Bieżący stan procesu weryfikowany jest instrukcją \texttt{sudo systemctl status addipi-agent}.
+
+Kompletną sekwencję zdarzeń oraz zależność potoków rozruchowych usług systemowych i skryptów harmonogramu po restarcie platformy sprzętowej przedstawiono na rysunku~\ref{fig:rpi_boot}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{rpi_boot.pdf} 
+	\caption{Diagram potoku rozruchowego mikrokomputera po restarcie systemu.}
+	\label{fig:rpi_boot}
+\end{figure}
 
 
-\subsection{Problem z dostępnością sieci przy starcie}
+\subsection{Udostępnianie strumienia wideo przez Cloudflare Tunnel}
 
-\subsection{Podsumowanie konfiguracji Raspberry Pi}
+Lokalny strumień wideo MJPEG, generowany jest pod adresem:
+\begin{center}
+	\texttt{http://localhost:8080/?action=stream}
+\end{center}
+Połączenie to jest domyślnie zablokowane poza strukturą sieci lokalnej. W celu umożliwienia zewnętrznego podglądu z kamery w aplikacji klienckiej (hostowanej na platformie \textit{Vercel}), zastosowano technologię \textit{Cloudflare Tunnel} (\texttt{cloudflared})~\cite{cloudflare}. 
+
+Narzędzie \texttt{cloudflared} zestawia szyfrowane, bezpieczne połączenie wychodzące pomiędzy mikrokomputerem a infrastrukturą \textit{Cloudflare}. Pozwala to na bezpłatne i stabilne zmapowanie lokalnego portu na publiczny adres URL w domenie \textit{trycloudflare.com} (np. \texttt{https://<losowy-hash>.trycloudflare.com}) bez konieczności konfiguracji publicznego adresu IP na urządzeniu brzegowym czy modyfikacji zapór sieciowych.
+
+
+\subsubsection{Instalacja narzędzia cloudflared}
+
+Wdrożenie oficjalnego klienta \texttt{cloudflared} na platformie sprzętowej z procesorem o architekturze ARM wymaga pobrania skompilowanego pliku binarnego, nadania mu uprawnień wykonywania oraz relokacji do katalogu systemowego. Operacje te realizuje się sekwencyjnie w terminalu systemu operacyjnego za pomocą następujących instrukcji:
+\begin{center}
+	\texttt{wget https://github.com} \\
+	\texttt{chmod +x cloudflared-linux-arm64} \\
+	\texttt{sudo mv cloudflared-linux-arm64 /usr/local/bin/cloudflared} \\
+	\texttt{cloudflared --version}
+\end{center}
+Ostatnie polecenie wykonuje weryfikację poprawności instalacji poprzez zwrócenie bieżącej wersji oprogramowania w konsoli.
+
+\subsubsection{Skrypt automatyzacji publikacji adresu sieciowego}
+
+Po uruchomieniu tunelu Cloudflare usługa \texttt{cloudflared} przydziela nowy, losowy publiczny adres URL. Aby serwis Video Service posiadał zawsze aktualny adres strumienia kamery, opracowano skrypt \texttt{publish-camera-url.sh}, który realizuje następujące operacje:
+
+\begin{enumerate}
+	\item Uruchomienie tunelu \texttt{cloudflared tunnel} w tle oraz przekierowanie logów do pliku tymczasowego.
+	
+	\item Odczekanie kilku sekund na zestawienie połączenia tunelowego.
+	
+	\item Odczytanie przydzielonego adresu URL z pliku logów na podstawie wzorca domeny \texttt{trycloudflare.com}.
+	
+	\item Przesłanie uzyskanego adresu URL do serwisu Video Service za pomocą żądania \texttt{POST /camera-url}.
+\end{enumerate}
+
+Kompletny kod źródłowy tego mechanizmu zaprezentowano na listingu~\ref{lst:bash_script}.
+
+\begin{lstlisting}[language=bash,caption={Skrypt automatycznej rejestracji dynamicznego adresu URL tunelu (\texttt{publish-camera-url.sh}).},style=plListing,label={lst:bash_script}]
+	#!/bin/bash
+	LOG_FILE="/tmp/cloudflared.log"
+	VIDEO_SERVICE_URL="http://azure.com"
+	CAMERA_LOCAL_URL="http://localhost:8080"
+	
+	# Uruchomienie tunelu w tle i przekierowanie strumieni danych
+	cloudflared tunnel --url "$CAMERA_LOCAL_URL" > "$LOG_FILE" 2>&1 &
+	
+	# Iteracyjne sondowanie logu w celu ekstrakcji adresu (maks. 30 s)
+	TUNNEL_URL=""
+	for i in $(seq 1 15); do
+	sleep 2
+	TUNNEL_URL=$(grep -E -o 'https://[a-zA-Z0-9-]*\.trycloudflare\.com' "$LOG_FILE" | head -1)
+	if [ -n "$TUNNEL_URL" ]; then
+	break
+	fi
+	done
+	
+	if [ -z "$TUNNEL_URL" ]; then
+	exit 1
+	fi
+	
+	# Transmisja adresu do centralnej usługi Video Service
+	curl -s -X POST "$VIDEO_SERVICE_URL/camera-url" \
+	-H "Content-Type: application/json" \
+	-d "{\"url\": \"$TUNNEL_URL\"}"
+\end{lstlisting}
+
+\subsubsection{Automatyzacja odnawiania adresu w harmonogramie cron}
+
+Z uwagi na fakt, że bezpłatne tunele w domenie \texttt{trycloudflare.com} wykazują tendencję do samoczynnego wygasania po okresie bezczynności lub wskutek fluktuacji sieciowych, wdrożono mechanizm ciągłego odnawiania sesji. Do tego celu wykorzystano systemowy harmonogram zadań \textit{cron}. W tablicy konfiguracji użytkownika (\texttt{crontab}) zdefiniowano dyrektywę \texttt{@reboot}, która inicjuje skrypt \texttt{publish-camera-url.sh} bezpośrednio po starcie systemu operacyjnego, oraz regułę czasową uruchamiającą procedurę cyklicznie z interwałem sześciogodzinnych iteracji, co zapewnia pełną ciągłość dystrybucji strumienia wideo.
+
+
+\subsection{Konfiguracja harmonogramu zadań crontab}
+
+Zarządzanie potokami cyklicznymi oraz automatyzację skryptów na platformie Raspberry Pi powierzono systemowemu demonowi \texttt{cron}. Edycja harmonogramu realizowana jest poleceniem \texttt{crontab -e} w kontekście uprawnień użytkownika \texttt{pi}. Wprowadzone wpisy konfiguracyjne, implementujące opóźniony start rozruchowy oraz cykliczne odnawianie tunelu, przedstawiono na listingu~\ref{lst:crontab_config}.
+
+\begin{lstlisting}[language=bash,caption={Konfiguracja zadań harmonogramu cron dla użytkownika pi.},style=plListing,label={lst:crontab_config}]
+	# Publikacja adresu URL kamery po restarcie systemu (opoznienie 60 s)
+	@reboot sleep 60 && /home/pi/scripts/publish-camera-url.sh >> /home/pi/logs/camera-url.log 2>&1
+	
+	# Odnawianie adresu URL kamery cyklicznie co 6 godzin
+	0 */6 * * * /home/pi/scripts/publish-camera-url.sh >> /home/pi/logs/camera-url.log 2>&1
+\end{lstlisting}
+
+\subsubsection{Uzasadnienie zastosowanych parametrów}
+
+\begin{itemize}
+	\item \textbf{\texttt{@reboot sleep 60}} — opóźnienie wynoszące 60 sekund po uruchomieniu systemu jest wymagane, ponieważ środowisko \textit{OctoPi} podczas startu inicjalizuje wiele usług systemowych, m.in.\ \textit{OctoPrint}, obsługę kamery oraz interfejs sieciowy Wi-Fi. Próba uruchomienia tunelu na wcześniejszym etapie może zakończyć się błędem z powodu niedostępności lokalnego portu strumienia wideo.
+	
+	\item \textbf{\texttt{0 */6 * * *}} — cykliczne uruchamianie skryptu co 6 godzin umożliwia weryfikację dostępności tunelu \textit{Cloudflare} oraz ponowną publikację adresu URL w przypadku zerwania połączenia. Wybrany interwał stanowi kompromis pomiędzy częstotliwością odświeżania a ograniczeniem zbędnego obciążenia sieci i usług zewnętrznych.
+\end{itemize}
+
+
+\subsection{Problem dostępności sieci podczas uruchamiania systemu}
+
+W trakcie testów zaobserwowano, że zadania uruchamiane przez mechanizm \texttt{@reboot} w \textit{crontab} mogą zostać wykonane przed pełną inicjalizacją interfejsu sieciowego. W rezultacie skrypt publikujący adres URL kamery mógł uruchomić się przed uzyskaniem dostępu do sieci lub przed pełnym uruchomieniem usługi \textit{OctoPrint}.
+
+W przypadku agenta \textit{AddiPi} problem rozwiązano z wykorzystaniem dyrektywy \texttt{After= network-online.target} w konfiguracji usługi \texttt{systemd}. Dla skryptu uruchamianego przez \texttt{cron} zastosowano dodatkowe opóźnienie (\texttt{sleep 60}), stanowiące proste i niezawodne obejście problemu kolejności startu usług.
+
+Alternatywnym rozwiązaniem byłoby zarejestrowanie skryptu publikującego adres URL jako osobnej usługi \texttt{systemd}, również zależnej od \texttt{network-online.target}. Podejście to zapewniałoby większą kontrolę nad kolejnością uruchamiania komponentów systemu. Przykładową konfigurację jednostki typu \texttt{oneshot} zaprezentowano na listingu~\ref{lst:systemd_camera}.
+
+\begin{lstlisting}[language=bash,caption={Alternatywna konfiguracja skryptu publikacji jako uslugi systemd.}, label=systemd_camera]
+	[Unit]
+	Description=AddiPi Camera URL Publisher
+	After=network-online.target addipi-agent.service
+	Wants=network-online.target
+	
+	[Service]
+	Type=oneshot
+	User=pi
+	ExecStart=/home/pi/scripts/publish-camera-url.sh
+	RemainAfterExit=no
+	
+	[Install]
+	WantedBy=multi-user.target
+\end{lstlisting}
+
+\subsection{Podsumowanie konfiguracji węzła brzegowego}
+
+W tabeli~\ref{tab:rpi_summary} zestawiono oraz sklasyfikowano wszystkie kluczowe usługi systemowe i zadania harmonogramu skonfigurowane w obrębie mikrokomputera Raspberry Pi.
+
+\begin{xltabular}{\textwidth}{p{3.5cm}p{4.0cm}X}
+	\caption{Podsumowanie usług i zadań cyklicznych na platformie Raspberry Pi.} \label{tab:rpi_summary} \\
+	\toprule
+	\textbf{Usługa / komponent} & \textbf{Mechanizm uruchomieniowy} & \textbf{Opis realizowanej odpowiedzialności} \\
+	\midrule
+	\endfirsthead
+	
+	\multicolumn{3}{c}{{\bfseries \tablename\ \thetable{} -- ciąg dalszy z poprzedniej strony}} \\
+	\toprule
+	\textbf{Usługa / komponent} & \textbf{Mechanizm uruchomieniowy} & \textbf{Opis realizowanej odpowiedzialności} \\
+	\midrule
+	\endhead
+	
+	\bottomrule
+	\endfoot
+	
+	\bottomrule
+	\endlastfoot
+	
+	\textit{OctoPrint} & \texttt{systemd} (natywny w \textit{OctoPi}) & Niskopoziomowe sterowanie drukarką przez interfejs USB, generowanie lokalnego strumienia wizyjnego. \\
+	\addlinespace
+	\textit{AddiPi Agent} & \texttt{systemd} (\texttt{addipi-agent.service}) & Utrzymywanie sesji z \textit{IoT Hub}, obsługa żądań \textit{Direct Methods}, transmisja danych telemetrycznych. \\
+	\addlinespace
+	\textit{Cloudflare Tunnel} & \texttt{cron} (\texttt{@reboot}) & Zestawienie szyfrowanego połączenia wychodzącego, inicjowane z opóźnieniem 60~s od startu systemu. \\
+	\addlinespace
+	Odnowienie adresu URL & \texttt{cron} (\texttt{0 */6 * * *}) & Iteracyjna renegocjacja sesji tunelu oraz przesyłanie aktualnego rejestru do usługi \textit{Video Service}. \\
+\end{xltabular}
+
 
 \newpage
 

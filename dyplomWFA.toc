@@ -94,37 +94,37 @@
 \contentsline {section}{\numberline {9}Konfiguracja Raspberry Pi}{68}{section.9}%
 \contentsline {subsection}{\numberline {9.1}Opis środowiska}{68}{subsection.9.1}%
 \contentsline {subsection}{\numberline {9.2}Instalacja agenta}{68}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Automatyczne uruchamianie agenta przez systemd}{68}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Tunel Cloudflare - ekspozycja kamery}{68}{subsection.9.4}%
-\contentsline {subsubsection}{\numberline {9.4.1}Instalacja cloudflared}{68}{subsubsection.9.4.1}%
-\contentsline {subsubsection}{\numberline {9.4.2}Skrypt publikowania URL kamery}{68}{subsubsection.9.4.2}%
-\contentsline {subsubsection}{\numberline {9.4.3}Cykliczne odnawianie URL}{68}{subsubsection.9.4.3}%
-\contentsline {subsection}{\numberline {9.5}Konfiguracja crontab}{68}{subsection.9.5}%
-\contentsline {subsubsection}{\numberline {9.5.1}Uzasadnienie parametrów}{68}{subsubsection.9.5.1}%
-\contentsline {subsection}{\numberline {9.6}Problem z dostępnością sieci przy starcie}{68}{subsection.9.6}%
-\contentsline {subsection}{\numberline {9.7}Podsumowanie konfiguracji Raspberry Pi}{68}{subsection.9.7}%
-\contentsline {section}{\numberline {10}Wdrożenie i infrastruktura}{69}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Infrastruktura chmurowa}{69}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Inicjalizacja infrastruktury}{69}{subsection.10.2}%
-\contentsline {subsection}{\numberline {10.3}Konteneryzacja - Dockerfiles}{69}{subsection.10.3}%
-\contentsline {subsection}{\numberline {10.4}Docker Compose}{69}{subsection.10.4}%
-\contentsline {subsection}{\numberline {10.5}Zmienne środowiskowe}{69}{subsection.10.5}%
-\contentsline {subsection}{\numberline {10.6}Wdrożenie frontendu}{69}{subsection.10.6}%
-\contentsline {subsection}{\numberline {10.7}Wdrożenie agenta}{69}{subsection.10.7}%
-\contentsline {section}{\numberline {11}Testowanie systemu}{70}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Metodologia testowania}{70}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}Testy jednostkowe - Auth Service}{70}{subsection.11.2}%
-\contentsline {subsection}{\numberline {11.3}Testy integracyjne przez Postman}{70}{subsection.11.3}%
-\contentsline {subsection}{\numberline {11.4}Test end-to-end - pełny przepływ druku}{70}{subsection.11.4}%
-\contentsline {subsection}{\numberline {11.5}Testy wydajnościowe i obserwacje}{70}{subsection.11.5}%
-\contentsline {section}{\numberline {12}Podsumowanie}{71}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Osiągnięcia}{71}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}Napotkane trudności}{71}{subsection.12.2}%
-\contentsline {subsection}{\numberline {12.3}Możliwości rozwoju}{71}{subsection.12.3}%
-\contentsline {subsection}{\numberline {12.4}Wnioski}{71}{subsection.12.4}%
-\contentsline {section}{Załączniki}{74}{section*.24}%
-\contentsline {section}{\numberline {A}Konfiguracja środowiska deweloperskiego}{74}{appendix.a.A}%
-\contentsline {subsection}{\numberline {A.1}Wymagania}{74}{subsection.a.A.1}%
-\contentsline {subsection}{\numberline {A.2}Pierwsze uruchomienie}{74}{subsection.a.A.2}%
-\contentsline {section}{\numberline {B}Struktura repozytoriów}{74}{appendix.a.B}%
-\contentsline {section}{\numberline {C}Endpointy API - podsumowanie}{74}{appendix.a.C}%
+\contentsline {subsection}{\numberline {9.3}Automatyzacja uruchamiania za pomocą systemd}{69}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Udostępnianie strumienia wideo przez Cloudflare Tunnel}{70}{subsection.9.4}%
+\contentsline {subsubsection}{\numberline {9.4.1}Instalacja narzędzia cloudflared}{70}{subsubsection.9.4.1}%
+\contentsline {subsubsection}{\numberline {9.4.2}Skrypt automatyzacji publikacji adresu sieciowego}{71}{subsubsection.9.4.2}%
+\contentsline {subsubsection}{\numberline {9.4.3}Automatyzacja odnawiania adresu w harmonogramie cron}{72}{subsubsection.9.4.3}%
+\contentsline {subsection}{\numberline {9.5}Konfiguracja harmonogramu zadań crontab}{72}{subsection.9.5}%
+\contentsline {subsubsection}{\numberline {9.5.1}Uzasadnienie zastosowanych parametrów}{73}{subsubsection.9.5.1}%
+\contentsline {subsection}{\numberline {9.6}Problem dostępności sieci podczas uruchamiania systemu}{73}{subsection.9.6}%
+\contentsline {subsection}{\numberline {9.7}Podsumowanie konfiguracji węzła brzegowego}{74}{subsection.9.7}%
+\contentsline {section}{\numberline {10}Wdrożenie i infrastruktura}{76}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Infrastruktura chmurowa}{76}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Inicjalizacja infrastruktury}{76}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Konteneryzacja - Dockerfiles}{76}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Docker Compose}{76}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.5}Zmienne środowiskowe}{76}{subsection.10.5}%
+\contentsline {subsection}{\numberline {10.6}Wdrożenie frontendu}{76}{subsection.10.6}%
+\contentsline {subsection}{\numberline {10.7}Wdrożenie agenta}{76}{subsection.10.7}%
+\contentsline {section}{\numberline {11}Testowanie systemu}{77}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Metodologia testowania}{77}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Testy jednostkowe - Auth Service}{77}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Testy integracyjne przez Postman}{77}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.4}Test end-to-end - pełny przepływ druku}{77}{subsection.11.4}%
+\contentsline {subsection}{\numberline {11.5}Testy wydajnościowe i obserwacje}{77}{subsection.11.5}%
+\contentsline {section}{\numberline {12}Podsumowanie}{78}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Osiągnięcia}{78}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Napotkane trudności}{78}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}Możliwości rozwoju}{78}{subsection.12.3}%
+\contentsline {subsection}{\numberline {12.4}Wnioski}{78}{subsection.12.4}%
+\contentsline {section}{Załączniki}{81}{section*.25}%
+\contentsline {section}{\numberline {A}Konfiguracja środowiska deweloperskiego}{81}{appendix.a.A}%
+\contentsline {subsection}{\numberline {A.1}Wymagania}{81}{subsection.a.A.1}%
+\contentsline {subsection}{\numberline {A.2}Pierwsze uruchomienie}{81}{subsection.a.A.2}%
+\contentsline {section}{\numberline {B}Struktura repozytoriów}{81}{appendix.a.B}%
+\contentsline {section}{\numberline {C}Endpointy API - podsumowanie}{81}{appendix.a.C}%

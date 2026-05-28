@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.10)  28 MAY 2026 02:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.10)  28 MAY 2026 03:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -139,50 +139,6 @@ LaTeX Info: Redefining \Relbar on input line 971.
 \mathdisplay@stack=\toks24
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
-) (/usr/share/texlive/texmf-dist/tex/latex/polski/polski.sty
-Package: polski 2021/08/25 v1.3.6 Polish language package
-   Switching to Polish text encoding and Polish maths fonts.
-(/usr/share/texlive/texmf-dist/tex/latex/base/ot4enc.def
-File: ot4enc.def 2021/04/29 v2.0v Standard LaTeX file
-Now handling font encoding OT4 ...
-... no UTF-8 mapping file for font encoding OT4
-)
-LaTeX Font Info:    Trying to load font information for OT4+cmr on input line 3
-62.
-(/usr/share/texlive/texmf-dist/tex/latex/polski/ot4cmr.fd
-File: ot4cmr.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
-)
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT4/cmr/bx/n on input line 362.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT4/cmss/m/n on input line 362.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT4/cmr/m/it on input line 362.
-LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT4/cmtt/m/n on input line 362.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT4/cmss/bx/n on input line 362.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT4/cmr/bx/it on input line 362.
-LaTeX Font Info:    Encoding `OT1' has changed to `OT4' for symbol font
-(Font)              `operators' in the math version `normal' on input line 362.
-
-LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT4/cmr/m/n on input line 362.
-LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
-(Font)                  OML/cmm/m/it --> OML/plm/m/it on input line 362.
-LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/cmsy/m/n --> OMS/plsy/m/n on input line 362.
-LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/cmex/m/n --> OMX/plex/m/n on input line 362.
-LaTeX Font Info:    Encoding `OT1' has changed to `OT4' for symbol font
-(Font)              `operators' in the math version `bold' on input line 362.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT4/cmr/bx/n on input line 362.
-LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
-(Font)                  OML/cmm/b/it --> OML/plm/b/it on input line 362.
-LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/cmsy/b/n --> OMS/plsy/b/n on input line 362.
 ) (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 ) (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
@@ -382,41 +338,37 @@ LaTeX Info: Redefining \_ on input line 43.
 ) (/usr/share/texlive/texmf-dist/tex/latex/psnfss/mathptmx.sty
 Package: mathptmx 2020/03/25 PSNFSS-v9.3 Times w/ Math, improved (SPQR, WaS) 
 LaTeX Font Info:    Redeclaring symbol font `operators' on input line 28.
-LaTeX Font Info:    Encoding `OT4' has changed to `OT1' for symbol font
-(Font)              `operators' in the math version `normal' on input line 28.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT4/cmr/m/n --> OT1/ztmcm/m/n on input line 28.
-LaTeX Font Info:    Encoding `OT4' has changed to `OT1' for symbol font
-(Font)              `operators' in the math version `bold' on input line 28.
+(Font)                  OT1/cmr/m/n --> OT1/ztmcm/m/n on input line 28.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT4/cmr/bx/n --> OT1/ztmcm/m/n on input line 28.
+(Font)                  OT1/cmr/bx/n --> OT1/ztmcm/m/n on input line 28.
 LaTeX Font Info:    Redeclaring symbol font `letters' on input line 29.
 LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
-(Font)                  OML/plm/m/it --> OML/ztmcm/m/it on input line 29.
+(Font)                  OML/cmm/m/it --> OML/ztmcm/m/it on input line 29.
 LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
-(Font)                  OML/plm/b/it --> OML/ztmcm/m/it on input line 29.
+(Font)                  OML/cmm/b/it --> OML/ztmcm/m/it on input line 29.
 LaTeX Font Info:    Redeclaring symbol font `symbols' on input line 30.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/plsy/m/n --> OMS/ztmcm/m/n on input line 30.
+(Font)                  OMS/cmsy/m/n --> OMS/ztmcm/m/n on input line 30.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/plsy/b/n --> OMS/ztmcm/m/n on input line 30.
+(Font)                  OMS/cmsy/b/n --> OMS/ztmcm/m/n on input line 30.
 LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 31.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/plex/m/n --> OMX/ztmcm/m/n on input line 31.
+(Font)                  OMX/cmex/m/n --> OMX/ztmcm/m/n on input line 31.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/cmex/m/n --> OMX/ztmcm/m/n on input line 31.
 \symbold=\mathgroup6
 \symitalic=\mathgroup7
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 34.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT4/cmr/bx/n --> OT1/ptm/bx/n on input line 34.
+(Font)                  OT1/cmr/bx/n --> OT1/ptm/bx/n on input line 34.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
 (Font)                  OT1/cmr/bx/n --> OT1/ptm/bx/n on input line 34.
 LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT4/cmr/m/it --> OT1/ptm/m/it on input line 35.
+(Font)                  OT1/cmr/m/it --> OT1/ptm/m/it on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT4/cmr/bx/it --> OT1/ptm/m/it on input line 35.
+(Font)                  OT1/cmr/bx/it --> OT1/ptm/m/it on input line 35.
 LaTeX Info: Redefining \hbar on input line 50.
 ) (/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
@@ -538,34 +490,32 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip62
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 66.
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 30
-2.
+Package hyperref Info: Option `colorlinks' set `true' on input line 75.
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 32
+9.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 ) (./dyplomWFA.aux)
 \openout1 = `dyplomWFA.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 302.
-LaTeX Font Info:    ... okay on input line 302.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 302.
-LaTeX Font Info:    ... okay on input line 302.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 302.
-LaTeX Font Info:    ... okay on input line 302.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 302.
-LaTeX Font Info:    ... okay on input line 302.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 302.
-LaTeX Font Info:    ... okay on input line 302.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 302.
-LaTeX Font Info:    ... okay on input line 302.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 302.
-LaTeX Font Info:    ... okay on input line 302.
-LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 302.
-LaTeX Font Info:    ... okay on input line 302.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 302.
-LaTeX Font Info:    ... okay on input line 302.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 302.
-LaTeX Font Info:    ... okay on input line 302.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 329.
+LaTeX Font Info:    ... okay on input line 329.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 329.
+LaTeX Font Info:    ... okay on input line 329.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 329.
+LaTeX Font Info:    ... okay on input line 329.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 329.
+LaTeX Font Info:    ... okay on input line 329.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 329.
+LaTeX Font Info:    ... okay on input line 329.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 329.
+LaTeX Font Info:    ... okay on input line 329.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 329.
+LaTeX Font Info:    ... okay on input line 329.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 329.
+LaTeX Font Info:    ... okay on input line 329.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 329.
+LaTeX Font Info:    ... okay on input line 329.
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count322
@@ -633,135 +583,135 @@ Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count328
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 3
-02.
+29.
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 
 LaTeX Font Warning: Font shape `T1/cmtt/m/scsl' undefined
-(Font)              using `T1/cmtt/m/sc' instead on input line 302.
+(Font)              using `T1/cmtt/m/sc' instead on input line 329.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/m/n' instead on input line 302.
+(Font)              using `T1/cmtt/m/n' instead on input line 329.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/it' undefined
-(Font)              using `T1/cmtt/b/n' instead on input line 302.
+(Font)              using `T1/cmtt/b/n' instead on input line 329.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/sl' undefined
-(Font)              using `T1/cmtt/b/it' instead on input line 302.
+(Font)              using `T1/cmtt/b/it' instead on input line 329.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/scit' undefined
-(Font)              using `T1/cmtt/b/sc' instead on input line 302.
+(Font)              using `T1/cmtt/b/sc' instead on input line 329.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/sc' undefined
-(Font)              using `T1/cmtt/b/n' instead on input line 302.
+(Font)              using `T1/cmtt/b/n' instead on input line 329.
 
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 302.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 329.
 LaTeX Font Info:    Font shape `T1/cmtt/bx/it' in size <12> not available
-(Font)              Font shape `T1/cmtt/m/it' tried instead on input line 302.
+(Font)              Font shape `T1/cmtt/m/it' tried instead on input line 329.
 
 LaTeX Font Warning: Font shape `T1/cmtt/bx/sl' undefined
-(Font)              using `T1/cmtt/bx/it' instead on input line 302.
+(Font)              using `T1/cmtt/bx/it' instead on input line 329.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/bx/scit' undefined
-(Font)              using `T1/cmtt/bx/sc' instead on input line 302.
+(Font)              using `T1/cmtt/bx/sc' instead on input line 329.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/bx/sc' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 302.
+(Font)              using `T1/cmtt/bx/n' instead on input line 329.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/sbx/sc' undefined
-(Font)              using `T1/cmtt/sb/sc' instead on input line 302.
+(Font)              using `T1/cmtt/sb/sc' instead on input line 329.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/sb/n' undefined
-(Font)              using `T1/cmtt/m/n' instead on input line 302.
+(Font)              using `T1/cmtt/m/n' instead on input line 329.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/sb/it' undefined
-(Font)              using `T1/cmtt/sb/n' instead on input line 302.
+(Font)              using `T1/cmtt/sb/n' instead on input line 329.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/sb/sl' undefined
-(Font)              using `T1/cmtt/sb/it' instead on input line 302.
+(Font)              using `T1/cmtt/sb/it' instead on input line 329.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/sb/scit' undefined
-(Font)              using `T1/cmtt/sb/sc' instead on input line 302.
+(Font)              using `T1/cmtt/sb/sc' instead on input line 329.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/sb/sc' undefined
-(Font)              using `T1/cmtt/sb/n' instead on input line 302.
+(Font)              using `T1/cmtt/sb/n' instead on input line 329.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/sbc/sc' undefined
-(Font)              using `T1/cmtt/c/sc' instead on input line 302.
+(Font)              using `T1/cmtt/c/sc' instead on input line 329.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/c/n' undefined
-(Font)              using `T1/cmtt/m/n' instead on input line 302.
+(Font)              using `T1/cmtt/m/n' instead on input line 329.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/c/it' undefined
-(Font)              using `T1/cmtt/c/n' instead on input line 302.
+(Font)              using `T1/cmtt/c/n' instead on input line 329.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/c/sl' undefined
-(Font)              using `T1/cmtt/c/it' instead on input line 302.
+(Font)              using `T1/cmtt/c/it' instead on input line 329.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/c/scit' undefined
-(Font)              using `T1/cmtt/c/sc' instead on input line 302.
+(Font)              using `T1/cmtt/c/sc' instead on input line 329.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/c/sc' undefined
-(Font)              using `T1/cmtt/c/n' instead on input line 302.
+(Font)              using `T1/cmtt/c/n' instead on input line 329.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/lc/sc' undefined
-(Font)              using `T1/cmtt/l/sc' instead on input line 302.
+(Font)              using `T1/cmtt/l/sc' instead on input line 329.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/l/n' undefined
-(Font)              using `T1/cmtt/m/n' instead on input line 302.
+(Font)              using `T1/cmtt/m/n' instead on input line 329.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/l/it' undefined
-(Font)              using `T1/cmtt/l/n' instead on input line 302.
+(Font)              using `T1/cmtt/l/n' instead on input line 329.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/l/sl' undefined
-(Font)              using `T1/cmtt/l/it' instead on input line 302.
+(Font)              using `T1/cmtt/l/it' instead on input line 329.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/l/scit' undefined
-(Font)              using `T1/cmtt/l/sc' instead on input line 302.
+(Font)              using `T1/cmtt/l/sc' instead on input line 329.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/l/sc' undefined
-(Font)              using `T1/cmtt/l/n' instead on input line 302.
+(Font)              using `T1/cmtt/l/n' instead on input line 329.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/m/ui' undefined
-(Font)              using `T1/cmtt/m/n' instead on input line 302.
+(Font)              using `T1/cmtt/m/n' instead on input line 329.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/bx/ui' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 302.
+(Font)              using `T1/cmtt/bx/n' instead on input line 329.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/m/In' undefined
-(Font)              using `T1/cmtt/m/n' instead on input line 302.
+(Font)              using `T1/cmtt/m/n' instead on input line 329.
 
-Package hyperref Info: Link coloring ON on input line 302.
+Package hyperref Info: Link coloring ON on input line 329.
 (./dyplomWFA.out) (./dyplomWFA.out)
 \@outlinefile=\write3
 \openout3 = `dyplomWFA.out'.
@@ -806,7 +756,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 \openout4 = `dyplomWFA.toc'.
 
 [6]
-Overfull \hbox (5.72974pt too wide) in paragraph at lines 364--365
+Overfull \hbox (5.72974pt too wide) in paragraph at lines 391--392
 []\T1/ptm/m/n/12 Poszczególne ser-wisy za-im-ple-men-to-wano w j¦-zy-kach Ty-pe
 -Script (±ro-do-wi-sko Node.js)
  []
@@ -814,30 +764,30 @@ Overfull \hbox (5.72974pt too wide) in paragraph at lines 364--365
 [7
 
 ]
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 3
-84.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 4
+11.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 ) [8]
-Overfull \hbox (8.03522pt too wide) in paragraph at lines 408--409
+Overfull \hbox (8.03522pt too wide) in paragraph at lines 435--436
 []\T1/ptm/m/n/12 Szczegóªowa im-ple-men-ta-cja po-szcze-gól-nych kom-po-nen-tów
  pro-gra-mo-wych, z uwzgl¦d-
  []
 
 
-Overfull \hbox (8.51399pt too wide) in paragraph at lines 410--411
+Overfull \hbox (8.51399pt too wide) in paragraph at lines 437--438
 []\T1/ptm/m/n/12 Ko«cowe etapy prac, obej-mu-j¡ce or-kie-stra-cj¦ in-fra-struk-
 tury chmu-ro-wej \T1/ptm/m/it/12 Mi-cro-soft Azure
  []
 
 [9] [10] [11] [12] [13] [14] [15]
-Overfull \hbox (4.08606pt too wide) in paragraph at lines 512--513
+Overfull \hbox (4.08606pt too wide) in paragraph at lines 539--540
 \T1/ptm/m/n/12 o zró»-ni-co-wa-nej, he-te-ro-ge-nicz-nej struk-tu-rze w ra-mach
  jed-nej bazy da-nych (\T1/cmtt/l/it/12 addipi\T1/ptm/m/n/12 ),
  []
 
 [16]
-Overfull \hbox (2.70346pt too wide) in paragraph at lines 531--532
+Overfull \hbox (2.70346pt too wide) in paragraph at lines 558--559
 \T1/cmtt/l/it/12 cancelPrint \T1/ptm/m/n/12 oraz \T1/cmtt/l/it/12 get-Sta-tus\T
 1/ptm/m/n/12 . W od-po-wie-dzi zwrot-nej agent trans-mi-tuje asyn-chro-niczny
  []
@@ -846,36 +796,36 @@ Overfull \hbox (2.70346pt too wide) in paragraph at lines 531--532
 <tech-comparison.pdf, id=780, 534.49687pt x 436.63126pt>
 File: tech-comparison.pdf Graphic file (type pdf)
 <use tech-comparison.pdf>
-Package pdftex.def Info: tech-comparison.pdf  used on input line 561.
+Package pdftex.def Info: tech-comparison.pdf  used on input line 588.
 (pdftex.def)             Requested size: 405.45047pt x 331.22359pt.
 [19 <./tech-comparison.pdf>] [20] [21]
 <diagram-architektury.pdf, id=825, 597.50786pt x 426.79132pt>
 File: diagram-architektury.pdf Graphic file (type pdf)
 <use diagram-architektury.pdf>
-Package pdftex.def Info: diagram-architektury.pdf  used on input line 646.
+Package pdftex.def Info: diagram-architektury.pdf  used on input line 673.
 (pdftex.def)             Requested size: 426.79135pt x 304.85391pt.
 [22] [23 <./diagram-architektury.pdf>]
 <AddiPi-CosmosDB.pdf, id=985, 1927.2pt x 1084.05pt>
 File: AddiPi-CosmosDB.pdf Graphic file (type pdf)
 <use AddiPi-CosmosDB.pdf>
-Package pdftex.def Info: AddiPi-CosmosDB.pdf  used on input line 679.
+Package pdftex.def Info: AddiPi-CosmosDB.pdf  used on input line 706.
 (pdftex.def)             Requested size: 426.79135pt x 240.06316pt.
 [24]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 689.
+nput line 716.
 [25 <./AddiPi-CosmosDB.pdf>] [26]
 <cykl-zycia-zadania.pdf, id=1072, 511.9125pt x 421.575pt>
 File: cykl-zycia-zadania.pdf Graphic file (type pdf)
 <use cykl-zycia-zadania.pdf>
-Package pdftex.def Info: cykl-zycia-zadania.pdf  used on input line 778.
+Package pdftex.def Info: cykl-zycia-zadania.pdf  used on input line 805.
 (pdftex.def)             Requested size: 426.79135pt x 351.47673pt.
 [27] [28 <./cykl-zycia-zadania.pdf>] [29]
-Underfull \hbox (badness 5681) in paragraph at lines 859--859
+Underfull \hbox (badness 5681) in paragraph at lines 886--886
 []|\T1/ptm/m/n/12 Weryfikacja po-praw-no-±ci to-kenu do-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 859--859
+Underfull \hbox (badness 10000) in paragraph at lines 886--886
 \T1/ptm/m/n/12 st¦pu, wy-ko-rzy-sty-wana we-wn¦trz-nie
  []
 
@@ -884,48 +834,48 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.859 \end{xltabular}
+l.886 \end{xltabular}
                      ]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 867.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 894.
 [31]
-Overfull \hbox (6.62183pt too wide) in paragraph at lines 885--886
+Overfull \hbox (6.62183pt too wide) in paragraph at lines 912--913
 \T1/ptm/m/n/12 muje za-równo kryp-to-gra-ficzn¡ we-ry-fi-ka-cj¦ po-praw-no-±ci 
 pod-pisu cy-fro-wego struk-tury JWT,
  []
 
 [32] [33]
-Underfull \hbox (badness 10000) in paragraph at lines 982--982
+Underfull \hbox (badness 10000) in paragraph at lines 1009--1009
 []|\T1/ptm/m/n/12 Aktualizacja da-nych oso-bo-wych
  []
 
 
-Underfull \hbox (badness 4328) in paragraph at lines 982--982
+Underfull \hbox (badness 4328) in paragraph at lines 1009--1009
 []|\T1/ptm/m/n/12 Pobranie hi-sto-rii wszyst-kich za-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 982--982
+Underfull \hbox (badness 10000) in paragraph at lines 1009--1009
 []|\T1/ptm/m/n/12 Pobranie sta-ty-styk u»yt-kow-nika,
  []
 
 
-Underfull \hbox (badness 3758) in paragraph at lines 982--982
+Underfull \hbox (badness 3758) in paragraph at lines 1009--1009
 \T1/ptm/m/n/12 obej-mu-j¡-cych m.in. za-gre-go-wan¡
  []
 
 
-Underfull \hbox (badness 1038) in paragraph at lines 982--982
+Underfull \hbox (badness 1038) in paragraph at lines 1009--1009
 \T1/ptm/m/n/12 liczb¦ za-da« z po-dzia-ªem na ich
  []
 
 
-Underfull \hbox (badness 4279) in paragraph at lines 982--982
+Underfull \hbox (badness 4279) in paragraph at lines 1009--1009
 \T1/ptm/m/n/12 nie« u»yt-kow-nika o wska-za-nym
  []
 
 
-Underfull \hbox (badness 1521) in paragraph at lines 982--982
+Underfull \hbox (badness 1521) in paragraph at lines 1009--1009
 []|\T1/ptm/m/n/12 Trwaªe usu-ni¦-cie konta u»yt-kow-
  []
 
@@ -934,93 +884,93 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.982 \end{xltabular}
-                     ] [35] [36] [37]
+l.1009 \end{xltabular}
+                      ] [35] [36] [37]
 <przeplyw-przesylania-pliku.pdf, id=1292, 511.9125pt x 301.125pt>
 File: przeplyw-przesylania-pliku.pdf Graphic file (type pdf)
 <use przeplyw-przesylania-pliku.pdf>
-Package pdftex.def Info: przeplyw-przesylania-pliku.pdf  used on input line 105
-6.
+Package pdftex.def Info: przeplyw-przesylania-pliku.pdf  used on input line 108
+3.
 (pdftex.def)             Requested size: 426.79135pt x 251.05481pt.
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) [38 <./przeplyw-przesylania-pliku.pdf>]
-Overfull \hbox (5.23775pt too wide) in paragraph at lines 1094--1095
+Overfull \hbox (5.23775pt too wide) in paragraph at lines 1121--1122
 []\T1/ptm/m/n/12 Dodatkowo ser-wis udo-st¦p-nia de-dy-ko-wany in-ter-fejs pro-g
 ra-mi-styczny HTTP API, który
  []
 
 [39] [40]
-Underfull \hbox (badness 10000) in paragraph at lines 1171--1172
+Underfull \hbox (badness 10000) in paragraph at lines 1198--1199
 \T1/ptm/m/n/12 kod \T1/cmtt/l/it/12 204 No Con-tent \T1/ptm/m/n/12 w przy-padku
 
  []
 
 
-Overfull \hbox (3.24901pt too wide) in paragraph at lines 1187--1188
+Overfull \hbox (3.24901pt too wide) in paragraph at lines 1214--1215
 \T1/ptm/m/n/12 Usªuga \T1/ptm/m/it/12 Prin-ter Se-rvice \T1/ptm/m/n/12 sta-nowi
  cen-tralny kom-po-nent or-kie-stra-cji sys-temu, od-po-wie-dzialny
  []
 
 [41] [42]
-Overfull \hbox (5.56682pt too wide) in paragraph at lines 1235--1236
+Overfull \hbox (5.56682pt too wide) in paragraph at lines 1262--1263
 \T1/cmtt/l/it/12 wa-iting_-for_-prin-ter_-re-ady \T1/ptm/m/n/12 oraz \T1/cmtt/l
 /it/12 de-layed\T1/ptm/m/n/12 . Kom-po-nent ten re-ali-zuje wie-lo-po-zio-mowy,
 
  []
 
 [43] [44]
-Underfull \hbox (badness 1077) in paragraph at lines 1316--1316
+Underfull \hbox (badness 1077) in paragraph at lines 1343--1343
 []|\T1/ptm/m/n/12 Pobranie szcze-gó-ªo-wych pa-ra-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1316--1316
+Underfull \hbox (badness 10000) in paragraph at lines 1343--1343
 []|\T1/ptm/m/n/12 Wymuszenie prze-rwa-nia i
  []
 
 
-Underfull \hbox (badness 2922) in paragraph at lines 1316--1316
+Underfull \hbox (badness 2922) in paragraph at lines 1343--1343
 \T1/ptm/m/n/12 anu-lo-wa-nia za-da-nia dru-ko-wa-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1316--1316
+Underfull \hbox (badness 10000) in paragraph at lines 1343--1343
 \T1/ptm/m/n/12 nia (do-st¦p za-strze-»ony dla
  []
 
 
-Underfull \hbox (badness 4279) in paragraph at lines 1316--1316
+Underfull \hbox (badness 4279) in paragraph at lines 1343--1343
 []|\T1/ptm/m/n/12 Ponowne do-da-nie wy-bra-nego
  []
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 1316--1316
+Underfull \hbox (badness 1028) in paragraph at lines 1343--1343
 \T1/ptm/m/n/12 (np. prze-rwa-nego) za-da-nia do
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1316--1316
+Underfull \hbox (badness 10000) in paragraph at lines 1343--1343
 []|\T1/ptm/m/n/12 Pobranie ak-tu-al-nego stanu
  []
 
 
-Underfull \hbox (badness 3930) in paragraph at lines 1316--1316
+Underfull \hbox (badness 3930) in paragraph at lines 1343--1343
 []|\T1/ptm/m/n/12 Pobranie za-gre-go-wa-nych me-
  []
 
 
-Underfull \hbox (badness 7151) in paragraph at lines 1316--1316
+Underfull \hbox (badness 7151) in paragraph at lines 1343--1343
 \T1/ptm/m/n/12 tryk sta-ty-stycz-nych sys-te-mo-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1316--1316
+Underfull \hbox (badness 10000) in paragraph at lines 1343--1343
 []|\T1/ptm/m/n/12 Punkt ko«-cowy dia-gno-styki
  []
 
 
-Underfull \hbox (badness 6016) in paragraph at lines 1316--1316
+Underfull \hbox (badness 6016) in paragraph at lines 1343--1343
 \T1/ptm/m/n/12 stanu dzia-ªa-nia mi-kro-ser-wisu
  []
 
@@ -1029,15 +979,15 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.7}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1316 \end{xltabular}
+l.1343 \end{xltabular}
                       ] [46]
-Overfull \hbox (10.26022pt too wide) in paragraph at lines 1325--1326
+Overfull \hbox (10.26022pt too wide) in paragraph at lines 1352--1353
 \T1/ptm/m/n/12 po-±red-nio w in-ter-fej-sie u»yt-kow-nika w ele-men-cie \T1/cmt
 t/l/it/12 <img> \T1/ptm/m/n/12 z wy-ko-rzy-sta-niem for-matu MJPEG
  []
 
 [47]
-Overfull \hbox (12.0358pt too wide) in paragraph at lines 1366--1367
+Overfull \hbox (12.0358pt too wide) in paragraph at lines 1393--1394
 \T1/ptm/m/n/12 doki apli-ka-cji (m.in. \T1/cmtt/l/it/12 Ho-me-Page\T1/ptm/m/n/1
 2 , \T1/cmtt/l/it/12 Lo-gin-Page\T1/ptm/m/n/12 , \T1/cmtt/l/it/12 Re-gi-ster-Pa
 ge\T1/ptm/m/n/12 , \T1/cmtt/l/it/12 Da-sh-bo-ard-Page\T1/ptm/m/n/12 , \T1/cmtt/
@@ -1045,13 +995,13 @@ l/it/12 Uplo-
  []
 
 
-Overfull \hbox (10.46062pt too wide) in paragraph at lines 1368--1369
+Overfull \hbox (10.46062pt too wide) in paragraph at lines 1395--1396
 []\T1/cmtt/l/it/12 src/store/useStore.ts \T1/ptm/m/n/12 --- im-ple-men-ta-cja g
 lo-bal-nego ma-ga-zynu stanu (ang. \T1/ptm/m/it/12 store\T1/ptm/m/n/12 )
  []
 
 
-Overfull \hbox (1.95299pt too wide) in paragraph at lines 1369--1370
+Overfull \hbox (1.95299pt too wide) in paragraph at lines 1396--1397
 []\T1/cmtt/l/it/12 src/i18n/ \T1/ptm/m/n/12 --- kon-fi-gu-ra-cja in-ter-na-cjo-
 na-li-za-cji apli-ka-cji oparta na bi-blio-tece \T1/ptm/m/it/12 i18next
  []
@@ -1060,16 +1010,16 @@ na-li-za-cji apli-ka-cji oparta na bi-blio-tece \T1/ptm/m/it/12 i18next
 <strona-glowna2.png, id=1621, 480.5955pt x 645.612pt>
 File: strona-glowna2.png Graphic file (type png)
 <use strona-glowna2.png>
-Package pdftex.def Info: strona-glowna2.png  used on input line 1445.
+Package pdftex.def Info: strona-glowna2.png  used on input line 1472.
 (pdftex.def)             Requested size: 245.88512pt x 330.3089pt.
 [51 <./strona-glowna2.png>]
 <dashboard2.png, id=1634, 775.09575pt x 478.78876pt>
 File: dashboard2.png Graphic file (type png)
 <use dashboard2.png>
-Package pdftex.def Info: dashboard2.png  used on input line 1463.
+Package pdftex.def Info: dashboard2.png  used on input line 1490.
 (pdftex.def)             Requested size: 426.79135pt x 263.63416pt.
 
-Overfull \hbox (9.34227pt too wide) in paragraph at lines 1470--1471
+Overfull \hbox (9.34227pt too wide) in paragraph at lines 1497--1498
 \T1/ptm/m/n/12 re-ali-zuje wst¦pn¡ wa-li-da-cj¦ po stro-nie klienta, we-ry-fi-k
 u-j¡c po-prawne roz-sze-rze-nie (\T1/cmtt/l/it/12 .gcode\T1/ptm/m/n/12 )
  []
@@ -1078,21 +1028,21 @@ u-j¡c po-prawne roz-sze-rze-nie (\T1/cmtt/l/it/12 .gcode\T1/ptm/m/n/12 )
 <upload-print.png, id=1643, 983.675pt x 745.78625pt>
 File: upload-print.png Graphic file (type png)
 <use upload-print.png>
-Package pdftex.def Info: upload-print.png  used on input line 1476.
+Package pdftex.def Info: upload-print.png  used on input line 1503.
 (pdftex.def)             Requested size: 405.45047pt x 307.40166pt.
 [53 <./upload-print.png>]
 <print-control2.png, id=1652, 662.475pt x 492.03825pt>
 File: print-control2.png Graphic file (type png)
 <use print-control2.png>
-Package pdftex.def Info: print-control2.png  used on input line 1489.
+Package pdftex.def Info: print-control2.png  used on input line 1516.
 (pdftex.def)             Requested size: 426.79135pt x 316.9906pt.
 <admin-panel.png, id=1654, 1245.65375pt x 761.84625pt>
 File: admin-panel.png Graphic file (type png)
 <use admin-panel.png>
-Package pdftex.def Info: admin-panel.png  used on input line 1507.
+Package pdftex.def Info: admin-panel.png  used on input line 1534.
 (pdftex.def)             Requested size: 384.1096pt x 234.92604pt.
 [54 <./print-control2.png>]
-Overfull \hbox (46.77734pt too wide) in paragraph at lines 1514--1515
+Overfull \hbox (46.77734pt too wide) in paragraph at lines 1541--1542
 \T1/ptm/m/n/12 JSON (\T1/cmtt/l/it/12 pl.json \T1/ptm/m/n/12 oraz \T1/cmtt/l/it
 /12 en.json\T1/ptm/m/n/12 ), zlo-ka-li-zo-wa-nych w de-dy-ko-wa-nym ka-ta-logu 
 \T1/cmtt/l/it/12 src/i18n/locales/\T1/ptm/m/n/12 . 
@@ -1100,23 +1050,23 @@ Overfull \hbox (46.77734pt too wide) in paragraph at lines 1514--1515
 
 [55 <./admin-panel.png>] [56] [57]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <14> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 1590.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 1617.
 [58]
 <agent_startprint_initialversion.pdf, id=1695, 518.70288pt x 391.4625pt>
 File: agent_startprint_initialversion.pdf Graphic file (type pdf)
 <use agent_startprint_initialversion.pdf>
 Package pdftex.def Info: agent_startprint_initialversion.pdf  used on input lin
-e 1596.
+e 1623.
 (pdftex.def)             Requested size: 384.1096pt x 289.89275pt.
 [59 <./agent_startprint_initialversion.pdf>]
-Overfull \hbox (1.71101pt too wide) in paragraph at lines 1638--1639
+Overfull \hbox (1.71101pt too wide) in paragraph at lines 1665--1666
 \T1/ptm/m/n/12 Klasa \T1/cmtt/l/it/12 Octo-PrintC-lient \T1/ptm/m/n/12 her-me-t
 y-zuje i re-ali-zuje ko-mu-ni-ka-cj¦ sie-ciow¡ z sys-te-mem \T1/ptm/m/it/12 Oct
 o-
  []
 
 
-Overfull \hbox (0.39816pt too wide) in paragraph at lines 1638--1639
+Overfull \hbox (0.39816pt too wide) in paragraph at lines 1665--1666
 \T1/ptm/m/n/12 ad-re-sów, np. \T1/cmtt/l/it/12 http://prusai3mk3.local\T1/ptm/m
 /n/12 ). Au-to-ry-za-cja i bez-pie-cze«-stwo za-py-ta« HTTP
  []
@@ -1125,42 +1075,166 @@ Overfull \hbox (0.39816pt too wide) in paragraph at lines 1638--1639
 <octoprint-panel.png, id=1955, 819.06pt x 579.66562pt>
 File: octoprint-panel.png Graphic file (type png)
 <use octoprint-panel.png>
-Package pdftex.def Info: octoprint-panel.png  used on input line 1657.
+Package pdftex.def Info: octoprint-panel.png  used on input line 1684.
 (pdftex.def)             Requested size: 384.1096pt x 271.85027pt.
 [61 <./octoprint-panel.png>] [62] [63]
-Overfull \hbox (5.20607pt too wide) in paragraph at lines 1724--1739
+Overfull \hbox (5.20607pt too wide) in paragraph at lines 1751--1766
  [][] 
  []
 
 <physical-stand.jpeg, id=1984, 1032.0156pt x 703.428pt>
 File: physical-stand.jpeg Graphic file (type jpg)
 <use physical-stand.jpeg>
-Package pdftex.def Info: physical-stand.jpeg  used on input line 1749.
+Package pdftex.def Info: physical-stand.jpeg  used on input line 1776.
 (pdftex.def)             Requested size: 384.1096pt x 261.80989pt.
 [64] [65 <./physical-stand.jpeg>]
 <Full_Assembly.png, id=1999, 630.55576pt x 433.62pt>
 File: Full_Assembly.png Graphic file (type png)
 <use Full_Assembly.png>
-Package pdftex.def Info: Full_Assembly.png  used on input line 1764.
+Package pdftex.def Info: Full_Assembly.png  used on input line 1791.
 (pdftex.def)             Requested size: 320.0935pt x 220.12433pt.
 <cad_assembly.pdf, id=2000, 511.9125pt x 304.13625pt>
 File: cad_assembly.pdf Graphic file (type pdf)
 <use cad_assembly.pdf>
-Package pdftex.def Info: cad_assembly.pdf  used on input line 1771.
+Package pdftex.def Info: cad_assembly.pdf  used on input line 1798.
 (pdftex.def)             Requested size: 320.0935pt x 190.17285pt.
 [66 <./Full_Assembly.png> <./cad_assembly.pdf>]
-Overfull \hbox (0.68167pt too wide) in paragraph at lines 1814--1815
+Overfull \hbox (0.68167pt too wide) in paragraph at lines 1841--1842
 []\T1/ptm/b/n/12 Instalacja elek-tro-niki: \T1/ptm/m/n/12 Za-mon-to-wa-nie mi-k
 ro-kom-pu-tera Ra-sp-berry Pi w dol-nej cz¦-
  []
 
-[67] [68] [69] [70] [71] (./dyplomWFA.bbl
+[67] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+) (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+) [68]
+Overfull \hbox (113.74629pt too wide) in paragraph at lines 1892--1893
+\T1/ptm/m/it/12 sys-temd\T1/ptm/m/n/12 . Plik kon-fi-gu-ra-cyjny jed-nostki (an
+g. \T1/ptm/m/it/12 unit file\T1/ptm/m/n/12 ) zlo-ka-li-zo-wano w ±cie»ce \T1/cm
+tt/l/it/12 /etc/systemd/system/addipi-
+ []
+
+
+Overfull \hbox (1.4629pt too wide) in paragraph at lines 1913--1914
+\T1/cmtt/l/it/12 addipi-agent \T1/ptm/m/n/12 oraz \T1/cmtt/l/it/12 sudo sys-tem
+ctl start addipi-agent\T1/ptm/m/n/12 . Bie-»¡cy stan pro-cesu we-
+ []
+
+<rpi_boot.pdf, id=2065, 511.9125pt x 385.44pt>
+File: rpi_boot.pdf Graphic file (type pdf)
+<use rpi_boot.pdf>
+Package pdftex.def Info: rpi_boot.pdf  used on input line 1919.
+(pdftex.def)             Requested size: 320.0935pt x 241.01115pt.
+[69]
+Overfull \hbox (1.42989pt too wide) in paragraph at lines 1933--1934
+\T1/ptm/m/n/12 (np. \T1/cmtt/l/it/12 https://<losowy-hash>.trycloudflare.com\T1
+/ptm/m/n/12 ) bez ko-niecz-no-±ci kon-fi-gu-ra-cji pu-
+ []
+
+
+Overfull \hbox (0.17787pt too wide) in paragraph at lines 1938--1939
+\T1/ptm/m/n/12 chi-tek-tu-rze ARM wy-maga po-bra-nia skom-pi-lo-wa-nego pliku b
+i-nar-nego, nada-nia mu upraw-
+ []
+
+[70 <./rpi_boot.pdf>] [71] [72]
+Overfull \hbox (6.18307pt too wide) in paragraph at lines 2022--2023
+[]\T1/ptm/m/n/12 W przy-padku agenta \T1/ptm/m/it/12 Ad-diPi \T1/ptm/m/n/12 pro
+-blem roz-wi¡-zano z wy-ko-rzy-sta-niem dy-rek-tywy \T1/cmtt/l/it/12 After=
+ []
+
+[73]
+
+LaTeX Warning: Reference `lst:systemd_camera' on page 74 undefined on input lin
+e 2024.
+
+
+Overfull \hbox (6.60414pt too wide) in paragraph at lines 2024--2025
+\T1/ptm/m/n/12 sys-temu. Przy-kªa-dow¡ kon-fi-gu-ra-cj¦ jed-nostki typu \T1/cmt
+t/l/it/12 one-shot \T1/ptm/m/n/12 za-pre-zen-to-wano na li-stingu []. 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2072--2072
+[]|\T1/ptm/b/n/12 Usªuga / kom-po-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2072--2072
+[]|\T1/ptm/b/n/12 Mechanizm uru-cho-
+ []
+
+
+Underfull \hbox (badness 2990) in paragraph at lines 2072--2072
+[]|\T1/ptm/b/n/12 Opis re-ali-zo-wa-nej od-po-wie-dzial-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2072--2072
+[]|\T1/ptm/b/n/12 Usªuga / kom-po-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2072--2072
+[]|\T1/ptm/b/n/12 Mechanizm uru-cho-
+ []
+
+
+Underfull \hbox (badness 2990) in paragraph at lines 2072--2072
+[]|\T1/ptm/b/n/12 Opis re-ali-zo-wa-nej od-po-wie-dzial-
+ []
+
+
+Underfull \hbox (badness 2689) in paragraph at lines 2072--2072
+[]|\T1/cmtt/l/it/12 systemd \T1/ptm/m/n/12 (na-tywny w
+ []
+
+
+Underfull \hbox (badness 8132) in paragraph at lines 2072--2072
+[]|\T1/ptm/m/n/12 Niskopoziomowe ste-ro-wa-nie dru-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2072--2072
+[]|\T1/cmtt/l/it/12 systemd \T1/ptm/m/n/12 (\T1/cmtt/l/it/12 addipi-
+ []
+
+
+Underfull \hbox (badness 6792) in paragraph at lines 2072--2072
+\T1/ptm/m/n/12 nia wy-cho-dz¡-cego, ini-cjo-wane z
+ []
+
+
+Underfull \hbox (badness 5652) in paragraph at lines 2072--2072
+[]|\T1/ptm/m/n/12 Odnowienie ad-resu
+ []
+
+[74
+pdfTeX warning (ext4): destination with the same identifier (name{table.12}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.2072 \end{xltabular}
+                      ] [75] [76] [77] [78] (./dyplomWFA.bbl
 Underfull \hbox (badness 1286) in paragraph at lines 58--62
 []\T1/ptm/m/n/12 Microsoft Cor-po-ra-tion.  Azure IoT Hub do-cu-men-ta-tion.  [
 ][]$\T1/cmtt/l/it/12 https : / / learn .
  []
 
-[72]) [73] [74] (./dyplomWFA.aux)
+[79]
+Underfull \hbox (badness 1158) in paragraph at lines 107--112
+[]\T1/ptm/m/n/12 Cloudflare Inc.  Clo-ud-flare Tun-nel ^^V Se-cu-rely con-nect 
+your in-fra-struc-ture.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--112
+[][]$\T1/cmtt/l/it/12 https : / / developers . cloudflare . com / cloudflare-[]
+one / connections /
+ []
+
+) [80] [81] (./dyplomWFA.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1168,17 +1242,20 @@ L3 programming layer <2024-01-22>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `dyplomWFA.out' has not changed.
-(rerunfilecheck)             Checksum: DB08E412052A18EB1D5090B12BA0B328;25604.
+(rerunfilecheck)             Checksum: 22486763978BE822430493C18310AF8B;26261.
  ) 
 Here is how much of TeX's memory you used:
- 18444 strings out of 476147
- 288602 string characters out of 5794719
- 2112975 words of memory out of 5000000
- 39574 multiletter control sequences out of 15000+600000
- 602843 words of font info for 96 fonts, out of 8000000 for 9000
+ 18577 strings out of 476147
+ 289746 string characters out of 5794719
+ 2115975 words of memory out of 5000000
+ 39620 multiletter control sequences out of 15000+600000
+ 602348 words of font info for 95 fonts, out of 8000000 for 9000
  34 hyphenation exceptions out of 8191
- 79i,15n,93p,789b,2155s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 79i,15n,93p,789b,2166s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1440.600
 pk> </home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecit1000.60
 0pk> </home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.6
@@ -1188,10 +1265,10 @@ pk> </home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecit1000.60
 share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/times/utmri8a.pfb>
-Output written on dyplomWFA.pdf (74 pages, 4730197 bytes).
+Output written on dyplomWFA.pdf (81 pages, 4803994 bytes).
 PDF statistics:
- 2456 PDF objects out of 2487 (max. 8388607)
- 1884 compressed objects within 19 object streams
- 584 named destinations out of 1000 (max. 500000)
- 1108 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2672 PDF objects out of 2984 (max. 8388607)
+ 2055 compressed objects within 21 object streams
+ 677 named destinations out of 1000 (max. 500000)
+ 1113 words of extra memory for PDF output out of 10000 (max. 10000000)
 

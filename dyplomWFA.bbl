@@ -103,4 +103,11 @@ Poimandres.
 \newblock \url{https://grabcad.com/library/case-for-raspberry-pi-4-1}.
 \newblock Licencja CC BY 4.0, Dostęp: 2026.
 
+\bibitem{cloudflare}
+{Cloudflare Inc.}
+\newblock Cloudflare {T}unnel — {S}ecurely connect your infrastructure.
+\newblock
+  \url{https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/}.
+\newblock Dostęp: 2025.
+
 \end{thebibliography}
