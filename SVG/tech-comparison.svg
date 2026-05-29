@@ -7,7 +7,7 @@
    version="1.1"
    id="svg3971"
    sodipodi:docname="tech-comparison.svg"
-   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -26,11 +26,11 @@
      inkscape:cx="354.80649"
      inkscape:cy="290.72409"
      inkscape:window-width="1920"
-     inkscape:window-height="939"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g3793" />
+     inkscape:current-layer="svg3971" />
   <title
      style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
      id="title3623">Porównanie technologii wybranych w projekcie AddiPi</title>
@@ -585,11 +585,11 @@
      style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#262624;stroke-width:0.519914px;stroke-linecap:butt;stroke-linejoin:miter"
      id="rect3761" />
   <text
-     x="130"
+     x="118"
      y="38"
      text-anchor="middle"
      dominant-baseline="central"
-     style="fill:rgb(250, 249, 245);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central"
+     style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#faf9f5;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
      id="text3763">Kategoria</text>
   <text
      x="290"
@@ -599,18 +599,18 @@
      style="fill:rgb(250, 249, 245);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central"
      id="text3765">Wybrana technologia</text>
   <text
-     x="480"
+     x="474"
      y="38"
      text-anchor="middle"
      dominant-baseline="central"
-     style="fill:rgb(250, 249, 245);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central"
+     style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#faf9f5;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
      id="text3767">Odrzucone alternatywy</text>
   <text
-     x="612"
+     x="632.27466"
      y="38"
      text-anchor="middle"
      dominant-baseline="central"
-     style="fill:rgb(250, 249, 245);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central"
+     style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#faf9f5;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
      id="text3769">Kluczowy powód</text>
   <!-- Separator pionowy -->
   <line
