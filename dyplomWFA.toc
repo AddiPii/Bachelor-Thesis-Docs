@@ -103,28 +103,30 @@
 \contentsline {subsubsection}{\numberline {9.5.1}Uzasadnienie zastosowanych parametrów}{73}{subsubsection.9.5.1}%
 \contentsline {subsection}{\numberline {9.6}Problem dostępności sieci podczas uruchamiania systemu}{73}{subsection.9.6}%
 \contentsline {subsection}{\numberline {9.7}Podsumowanie konfiguracji węzła brzegowego}{74}{subsection.9.7}%
-\contentsline {section}{\numberline {10}Wdrożenie i infrastruktura}{76}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Infrastruktura chmurowa}{76}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Inicjalizacja infrastruktury}{76}{subsection.10.2}%
-\contentsline {subsection}{\numberline {10.3}Konteneryzacja - Dockerfiles}{76}{subsection.10.3}%
-\contentsline {subsection}{\numberline {10.4}Docker Compose}{76}{subsection.10.4}%
-\contentsline {subsection}{\numberline {10.5}Zmienne środowiskowe}{76}{subsection.10.5}%
-\contentsline {subsection}{\numberline {10.6}Wdrożenie frontendu}{76}{subsection.10.6}%
-\contentsline {subsection}{\numberline {10.7}Wdrożenie agenta}{76}{subsection.10.7}%
-\contentsline {section}{\numberline {11}Testowanie systemu}{77}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Metodologia testowania}{77}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}Testy jednostkowe - Auth Service}{77}{subsection.11.2}%
-\contentsline {subsection}{\numberline {11.3}Testy integracyjne przez Postman}{77}{subsection.11.3}%
-\contentsline {subsection}{\numberline {11.4}Test end-to-end - pełny przepływ druku}{77}{subsection.11.4}%
-\contentsline {subsection}{\numberline {11.5}Testy wydajnościowe i obserwacje}{77}{subsection.11.5}%
-\contentsline {section}{\numberline {12}Podsumowanie}{78}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Osiągnięcia}{78}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}Napotkane trudności}{78}{subsection.12.2}%
-\contentsline {subsection}{\numberline {12.3}Możliwości rozwoju}{78}{subsection.12.3}%
-\contentsline {subsection}{\numberline {12.4}Wnioski}{78}{subsection.12.4}%
-\contentsline {section}{Załączniki}{81}{section*.25}%
-\contentsline {section}{\numberline {A}Konfiguracja środowiska deweloperskiego}{81}{appendix.a.A}%
-\contentsline {subsection}{\numberline {A.1}Wymagania}{81}{subsection.a.A.1}%
-\contentsline {subsection}{\numberline {A.2}Pierwsze uruchomienie}{81}{subsection.a.A.2}%
-\contentsline {section}{\numberline {B}Struktura repozytoriów}{81}{appendix.a.B}%
-\contentsline {section}{\numberline {C}Endpointy API - podsumowanie}{81}{appendix.a.C}%
+\contentsline {section}{\numberline {10}Wdrożenie i infrastruktura produkcyjna}{76}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Hybrydowa strategia architektoniczna}{76}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Zarządzane usługi integracji danych i komunikacji chmurowej}{76}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Automatyzacja orkiestracji chmurowej --- Terraform}{77}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Specyfikacja konteneryzacji i optymalizacja obrazów}{78}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.5}Automatyzacja procesów CI/CD i Continuous Deployment}{79}{subsection.10.5}%
+\contentsline {subsection}{\numberline {10.6}Orkiestracja kontenerowa warstwy serwerowej --- Docker Compose}{80}{subsection.10.6}%
+\contentsline {subsection}{\numberline {10.7}Zmienne środowiskowe}{82}{subsection.10.7}%
+\contentsline {subsection}{\numberline {10.8}Wdrożenie frontendu i Video Service}{82}{subsection.10.8}%
+\contentsline {subsection}{\numberline {10.9}Wdrożenie agenta}{82}{subsection.10.9}%
+\contentsline {section}{\numberline {11}Testowanie systemu}{83}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Metodologia testowania}{83}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Testy jednostkowe - Auth Service}{83}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Testy integracyjne przez Postman}{83}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.4}Test end-to-end - pełny przepływ druku}{83}{subsection.11.4}%
+\contentsline {subsection}{\numberline {11.5}Testy wydajnościowe i obserwacje}{83}{subsection.11.5}%
+\contentsline {section}{\numberline {12}Podsumowanie}{84}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Osiągnięcia}{84}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Napotkane trudności}{84}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}Możliwości rozwoju}{84}{subsection.12.3}%
+\contentsline {subsection}{\numberline {12.4}Wnioski}{84}{subsection.12.4}%
+\contentsline {section}{Załączniki}{87}{section*.28}%
+\contentsline {section}{\numberline {A}Konfiguracja środowiska deweloperskiego}{87}{appendix.a.A}%
+\contentsline {subsection}{\numberline {A.1}Wymagania}{87}{subsection.a.A.1}%
+\contentsline {subsection}{\numberline {A.2}Pierwsze uruchomienie}{87}{subsection.a.A.2}%
+\contentsline {section}{\numberline {B}Struktura repozytoriów}{87}{appendix.a.B}%
+\contentsline {section}{\numberline {C}Endpointy API - podsumowanie}{87}{appendix.a.C}%

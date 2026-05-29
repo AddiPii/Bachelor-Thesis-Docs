@@ -245,33 +245,51 @@
     {1}{83.13188pt}\LT@entry 
     {5}{125.81102pt}\LT@entry 
     {1}{217.84845pt}}
-\newlabel{systemd_camera}{{19}{74}{Alternatywna konfiguracja skryptu publikacji jako uslugi systemd}{lstlisting.19}{}}
+\newlabel{lst:systemd_camera}{{19}{74}{Alternatywna konfiguracja skryptu publikacji jako uslugi systemd}{lstlisting.19}{}}
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {19}{\ignorespaces Alternatywna konfiguracja skryptu publikacji jako uslugi systemd.}}{74}{lstlisting.19}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {9.7}Podsumowanie konfiguracji węzła brzegowego}{74}{subsection.9.7}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces Podsumowanie usług i zadań cyklicznych na platformie Raspberry Pi.}}{74}{table.12}\protected@file@percent }
 \newlabel{tab:rpi_summary}{{12}{74}{Podsumowanie usług i zadań cyklicznych na platformie Raspberry Pi}{table.12}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {10}Wdrożenie i infrastruktura}{76}{section.10}\protected@file@percent }
-\newlabel{sec:wdrozenie}{{10}{76}{Wdrożenie i infrastruktura}{section.10}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.1}Infrastruktura chmurowa}{76}{subsection.10.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.2}Inicjalizacja infrastruktury}{76}{subsection.10.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.3}Konteneryzacja - Dockerfiles}{76}{subsection.10.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.4}Docker Compose}{76}{subsection.10.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.5}Zmienne środowiskowe}{76}{subsection.10.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.6}Wdrożenie frontendu}{76}{subsection.10.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.7}Wdrożenie agenta}{76}{subsection.10.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {11}Testowanie systemu}{77}{section.11}\protected@file@percent }
-\newlabel{sec:testy}{{11}{77}{Testowanie systemu}{section.11}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {11.1}Metodologia testowania}{77}{subsection.11.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {11.2}Testy jednostkowe - Auth Service}{77}{subsection.11.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {11.3}Testy integracyjne przez Postman}{77}{subsection.11.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {11.4}Test end-to-end - pełny przepływ druku}{77}{subsection.11.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {11.5}Testy wydajnościowe i obserwacje}{77}{subsection.11.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {12}Podsumowanie}{78}{section.12}\protected@file@percent }
-\newlabel{sec:podsumowanie}{{12}{78}{Podsumowanie}{section.12}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {12.1}Osiągnięcia}{78}{subsection.12.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {12.2}Napotkane trudności}{78}{subsection.12.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {12.3}Możliwości rozwoju}{78}{subsection.12.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {12.4}Wnioski}{78}{subsection.12.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {10}Wdrożenie i infrastruktura produkcyjna}{76}{section.10}\protected@file@percent }
+\newlabel{sec:wdrozenie}{{10}{76}{Wdrożenie i infrastruktura produkcyjna}{section.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.1}Hybrydowa strategia architektoniczna}{76}{subsection.10.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {13}{\ignorespaces Podział infrastruktury produkcyjnej systemu AddiPi.}}{76}{table.caption.25}\protected@file@percent }
+\newlabel{tab:infrastructure_split}{{13}{76}{Podział infrastruktury produkcyjnej systemu AddiPi}{table.caption.25}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.2}Zarządzane usługi integracji danych i komunikacji chmurowej}{76}{subsection.10.2}\protected@file@percent }
+\citation{terraform}
+\@writefile{lot}{\contentsline {table}{\numberline {14}{\ignorespaces Specyfikacja konfiguracji usług Microsoft Azure wykorzystanych w projekcie.}}{77}{table.caption.26}\protected@file@percent }
+\newlabel{tab:azure_services_config}{{14}{77}{Specyfikacja konfiguracji usług Microsoft Azure wykorzystanych w projekcie}{table.caption.26}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.3}Automatyzacja orkiestracji chmurowej --- Terraform}{77}{subsection.10.3}\protected@file@percent }
+\newlabel{lst:terraform_cmd}{{20}{78}{Inicjalizacja i aplikacja planu infrastruktury przez Terraform}{lstlisting.20}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {20}{\ignorespaces Inicjalizacja i aplikacja planu infrastruktury przez Terraform.}}{78}{lstlisting.20}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.4}Specyfikacja konteneryzacji i optymalizacja obrazów}{78}{subsection.10.4}\protected@file@percent }
+\newlabel{lst:dockerfile_node}{{21}{78}{Wieloetapowy plik konfiguracyjny Dockerfile serwisu Node.js}{lstlisting.21}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {21}{\ignorespaces Wieloetapowy plik konfiguracyjny Dockerfile serwisu Node.js.}}{78}{lstlisting.21}\protected@file@percent }
+\newlabel{lst:dockerfile_python}{{22}{79}{Konfiguracja Dockerfile dla uslugi Files Service (Python)}{lstlisting.22}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {22}{\ignorespaces Konfiguracja Dockerfile dla uslugi Files Service (Python).}}{79}{lstlisting.22}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.5}Automatyzacja procesów CI/CD i Continuous Deployment}{79}{subsection.10.5}\protected@file@percent }
+\citation{watchtower}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.6}Orkiestracja kontenerowa warstwy serwerowej --- Docker Compose}{80}{subsection.10.6}\protected@file@percent }
+\newlabel{lst:docker_compose_yaml}{{23}{80}{Fragment produkcyjnego pliku konfiguracyjnego docker-compose.ghcr.yml}{lstlisting.23}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {23}{\ignorespaces Fragment produkcyjnego pliku konfiguracyjnego docker-compose.ghcr.yml.}}{80}{lstlisting.23}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Diagram architektury kontenerów Docker Compose i ich relacji zależności.}}{81}{figure.caption.27}\protected@file@percent }
+\newlabel{fig:container_schema}{{17}{81}{Diagram architektury kontenerów Docker Compose i ich relacji zależności}{figure.caption.27}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.7}Zmienne środowiskowe}{82}{subsection.10.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.8}Wdrożenie frontendu i Video Service}{82}{subsection.10.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.9}Wdrożenie agenta}{82}{subsection.10.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {11}Testowanie systemu}{83}{section.11}\protected@file@percent }
+\newlabel{sec:testy}{{11}{83}{Testowanie systemu}{section.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.1}Metodologia testowania}{83}{subsection.11.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.2}Testy jednostkowe - Auth Service}{83}{subsection.11.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.3}Testy integracyjne przez Postman}{83}{subsection.11.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.4}Test end-to-end - pełny przepływ druku}{83}{subsection.11.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.5}Testy wydajnościowe i obserwacje}{83}{subsection.11.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {12}Podsumowanie}{84}{section.12}\protected@file@percent }
+\newlabel{sec:podsumowanie}{{12}{84}{Podsumowanie}{section.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.1}Osiągnięcia}{84}{subsection.12.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.2}Napotkane trudności}{84}{subsection.12.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.3}Możliwości rozwoju}{84}{subsection.12.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.4}Wnioski}{84}{subsection.12.4}\protected@file@percent }
 \bibstyle{unsrt}
 \bibdata{bibliografia}
 \bibcite{jwt}{1}
@@ -292,10 +310,12 @@
 \bibcite{solidworks}{16}
 \bibcite{grabcad219}{17}
 \bibcite{cloudflare}{18}
-\@writefile{toc}{\contentsline {section}{Załączniki}{81}{section*.25}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {A}Konfiguracja środowiska deweloperskiego}{81}{appendix.a.A}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.1}Wymagania}{81}{subsection.a.A.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.2}Pierwsze uruchomienie}{81}{subsection.a.A.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {B}Struktura repozytoriów}{81}{appendix.a.B}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {C}Endpointy API - podsumowanie}{81}{appendix.a.C}\protected@file@percent }
-\gdef \@abspage@last{81}
+\bibcite{terraform}{19}
+\bibcite{watchtower}{20}
+\@writefile{toc}{\contentsline {section}{Załączniki}{87}{section*.28}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {A}Konfiguracja środowiska deweloperskiego}{87}{appendix.a.A}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.1}Wymagania}{87}{subsection.a.A.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.2}Pierwsze uruchomienie}{87}{subsection.a.A.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {B}Struktura repozytoriów}{87}{appendix.a.B}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {C}Endpointy API - podsumowanie}{87}{appendix.a.C}\protected@file@percent }
+\gdef \@abspage@last{87}

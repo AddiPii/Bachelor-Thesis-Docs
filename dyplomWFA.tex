@@ -703,7 +703,7 @@ Na rysunku~\ref{fig:db_schema} przedstawiono fizyczny diagram encji i relacji (a
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{AddiPi-CosmosDB.pdf} 
+	\includegraphics[width=0.9\textwidth]{AddiPi-CosmosDB3.pdf} 
 	\caption{Diagram bazy danych \texttt{addipi-cosmos} w notacji Crow's Foot (ptasiej łapki).}
 	\label{fig:db_schema}
 \end{figure}
@@ -2023,7 +2023,7 @@ W przypadku agenta \textit{AddiPi} problem rozwiązano z wykorzystaniem dyrektyw
 
 Alternatywnym rozwiązaniem byłoby zarejestrowanie skryptu publikującego adres URL jako osobnej usługi \texttt{systemd}, również zależnej od \texttt{network-online.target}. Podejście to zapewniałoby większą kontrolę nad kolejnością uruchamiania komponentów systemu. Przykładową konfigurację jednostki typu \texttt{oneshot} zaprezentowano na listingu~\ref{lst:systemd_camera}.
 
-\begin{lstlisting}[language=bash,caption={Alternatywna konfiguracja skryptu publikacji jako uslugi systemd.}, label=systemd_camera]
+\begin{lstlisting}[language=bash,caption={Alternatywna konfiguracja skryptu publikacji jako uslugi systemd.}, label=lst:systemd_camera]
 	[Unit]
 	Description=AddiPi Camera URL Publisher
 	After=network-online.target addipi-agent.service
@@ -2074,23 +2074,185 @@ W tabeli~\ref{tab:rpi_summary} zestawiono oraz sklasyfikowano wszystkie kluczowe
 
 \newpage
 
+
 % ============================================================
 %  ROZDZIAŁ 10 — WDROŻENIE I INFRASTRUKTURA
 % ============================================================
-\section{Wdrożenie i infrastruktura}
+\section{Wdrożenie i infrastruktura produkcyjna}
 \label{sec:wdrozenie}
 
-\subsection{Infrastruktura chmurowa}
+\subsection{Hybrydowa strategia architektoniczna}
 
-\subsection{Inicjalizacja infrastruktury}
+Infrastruktura produkcyjna systemu \textit{AddiPi} bazuje na paradygmacie wielochmurowym (ang. \textit{Multi-Cloud}). Podział odpowiedzialności pomiędzy dostawców zasobów został podyktowany ich specyfikacją techniczną, modelami usługowymi oraz dostępnością bezpłatnych pakietów deweloperskich (ang. \textit{free tier}). 
 
-\subsection{Konteneryzacja - Dockerfiles}
+W tabeli~\ref{tab:infrastructure_split} zestawiono szczegółową strukturę lokowania poszczególnych komponentów systemu, przypisane im platformy sprzętowo-programowe oraz modele dostarczania usług.
 
-\subsection{Docker Compose}
+\begin{table}[htbp]
+	\centering
+	\caption{Podział infrastruktury produkcyjnej systemu AddiPi.}
+	\label{tab:infrastructure_split}
+	\begin{tabular}{llp{5.5cm}}
+		\toprule
+		\textbf{Platforma / dostawca} & \textbf{Model usługowy} & \textbf{Hostowane komponenty ekosystemu} \\
+		\midrule
+		\textit{Microsoft Azure} & PaaS / usługi zarządzane & Warstwa danych i integracji: \textit{Cosmos DB}, \textit{Blob Storage}, \textit{Service Bus} oraz \textit{IoT Hub}. \\
+		\addlinespace
+		\textit{Oracle Cloud (OCI)} & IaaS (Maszyna wirtualna) & Kontenery \textit{Docker Compose}: \textit{Auth}, \textit{User}, \textit{Files}, \textit{Queue} oraz \textit{Printer Service}. \\
+		\addlinespace
+		\textit{Vercel} & Serverless / Jamstack & Aplikacja kliencka (React) oraz bezserwerowa usługa dystrybucji wideo (\textit{Video Service}). \\
+		\addlinespace
+		\textit{Raspberry Pi} & On-premise (Brzegowe) & Lokalny sterownik \textit{OctoPrint} oraz demon \textit{AddiPi Agent}. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+Przyjęta topologia wynika bezpośrednio z limitów platformy \textit{Vercel}, która uniemożliwia egzekucję procesów długotrwale działających (ang. \textit{long-running processes}), takich jak stałe nasłuchiwanie kolejki \textit{Service Bus} czy cykliczne zadania orkiestracji. Komponenty wymagające ciągłej aktywności ulokowano na bezpłatnej instancji \texttt{VM.Standard. \newline E2.1.Micro} w chmurze \textit{Oracle}, podczas gdy \textit{Microsoft Azure} dostarcza standaryzowane, w pełni zarządzane interfejsy zapisu oraz wymiany komunikatów.
+
+
+\subsection{Zarządzane usługi integracji danych i komunikacji chmurowej}
+
+Wszystkie zasoby dostarczane przez platformę \textit{Microsoft Azure} funkcjonują wyłącznie w modelu PaaS, stanowiąc scentralizowany węzeł wymiany informacji i persystencji danych dla komponentów uruchomionych w infrastrukturze \textit{Oracle Cloud} oraz na mikrokomputerze brzegowym. W tabeli~\ref{tab:azure_services_config} wyszczególniono parametry wdrożeniowe oraz specyfikację konfiguracyjną poszczególnych usług chmurowych.
+
+\begin{table}[htbp]
+	\centering
+	\caption{Specyfikacja konfiguracji usług Microsoft Azure wykorzystanych w projekcie.}
+	\label{tab:azure_services_config}
+	\begin{tabular}{llp{6cm}}
+		\toprule
+		\textbf{Nazwa usługi} & \textbf{Rola architektoniczna} & \textbf{Parametry konfiguracyjne i plany} \\
+		\midrule
+		\textit{Azure Cosmos DB} & Baza danych NoSQL & Interfejs API SQL, baza \texttt{addipi}, kontenery: \texttt{users}, \texttt{jobs}, \texttt{refresh-tokens}; klucz partycjonowania: \texttt{/id}. \\
+		\addlinespace
+		\textit{Azure Blob Storage} & Repozytorium obiektowe & Instancja \texttt{addipifiles}, kontener \texttt{gcode}, warstwa wydajnościowa Standard LRS. \\
+		\addlinespace
+		\textit{Azure Service Bus} & Broker komunikatów & Przestrzeń nazw \texttt{addipisb}, kolejka \texttt{print-queue}, warstwa Basic, parametr TTL wiadomości: 14 dni. \\
+		\addlinespace
+		\textit{Azure IoT Hub} & Zarządzanie węzłami IoT & Hub \texttt{addipi-iothub}, tożsamość \texttt{raspberry-pi-mkt-01}, plan bezpłatny F1, protokół MQTT. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+
+\subsection{Automatyzacja orkiestracji chmurowej --- Terraform}
+
+Kompletna infrastruktura chmurowa systemu została zdefiniowana w sposób deklaratywny zgodnie z paradygmatem \textit{Infrastructure as Code} (IaC) przy użyciu narzędzia \textit{Terraform}~\cite{terraform}. Podejście to gwarantuje pełną powtarzalność środowisk i umożliwia odtworzenie zasobów na dowolnych kontach dostawców chmurowych. Repozytorium \texttt{AddiPi-Infrastructure} zostało podzielone na dwa autonomiczne moduły:
+\begin{itemize}
+	\item \texttt{terraform/} --- konfiguracja zasobów \textit{Microsoft Azure} (grupa zasobów \texttt{AddiPi-RG}, \textit{Storage Account}, \textit{Service Bus}, \textit{Cosmos DB} oraz \textit{IoT Hub}) z wykorzystaniem providera \texttt{hashicorp/azurerm} w wersji \texttt{\textasciitilde{}> 4.0},
+	\item \texttt{terraform-oci/} --- konfiguracja zasobów \textit{Oracle Cloud} (sieć \texttt{vcn-addipi}, reguły bezpieczeństwa dla portów: 3001, 3002, 3050, 3070, 5000, instancja \texttt{VM.Stan- dard.E2.1.Micro} o parametrach 1 OCPU i 1 GB RAM oraz publiczny adres IP) z użyciem providera \texttt{oracle/oci} w wersji \texttt{\textasciitilde{}> 6.0}.
+\end{itemize}
+Oba moduły wykorzystują pliki \texttt{imports.tf} zawierające deklaratywne bloki \texttt{import}, co pozwala na asymilację istniejącej infrastruktury do pliku stanu (ang. \textit{state file}) bez konieczności niszczenia i ponownego tworzenia obiektów chmurowych.
+
+Proces inicjalizacji dla wybranego środowiska (katalog \texttt{terraform/} dla Azure lub \texttt{terraform-oci/} dla OCI) polega na przygotowaniu parametrów wejściowych w pliku \texttt{terraform.tfvars} (na podstawie dostarczonego szablonu \texttt{.example}) i wykonaniu sekwencji instrukcji zaprezentowanych na listingu~\ref{lst:terraform_cmd}.
+
+\begin{lstlisting}[language=bash,caption={Inicjalizacja i aplikacja planu infrastruktury przez Terraform.},style=plListing,label={lst:terraform_cmd}]
+	# Inicjalizacja providerów i wdrożenie konfiguracji
+	terraform init
+	terraform plan
+	terraform apply
+\end{lstlisting}
+
+Po pomyślnym zastosowaniu planu, wygenerowane wartości niejawne (ang. \textit{sensitive outputs}), takie jak parametry połączeniowe czy klucze główne baz danych, pobiera się bezpośrednio z poziomu konsoli za pomocą instrukcji typu \texttt{terraform output -raw <nazwa\_zmiennej>} (np. dla zmiennych \texttt{storage\_connection\_string}, \texttt{service\_bus\_connection\_string}, \texttt{cosmos\_endpoint} oraz \texttt{cosmos\_key}). Pozyskane w ten sposób sekrety są następnie wstrzykiwane do pliku konfiguracyjnego \texttt{.env} na produkcyjnej maszynie wirtualnej OCI.
+
+
+\subsection{Specyfikacja konteneryzacji i optymalizacja obrazów}
+
+W celu zapewnienia powtarzalności środowisk uruchomieniowych, każdy z mikroserwisów został odizolowany w strukturze kontenera \textit{Docker}. Dla usług opartych na technologii \textit{Node.js} wdrożono mechanizm wieloetapowego budowania (ang. \textit{multi-stage build}), którego celem jest separacja zależności deweloperskich i procesu kompilacji \textit{TypeScript} (etap \texttt{builder}) od lekkiego obrazu produkcyjnego. Wzorcową konfigurację tego potoku dla usługi \textit{Auth Service} zaprezentowano na listingu~\ref{lst:dockerfile_node}.
+
+\begin{lstlisting}[language=,caption={Wieloetapowy plik konfiguracyjny Dockerfile serwisu Node.js.},style=plListing,label={lst:dockerfile_node}]
+	FROM node:20-alpine AS builder
+	WORKDIR /app
+	COPY package*.json ./
+	RUN npm ci
+	COPY tsconfig*.json ./
+	COPY src ./src
+	RUN npm run build
+	
+	FROM node:20-alpine
+	WORKDIR /app
+	ENV NODE_ENV=production
+	COPY package*.json ./
+	RUN npm ci --omit=dev
+	COPY --from=builder /app/dist ./dist
+	EXPOSE 3001
+	CMD ["node", "dist/index.js"]
+\end{lstlisting}
+
+Z kolei usługa \textit{Files Service} (Python) z uwagi na interpretowany charakter kodu wykorzystuje uproszczony, jednoetapowy schemat oparty na dystrybucji minimalistycznej. Strukturę tego pliku, uwzględniającą optymalizację rozmiaru warstw poprzez blokowanie pamięci podręcznej \texttt{pip}, przedstawiono na listingu~\ref{lst:dockerfile_python}.
+
+\begin{lstlisting}[language=,caption={Konfiguracja Dockerfile dla uslugi Files Service (Python).},style=plListing,label={lst:dockerfile_python}]
+	FROM python:3.13-slim
+	WORKDIR /app
+	COPY requirements.txt .
+	RUN pip install --no-cache-dir -r requirements.txt
+	COPY app.py .
+	COPY config/ ./config/
+	COPY controllers/ ./controllers/
+	COPY routes/ ./routes/
+	COPY middleware/ ./middleware/
+	EXPOSE 5000
+	CMD ["python", "app.py"]
+\end{lstlisting}
+
+
+\subsection{Automatyzacja procesów CI/CD i Continuous Deployment}
+
+W celu zautomatyzowania cyklu wydawniczego oprogramowania, każde repozytorium źródłowe zostało zintegrowane z usługą \textit{GitHub Actions}. Zdefiniowane potoki automatyzacji (ang. \textit{workflows}) są wyzwalane po zdarzeniu \texttt{push} do gałęzi \texttt{main} i realizują następujące etapy:
+\begin{enumerate}[noitemsep,topsep=3pt]
+	\item \textbf{Kompilacja i budowanie:} Kompilacja kodu źródłowego oraz budowanie produkcyjnego obrazu \textit{Docker}.
+	\item \textbf{Tagowanie zasobu:} Nadanie unikalnego tagu rejestru w postaci \texttt{ghcr.io/AddiPii/<nazwa-serwisu>:latest}.
+	\item \textbf{Publikacja artefaktu:} Automatyczna publikacja gotowego obrazu wewnątrz \textit{GitHub Container Registry} (GHCR).
+\end{enumerate}
+
+Na produkcyjnej maszynie wirtualnej OCI osadzono autonomiczny komponent \textit{Watchtower}~\cite{watchtower}. Narzędzie to cyklicznie sonduje rejestr GHCR, weryfikuje sygnatury obrazów i po wykryciu nowej kompilacji automatycznie pobiera warstwy oraz restartuje odpowiednie kontenery. Podejście to w pełni realizuje założenia paradygmatu ciągłego wdrażania (ang. \textit{Continuous Deployment}), uniezależniając proces aktualizacji produkcyjnej od manualnej interwencji administratora na serwerze.
+
+
+\subsection{Orkiestracja kontenerowa warstwy serwerowej --- Docker Compose}
+
+Uruchomienie mikroserwisów backendowych na instancji \textit{Oracle Cloud} realizowane jest przy użyciu narzędzia \textit{Docker Compose}. W środowisku produkcyjnym wykorzystano wariant konfiguracyjny \texttt{docker-compose.ghcr.yml}, który pobiera skompilowane artefakty bezpośrednio z rejestru GHCR. Rozwiązanie to drastycznie minimalizuje obciążenie procesora i pamięci RAM instancji IaaS, eliminując potrzebę lokalnego budowania obrazów. Każdy z komponentów funkcjonuje w odizolowanym środowisku z dedykowaną polityką restartu \texttt{unless-stopped}, a komunikacja wewnętrzna odbywa się w ramach wirtualnej sieci \texttt{addipi-network}. 
+
+Na listingu~\ref{lst:docker_compose_yaml} przedstawiono reprezentatywny fragment produkcyjnego pliku konfiguracyjnego.
+
+\begin{lstlisting}[language=,caption={Fragment produkcyjnego pliku konfiguracyjnego docker-compose.ghcr.yml.},style=plListing,label={lst:docker_compose_yaml}]
+	version: '3.9'
+	
+	services:
+		auth:
+			image: ghcr.io/AddiPii/AddiPi-Auth-Service:latest
+			env_file: .env
+			ports:
+			- "3001:3001"
+			restart: unless-stopped
+		
+		user:
+			image: ghcr.io/AddiPii/AddiPi-User-Service:latest
+			env_file: .env
+			ports:
+			- "3002:3002"
+			depends_on: [auth]
+			restart: unless-stopped
+			
+		printer:
+			image: ghcr.io/AddiPii/AddiPi-Printer-Service:latest
+			env_file: .env
+			ports:
+			- "3050:3050"
+			depends_on: [queue, auth]
+			restart: unless-stopped
+\end{lstlisting}
+
+Ciągłość operacyjną środowiska zabezpiecza wspomniany wcześniej kontener \textit{Watchtower}, działający w tle jako demon aktualizacyjny. Bezpieczeństwo sieciowe instancji maszyn wirtualnych OCI egzekwowane jest na poziomie warstwy sieciowej chmury, ograniczając ruch przychodzący wyłącznie do niezbędnych portów: 22 (SSH), 3001 (\textit{Auth Service}), 3002 (\textit{User Service}), 3050 (\textit{Printer Service}), 3070 (\textit{Queue Service}) oraz 5000 (\textit{Files Service}). Reguły te są definiowane deklaratywnie w module \texttt{terraform-oci/}. Topologię tak zorganizowanej sieci kontenerów oraz ich zależności startowe przedstawiono na rysunku~\ref{fig:container_schema}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.61\textwidth]{docker_compose.pdf} 
+	\caption{Diagram architektury kontenerów Docker Compose i ich relacji zależności.}
+	\label{fig:container_schema}
+\end{figure}
+
 
 \subsection{Zmienne środowiskowe}
 
-\subsection{Wdrożenie frontendu}
+\subsection{Wdrożenie frontendu i Video Service}
 
 \subsection{Wdrożenie agenta}
 

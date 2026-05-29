@@ -108,6 +108,18 @@ Poimandres.
 \newblock Cloudflare {T}unnel — {S}ecurely connect your infrastructure.
 \newblock
   \url{https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/}.
-\newblock Dostęp: 2025.
+\newblock Dostęp: 2026.
+
+\bibitem{terraform}
+{HashiCorp}.
+\newblock Terraform — infrastructure as code.
+\newblock \url{https://www.terraform.io}.
+\newblock Dostęp: 2026.
+
+\bibitem{watchtower}
+{containrrr}.
+\newblock Watchtower — automatically update docker containers.
+\newblock \url{https://containrrr.dev/watchtower/}.
+\newblock Dostęp: 2026.
 
 \end{thebibliography}
