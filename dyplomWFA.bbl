@@ -91,6 +91,18 @@ Poimandres.
 \newblock \url{https://docs.docker.com}.
 \newblock Dostęp: 2026.
 
+\bibitem{terraform}
+{HashiCorp}.
+\newblock Terraform — infrastructure as code.
+\newblock \url{https://www.terraform.io}.
+\newblock Dostęp: 2026.
+
+\bibitem{oci}
+{Oracle Corporation}.
+\newblock Oracle cloud infrastructure — free tier.
+\newblock \url{https://www.oracle.com/cloud/free/}.
+\newblock Dostęp: 2026.
+
 \bibitem{solidworks}
 {Dassault Syst{\`e}mes}.
 \newblock {SOLIDWORKS} -- {3D} {CAD} {D}esign {S}oftware.
@@ -108,18 +120,6 @@ Poimandres.
 \newblock Cloudflare {T}unnel — {S}ecurely connect your infrastructure.
 \newblock
   \url{https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/}.
-\newblock Dostęp: 2026.
-
-\bibitem{oci}
-{Oracle Corporation}.
-\newblock Oracle cloud infrastructure — free tier.
-\newblock \url{https://www.oracle.com/cloud/free/}.
-\newblock Dostęp: 2026.
-
-\bibitem{terraform}
-{HashiCorp}.
-\newblock Terraform — infrastructure as code.
-\newblock \url{https://www.terraform.io}.
 \newblock Dostęp: 2026.
 
 \bibitem{watchtower}

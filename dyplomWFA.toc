@@ -23,8 +23,10 @@
 \contentsline {subsection}{\numberline {3.6}Sterowanie urządzeniem --- Azure IoT Hub}{15}{subsection.3.6}%
 \contentsline {subsection}{\numberline {3.7}Interfejs użytkownika --- React oraz Vite}{15}{subsection.3.7}%
 \contentsline {subsection}{\numberline {3.8}Konteneryzacja --- Docker oraz Docker Compose}{16}{subsection.3.8}%
-\contentsline {subsection}{\numberline {3.9}CAD - SolidWorks}{16}{subsection.3.9}%
-\contentsline {subsection}{\numberline {3.10}Porównanie wybranych alternatyw}{17}{subsection.3.10}%
+\contentsline {subsection}{\numberline {3.9}Automatyzacja infrastruktury chmurowej --- Terraform}{16}{subsection.3.9}%
+\contentsline {subsection}{\numberline {3.10}Środowisko hostingowe backendu --- Oracle Cloud Infrastructure}{17}{subsection.3.10}%
+\contentsline {subsection}{\numberline {3.11}CAD - SolidWorks}{17}{subsection.3.11}%
+\contentsline {subsection}{\numberline {3.12}Porównanie wybranych alternatyw}{17}{subsection.3.12}%
 \contentsline {section}{\numberline {4}Architektura systemu}{20}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Ogólna struktura}{20}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Diagram architektury}{20}{subsection.4.2}%

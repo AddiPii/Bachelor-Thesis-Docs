@@ -572,6 +572,15 @@ W celu zapewnienia powtarzalności środowiska uruchomieniowego, każdy z mikros
 
 Narzędzie \textit{Docker Compose}~\cite{docker} wykorzystano do zautomatyzowanej orkiestracji i zarządzania cyklem życia wszystkich kontenerów zarówno w środowisku lokalnym, jak i produkcyjnym. Narzędzie to definiuje odizolowaną, wspólną sieć wirtualną \texttt{addipi-\allowbreak{}network} oraz odpowiada za bezpieczne wstrzykiwanie zmiennych środowiskowych odczytywanych z pliku \texttt{.env}.
 
+\subsection{Automatyzacja infrastruktury chmurowej --- Terraform}
+
+Do zarządzania rozproszonymi zasobami chmurowymi wykorzystano narzędzie \textit{Terraform}~\cite{terraform}, implementujące paradygmat deklaratywnego definiowania środowisk systemowych jako kod (ang. \textit{Infrastructure as Code}, IaC). Architektura wdrożeniowa została podzielona na dwa niezależne moduły: \texttt{terraform/} dedykowany dla usług platformy \textit{Microsoft Azure} (z użyciem providera \texttt{hashicorp/azurerm}) oraz \texttt{terraform-oci/} konfigurujący zasoby w chmurze \textit{Oracle Cloud Infrastructure} (oparty na providerze \texttt{oracle/oci}). Wybór tego rozwiązania gwarantuje pełną powtarzalność środowisk produkcyjnych oraz automatyzację procesów aprowizacji.
+
+\subsection{Środowisko hostingowe backendu --- Oracle Cloud Infrastructure}
+
+Kontenery aplikacyjne warstwy serwerowej (\textit{Auth}, \textit{User}, \textit{Files}, \textit{Queue} oraz \textit{Printer Service}) są uruchamiane na maszynie wirtualnej wewnątrz chmury \textit{Oracle Cloud Infrastructure} (OCI)~\cite{oci}. W projekcie wykorzystano instancję \texttt{VM.Standard.E2.1.Micro} udostępnianą w bezpłatnym programie \textit{Always Free} (specyfikacja sprzętowa: 1 OCPU, 1~GB pamięci RAM). Platformę OCI wybrano z uwagi na dostępność autonomicznych zasobów obliczeniowych działających bez restrykcji czasowych, co stanowi ekonomicznie optymalną alternatywę dla rozwiązań komercyjnych rozliczanych w modelu subskrypcyjnym lub za faktyczny czas pracy instancji.
+
+
 \subsection{CAD - SolidWorks}
 
 Projekt mechaniczny obudowy urządzenia wykonano w programie \textbf{SolidWorks}~\cite{solidworks}, stanowiącym środowisko do parametrycznego modelowania bryłowego oraz projektowania złożeń mechanicznych. Oprogramowanie umożliwia tworzenie asocjatywnych modeli 3D, w których modyfikacja parametrów części powoduje automatyczną aktualizację złożeń oraz dokumentacji technicznej.
@@ -586,7 +595,7 @@ Proces projektowania systemu wymagał wielokryterialnej analizy dostępnych rozw
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=0.95\textwidth]{tech-comparison.pdf} 
+	\includegraphics[width=0.9\textwidth]{tech-comparison.pdf} 
 	\caption{Zbiorcze zestawienie wybranej architektury technologicznej, odrzuconych alternatyw oraz kluczowych powodów decyzyjnych.}
 	\label{fig:tech_comparison}
 \end{figure}
@@ -595,7 +604,7 @@ Głównym założeniem przy wyborze warstwy backendowej oraz frontendowej było 
 
 Kluczowe znaczenie dla stabilności systemu miało precyzyjne dobranie silnika bazy danych oraz mechanizmu wymiany komunikatów. Szczegółowe porównanie cech rozważanych systemów bazodanowych oraz systemów kolejkowych zestawiono odpowiednio w tabeli~\ref{tab:porownanie_baz} oraz tabeli~\ref{tab:porownanie_kolejek}.
 
-\begin{table}[h!]
+\begin{table}[H]
 	\centering
 	\caption{Porównanie baz danych rozważanych w projekcie}
 	\label{tab:porownanie_baz}
