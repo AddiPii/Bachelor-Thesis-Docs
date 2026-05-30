@@ -404,7 +404,7 @@ Poszczególne serwisy zaimplementowano w językach TypeScript (środowisko Node.
 
 \subsection{Motywacja i cel pracy}
 
-Drukarki 3D stanowią obecnie standardowe wyposażenie laboratoriów akademickich, warsztatów studenckich oraz zakładów produkcyjnych zorientowanych na wytwarzanie przyrostowe. Urządzenia te, pomimo rosnącej dostępności i malejących cen, pozostają zasobem współdzielonym --- ich liczba w danej jednostce jest zwykle ograniczona, a czas wytwarzania pojedynczego modelu fizycznego może wynosić od kilkunastu minut do wielu godzin. W środowisku akademickim oraz przemysłowym rodzi to naturalne wyzwania logistyczne i organizacyjne, takie jak konieczność ręcznego rezerwowania terminów, brak przejrzystości w strukturze kolejki zadań oraz brak możliwości zdalnego monitorowania stanu operacyjnego maszyn.
+Drukarki 3D stanowią obecnie standardowe wyposażenie laboratoriów akademickich, warsztatów studenckich oraz zakładów produkcyjnych zorientowanych na wytwarzanie przyrostowe~\cite{gibson2021}. Urządzenia te, pomimo rosnącej dostępności i malejących cen, pozostają zasobem współdzielonym --- ich liczba w danej jednostce jest zwykle ograniczona, a czas wytwarzania pojedynczego modelu fizycznego może wynosić od kilkunastu minut do wielu godzin. W środowisku akademickim oraz przemysłowym rodzi to naturalne wyzwania logistyczne i organizacyjne, takie jak konieczność ręcznego rezerwowania terminów, brak przejrzystości w strukturze kolejki zadań oraz brak możliwości zdalnego monitorowania stanu operacyjnego maszyn.
 
 Głównym celem niniejszej pracy jest zaprojektowanie, implementacja oraz walidacja rozproszonego systemu \textit{AddiPi}, którego zadaniem jest pełna automatyzacja i orkiestracja procesów zarządzania drukarkami 3D w środowisku laboratorium studenckiego. Opracowane oprogramowanie udostępnia użytkownikom funkcjonalności w zakresie:
 \begin{itemize}
@@ -478,7 +478,7 @@ W celu zapewnienia odpowiedniej jakości, wydajności oraz stabilności działan
 \begin{itemize}
 	\item \textbf{Skalowalność} --- architektura rozproszona powinna umożliwiać bezproblemową integrację i rejestrację kolejnych fizycznych urządzeń drukujących bez konieczności modyfikacji lub przebudowy rdzenia systemu.
 	\item \textbf{Niezawodność i tolerancja błędów} --- asynchroniczne przetwarzanie komunikatów z wykorzystaniem magistrali powinno gwarantować, że chwilowa niedostępność komponentów nie spowoduje trwałej utraty zlecenia druku ani niespójności stanów w bazie danych.
-	\item \textbf{Bezpieczeństwo danych} --- autoryzacja dostępu do interfejsów programistycznych REST API realizowana za pomocą kryptograficznie podpisanych tokenów JWT, natomiast hasła użytkowników bezwzględnie utrwalane w bazie danych w postaci kryptograficznych skrótów (ang. \textit{hashes}) wygenerowanych algorytmem \textit{bcrypt}.
+	\item \textbf{Bezpieczeństwo danych} --- autoryzacja dostępu do interfejsów programistycznych REST API realizowana za pomocą kryptograficznie podpisanych tokenów JWT, natomiast hasła użytkowników bezwzględnie utrwalane w bazie danych w postaci kryptograficznych skrótów (ang. \textit{hashes}) wygenerowanych algorytmem \textit{bcrypt}~\cite{bcrypt}.
 	\item \textbf{Responsywność interfejsu} --- warstwa prezentacji (aplikacja frontendowa) musi zostać zaprojektowana zgodnie z paradygmaciem RWD (ang. \textit{Responsive Web Design}), zapewniając pełną ergonomię i poprawność wyświetlania zarówno na urządzeniach stacjonarnych, jak i mobilnych.
 	\item \textbf{Wydajność czasowa} --- czas odpowiedzi punktów końcowych API na zapytania synchroniczne nie powinien przekraczać 2 sekund w warunkach standardowego, nominalnego obciążenia infrastruktury.
 	\item \textbf{Przenośność i konteneryzacja} --- wszystkie komponenty, mikroserwisy oraz bazy danych wchodzące w skład systemu muszą zostać spakowane w niezależne kontenery środowiska \textit{Docker}, umożliwiając pełne uruchomienie całego ekosystemu za pomocą jednego polecenia skryptowego (\textit{Docker Compose}).
@@ -537,7 +537,7 @@ Wszystkie serwisy warstwy Node.js wykorzystują framework Express.js~\cite{expre
 Wybór tej technologii został podyktowany następującymi czynnikami:
 \begin{itemize}
 	\item \textbf{Model usługowy PaaS (Platform as a Service)} --- pełne zarządzanie infrastrukturą przez dostawcę chmurowego eliminuje konieczność administracji serwerem bazy danych,
-	\item \textbf{Elastyczny schemat danych} --- poszczególne mikroserwisy przechowują obiekty o zróżnicowanej, heterogenicznej strukturze w ramach jednej bazy danych (\texttt{addipi}), z podziałem na dedykowane kontenery (\texttt{users}, \texttt{jobs}, \texttt{refresh-tokens}),
+	\item \textbf{Elastyczny schemat danych} --- poszczególne mikroserwisy przechowują obiekty o zróżnicowanej, heterogenicznej strukturze w ramach jednej bazy danych (\texttt{addipi})~\cite{kleppmann2017}, z podziałem na dedykowane kontenery (\texttt{users}, \texttt{jobs}, \texttt{refresh-tokens}),
 	\item \textbf{Natywna integracja} --- bezszwowe współdziałanie z pozostałymi komponentami ekosystemu chmurowego \textit{Microsoft Azure},
 	\item \textbf{Automatyczne indeksowanie} --- domyślne indeksowanie wszystkich pól w strukturze dokumentu, co optymalizuje czas wykonywania zapytań.
 \end{itemize}
@@ -548,7 +548,7 @@ Pliki G-code przesyłane przez użytkowników są przechowywane w usłudze repoz
 
 \subsection{Broker komunikatów --- Azure Service Bus}
 
-\textit{Azure Service Bus}~\cite{servicebus} to chmurowa usługa kolejkowania komunikatów i zarządzania strumieniami danych klasy korporacyjnej. W architekturze systemu \textit{AddiPi} pełni ona kluczową rolę brokera komunikatów (ang. \textit{message broker}) odpowiedzialnego za asynchroniczne i bezprzerwowe pośrednictwo pomiędzy usługą \textit{Files Service} (producentem komunikatów) a komponentem \textit{Queue Service} (konsumentem).
+\textit{Azure Service Bus}~\cite{servicebus} to chmurowa usługa kolejkowania komunikatów i zarządzania strumieniami danych klasy korporacyjnej. W architekturze systemu \textit{AddiPi} pełni ona kluczową rolę brokera komunikatów (ang. \textit{message broker}) odpowiedzialnego za asynchroniczne i bezprzerwowe pośrednictwo pomiędzy usługą \textit{Files Service} (producentem komunikatów) a komponentem \textit{Queue Service} (konsumentem)~\cite{richardson2020}.
 
 Dedykowana kolejka \texttt{print-queue} zapewnia niezawodną semantykę dostarczania wiadomości typu \textit{at-least-once} (co najmniej raz). Rozwiązanie to gwarantuje, że w przypadku awarii usługi konsumenckiej lub utraty połączenia sieciowego, komunikat nie zostanie skasowany --- pozostaje on zabezpieczony w strukturze magistrali chmurowej i może zostać przetworzony powtórnie po przywróceniu operacyjności konsumenta, co bezpośrednio realizuje wymaganie niefunkcjonalne dotyczące tolerancji błędów.
 
@@ -585,7 +585,7 @@ Kontenery aplikacyjne warstwy serwerowej (\textit{Auth}, \textit{User}, \textit{
 
 Projekt mechaniczny obudowy urządzenia wykonano w programie \textbf{SolidWorks}~\cite{solidworks}, stanowiącym środowisko do parametrycznego modelowania bryłowego oraz projektowania złożeń mechanicznych. Oprogramowanie umożliwia tworzenie asocjatywnych modeli 3D, w których modyfikacja parametrów części powoduje automatyczną aktualizację złożeń oraz dokumentacji technicznej.
 
-Wybór programu SolidWorks był podyktowany dostępnością oprogramowania w ramach licencji studenckiej oraz szerokim wsparciem dla formatów eksportu modeli, takich jak \texttt{.STEP} (neutralny format wymiany modeli CAD), \texttt{.STL} (format wykorzystywany w procesie przygotowania modeli o druku 3D) oraz \texttt{.3MF} (format wymiany zawierający dodatkowe metadane procesu druku).
+Wybór programu SolidWorks był podyktowany dostępnością oprogramowania w ramach licencji studenckiej oraz szerokim wsparciem dla formatów eksportu modeli, takich jak \texttt{.STEP} (neutralny format wymiany modeli CAD), \texttt{.STL} (format wykorzystywany w procesie przygotowania modeli o druku 3D) oraz \texttt{.3MF}~\cite{gibson2021} (format wymiany zawierający dodatkowe metadane procesu druku).
 
 Projekt został podzielony na pliki \texttt{.SLDPRT}, reprezentujące pojedyncze części, oraz \texttt{.SLDASM}, definiujące kompletne złożenia mechaniczne.
 
@@ -621,7 +621,7 @@ Kluczowe znaczenie dla stabilności systemu miało precyzyjne dobranie silnika b
 	\end{tabular}
 \end{table}
 
-Jak wynika z tabeli~\ref{tab:porownanie_baz}, baza Azure Cosmos DB została wybrana ze względu na bezobsługowy model bezserwerowy (Serverless PaaS) oraz natywną integrację z ekosystemem Azure. Elastyczny schemat JSON idealnie odpowiada dynamicznej strukturze danych generowanych przez sensory IoT, eliminując narzut związany z migracjami schematu w tradycyjnych bazach relacyjnych (takich jak PostgreSQL).
+Jak wynika z tabeli~\ref{tab:porownanie_baz}, baza \textit{Azure Cosmos DB} została wybrana ze względu na bezobsługowy model bezserwerowy (Serverless PaaS) oraz natywną integrację z ekosystemem \textit{Azure}. Wybór modelu NoSQL zamiast relacyjnego PostgreSQL podyktowany był dążeniem do minimalizacji narzutu związanego z migracjami schematu, co w systemach intensywnie korzystających z danych pozwala na szybszą iterację i skalowanie~\cite{kleppmann2017}.
 
 \begin{table}[h!]
 	\centering
@@ -640,7 +640,7 @@ Jak wynika z tabeli~\ref{tab:porownanie_baz}, baza Azure Cosmos DB została wybr
 	\end{tabular}
 \end{table}
 
-W przypadku infrastruktury kolejki (tab. \ref{tab:porownanie_kolejek}), usługa Azure Service Bus przewyższyła alternatywy brakiem konieczności samodzielnego zarządzania serwerem oraz wbudowaną automatyczną skalowalnością. Narzut konfiguracyjny rozwiązań takich jak Apache Kafka okazał się nieuzasadniony w stosunku do skali projektu, natomiast Azure Service Bus zapewnił wymaganą semantykę dostarczania wiadomości \textit{at-least-once} bezpośrednio po uruchomieniu usługi.
+W przypadku infrastruktury kolejki (tab. \ref{tab:porownanie_kolejek}), usługa \textit{Azure Service Bus} przewyższyła alternatywy brakiem konieczności samodzielnego zarządzania serwerem oraz wbudowaną automatyczną skalowalnością. Narzut konfiguracyjny rozwiązań takich jak \textit{Apache Kafka} okazał się nieuzasadniony w stosunku do skali projektu, natomiast \textit{Azure Service Bus} zapewnił wymaganą semantykę dostarczania wiadomości \textit{at-least-once} bezpośrednio po uruchomieniu usługi.
 
 Ostatnim etapem konfiguracji było zdefiniowanie środowiska uruchomieniowego. Odrzucono złożone systemy orkiestracji (Kubernetes) oraz instalacje bezpośrednie (bare metal) na rzecz narzędzia Docker + Compose. Zapewniło to pełną przenośność kodu, powtarzalność wdrożeń przy użyciu wieloetapowego budowania obrazów (\textit{multi-stage build}) oraz bezpieczną izolację usług w ramach dedykowanej sieci wirtualnej o nazwie \texttt{addipi-\allowbreak{}network}.
 \newpage
@@ -652,7 +652,7 @@ Ostatnim etapem konfiguracji było zdefiniowanie środowiska uruchomieniowego. O
 
 \subsection{Ogólna struktura}
 
-System AddiPi zbudowany jest w architekturze mikroserwisowej. Każdy serwis stanowi niezależną jednostkę wdrożeniową odpowiedzialną za określoną domenę biznesową oraz komunikuje się z pozostałymi komponentami za pośrednictwem zdefiniowanych interfejsów (HTTP REST lub kolejka komunikatów).
+System \textit{AddiPi} zbudowany jest w architekturze mikroserwisowej~\cite{newman2022}. Każdy serwis stanowi niezależną jednostkę wdrożeniową odpowiedzialną za określoną domenę biznesową oraz komunikuje się z pozostałymi komponentami za pośrednictwem zdefiniowanych interfejsów (HTTP REST lub kolejka komunikatów).
 
 W ramach systemu wyodrębniono następujące komponenty:
 
@@ -707,7 +707,7 @@ Na rysunku~\ref{fig:architektura} przedstawiono sekwencyjny przepływ danych pom
 
 \subsection{Model danych}
 
-W bazie danych \textit{Azure Cosmos DB} dane są strukturyzowane i przechowywane w postaci dokumentów w formacie JSON. Zostały one pogrupowane w logicznych kontenerach, odpowiadających poszczególnym domenom biznesowym systemu.
+W bazie danych \textit{Azure Cosmos DB} dane są strukturyzowane i przechowywane w postaci dokumentów w formacie JSON~\cite{kleppmann2017}. Zostały one pogrupowane w logicznych kontenerach, odpowiadających poszczególnym domenom biznesowym systemu.
 
 Na rysunku~\ref{fig:db_schema} przedstawiono fizyczny diagram encji i relacji (ang. \textit{Entity-Relationship Diagram}, ERD) zaprojektowanej bazy danych \texttt{addipi-cosmos}. Diagram ten odwzorowuje logiczne powiązania referencyjne pomiędzy dokumentami w poszczególnych kontenerach.
 
@@ -721,7 +721,7 @@ Na rysunku~\ref{fig:db_schema} przedstawiono fizyczny diagram encji i relacji (a
 
 \subsubsection{Użytkownik (kontener \texttt{users})}
 
-Dokument przechowuje informacje profilowe użytkowników, dane autoryzacyjne oraz status weryfikacji konta. Przykładową strukturę przedstawiono na listingu~\ref{lst:json_user}.
+Dokument przechowuje informacje profilowe użytkowników, dane autoryzacyjne oraz status weryfikacji konta. Przykładową strukturę przedstawiono na listingu~\ref{lst:json_user}. Pole \texttt{password} przechowuje bezpieczny skrót hasła wygenerowany przy użyciu opisanego dalej algorytmu \textit{bcrypt}~\cite{bcrypt}.
 
 \begin{lstlisting}[language=,caption={Przykładowy dokument użytkownika w Azure Cosmos DB},style=jsonStyle, label={lst:json_user}]
 	{
@@ -827,7 +827,7 @@ W celu zapewnienia poufności danych oraz kontroli dostępu, w systemie zaimplem
 	\item \textbf{Refresh token} --- token odświeżający o wydłużonym czasie ważności (wynoszącym 7 dni), utrwalany w bazie danych \textit{Azure Cosmos DB} oraz przechowywany po stronie aplikacji klienckiej. Podpisywany jest przy użyciu dedykowanego klucza \texttt{JWT\_REFRESH\_SECRET}. Służy do generowania nowej pary tokenów bez konieczności ponownego wprowadzania danych uwierzytelniających przez użytkownika.
 \end{itemize}
 
-Hasła użytkowników nie są przechowywane w bazie danych w postaci jawnej. Do ich zabezpieczenia wykorzystano algorytm funkcjonału skrótu \textit{bcrypt} z parametrem kosztu (ang. \textit{salt rounds}) ustawionym na wartość 10.
+Hasła użytkowników nie są przechowywane w bazie danych w postaci jawnej. Do ich zabezpieczenia wykorzystano algorytm funkcjonału skrótu \textit{bcrypt}~\cite{bcrypt} z parametrem kosztu (ang. \textit{salt rounds}) ustawionym na wartość 10.
 
 Proces rejestracji nowych kont został ze względów bezpieczeństwa ograniczony wyłącznie do adresów poczty elektronicznej w domenie akademickiej \texttt{@uwr.edu.pl}. Pełna aktywacja profilu wymaga weryfikacji dwuetapowej poprzez kliknięcie w unikalny link aktywacyjny przesłany na adres e-mail użytkownika.
 
@@ -836,6 +836,7 @@ Kontrola dostępu na poziomie kodu realizowana jest za pomocą oprogramowania po
 	\item \texttt{requireAuth} --- odpowiada za ekstrakcję i weryfikację tokenu dostępu poprzez wysłanie wewnętrznego żądania weryfikacyjnego do punktu końcowego \texttt{POST \newline /auth/verify} usługi \textit{Auth Service}.
 	\item \texttt{requireAdmin} --- realizuje mechanizm kontroli dostępu opartej na rolach (ang. \textit{Role-Based Access Control}, RBAC), sprawdzając, czy zdekodowany profil użytkownika posiada przypisane uprawnienia klasy \texttt{admin}.
 \end{itemize}
+Takie podejście pozwala na odseparowanie logiki biznesowej od mechanizmów infrastrukturalnych, co zwiększa czytelność i ułatwia testowanie poszczególnych modułów systemu ~\cite{martin2022}.
 
 \newpage
 
@@ -1126,7 +1127,7 @@ except Exception as e:
 
 \subsubsection{Opis ogólny}
 
-Usługa \textit{Queue Service} to mikroserwis zaimplementowany w środowisku uruchomieniowym Node.js przy użyciu języka TypeScript oraz standardu modułów ECMAScript (ang. \textit{ECMAScript Modules}, ESM). Głównym zadaniem komponentu jest asynchroniczne i bezprzerwowe nasłuchiwanie (ang. \textit{listening}) komunikatów publikowanych w magistrali \textit{Azure Service Bus}, a następnie ich transformacja i utrwalanie w postaci dokumentów zadań produkcyjnych w bazie danych \textit{Azure Cosmos DB}.
+Usługa \textit{Queue Service} to mikroserwis zaimplementowany w środowisku uruchomieniowym Node.js przy użyciu języka TypeScript oraz standardu modułów ECMAScript (ang. \textit{ECMAScript Modules}, ESM). Głównym zadaniem komponentu jest asynchroniczne i bezprzerwowe nasłuchiwanie (ang. \textit{listening}) komunikatów publikowanych w magistrali \textit{Azure Service Bus}~\cite{richardson2020}, a następnie ich transformacja i utrwalanie w postaci dokumentów zadań produkcyjnych w bazie danych \textit{Azure Cosmos DB}.
 
 Dodatkowo serwis udostępnia dedykowany interfejs programistyczny HTTP API, który umożliwia innym komponentom systemu (w tym aplikacji klienckiej) monitorowanie stanu kolejki oraz zarządzanie priorytetami zadań.
 
@@ -1406,7 +1407,7 @@ Struktura drzewa katalogów aplikacji została zorganizowana w sposób modułowy
 	\item \texttt{src/i18n/} --- konfiguracja internacjonalizacji aplikacji oparta na bibliotece \textit{i18next} wraz z plikami translacji interfejsu,
 	\item \texttt{src/types/} --- definicje interfejsów i typów języka TypeScript, w tym struktur \texttt{User}, \texttt{Job} oraz \texttt{PrinterStatus},
 	\item \texttt{src/utils/formatters.ts} --- funkcje pomocnicze realizujące operacje bezstanowe, takie jak formatowanie dat, rozmiarów plików czy czasu.
-\end{itemize}
+\end{itemize}q
 
 \subsection{Scentralizowany klient API}
 
@@ -1575,7 +1576,7 @@ Agent został zaimplementowany w języku Python. Architektura operacyjna tego ko
 
 \subsection{Struktura obiektowa i architektura klas}
 
-W celu zapewnienia wysokiej modularności oraz łatwości rozbudowy kodu źródłowego, architekturę agenta podzielono na trzy główne klasy o ściśle zdefiniowanych odpowiedzialnościach (zgodnie z zasadą pojedynczej odpowiedzialności):
+W celu zapewnienia wysokiej modularności oraz łatwości rozbudowy kodu źródłowego, architekturę agenta podzielono na trzy główne klasy o ściśle zdefiniowanych odpowiedzialnościach (zgodnie z zasadą pojedynczej odpowiedzialności)~\cite{martin2022}:
 
 \begin{itemize}
 	\item \textbf{PrinterAgent} --- implementuje nadrzędną logikę biznesową aplikacji brzegowej. Odpowiada za utrzymywanie stałego połączenia z usługą \textit{Azure IoT Hub}, asynchroniczny pobór plików sterujących z repozytorium chmurowego, transmisję strumienia danych telemetrycznych oraz nadrzędne monitorowanie stanów procesu produkcyjnego.
@@ -1707,7 +1708,7 @@ W celu zobrazowania środowiska niskopoziomowego, z którym bezpośrednio integr
 
 Kompletna implementacja systemu \textit{AddiPi} --- poza warstwą stricte programową --- wymaga fizycznego osadzenia mikrokomputera Raspberry Pi w bezpośrednim sąsiedztwie urządzenia wytwórczego wraz z integracją modułu kamery cyfrowej monitorującej stół roboczy drukarki 3D. 
 
-W ramach niniejszej pracy inżynierskiej opracowano, a następnie wytworzono technologią przyrostową dedykowany zestaw komponentów mechanicznych. Został on podzielony na dwa główne moduły strukturalne:
+W ramach niniejszej pracy inżynierskiej opracowano, a następnie wytworzono technologią przyrostową (ang. \textit{Additive Manufacturing})~\cite{gibson2021} dedykowany zestaw komponentów mechanicznych. Został on podzielony na dwa główne moduły strukturalne:
 
 \begin{itemize}
 	\item \textbf{CASE} --- obudowa ochronna mikrokomputera Raspberry Pi zintegrowana z gniazdem montażowym modułu kamery brzegowej,
@@ -1813,7 +1814,7 @@ Wizualizację trójwymiarową tak przygotowanego środowiska projektowego przeds
 
 \subsection{Parametry wydruku}
 
-W celu zapewnienia powtarzalności geometrycznej, odpowiedniej wytrzymałości mechanicznej struktury oraz optymalizacji czasu produkcji elementów obudowy, zdefiniowano zestaw rekomendowanych parametrów procesu technologicznego. W tabeli~\ref{tab:print_parameters} zestawiono szczegółowe nastawy CAM przygotowane dla środowiska programu typu slicer.
+W celu zapewnienia powtarzalności geometrycznej, odpowiedniej wytrzymałości mechanicznej struktury oraz optymalizacji czasu produkcji elementów obudowy, zdefiniowano zestaw rekomendowanych parametrów procesu technologicznego~\cite{gibson2021}. W tabeli~\ref{tab:print_parameters} zestawiono szczegółowe nastawy CAM przygotowane dla środowiska programu typu slicer.
 
 \begin{table}[H]
 	\centering
@@ -2346,7 +2347,7 @@ Głównym celem niniejszej pracy inżynierskiej było zaprojektowanie, implement
 
 W ramach realizacji projektu inżynierskiego opracowano i zaimplementowano następujące komponenty oraz mechanizmy:
 \begin{itemize}
-	\item \textbf{Rozproszona architektura mikroserwisowa} --- struktura backendowa złożona z sześciu autonomicznych serwisów komunikujących się hybrydowo za pośrednictwem synchronicznych interfejsów REST API oraz asynchronicznej magistrali komunikatów \textit{Azure Service Bus},
+	\item \textbf{Rozproszona architektura mikroserwisowa~\cite{newman2022}} --- struktura backendowa złożona z sześciu autonomicznych serwisów komunikujących się hybrydowo za pośrednictwem synchronicznych interfejsów REST API oraz asynchronicznej magistrali komunikatów \textit{Azure Service Bus},
 	\item \textbf{Scentralizowany podsystem bezpieczeństwa} --- model uwierzytelniania i autoryzacji bazujący na standardzie podwójnych tokenów JWT, integrujący mechanizm bezpiecznego odświeżania sesji, dwuetapową weryfikację adresów e-mail w domenie akademickiej oraz kontrolę dostępu opartą na rolach (RBAC),
 	\item \textbf{Mechanizm orkiestracji i harmonogramowania zadań} --- zaawansowany algorytm zarządzania kolejką produkcyjną, pozwalający zarówno na natychmiastową alokację zasobów sprzętowych, jak i długoterminowe planowanie kalendarzowe procesów przyrostowych,
 	\item \textbf{Integracja brzegowa IoT} --- powiązanie platformy sprzętowej z usługą \textit{Azure IoT Hub}, umożliwiające synchroniczne sterowanie drukarką 3D za pomocą wywołań metod bezpośrednich (ang. \textit{Direct Methods}) w standardzie RPC,
@@ -2368,7 +2369,7 @@ Realizacja rozproszonego systemu \textit{AddiPi} wiązała się z konieczności�
 
 \begin{itemize}
 	\item \textbf{Integracja rozproszonego i heterogenicznego środowiska chmurowego} \\
-	Jednym z największych wyzwań architektonicznych było zapewnienie stabilnej orkiestracji komponentów działających w odmiennych środowiskach wykonawczych. Ekosystem wykorzystuje jednocześnie zasoby \textit{Microsoft Azure} (\textit{Cosmos DB}, \textit{Blob Storage}, \textit{Service Bus}, \textit{IoT Hub}), instancję maszyn wirtualnych \textit{Oracle Cloud Infrastructure}, platformę \textit{Vercel} oraz fizyczny mikrokomputer brzegowy działający wewnątrz sieci lokalnej. Konieczne było zaprojektowanie spójnego modelu komunikacji, który uwzględniałby fluktuacje sieciowe, opóźnienia pakietów oraz skrajnie odmienne standardy uwierzytelniania dostawców. Wyzwanie to zminimalizowano poprzez wdrożenie hybrydowej architektury opartej na synchronicznych interfejsach REST API oraz asynchronicznej wymianie komunikatów z wykorzystaniem kolejki brokera, uzupełnionej o autorskie mechanizmy ponawiania żądań.
+	Jednym z największych wyzwań architektonicznych było zapewnienie stabilnej orkiestracji komponentów działających w odmiennych środowiskach wykonawczych. Ekosystem wykorzystuje jednocześnie zasoby \textit{Microsoft Azure} (\textit{Cosmos DB}, \textit{Blob Storage}, \textit{Service Bus}, \textit{IoT Hub}), instancję maszyn wirtualnych \textit{Oracle Cloud Infrastructure}, platformę \textit{Vercel} oraz fizyczny mikrokomputer brzegowy działający wewnątrz sieci lokalnej. Konieczne było zaprojektowanie spójnego modelu komunikacji, który uwzględniałby fluktuacje sieciowe, opóźnienia pakietów~\cite{kleppmann2017} oraz skrajnie odmienne standardy uwierzytelniania dostawców. Wyzwanie to zminimalizowano poprzez wdrożenie hybrydowej architektury opartej na synchronicznych interfejsach REST API oraz asynchronicznej wymianie komunikatów z wykorzystaniem kolejki brokera, uzupełnionej o autorskie mechanizmy ponawiania żądań.
 	
 	\item \textbf{Spójność i normalizacja reprezentacji czasu} \\
 	Poszczególne warstwy systemu natywnie operowały na zróżnicowanych standardach zapisu dat i czasu. Informacje generowane przez silnik bazy danych, usługi backendowe oraz biblioteki frontendowe nie zawsze cechowały się identyczną strukturą, co generowało błędy w interpretacji i renderowaniu harmonogramów zadań. Problem ten rozwiązano na poziomie warstwy prezentacji poprzez implementację scentralizowanego modułu normalizacji danych chronologicznych, wykorzystującego autorską funkcję \texttt{normalizeDateString}.
@@ -2423,7 +2424,7 @@ Opracowany system \textit{AddiPi} został zaprojektowany z zachowaniem paradygma
 
 Przeprowadzone prace projektowe, implementacyjne oraz walidacyjne potwierdziły, że integracja rozproszonej architektury mikroserwisowej z usługami chmurowymi w modelu PaaS (\textit{Platform as a Service}) stanowi wysoce efektywny paradygmat budowy systemów zarządzania autonomicznymi stanowiskami druku 3D. Wszystkie założone we wstępie cele pracy zostały w pełni zrealizowane. Opracowany system \textit{AddiPi} umożliwia w pełni bezpieczne, zdalne przesyłanie plików z kodem sterującym, elastyczne harmonogramowanie zadań, ciągłe monitorowanie parametrów środowiskowych procesu oraz orkiestrację urządzenia z poziomu uniwersalnego interfejsu webowego.
 
-Zastosowanie architektury zorientowanej na mikroserwisy okazało się właściwym i uzasadnionym wyborem projektowym dla systemu tej klasy. Dekompozycja funkcjonalna na niezależne komponenty uprościła rozwój poszczególnych warstw logicznych, zwiększyła ogólną modularność rozwiązania oraz umożliwiła bezprzerwowe, asynchroniczne wdrażanie aktualizacji (ang. \textit{zero-downtime deployment}). Jednocześnie realizacja projektu wykazała, że podejście mikroserwisowe generuje dodatkowy narzut architektoniczny (ang. \textit{overhead}), związany z koniecznością zapewnienia spójności danych, scentralizowanego zarządzania konfiguracją środowiskową oraz monitorowania rozproszonych potoków komunikacyjnych.
+Zastosowanie architektury zorientowanej na mikroserwisy~\cite{newman2022} okazało się właściwym i uzasadnionym wyborem projektowym dla systemu tej klasy. Dekompozycja funkcjonalna na niezależne komponenty uprościła rozwój poszczególnych warstw logicznych, zwiększyła ogólną modularność rozwiązania oraz umożliwiła bezprzerwowe, asynchroniczne wdrażanie aktualizacji (ang. \textit{zero-downtime deployment}). Jednocześnie realizacja projektu wykazała, że podejście mikroserwisowe generuje dodatkowy narzut architektoniczny (ang. \textit{overhead})~\cite{kleppmann2017}, związany z koniecznością zapewnienia spójności danych, scentralizowanego zarządzania konfiguracją środowiskową oraz monitorowania rozproszonych potoków komunikacyjnych. Kluczowym czynnikiem sukcesu było również rygorystyczne stosowanie zasad czystego kodu~\cite{martin2022}, co umożliwiło sprawną integrację heterogenicznych technologii (TypeScript, Python) w ramach jednego ekosystemu.
 
 Wykorzystanie ekosystemu \textit{Microsoft Azure} pozwoliło na sprawną implementację kluczowych mechanizmów platformy bez konieczności ponoszenia kosztów budowy i utrzymania własnej infrastruktury serwerowej (ang. \textit{on-premise backend}). Krytyczne znaczenie dla stabilności systemu miało wdrożenie usług \textit{Azure IoT Hub}, \textit{Azure Service Bus} oraz \textit{Azure Cosmos DB}. Komponenty te umożliwiły bezbłędną realizację asynchronicznego routingu komunikatów, synchronicznego sterowania urządzeniem brzegowym przez protokół RPC oraz bezpiecznej persystencji obiektów JSON.
 

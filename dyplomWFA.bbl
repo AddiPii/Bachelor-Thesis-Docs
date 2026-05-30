@@ -1,9 +1,20 @@
 \begin{thebibliography}{10}
 
+\bibitem{gibson2021}
+Ian Gibson, David Rosen, Brent Stucker, and Mahyar Khorasani.
+\newblock {\em Additive {M}anufacturing {T}echnologies}.
+\newblock Springer Nature, 3 edition, 2021.
+
 \bibitem{jwt}
 M.~Jones, J.~Bradley, and N.~Sakimura.
 \newblock {RFC} 7519: {JSON} {W}eb {T}oken ({JWT}).
 \newblock Technical report, IETF, 2015.
+
+\bibitem{bcrypt}
+Niels Provos and David Mazi{\`e}res.
+\newblock A {F}uture-{A}daptable {P}assword {S}cheme.
+\newblock In {\em Proceedings of the 1999 USENIX Annual Technical Conference},
+  1999.
 
 \bibitem{octoprint}
 Gina H{\"a}u{\ss}ge.
@@ -42,6 +53,12 @@ Gina H{\"a}u{\ss}ge.
 \newblock \url{https://learn.microsoft.com/en-us/azure/cosmos-db/}.
 \newblock Dostęp: 2026.
 
+\bibitem{kleppmann2017}
+Martin Kleppmann.
+\newblock {\em Designing {D}ata-{I}ntensive {A}pplications: {T}he {B}ig {I}deas
+  {B}ehind {R}eliable, {S}calable, and {M}aintainable {S}ystems}.
+\newblock O'Reilly Media, 2017.
+
 \bibitem{blobstorage}
 {Microsoft Corporation}.
 \newblock Azure {B}lob {S}torage documentation.
@@ -53,6 +70,11 @@ Gina H{\"a}u{\ss}ge.
 \newblock Azure {S}ervice {B}us documentation.
 \newblock \url{https://learn.microsoft.com/en-us/azure/service-bus-messaging/}.
 \newblock Dostęp: 2026.
+
+\bibitem{richardson2020}
+Chris Richardson.
+\newblock {\em Mikroserwisy. Wzorce z przykładami w języku {J}ava}.
+\newblock Wydawnictwo Naukowe PWN, 2020.
 
 \bibitem{iothub}
 {Microsoft Corporation}.
@@ -108,6 +130,16 @@ Poimandres.
 \newblock {SOLIDWORKS} -- {3D} {CAD} {D}esign {S}oftware.
 \newblock \url{https://www.solidworks.com}.
 \newblock Dostęp: 2026.
+
+\bibitem{newman2022}
+Sam Newman.
+\newblock {\em Budowanie mikrous{\l}ug. Projektowanie drobnoziarnistych
+  system{\'o}w. Wydanie II}.
+\newblock Helion, 2022.
+
+\bibitem{martin2022}
+Robert~C. Martin.
+\newblock {\em Czysty kod. {P}odr\k{e}cznik dobrego programisty.}
 
 \bibitem{grabcad219}
 {219 Design}.
