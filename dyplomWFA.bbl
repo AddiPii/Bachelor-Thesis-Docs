@@ -115,6 +115,12 @@ Poimandres.
 \newblock \url{https://grabcad.com/library/case-for-raspberry-pi-4-1}.
 \newblock Licencja CC BY 4.0, Dostęp: 2026.
 
+\bibitem{octopiimg}
+{Guy Sheffer et al.}
+\newblock Octopi — octoprint on raspberry pi.
+\newblock \url{https://github.com/guysoft/OctoPi}.
+\newblock Dostęp: 2026.
+
 \bibitem{cloudflare}
 {Cloudflare Inc.}
 \newblock Cloudflare {T}unnel — {S}ecurely connect your infrastructure.

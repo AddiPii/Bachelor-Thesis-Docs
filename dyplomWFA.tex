@@ -1548,7 +1548,7 @@ Z poziomu tego widoku administrator posiada uprawnienia do:
 
 \subsection{Internacjonalizacja aplikacji}
 
-W celu zapewnienia uniwersalności oraz dostępności systemu, interfejs użytkownika został przygotowany w dwóch wersjach językowych: polskiej (ustawionej jako domyślna) oraz angielskiej. Warstwa translacji opiera się na bibliotece \textit{i18next}, a same tłumaczenia poszczególnych fraz i etykiet są przechowywane w ustrukturyzowanych plikach formatu JSON (\texttt{pl.json} oraz \texttt{en.json}), zlokalizowanych w dedykowanym katalogu \texttt{src/i18n/locales/}.
+W celu zapewnienia uniwersalności oraz dostępności systemu, interfejs użytkownika został przygotowany w dwóch wersjach językowych: polskiej (ustawionej jako domyślna) oraz angielskiej. Warstwa translacji opiera się na bibliotece \textit{i18next}, a same tłumaczenia poszczególnych fraz i etykiet są przechowywane w ustrukturyzowanych plikach formatu JSON (\texttt{pl.json} oraz \texttt{en.json}), zlokalizowanych w dedykowanym katalogu \texttt{src/i18n/ locales/}.
 
 Przełączanie wersji językowej realizowane jest w sposób dynamiczny i asynchroniczny, eliminując konieczność ponownego przeładowania struktury dokumentu DOM przez przeglądarkę internetową. Jako dowód poprawnego działania mechanizmu umiędzynarodowienia (ang. \textit{internationalization}), na opisanym wcześniej rysunku~\ref{fig:website_upload} zaprezentowano widok panelu przesyłania zadań z aktywnym językiem angielskim.
 
@@ -1873,7 +1873,7 @@ Mikrokomputer \textit{Raspberry Pi 3 Model B} pełni funkcję węzła brzegowego
 	\item udostępnianie strumienia wideo z kamery CSI do zewnętrznej usługi \textit{Video Service}.
 \end{itemize}
 
-Bazy systemowej dostarcza \textit{OctoPi} --- oficjalny, minimalistyczny obraz \textit{Raspberry Pi OS Lite} z preinstalowanym środowiskiem \textit{OctoPrint}. Interpreter \textit{Python 3} oraz menedżer \texttt{pip} są w tej dystrybucji dostępne domyślnie, co wyeliminowało potrzebę konfiguracji środowiska bazowego.
+Bazy systemowej dostarcza \textit{OctoPi}~\cite{octopiimg} --- oficjalny, minimalistyczny obraz \textit{Raspberry Pi OS Lite} z preinstalowanym środowiskiem \textit{OctoPrint}. Interpreter \textit{Python 3} oraz menedżer \texttt{pip} są w tej dystrybucji dostępne domyślnie, co wyeliminowało potrzebę konfiguracji środowiska bazowego.
 
 \subsection{Instalacja agenta}
 
@@ -1899,7 +1899,7 @@ Procedura instalacji komponentu \textit{AddiPi Agent} sprowadza się do pobrania
 
 \subsection{Automatyzacja uruchamiania za pomocą systemd}
 
-W celu zapewnienia bezobsługowości systemu brzegowego i automatycznego restartu aplikacji po awarii lub restarcie mikrokomputera, skonfigurowano dedykowaną usługę \textit{systemd}. Plik konfiguracyjny jednostki (ang. \textit{unit file}) zlokalizowano w ścieżce \texttt{/etc/systemd/system/addipi-agent.service}, a jego strukturę zaprezentowano na listingu~\ref{lst:systemd_unit}.
+W celu zapewnienia bezobsługowości systemu brzegowego i automatycznego restartu aplikacji po awarii lub restarcie mikrokomputera, skonfigurowano dedykowaną usługę \textit{systemd}. Plik konfiguracyjny jednostki (ang. \textit{unit file}) zlokalizowano w ścieżce \newline\texttt{/etc/systemd/system/addipi-agent.service}, a jego strukturę zaprezentowano na listingu~\ref{lst:systemd_unit}.
 
 \begin{lstlisting}[language=bash,style=plListing,caption={Plik jednostki konfiguracji addipi-agent.service dla menedżera systemd.},label={lst:systemd_unit}]
 	[Unit]
@@ -2209,7 +2209,7 @@ Z kolei usługa \textit{Files Service} (Python) z uwagi na interpretowany charak
 W celu zautomatyzowania cyklu wydawniczego oprogramowania, każde repozytorium źródłowe zostało zintegrowane z usługą \textit{GitHub Actions}. Zdefiniowane potoki automatyzacji (ang. \textit{workflows}) są wyzwalane po zdarzeniu \texttt{push} do gałęzi \texttt{main} i realizują następujące etapy:
 \begin{enumerate}[noitemsep,topsep=3pt]
 	\item \textbf{Kompilacja i budowanie:} Kompilacja kodu źródłowego oraz budowanie produkcyjnego obrazu \textit{Docker}.
-	\item \textbf{Tagowanie zasobu:} Nadanie unikalnego tagu rejestru w postaci \texttt{ghcr.io/AddiPii/<nazwa-serwisu>:latest}.
+	\item \textbf{Tagowanie zasobu:} Nadanie unikalnego tagu rejestru w postaci\newline \texttt{ghcr.io/AddiPii/<nazwa-serwisu>:latest}.
 	\item \textbf{Publikacja artefaktu:} Automatyczna publikacja gotowego obrazu wewnątrz \textit{GitHub Container Registry} (GHCR).
 \end{enumerate}
 

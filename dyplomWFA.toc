@@ -101,7 +101,7 @@
 \contentsline {subsubsection}{\numberline {9.4.1}Instalacja narzędzia cloudflared}{68}{subsubsection.9.4.1}%
 \contentsline {subsubsection}{\numberline {9.4.2}Skrypt automatyzacji publikacji adresu sieciowego}{69}{subsubsection.9.4.2}%
 \contentsline {subsubsection}{\numberline {9.4.3}Automatyzacja odnawiania adresu w harmonogramie cron}{70}{subsubsection.9.4.3}%
-\contentsline {subsection}{\numberline {9.5}Konfiguracja harmonogramu zadań crontab}{70}{subsection.9.5}%
+\contentsline {subsection}{\numberline {9.5}Konfiguracja harmonogramu zadań crontab}{71}{subsection.9.5}%
 \contentsline {subsubsection}{\numberline {9.5.1}Uzasadnienie zastosowanych parametrów}{71}{subsubsection.9.5.1}%
 \contentsline {subsection}{\numberline {9.6}Problem dostępności sieci podczas uruchamiania systemu}{71}{subsection.9.6}%
 \contentsline {subsection}{\numberline {9.7}Podsumowanie konfiguracji węzła brzegowego}{72}{subsection.9.7}%
