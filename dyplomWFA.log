@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.10)  31 MAY 2026 00:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.10)  31 MAY 2026 00:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1007,51 +1007,51 @@ na-li-za-cji apli-ka-cji oparta na bi-blio-tece \T1/ptm/m/it/12 i18next
  []
 
 [46] [47] [48]
-<strona-glowna2.png, id=1612, 480.5955pt x 645.612pt>
+<strona-glowna2.png, id=1614, 480.5955pt x 645.612pt>
 File: strona-glowna2.png Graphic file (type png)
 <use strona-glowna2.png>
 Package pdftex.def Info: strona-glowna2.png  used on input line 1483.
 (pdftex.def)             Requested size: 245.88512pt x 330.3089pt.
-[49]
-<dashboard2.png, id=1627, 775.09575pt x 478.78876pt>
+[49 <./strona-glowna2.png>]
+<dashboard2.png, id=1628, 775.09575pt x 478.78876pt>
 File: dashboard2.png Graphic file (type png)
 <use dashboard2.png>
 Package pdftex.def Info: dashboard2.png  used on input line 1501.
 (pdftex.def)             Requested size: 426.79135pt x 263.63416pt.
-[50 <./strona-glowna2.png>]
+
 Overfull \hbox (9.34227pt too wide) in paragraph at lines 1508--1509
 \T1/ptm/m/n/12 re-ali-zuje wst¦pn¡ wa-li-da-cj¦ po stro-nie klienta, we-ry-fi-k
 u-j¡c po-prawne roz-sze-rze-nie (\T1/cmtt/l/it/12 .gcode\T1/ptm/m/n/12 )
  []
 
-<upload-print.png, id=1635, 983.675pt x 745.78625pt>
+[50 <./dashboard2.png>]
+<upload-print.png, id=1637, 983.675pt x 745.78625pt>
 File: upload-print.png Graphic file (type png)
 <use upload-print.png>
 Package pdftex.def Info: upload-print.png  used on input line 1514.
 (pdftex.def)             Requested size: 405.45047pt x 307.40166pt.
-[51 <./dashboard2.png>]
-<print-control2.png, id=1644, 662.475pt x 492.03825pt>
+[51 <./upload-print.png>]
+<print-control2.png, id=1646, 662.475pt x 492.03825pt>
 File: print-control2.png Graphic file (type png)
 <use print-control2.png>
 Package pdftex.def Info: print-control2.png  used on input line 1527.
 (pdftex.def)             Requested size: 426.79135pt x 316.9906pt.
-[52 <./upload-print.png>]
-<admin-panel.png, id=1652, 1245.65375pt x 761.84625pt>
+<admin-panel.png, id=1648, 1245.65375pt x 761.84625pt>
 File: admin-panel.png Graphic file (type png)
 <use admin-panel.png>
 Package pdftex.def Info: admin-panel.png  used on input line 1545.
 (pdftex.def)             Requested size: 384.1096pt x 234.92604pt.
-[53 <./print-control2.png>] [54 <./admin-panel.png>] [55] [56]
+[52 <./print-control2.png>] [53 <./admin-panel.png>] [54] [55]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <14> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 1628.
-[57]
-<agent_startprint_initialversion.pdf, id=1694, 518.70288pt x 391.4625pt>
+[56]
+<agent_startprint_initialversion.pdf, id=1690, 518.70288pt x 391.4625pt>
 File: agent_startprint_initialversion.pdf Graphic file (type pdf)
 <use agent_startprint_initialversion.pdf>
 Package pdftex.def Info: agent_startprint_initialversion.pdf  used on input lin
 e 1634.
 (pdftex.def)             Requested size: 384.1096pt x 289.89275pt.
-[58 <./agent_startprint_initialversion.pdf>]
+[57 <./agent_startprint_initialversion.pdf>]
 Overfull \hbox (1.71101pt too wide) in paragraph at lines 1676--1677
 \T1/ptm/m/n/12 Klasa \T1/cmtt/l/it/12 Octo-PrintC-lient \T1/ptm/m/n/12 her-me-t
 y-zuje i re-ali-zuje ko-mu-ni-ka-cj¦ sie-ciow¡ z sys-te-mem \T1/ptm/m/it/12 Oct
@@ -1064,51 +1064,51 @@ Overfull \hbox (0.39816pt too wide) in paragraph at lines 1676--1677
 /n/12 ). Au-to-ry-za-cja i bez-pie-cze«-stwo za-py-ta« HTTP
  []
 
-[59]
-<octoprint-panel.png, id=1954, 819.06pt x 579.66562pt>
+[58]
+<octoprint-panel.png, id=1950, 819.06pt x 579.66562pt>
 File: octoprint-panel.png Graphic file (type png)
 <use octoprint-panel.png>
 Package pdftex.def Info: octoprint-panel.png  used on input line 1695.
 (pdftex.def)             Requested size: 384.1096pt x 271.85027pt.
-[60 <./octoprint-panel.png>] [61] [62]
+[59 <./octoprint-panel.png>] [60] [61]
 Overfull \hbox (5.20607pt too wide) in paragraph at lines 1762--1777
  [][] 
  []
 
-<physical-stand.jpeg, id=1984, 1032.0156pt x 703.428pt>
+<physical-stand.jpeg, id=1980, 1032.0156pt x 703.428pt>
 File: physical-stand.jpeg Graphic file (type jpg)
 <use physical-stand.jpeg>
 Package pdftex.def Info: physical-stand.jpeg  used on input line 1787.
 (pdftex.def)             Requested size: 384.1096pt x 261.80989pt.
-[63] [64 <./physical-stand.jpeg>]
-<Full_Assembly.png, id=1999, 630.55576pt x 433.62pt>
+[62] [63 <./physical-stand.jpeg>]
+<Full_Assembly.png, id=1995, 630.55576pt x 433.62pt>
 File: Full_Assembly.png Graphic file (type png)
 <use Full_Assembly.png>
 Package pdftex.def Info: Full_Assembly.png  used on input line 1802.
 (pdftex.def)             Requested size: 320.0935pt x 220.12433pt.
-<cad_assembly.pdf, id=2000, 511.9125pt x 304.13625pt>
+<cad_assembly.pdf, id=1996, 511.9125pt x 304.13625pt>
 File: cad_assembly.pdf Graphic file (type pdf)
 <use cad_assembly.pdf>
 Package pdftex.def Info: cad_assembly.pdf  used on input line 1809.
 (pdftex.def)             Requested size: 320.0935pt x 190.17285pt.
-[65 <./Full_Assembly.png> <./cad_assembly.pdf>]
+[64 <./Full_Assembly.png> <./cad_assembly.pdf>]
 Overfull \hbox (0.68167pt too wide) in paragraph at lines 1852--1853
 []\T1/ptm/b/n/12 Instalacja elek-tro-niki: \T1/ptm/m/n/12 Za-mon-to-wa-nie mi-k
 ro-kom-pu-tera Ra-sp-berry Pi w dol-nej cz¦-
  []
 
-[66] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+[65] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
-) [67]
+) [66]
 Overfull \hbox (1.4629pt too wide) in paragraph at lines 1924--1925
 \T1/cmtt/l/it/12 addipi-agent \T1/ptm/m/n/12 oraz \T1/cmtt/l/it/12 sudo sys-tem
 ctl start addipi-agent\T1/ptm/m/n/12 . Bie-»¡cy stan pro-cesu we-
  []
 
-[68]
-<rpi_boot.pdf, id=2090, 511.9125pt x 385.44pt>
+[67]
+<rpi_boot.pdf, id=2086, 511.9125pt x 385.44pt>
 File: rpi_boot.pdf Graphic file (type pdf)
 <use rpi_boot.pdf>
 Package pdftex.def Info: rpi_boot.pdf  used on input line 1930.
@@ -1125,7 +1125,7 @@ Overfull \hbox (0.17787pt too wide) in paragraph at lines 1949--1950
 i-nar-nego, nada-nia mu upraw-
  []
 
-[69 <./rpi_boot.pdf>] [70] [71] [72]
+[68 <./rpi_boot.pdf>] [69] [70] [71]
 Overfull \hbox (6.18307pt too wide) in paragraph at lines 2033--2034
 []\T1/ptm/m/n/12 W przy-padku agenta \T1/ptm/m/it/12 Ad-diPi \T1/ptm/m/n/12 pro
 -blem roz-wi¡-zano z wy-ko-rzy-sta-niem dy-rek-tywy \T1/cmtt/l/it/12 After=
@@ -1177,7 +1177,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 2083--2083
 []|\T1/ptm/m/n/12 Odnowienie
  []
 
-[73] [74
+[72] [73
 pdfTeX warning (ext4): destination with the same identifier (name{table.12}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -1198,7 +1198,7 @@ Underfull \hbox (badness 8189) in paragraph at lines 2115--2116
 []|\T1/ptm/m/n/12 Lokalny ste-row-nik \T1/ptm/m/it/12 Octo-Print
  []
 
-[75]
+[74]
 Underfull \hbox (badness 10000) in paragraph at lines 2133--2134
 []|\T1/ptm/b/n/12 Parametry kon-fi-gu-ra-cyjne i
  []
@@ -1231,21 +1231,21 @@ Overfull \hbox (0.94713pt too wide) in paragraph at lines 2152--2153
 , in-stan-cja \T1/cmtt/l/it/12 VM.Stan-
  []
 
-[76]
+[75]
 Overfull \hbox (7.11783pt too wide) in paragraph at lines 2165--2166
 \T1/cmtt/l/it/12 <na-zwa_-zmien-nej> \T1/ptm/m/n/12 (np. dla zmien-nych \T1/cmt
 t/l/it/12 sto-rage_-con-nec-tion_-string\T1/ptm/m/n/12 , \T1/cmtt/l/it/12 se-rv
 ice_-bus_-
  []
 
-[77] [78]
+[76] [77]
 Overfull \hbox (1.24191pt too wide) in paragraph at lines 2217--2218
 []\T1/ptm/m/n/12 Na pro-duk-cyj-nej ma-szy-nie wir-tu-al-nej OCI osa-dzono au-t
 o-no-miczny kom-po-nent \T1/ptm/m/it/12 Watch-
  []
 
-[79]
-<docker_compose.pdf, id=2316, 511.9125pt x 346.29375pt>
+[78]
+<docker_compose.pdf, id=2311, 511.9125pt x 346.29375pt>
 File: docker_compose.pdf Graphic file (type pdf)
 <use docker_compose.pdf>
 Package pdftex.def Info: docker_compose.pdf  used on input line 2258.
@@ -1256,12 +1256,12 @@ Overfull \hbox (6.75706pt too wide) in paragraph at lines 2264--2264
 do-wi-skowe| 
  []
 
-[80 <./docker_compose.pdf>]
+[79 <./docker_compose.pdf>]
 Overfull \hbox (1.44728pt too wide) in paragraph at lines 2276--2295
  [][] 
  []
 
-[81]
+[80]
 Overfull \hbox (1.39543pt too wide) in paragraph at lines 2306--2307
 \T1/ptm/m/n/12 dziale [][]9[][], pro-ces ten oparto na de-mo-nie sys-te-mo-wym 
 \T1/cmtt/l/it/12 sys-temd \T1/ptm/m/n/12 (\T1/cmtt/l/it/12 addipi-agent.service
@@ -1274,42 +1274,42 @@ Overfull \hbox (14.52954pt too wide) in paragraph at lines 2308--2309
 -wej za-pre-zen-to-wano na ry-sunku [][]18[][],
  []
 
-<IoT_hub.png, id=2386, 1199.48125pt x 376.40625pt>
+<IoT_hub.png, id=2382, 1199.48125pt x 376.40625pt>
 File: IoT_hub.png Graphic file (type png)
 <use IoT_hub.png>
 Package pdftex.def Info: IoT_hub.png  used on input line 2312.
 (pdftex.def)             Requested size: 384.1096pt x 120.53287pt.
-[82 <./IoT_hub.png>] [83]
+[81 <./IoT_hub.png>] [82]
 Overfull \hbox (0.36763pt too wide) in paragraph at lines 2359--2360
 \T1/ptm/m/n/12 za-bez-pie-cza-j¡ce bez-ob-sªu-gowy roz-ruch sie-ciowy i sta-bil
 -no±¢ tu-nelu \T1/ptm/m/it/12 Clo-ud-flare Tun-
  []
 
-[84]
+[83]
 Overfull \hbox (2.99582pt too wide) in paragraph at lines 2374--2376
 \T1/ptm/m/n/12 bac-ken-dowe oraz bi-blio-teki fron-ten-dowe nie za-wsze ce-cho-
 waªy si¦ iden-tyczn¡ struk-
  []
 
-[85]
+[84]
 Overfull \hbox (7.89583pt too wide) in paragraph at lines 2383--2385
 \T1/ptm/m/n/12 mo»-li-wiaªo jego od-biór przez apli-ka-cj¦ we-bow¡. Do-dat-kow¡
  ba-rier¦ sta-no-wiªa zmien-
  []
 
-[86]
+[85]
 Overfull \hbox (1.99321pt too wide) in paragraph at lines 2397--2398
 \T1/ptm/m/n/12 ob-sªugi po-je-dyn-czego urz¡-dze-nia. Cho¢ ar-chi-tek-tura po-z
 wala na ska-lo-wa-nie, obecna
  []
 
-[87] [88] [89] [90] (./dyplomWFA.bbl
+[86] [87] [88] [89] (./dyplomWFA.bbl
 Underfull \hbox (badness 1286) in paragraph at lines 80--84
 []\T1/ptm/m/n/12 Microsoft Cor-po-ra-tion.  Azure IoT Hub do-cu-men-ta-tion.  [
 ][]$\T1/cmtt/l/it/12 https : / / learn .
  []
 
-[91]
+[90]
 Underfull \hbox (badness 1158) in paragraph at lines 157--162
 []\T1/ptm/m/n/12 Cloudflare Inc.  Clo-ud-flare Tun-nel ^^V Se-cu-rely con-nect 
 your in-fra-struc-ture.
@@ -1321,7 +1321,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 157--162
 one / connections /
  []
 
-[92]) [93] (./dyplomWFA.aux)
+[91]) [92] (./dyplomWFA.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1330,11 +1330,11 @@ L3 programming layer <2024-01-22>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `dyplomWFA.out' has not changed.
-(rerunfilecheck)             Checksum: F49B36DD77C4251918874FBFC715D0CE;27469.
+(rerunfilecheck)             Checksum: C77A03E9F4AB3E61F8605527A4B15BC6;27340.
  ) 
 Here is how much of TeX's memory you used:
- 18730 strings out of 476147
- 291824 string characters out of 5794719
+ 18729 strings out of 476147
+ 291817 string characters out of 5794719
  2115975 words of memory out of 5000000
  39690 multiletter control sequences out of 15000+600000
  597901 words of font info for 92 fonts, out of 8000000 for 9000
@@ -1349,10 +1349,10 @@ pk> </home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecit1000.60
 share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/times/utmri8a.pfb>
-Output written on dyplomWFA.pdf (93 pages, 4752975 bytes).
+Output written on dyplomWFA.pdf (92 pages, 4752201 bytes).
 PDF statistics:
- 2889 PDF objects out of 2984 (max. 8388607)
- 2233 compressed objects within 23 object streams
- 761 named destinations out of 1000 (max. 500000)
+ 2885 PDF objects out of 2984 (max. 8388607)
+ 2230 compressed objects within 23 object streams
+ 760 named destinations out of 1000 (max. 500000)
  1067 words of extra memory for PDF output out of 10000 (max. 10000000)
 

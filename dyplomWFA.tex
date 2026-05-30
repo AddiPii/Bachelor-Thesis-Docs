@@ -479,7 +479,7 @@ W celu zapewnienia odpowiedniej jakości, wydajności oraz stabilności działan
 	\item \textbf{Skalowalność} --- architektura rozproszona powinna umożliwiać bezproblemową integrację i rejestrację kolejnych fizycznych urządzeń drukujących bez konieczności modyfikacji lub przebudowy rdzenia systemu.
 	\item \textbf{Niezawodność i tolerancja błędów} --- asynchroniczne przetwarzanie komunikatów z wykorzystaniem magistrali powinno gwarantować, że chwilowa niedostępność komponentów nie spowoduje trwałej utraty zlecenia druku ani niespójności stanów w bazie danych.
 	\item \textbf{Bezpieczeństwo danych} --- autoryzacja dostępu do interfejsów programistycznych REST API realizowana za pomocą kryptograficznie podpisanych tokenów JWT, natomiast hasła użytkowników bezwzględnie utrwalane w bazie danych w postaci kryptograficznych skrótów (ang. \textit{hashes}) wygenerowanych algorytmem \textit{bcrypt}~\cite{bcrypt}.
-	\item \textbf{Responsywność interfejsu} --- warstwa prezentacji (aplikacja frontendowa) musi zostać zaprojektowana zgodnie z paradygmaciem RWD (ang. \textit{Responsive Web Design}), zapewniając pełną ergonomię i poprawność wyświetlania zarówno na urządzeniach stacjonarnych, jak i mobilnych.
+	\item \textbf{Responsywność interfejsu} --- warstwa prezentacji (aplikacja frontendowa) musi zostać zaprojektowana zgodnie z paradygmatem RWD (ang. \textit{Responsive Web Design}), zapewniając pełną ergonomię i poprawność wyświetlania zarówno na urządzeniach stacjonarnych, jak i mobilnych.
 	\item \textbf{Wydajność czasowa} --- czas odpowiedzi punktów końcowych API na zapytania synchroniczne nie powinien przekraczać 2 sekund w warunkach standardowego, nominalnego obciążenia infrastruktury.
 	\item \textbf{Przenośność i konteneryzacja} --- wszystkie komponenty, mikroserwisy oraz bazy danych wchodzące w skład systemu muszą zostać spakowane w niezależne kontenery środowiska \textit{Docker}, umożliwiając pełne uruchomienie całego ekosystemu za pomocą jednego polecenia skryptowego (\textit{Docker Compose}).
 \end{itemize}
@@ -1096,7 +1096,7 @@ Na rysunku~\ref{fig:upload_flow} zobrazowano schematyczny przepływ danych podcz
 	\label{fig:upload_flow}
 \end{figure}
 
-Na listingu~\ref{lst:flask_upload} zaprezentowano implementację końcowego etapu obsługi żądania w ramach kontrolera usługi \textit{Files Service}. Po pomyślnej walidacji i zapisie pliku w repozytorium obiektowym, struktura danych reprezentująca zdarzenie jest serializowana do formatu JSON i przekazywana do metody nadawczej klienta \textit{Azure Service Bus}. Całość operacji została otoczona blokiem obsługi wyjątków (\texttt{try-except}), co gwarantuje stabilność działania mikroserwisu i zwrócenie ustrukturyzowanej odpowiedzi o błędzie w formacie JSON wraz ze statusem HTTP 500 w przypadku awarii infrastruktury chmuwej.
+Na listingu~\ref{lst:flask_upload} zaprezentowano implementację końcowego etapu obsługi żądania w ramach kontrolera usługi \textit{Files Service}. Po pomyślnej walidacji i zapisie pliku w repozytorium obiektowym, struktura danych reprezentująca zdarzenie jest serializowana do formatu JSON i przekazywana do metody nadawczej klienta \textit{Azure Service Bus}. Całość operacji została otoczona blokiem obsługi wyjątków (\texttt{try-except}), co gwarantuje stabilność działania mikroserwisu i zwrócenie ustrukturyzowanej odpowiedzi o błędzie w formacie JSON wraz ze statusem HTTP 500 w przypadku awarii infrastruktury chmurowej.
 
 \begin{lstlisting}[language=Python,caption={Implementacja publikacji komunikatu w Azure Service Bus (\texttt{files\_controller.py})},style=pyStyle,label={lst:flask_upload}]
 	message = {
@@ -1407,7 +1407,7 @@ Struktura drzewa katalogów aplikacji została zorganizowana w sposób modułowy
 	\item \texttt{src/i18n/} --- konfiguracja internacjonalizacji aplikacji oparta na bibliotece \textit{i18next} wraz z plikami translacji interfejsu,
 	\item \texttt{src/types/} --- definicje interfejsów i typów języka TypeScript, w tym struktur \texttt{User}, \texttt{Job} oraz \texttt{PrinterStatus},
 	\item \texttt{src/utils/formatters.ts} --- funkcje pomocnicze realizujące operacje bezstanowe, takie jak formatowanie dat, rozmiarów plików czy czasu.
-\end{itemize}q
+\end{itemize}
 
 \subsection{Scentralizowany klient API}
 
@@ -1570,7 +1570,7 @@ Bieżąca preferencja operatora dotycząca wybranego schematu kolorów jest utrw
 
 \subsection{Opis ogólny}
 
-Komponent \textit{AddiPi Agent} stanowi lokalną warstwę oprogramowania uruchamianą bezpośrednio na mikrokomputerze Raspberry Pi. Pełni on rolę dwukierunkowego pośrednika (ang. \textit{proxy}) pomiędzy rozproszoną architekturzą chmurową (usługami \textit{Azure IoT Hub} oraz \textit{Azure Blob Storage}) a niskopoziomowym, lokalnym interfejsem sterującym drukarki 3D, którym zarządza serwer \textit{OctoPrint}.
+Komponent \textit{AddiPi Agent} stanowi lokalną warstwę oprogramowania uruchamianą bezpośrednio na mikrokomputerze Raspberry Pi. Pełni on rolę dwukierunkowego pośrednika (ang. \textit{proxy}) pomiędzy rozproszoną architekturą chmurową (usługami \textit{Azure IoT Hub} oraz \textit{Azure Blob Storage}) a niskopoziomowym, lokalnym interfejsem sterującym drukarki 3D, którym zarządza serwer \textit{OctoPrint}.
 
 Agent został zaimplementowany w języku Python. Architektura operacyjna tego komponentu została zaprojektowana w taki sposób, aby funkcjonował on jako proces działający w pętli ciągłej. W zależności od konfiguracji docelowej, jego cyklem życia zarządza demon systemowy oprogramowania układowego \texttt{systemd} lub odizolowany kontener środowiska \textit{Docker}.
 
@@ -1800,7 +1800,7 @@ Wizualizację trójwymiarową tak przygotowanego środowiska projektowego przeds
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\textwidth]{Full_Assembly.png} 
-	\caption{Trójwymiarowy widok złożeniowy modułów CASE oraz STAND w środowisku CAD.}
+	\caption{Trójwymiarowy widok złożenia modułów CASE oraz STAND w środowisku CAD.}
 	\label{fig:full_assembly}
 \end{figure}
 
@@ -2205,7 +2205,7 @@ Z kolei usługa \textit{Files Service} (Python) z uwagi na interpretowany charak
 \end{lstlisting}
 
 
-\subsection{Automatyzacja procesów CI/CD i Continuous Deployment}
+\subsection{Automatyzacja procesów CI/CD}
 
 W celu zautomatyzowania cyklu wydawniczego oprogramowania, każde repozytorium źródłowe zostało zintegrowane z usługą \textit{GitHub Actions}. Zdefiniowane potoki automatyzacji (ang. \textit{workflows}) są wyzwalane po zdarzeniu \texttt{push} do gałęzi \texttt{main} i realizują następujące etapy:
 \begin{enumerate}[noitemsep,topsep=3pt]
