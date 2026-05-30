@@ -2106,7 +2106,7 @@ W tabeli~\ref{tab:infrastructure_split} zestawiono szczegółową strukturę lok
 	\end{tabular}
 \end{table}
 
-Przyjęta topologia wynika bezpośrednio z limitów platformy \textit{Vercel}, która uniemożliwia egzekucję procesów długotrwale działających (ang. \textit{long-running processes}), takich jak stałe nasłuchiwanie kolejki \textit{Service Bus} czy cykliczne zadania orkiestracji. Komponenty wymagające ciągłej aktywności ulokowano na bezpłatnej instancji \texttt{VM.Standard. \newline E2.1.Micro} w chmurze \textit{Oracle}, podczas gdy \textit{Microsoft Azure} dostarcza standaryzowane, w pełni zarządzane interfejsy zapisu oraz wymiany komunikatów.
+Przyjęta topologia wynika bezpośrednio z limitów platformy \textit{Vercel}, która uniemożliwia egzekucję procesów długotrwale działających (ang. \textit{long-running processes}), takich jak stałe nasłuchiwanie kolejki \textit{Service Bus} czy cykliczne zadania orkiestracji. Komponenty wymagające ciągłej aktywności ulokowano na bezpłatnej instancji \texttt{VM.Standard. \newline E2.1.Micro} w chmurze \textit{Oracle}~\cite{oci}, podczas gdy \textit{Microsoft Azure} dostarcza standaryzowane, w pełni zarządzane interfejsy zapisu oraz wymiany komunikatów.
 
 
 \subsection{Zarządzane usługi integracji danych i komunikacji chmurowej}
@@ -2208,7 +2208,7 @@ Na produkcyjnej maszynie wirtualnej OCI osadzono autonomiczny komponent \textit{
 
 \subsection{Orkiestracja kontenerowa warstwy serwerowej --- Docker Compose}
 
-Uruchomienie mikroserwisów backendowych na instancji \textit{Oracle Cloud} realizowane jest przy użyciu narzędzia \textit{Docker Compose}. W środowisku produkcyjnym wykorzystano wariant konfiguracyjny \texttt{docker-compose.ghcr.yml}, który pobiera skompilowane artefakty bezpośrednio z rejestru GHCR. Rozwiązanie to drastycznie minimalizuje obciążenie procesora i pamięci RAM instancji IaaS, eliminując potrzebę lokalnego budowania obrazów. Każdy z komponentów funkcjonuje w odizolowanym środowisku z dedykowaną polityką restartu \texttt{unless-stopped}, a komunikacja wewnętrzna odbywa się w ramach wirtualnej sieci \texttt{addipi-network}. 
+Uruchomienie mikroserwisów backendowych na instancji \textit{Oracle Cloud} realizowane jest przy użyciu narzędzia \textit{Docker Compose}. W środowisku produkcyjnym wykorzystano wariant konfiguracyjny \texttt{docker-compose.ghcr.yml}, który pobiera skompilowane artefakty bezpośrednio z rejestru kontenerów GHCR. Rozwiązanie to drastycznie minimalizuje obciążenie procesora i pamięci RAM instancji IaaS, eliminując potrzebę lokalnego budowania obrazów. Każdy z komponentów funkcjonuje w odizolowanym środowisku z dedykowaną polityką restartu \texttt{unless-stopped}, a komunikacja wewnętrzna odbywa się w ramach wirtualnej sieci \texttt{addipi-network}. 
 
 Na listingu~\ref{lst:docker_compose_yaml} przedstawiono reprezentatywny fragment produkcyjnego pliku konfiguracyjnego.
 
@@ -2250,45 +2250,176 @@ Ciągłość operacyjną środowiska zabezpiecza wspomniany wcześniej kontener 
 \end{figure}
 
 
-\subsection{Zmienne środowiskowe}
+\subsection{Zarządzanie konfiguracją i sekretami przez zmienne środowiskowe}
 
-\subsection{Wdrożenie frontendu i Video Service}
+Konfiguracja serwisów uruchamianych na instancji OCI realizowana jest przy pomocy zmiennych środowiskowych przekazywanych do kontenerów Docker za pośrednictwem pliku \texttt{.env}. Mechanizm ten umożliwia oddzielenie konfiguracji od kodu źródłowego, co upraszcza wdrażanie aplikacji w różnych środowiskach oraz zwiększa bezpieczeństwo poprzez eliminację konieczności przechowywania poufnych danych w repozytoriach kodu.
 
-\subsection{Wdrożenie agenta}
+W środowisku produkcyjnym plik \texttt{.env} udostępniany jest wszystkim serwisom za pomocą dyrektywy \texttt{env\_file} w konfiguracji Docker Compose. Repozytorium projektu zawiera również plik \texttt{.env.example}, stanowiący szablon wymaganej konfiguracji i dokumentujący znaczenie poszczególnych parametrów.
+
+Tabela~\ref{tab:env_variables} przedstawia najważniejsze zmienne środowiskowe wykorzystywane przez system.
+
+\begin{table}[h!]
+	\centering
+	\caption{Kluczowe zmienne środowiskowe systemu}
+	\label{tab:env_variables}
+	\begin{tabular}{lp{9cm}}
+		\toprule
+		\textbf{Zmienna} & \textbf{Przeznaczenie} \\
+		\midrule
+		\texttt{COSMOS\_ENDPOINT} & Adres sieciowy instancji bazy danych. \\
+		\texttt{COSMOS\_KEY} & Główny klucz autoryzacji i odczytu/zapisu. \\
+		\texttt{STORAGE\_CONN} & Parametry połączeniowe repozytorium obiektów. \\
+		\texttt{SERVICE\_BUS\_CONN} & Ciąg połączeniowy brokera komunikatów.\\
+		\texttt{IOT\_HUB\_SERVICE\_CS} & Interfejs usługowy do wywołań metod RPC. \\
+		\texttt{IOT\_HUB\_EVENT\_HUB\_CS} & Punkt odbioru asynchronicznej telemetrii. \\
+		\texttt{JWT\_SECRET} & Klucz podpisywania tokenów dostępu (\textit{access}). \\
+		\texttt{JWT\_REFRESH\_SECRET} & Klucz podpisywania tokenów odświeżania (\textit{refresh}). \\
+		\texttt{AUTH\_SERVICE\_URL} & Adres bazowy usługi uwierzytelniania \\
+		\texttt{EMAIL\_USER} & Konto nadawcze komunikatów aktywacyjnych. \\
+		\texttt{EMAIL\_PASSWORD} & Hasło aplikacyjne dedykowanej skrzynki e-mail. \\
+		\texttt{DEVICE\_CONNECTION\_STRING} & Token uwierzytelniania urządzenia zarejestrowanego w \textit{Azure IoT Hub} \\
+		\texttt{OCTOPRINT\_API\_KEY} & Klucz API platformy \textit{OctoPrint} \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+
+\subsection{Wdrożenie warstwy prezentacji oraz usługi wideo}
+
+Aplikacja kliencka (frontendowa) oraz usługa \textit{Video Service} zostały wdrożone na platformie chmurowej \textit{Vercel}~\cite{vercel}, co zapewnia ich globalną dystrybucję za pośrednictwem sieci CDN (ang. \textit{Content Delivery Network}). Proces budowania i aktualizacji zasobów statycznych pod adresem \url{https://addipi.vercel.app} realizowany jest w pełni automatycznie w modelu CD po każdym zdarzeniu \texttt{push} do gałęzi \texttt{main} repozytorium \textit{GitHub}, uruchamiając komendę produkcyjną \texttt{npm run build}.
+
+Specyfika platformy \textit{Vercel} opiera się na paradygmacie bezserwerowym (ang. \textit{Serverless}), który narzuca sztywne ograniczenia czasowe na egzekucję kodu (ang. \textit{execution timeouts}). Z tego względu infrastruktura ta została wykorzystana wyłącznie do hostowania interfejsu użytkownika oraz lekkiej, bezstanowej usługi \textit{Video Service}, przechowującej adres URL strumienia w pamięci RAM. Mikroserwisy wymagające ciągłego, asynchronicznego nasłuchiwania kolejek komunikatów (\textit{Queue Service}) oraz orkiestracji zadań telemetrycznych (\textit{Printer Service}) charakteryzują się naturą procesów długotrwale działających (ang. \textit{long-running processes}). Ich implementacja w modelu \textit{Serverless} byłaby niemożliwa, co w pełni uzasadnia ich lokowanie na dedykowanej maszynie wirtualnej OCI.
+
+\subsection{Wdrożenie komponentu brzegowego}
+
+Wdrożenie komponentu \textit{AddiPi Agent} zrealizowano bezpośrednio w środowisku lokalnym mikrokomputera Raspberry Pi. Zgodnie ze szczegółowym opisem zawartym w rozdziale~\ref{sec:rpi}, proces ten oparto na demonie systemowym \texttt{systemd} (\texttt{addipi-agent.service}). Konfiguracja ta gwarantuje pełną autonomię węzła brzegowego, realizując automatyczny rozruch skryptów po starcie zasilania oraz deterministyczne wznawianie pracy w przypadku awarii procesu. Zapewnia to bezobsługową i niezawodną integrację lokalnego sterownika \textit{OctoPrint} z usługami chmurowymi. 
+
+Bezpośrednie, produkcyjne potwierdzenie poprawnej rejestracji oraz aktywnego stanu połączenia urządzenia brzegowego w chmurze obliczeniowej zaprezentowano na rysunku~\ref{fig:iot_hub}, przedstawiającym panel administracyjny usługi \textit{Azure IoT Hub}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{IoT_hub.png} 
+	\caption{Widok zarejestrowanego i połączonego mikrokomputera w panelu usługi Azure IoT Hub.}
+	\label{fig:iot_hub}
+\end{figure}
+
 
 \newpage
 
 % ============================================================
 %  ROZDZIAŁ 11 — TESTY
 % ============================================================
-\section{Testowanie systemu}
-\label{sec:testy}
+%\section{Testowanie systemu}
+%\label{sec:testy}
 
-\subsection{Metodologia testowania}
+%\subsection{Metodologia testowania}
 
-\subsection{Testy jednostkowe - Auth Service}
+%\subsection{Testy jednostkowe - Auth Service}
 
-\subsection{Testy integracyjne przez Postman}
+%\subsection{Testy integracyjne przez Postman}
 
-\subsection{Test end-to-end - pełny przepływ druku}
+%\subsection{Test end-to-end - pełny przepływ druku}
 
-\subsection{Testy wydajnościowe i obserwacje}
+%\subsection{Testy wydajnościowe i obserwacje}
 
 \newpage
 
 % ============================================================
 %  ROZDZIAŁ 12 — PODSUMOWANIE
 % ============================================================
-\section{Podsumowanie}
+\section{Podsumowanie i wnioski końcowe}
 \label{sec:podsumowanie}
 
-\subsection{Osiągnięcia}
+\subsection{Osiągnięte rezultaty i wkład inżynierski}
 
-\subsection{Napotkane trudności}
+Głównym celem niniejszej pracy inżynierskiej było zaprojektowanie, implementacja oraz walidacja kompletnego, rozproszonego systemu umożliwiającego zdalne i wielodostępowe zarządzanie procesami druku 3D z wykorzystaniem zaawansowanych technologii chmurowych, paradygmatu mikroserwisów oraz platformy sprzętowej Raspberry Pi pełniącej rolę lokalnego agenta orkiestracji. Założony cel badawczo-projektowy został w pełni osiągnięty poprzez wytworzenie, wdrożenie i przetestowanie ekosystemu \textit{AddiPi}, który w sposób bezszwowy integruje warstwę sprzętową, oprogramowanie brzegowe, aplikację webową oraz rozproszoną infrastrukturę chmurową.
 
-\subsection{Możliwości rozwoju}
+W ramach realizacji projektu inżynierskiego opracowano i zaimplementowano następujące komponenty oraz mechanizmy:
+\begin{itemize}
+	\item \textbf{Rozproszona architektura mikroserwisowa} --- struktura backendowa złożona z sześciu autonomicznych serwisów komunikujących się hybrydowo za pośrednictwem synchronicznych interfejsów REST API oraz asynchronicznej magistrali komunikatów \textit{Azure Service Bus},
+	\item \textbf{Scentralizowany podsystem bezpieczeństwa} --- model uwierzytelniania i autoryzacji bazujący na standardzie podwójnych tokenów JWT, integrujący mechanizm bezpiecznego odświeżania sesji, dwuetapową weryfikację adresów e-mail w domenie akademickiej oraz kontrolę dostępu opartą na rolach (RBAC),
+	\item \textbf{Mechanizm orkiestracji i harmonogramowania zadań} --- zaawansowany algorytm zarządzania kolejką produkcyjną, pozwalający zarówno na natychmiastową alokację zasobów sprzętowych, jak i długoterminowe planowanie kalendarzowe procesów przyrostowych,
+	\item \textbf{Integracja brzegowa IoT} --- powiązanie platformy sprzętowej z usługą \textit{Azure IoT Hub}, umożliwiające synchroniczne sterowanie drukarką 3D za pomocą wywołań metod bezpośrednich (ang. \textit{Direct Methods}) w standardzie RPC,
+	\item \textbf{System monitorowania w czasie rzeczywistym} --- mechanizm akwizycji danych telemetrycznych urządzenia (metryki termiczne i statusy mechaniczne) oraz asynchronicznej dystrybucji strumienia wideo z kamery CSI w formacie MJPEG,
+	\item \textbf{Wielojęzyczna aplikacja kliencka} --- responsywna warstwa prezentacji zbudowana w oparciu o bibliotekę \textit{React} oraz język TypeScript, wspierająca architekturę dynamicznych motywów graficznych (jasny i ciemny) oraz wzorzec projektowy RWD,
+	\item \textbf{Infrastruktura jako kod (IaC)} --- deklaratywne szablony konfiguracyjne narzędzia \textit{Terraform}, automatyzujące procesy aprowizacji i replikacji zasobów chmurowych w architekturze hybrydowej \textit{Microsoft Azure} oraz \textit{Oracle Cloud Infrastructure},
+	\item \textbf{Zautomatyzowany potok wdrożeniowy (CI/CD)} --- konfiguracja środowisk potokowych \textit{GitHub Actions} zintegrowanych z rejestrem GHCR oraz automatycznym demonem aktualizacyjnym \textit{Watchtower} w produkcyjnym środowisku kontenerowym,
+	\item \textbf{Projekt mechaniczny CAD} --- zoptymalizowana pod kątem tolerancji wymiarowych obudowa mikrokomputera wraz z przegubowym ramieniem pozycjonującym kamerę, zaprojektowana w programie \textit{SolidWorks} i przygotowana do wytwarzania przyrostowego (FDM),
+	\item \textbf{Automatyzacja i konfiguracja węzła brzegowego} --- autorskie skrypty powłoki Bash zintegrowane z demonem \texttt{systemd} oraz systemowym harmonogramem \textit{cron}, zabezpieczające bezobsługowy rozruch sieciowy i stabilność tunelu \textit{Cloudflare Tunnel}.
+\end{itemize}
 
-\subsection{Wnioski}
+Ostatecznie w ramach pracy powstał kompletny, w pełni funkcjonalny prototyp rozproszonego systemu zdalnego zarządzania autonomicznym stanowiskiem druku trójwymiarowego. Gotowe rozwiązanie zostało pomyślnie wdrożone i poddane długoterminowej walidacji w rzeczywistym środowisku pracy z fizyczną drukarką 3D. Przeprowadzone testy integracyjne oraz użytkowe potwierdziły wysoką niezawodność, bezpieczeństwo oraz bezobsługowość całego ekosystemu, udowadniając poprawność przyjętych założeń inżynierskich oraz wysoką efektywność wybranych technologii chmurowych i brzegowych.
+
+
+
+\subsection{Analiza napotkanych trudności projektowo-implementacyjnych}
+
+Realizacja rozproszonego systemu \textit{AddiPi} wiązała się z koniecznością identyfikacji i rozwiązania szeregu zaawansowanych problemów technicznych. Wynikały one zarówno z heterogenicznego charakteru architektury wielochmurowej, jak i z fizycznej integracji zewnętrznych usług chmurowych z urządzeniami brzegowymi Internetu Rzeczy (IoT).
+
+\begin{itemize}
+	\item \textbf{Integracja rozproszonego i heterogenicznego środowiska chmurowego} \\
+	Jednym z największych wyzwań architektonicznych było zapewnienie stabilnej orkiestracji komponentów działających w odmiennych środowiskach wykonawczych. Ekosystem wykorzystuje jednocześnie zasoby \textit{Microsoft Azure} (\textit{Cosmos DB}, \textit{Blob Storage}, \textit{Service Bus}, \textit{IoT Hub}), instancję maszyn wirtualnych \textit{Oracle Cloud Infrastructure}, platformę \textit{Vercel} oraz fizyczny mikrokomputer brzegowy działający wewnątrz sieci lokalnej. Konieczne było zaprojektowanie spójnego modelu komunikacji, który uwzględniałby fluktuacje sieciowe, opóźnienia pakietów oraz skrajnie odmienne standardy uwierzytelniania dostawców. Wyzwanie to zminimalizowano poprzez wdrożenie hybrydowej architektury opartej na synchronicznych interfejsach REST API oraz asynchronicznej wymianie komunikatów z wykorzystaniem kolejki brokera, uzupełnionej o autorskie mechanizmy ponawiania żądań.
+	
+	\item \textbf{Spójność i normalizacja reprezentacji czasu} \\
+	Poszczególne warstwy systemu natywnie operowały na zróżnicowanych standardach zapisu dat i czasu. Informacje generowane przez silnik bazy danych, usługi backendowe oraz biblioteki frontendowe nie zawsze cechowały się identyczną strukturą, co generowało błędy w interpretacji i renderowaniu harmonogramów zadań. Problem ten rozwiązano na poziomie warstwy prezentacji poprzez implementację scentralizowanego modułu normalizacji danych chronologicznych, wykorzystującego autorską funkcję \texttt{normalizeDateString}.
+	
+	\item \textbf{Koordynacja sekwencyjności startu mikroserwisów} \\
+	W fazie wdrażania środowiska kontenerowego zidentyfikowano, że natywna dyrektywa \texttt{depends\_on} w konfiguracji \textit{Docker Compose} gwarantuje wyłącznie kolejność inicjalizacji procesów, nie weryfikując rzeczywistej gotowości operacyjnej API do obsługi żądań sieciowych. Prowadziło to do błędów połączeń w sytuacji, gdy serwisy zależne próbowały komunikować się z komponentami będącymi jeszcze w fazie wewnętrznego rozruchu. Wyzwanie to zaadresowano poprzez zaimplementowanie mechanizmów diagnostycznych stanu działania (ang. \textit{health checks}) oraz procedurę ponawiania prób z wykładniczym czasem oczekiwania (ang. \textit{retry with exponential backoff}) po stronie klientów HTTP.
+	
+	\item \textbf{Kompatybilność systemów modułów CommonJS oraz ESM} \\
+	Podczas integracji backendu z bibliotekami SDK \textit{Azure IoT} w środowisku Node.js napotkano na konflikty struktur modułów \textit{CommonJS} oraz \textit{ECMAScript Modules} (ESM). Wybrane pakiety zależne eksportowały swoje składowe w sposób silnie uzależniony od kontekstu uruchomieniowego. W celu zapewnienia pełnej kompatybilności i stabilności kodu, w strukturze usługi \textit{Printer Service} zaimplementowano mechanizm defensywnej detekcji i dynamicznej ekstrakcji dostępnych interfejsów eksportu.
+	
+	\item \textbf{Udostępnienie strumienia wideo poza barierę sieci lokalnej} \\
+	Ponieważ serwer \textit{OctoPrint} operuje wewnątrz lokalnej sieci prywatnej, strumień wizyjny MJPEG nie był domyślnie trasowany do publicznego Internetu, co uniemożliwiało jego odbiór przez aplikację webową. Dodatkową barierę stanowiła zmienność adresów URL przy każdej renegocjacji połączenia tunelowego. Wyzwanie to rozwiązano za pomocą technologii \textit{Cloudflare Tunnel} połączonej z autonomiczną usługą \textit{Video Service}, która działa jako dynamiczny rejestrator aktualnego punktu końcowego wideo.
+	
+	\item \textbf{Obsługa opóźnień w synchronicznej komunikacji IoT} \\
+	Sterowanie parametrami fizycznej maszyny przy użyciu metod bezpośrednich (ang. \textit{Direct Methods}) generowało opóźnienia rzędu kilku sekund w warunkach gorszej przepustowości sieciowej węzła brzegowego. Zjawisko to zostało uwzględnione na poziomie projektowania interfejsu użytkownika (UX) poprzez wprowadzenie asynchronicznych stanów ładowania, blokad przycisków przed wielokrotnym kliknięciem (ang. \textit{debouncers}) oraz deterministycznej obsługi przekroczenia czasu oczekiwania (ang. \textit{timeouts}).
+\end{itemize}
+
+Pomimo opisanych trudności, wszystkie zidentyfikowane bariery technologiczne zostały pomyślnie wyeliminowane na etapie implementacji. Pozwoliło to na uzyskanie w pełni stabilnego, rozproszonego systemu, który w sposób bezwzględny spełnia wszystkie założenia inżynierskie określone w wymaganiach projektu.
+
+\subsection{Ograniczenia przyjętego rozwiązania}
+
+Pomimo pełnego spełnienia założonych wymagań projektowych, opracowany system posiada kilka ograniczeń technicznych wynikających z przyjętych kompromisów architektonicznych oraz specyfiki wybranych technologii.
+
+\begin{itemize}
+	\item \textbf{Skala stanowiska produkcyjnego} --- system został zoptymalizowany pod kątem obsługi pojedynczego urządzenia. Choć architektura pozwala na skalowanie, obecna implementacja dedykowana jest dla jednej kolejki zadań i jednego aktywnego węzła brzegowego.
+	\item \textbf{Zależność od infrastruktury zewnętrznej} --- podgląd wideo opiera się na bezpłatnym wariancie \texttt{trycloudflare.com}, co uniemożliwia przypisanie statycznego adresu URL i może generować okresowe przerwy w dostępności usługi sieciowej.
+	\item \textbf{Limity darmowych planów chmurowych} --- wdrożenie produkcyjne bazuje na bezpłatnych pakietach zasobów (\textit{Oracle Always Free} oraz \textit{Azure Free Tier}). Posiadają one sztywne limity wydajnościowe i pojemnościowe, wymagające migracji do planów komercyjnych przy wyższym obciążeniu.
+	\item \textbf{Punkt pojedynczej awarii (SPOF)} --- komunikacja z urządzeniem zależy bezpośrednio od stabilności serwera \textit{OctoPrint} oraz mikrokomputera. Awaria warstwy brzegowej całkowicie paraliżuje proces realizacji nowych zleceń.
+	\item \textbf{Brak statycznej walidacji kodu sterującego} --- system nie realizuje automatycznej weryfikacji poprawności struktury plików G-code przed alokacją w kolejce. Walidacja poprawności technologicznej pliku spoczywa wyłącznie na operatorze.
+	\item \textbf{Ograniczone pokrycie testami} --- bieżąca wersja prototypowa nie została wyposażona w kompleksowy, zautomatyzowany zestaw testów integracyjnych typu \textit{end-to-end}, który pokrywałby pełen cykl życia zadania.
+\end{itemize}
+
+
+
+\subsection{Perspektywy i potencjalne kierunki dalszego rozwoju systemu}
+
+Opracowany system \textit{AddiPi} został zaprojektowany z zachowaniem paradygmatu modularności oraz separacji odpowiedzialności, co zapewnia wysoką elastyczność i podatność na dalszą rozbudowę --- zarówno w obszarze funkcjonalnym, jak i architektonicznym. Jako kluczowe, perspektywiczne kierunki rozwoju platformy zidentyfikowano następujące zagadnienia:
+
+\begin{itemize}
+	\item \textbf{Obsługa środowiska wielourządzeniowego (farma drukarek)} --- rozszerzenie obecnej struktury dokumentów JSON o unikalne identyfikatory fizycznych maszyn oraz powiązanie z nimi odrębnych, izolowanych potoków kolejkowych, co umożliwi scentralizowane zarządzanie rozproszonym parkiem maszynowym z poziomu pojedynczej instancji aplikacji,
+	\item \textbf{Autonomiczny system powiadomień natychmiastowych} --- integracja architektury sieciowej z technologiami \textit{Web Push} lub infrastrukturą \textit{Firebase Cloud Messaging} (FCM) w celu natywnego informowania operatorów o zmianach stanów zadania (rozpoczęcie, sukces, awaria) bez konieczności utrzymywania aktywnej sesji w przeglądarce,
+	\item \textbf{Statyczna analiza plików G-code przed wydrukiem} --- implementacja modułu analizy składniowej kodu sterującego na etapie jego przesyłania do \textit{Files Service}, co pozwoliłoby na precyzyjne, niezależne szacowanie czasu druku, wolumetrycznego zużycia filamentu oraz automatyczne wykrywanie błędów konfiguracji slicera,
+	\item \textbf{Detekcja anomalii produkcyjnych z wykorzystaniem sztucznej inteligencji} --- integracja strumienia wideo MJPEG z modelami uczenia maszynowego (np. konwolucyjnymi sieciami neuronowymi) w celu automatycznego wykrywania krytycznych wad druku w czasie rzeczywistym, takich jak odklejenie warstwy bazowej od stołu, zjawisko utraty spójności (ang. \textit{spaghetti failure}) czy zablokowanie ekstrudera,
+	\item \textbf{Rozbudowa mechanizmów federacyjnego uwierzytelniania} --- implementacja protokołów \textit{OAuth 2.0} oraz \textit{OpenID Connect} (OIDC), co umożliwi bezpieczną integrację z zewnętrznymi dostawcami tożsamości (ang. \textit{Identity Providers}), takimi jak konta \textit{Microsoft}, \textit{Google} lub \textit{GitHub},
+	\item \textbf{Dedykowana aplikacja mobilna} --- implementacja natywnej lub hybrydowej warstwy prezentacji (np. w technologii \textit{React Native}), co podniosłoby ergonomię monitorowania telemetrii urządzenia na ekranach przenośnych,
+	\item \textbf{Skalowanie i orkiestracja infrastruktury produkcyjnej} --- przeniesienie struktury kontenerowej do środowiska orkiestracji \textit{Kubernetes} (K8s) w celu wdrożenia mechanizmów automatycznego skalowania pionowego i poziomego, zaawansowanego równoważenia obciążenia (ang. \textit{load balancing}) oraz scentralizowanego routingu usług,
+	\item \textbf{Rozszerzenie warstwy jakości i odporności oprogramowania} --- uzupełnienie kodu źródłowego o pełne pokrycie testami automatycznymi, generowanie żywej dokumentacji API w standardzie \textit{OpenAPI/Swagger} oraz wdrożenie mechanizmów ochrony przed przeciążeniem interfejsów, takich jak \textit{rate limiting} czy warstwa buforowania \textit{Redis}.
+\end{itemize}
+
+
+\subsection{Wnioski końcowe}
+
+Przeprowadzone prace projektowe, implementacyjne oraz walidacyjne potwierdziły, że integracja rozproszonej architektury mikroserwisowej z usługami chmurowymi w modelu PaaS (\textit{Platform as a Service}) stanowi wysoce efektywny paradygmat budowy systemów zarządzania autonomicznymi stanowiskami druku 3D. Wszystkie założone we wstępie cele pracy zostały w pełni zrealizowane. Opracowany system \textit{AddiPi} umożliwia w pełni bezpieczne, zdalne przesyłanie plików z kodem sterującym, elastyczne harmonogramowanie zadań, ciągłe monitorowanie parametrów środowiskowych procesu oraz orkiestrację urządzenia z poziomu uniwersalnego interfejsu webowego.
+
+Zastosowanie architektury zorientowanej na mikroserwisy okazało się właściwym i uzasadnionym wyborem projektowym dla systemu tej klasy. Dekompozycja funkcjonalna na niezależne komponenty uprościła rozwój poszczególnych warstw logicznych, zwiększyła ogólną modularność rozwiązania oraz umożliwiła bezprzerwowe, asynchroniczne wdrażanie aktualizacji (ang. \textit{zero-downtime deployment}). Jednocześnie realizacja projektu wykazała, że podejście mikroserwisowe generuje dodatkowy narzut architektoniczny (ang. \textit{overhead}), związany z koniecznością zapewnienia spójności danych, scentralizowanego zarządzania konfiguracją środowiskową oraz monitorowania rozproszonych potoków komunikacyjnych.
+
+Wykorzystanie ekosystemu \textit{Microsoft Azure} pozwoliło na sprawną implementację kluczowych mechanizmów platformy bez konieczności ponoszenia kosztów budowy i utrzymania własnej infrastruktury serwerowej (ang. \textit{on-premise backend}). Krytyczne znaczenie dla stabilności systemu miało wdrożenie usług \textit{Azure IoT Hub}, \textit{Azure Service Bus} oraz \textit{Azure Cosmos DB}. Komponenty te umożliwiły bezbłędną realizację asynchronicznego routingu komunikatów, synchronicznego sterowania urządzeniem brzegowym przez protokół RPC oraz bezpiecznej persystencji obiektów JSON.
+
+Realizacja warstwy sprzętowej potwierdziła, że mikrokomputer Raspberry Pi zintegrowany z serwerem \textit{OctoPrint} stanowi stabilną, skalowalną i elastyczną platformę pośredniczącą pomiędzy fizyczną kinematyką drukarki 3D a systemami rozproszonymi. Opracowany komponent \textit{AddiPi Agent} zabezpiecza poprawną i dwukierunkową wymianę informacji, gwarantując zarówno niskopoziomowe sterowanie maszyną, jak i ciągłą akwizycję danych telemetrycznych w czasie rzeczywistym.
+
+Uzyskane rezultaty aplikacyjne wskazują, że system \textit{AddiPi} posiada wysoki potencjał wdrożeniowy i może znaleźć realne zastosowanie nie tylko w strukturach akademickich laboratoriów studenckich, lecz również w placówkach badawczo-rozwojowych, szkołach technicznych, biurach projektowych oraz przedsiębiorstwach wykorzystujących współdzielone zasoby wytwarzania przyrostowego. Modułowa topologia rozwiązania pozostawia pełną swobodę w zakresie dalszej ewolucji systemu, umożliwiając implementację nowych funkcji oraz orkiestrację większej liczby maszyn bez konieczności modyfikacji lub przebudowy istniejących komponentów rdzenia.
 
 
 
@@ -2307,19 +2438,19 @@ Ciągłość operacyjną środowiska zabezpiecza wspomniany wcześniej kontener 
 %  DODATKI
 % ============================================================
 
-\begin{appendices}
+%\begin{appendices}
 
-\section{Konfiguracja środowiska deweloperskiego}
+%\section{Konfiguracja środowiska deweloperskiego}
 
-\subsection{Wymagania}
+%\subsection{Wymagania}
 
-\subsection{Pierwsze uruchomienie}
+%\subsection{Pierwsze uruchomienie}
 
-\section{Struktura repozytoriów}
+%\section{Struktura repozytoriów}
 
-\section{Endpointy API - podsumowanie}
+%\section{Endpointy API - podsumowanie}
 
-\end{appendices}
+%\end{appendices}
 
 \end{document}
 
