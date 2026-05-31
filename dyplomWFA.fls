@@ -340,11 +340,11 @@ INPUT ./admin-panel.png
 INPUT ./admin-panel.png
 INPUT ./admin-panel.png
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectt1440.tfm
-INPUT ./agent_startprint_initialversion.pdf
-INPUT ./agent_startprint_initialversion.pdf
-INPUT ./agent_startprint_initialversion.pdf
-INPUT ./agent_startprint_initialversion.pdf
-INPUT ./agent_startprint_initialversion.pdf
+INPUT ./agent_startprint.pdf
+INPUT ./agent_startprint.pdf
+INPUT ./agent_startprint.pdf
+INPUT ./agent_startprint.pdf
+INPUT ./agent_startprint.pdf
 INPUT ./octoprint-panel.png
 INPUT ./octoprint-panel.png
 INPUT ./octoprint-panel.png

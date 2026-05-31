@@ -1,118 +1,4498 @@
-<svg width="100%" viewBox="0 0 689.02 520" role="img" style="" xmlns="http://www.w3.org/2000/svg">
-<title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Sekwencja wywołania startPrint przez Azure IoT Hub</title>
-<desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Diagram sekwencji pokazujący jak Printer Service wywołuje metodę startPrint przez Azure IoT Hub na agencie Raspberry Pi, który następnie pobiera plik z Blob Storage i uruchamia druk w OctoPrint.</desc>
-<defs>
-<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
-<mask id="imagine-text-gaps-qacuof" maskUnits="userSpaceOnUse"><rect x="0" y="0" width="689.02" height="520" fill="white"/><rect x="31.561019897460938" y="22.99972915649414" width="106.87796783447266" height="22.00054168701172" fill="black" rx="2"/><rect x="230.69454956054688" y="22.99972915649414" width="58.85626220703125" height="22.00054168701172" fill="black" rx="2"/><rect x="382.5690612792969" y="22.99972915649414" width="94.87284851074219" height="22.00054168701172" fill="black" rx="2"/><rect x="543.0296630859375" y="22.99972915649414" width="113.96210479736328" height="22.00054168701172" fill="black" rx="2"/><rect x="216.71519470214844" y="58.99964141845703" width="246.56967163085938" height="19.000450134277344" fill="black" rx="2"/><rect x="103.93570709228516" y="71.9996337890625" width="128.12860870361328" height="19.000450134277344" fill="black" rx="2"/><rect x="242.73153686523438" y="91.99964141845703" width="196.5369110107422" height="19.000450134277344" fill="black" rx="2"/><rect x="427.9039001464844" y="111.99964141845703" width="166.19224548339844" height="19.000450134277344" fill="black" rx="2"/><rect x="456.4438171386719" y="129.9996337890625" width="109.11241149902344" height="19.000450134277344" fill="black" rx="2"/><rect x="444.8731689453125" y="149.9996337890625" width="132.25373077392578" height="19.000450134277344" fill="black" rx="2"/><rect x="419.5130310058594" y="167.99964904785156" width="182.9739990234375" height="19.000450134277344" fill="black" rx="2"/><rect x="411.4815368652344" y="187.9996337890625" width="199.0369873046875" height="19.000450134277344" fill="black" rx="2"/><rect x="473.1708984375" y="205.9996337890625" width="75.65827941894531" height="19.000450134277344" fill="black" rx="2"/><rect x="416.403564453125" y="225.99964904785156" width="189.33680725097656" height="19.000450134277344" fill="black" rx="2"/><rect x="462.0611877441406" y="243.9996337890625" width="97.87770080566406" height="19.000450134277344" fill="black" rx="2"/><rect x="250.6222686767578" y="263.9996337890625" width="188.9111328125" height="19.000450134277344" fill="black" rx="2"/><rect x="105.9122085571289" y="279.9996643066406" width="132.17560577392578" height="19.000450134277344" fill="black" rx="2"/><rect x="235.91888427734375" y="310.9996337890625" width="208.16226196289062" height="19.000450134277344" fill="black" rx="2"/><rect x="272.614990234375" y="325.9996337890625" width="152.7699737548828" height="19.000450134277344" fill="black" rx="2"/><rect x="116.09207916259766" y="341.9996643066406" width="119.81585693359375" height="19.000450134277344" fill="black" rx="2"/><rect x="33.71733474731445" y="367.9996337890625" width="102.72193145751953" height="19.000450134277344" fill="black" rx="2"/><rect x="223.82447814941406" y="379.9996337890625" width="250.45375061035156" height="19.000450134277344" fill="black" rx="2"/><rect x="116.09207916259766" y="395.9996337890625" width="119.81585693359375" height="19.000450134277344" fill="black" rx="2"/><rect x="15.943363189697266" y="421.9996337890625" width="138.23817443847656" height="19.000450134277344" fill="black" rx="2"/><rect x="263.1381530761719" y="437.9996337890625" width="171.72366333007812" height="19.000450134277344" fill="black" rx="2"/><rect x="116.09207916259766" y="453.9996337890625" width="119.81585693359375" height="19.000450134277344" fill="black" rx="2"/><rect x="25.631155014038086" y="479.9996337890625" width="118.73770141601562" height="19.000450134277344" fill="black" rx="2"/><rect x="462" y="481.9996337890625" width="51.601436614990234" height="19.000450134277344" fill="black" rx="2"/><rect x="571.9999389648438" y="481.9996337890625" width="111.03434753417969" height="19.000450134277344" fill="black" rx="2"/></mask></defs>
-
-<!-- Uczestnicy -->
-<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-  <rect x="20" y="16" width="130" height="36" rx="8" stroke-width="0.5" style="fill:rgb(8, 80, 65);stroke:rgb(93, 202, 165);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-  <text x="85" y="34" text-anchor="middle" dominant-baseline="central" style="fill:rgb(159, 225, 203);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central">Printer Service</text>
-</g>
-<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-  <rect x="200" y="16" width="120" height="36" rx="8" stroke-width="0.5" style="fill:rgb(99, 56, 6);stroke:rgb(239, 159, 39);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-  <text x="260" y="34" text-anchor="middle" dominant-baseline="central" style="fill:rgb(250, 199, 117);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central">IoT Hub</text>
-</g>
-<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-  <rect x="370" y="16" width="120" height="36" rx="8" stroke-width="0.5" style="fill:rgb(113, 43, 19);stroke:rgb(240, 153, 123);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-  <text x="430" y="34" text-anchor="middle" dominant-baseline="central" style="fill:rgb(245, 196, 179);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central">AddiPi Agent</text>
-</g>
-<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-  <rect x="540" y="16" width="120" height="36" rx="8" stroke-width="0.5" style="fill:rgb(99, 56, 6);stroke:rgb(239, 159, 39);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-  <text x="600" y="34" text-anchor="middle" dominant-baseline="central" style="fill:rgb(250, 199, 117);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central">Blob / OctoPrint</text>
-</g>
-
-<!-- Linie życia -->
-<line x1="85" y1="52" x2="85" y2="500" stroke="var(--b)" stroke-width="0.5" stroke-dasharray="4 3" mask="url(#imagine-text-gaps-qacuof)" style="fill:rgb(0, 0, 0);stroke:rgba(222, 220, 209, 0.3);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-dasharray:4px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<line x1="260" y1="52" x2="260" y2="500" stroke="var(--b)" stroke-width="0.5" stroke-dasharray="4 3" mask="url(#imagine-text-gaps-qacuof)" style="fill:rgb(0, 0, 0);stroke:rgba(222, 220, 209, 0.3);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-dasharray:4px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<line x1="430" y1="52" x2="430" y2="500" stroke="var(--b)" stroke-width="0.5" stroke-dasharray="4 3" mask="url(#imagine-text-gaps-qacuof)" style="fill:rgb(0, 0, 0);stroke:rgba(222, 220, 209, 0.3);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-dasharray:4px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<line x1="600" y1="52" x2="600" y2="500" stroke="var(--b)" stroke-width="0.5" stroke-dasharray="4 3" mask="url(#imagine-text-gaps-qacuof)" style="fill:rgb(0, 0, 0);stroke:rgba(222, 220, 209, 0.3);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-dasharray:4px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-
-<!-- FAZA 1: Trigger z cron -->
-<rect x="20" y="62" width="640" height="14" rx="3" fill="var(--bg2)" opacity="0.6" style="fill:rgb(38, 38, 36);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="340" y="73" text-anchor="middle" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Cron wyzwala harmonogramator (co 1 min)</text>
-
-<!-- 1. confirm-ready → invokeDeviceMethod -->
-<line x1="85" y1="90" x2="252" y2="90" marker-end="url(#arrow)" mask="url(#imagine-text-gaps-qacuof)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="168" y="86" text-anchor="middle" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">invokeDeviceMethod</text>
-
-<!-- 2. IoT Hub → Agent (MQTT) -->
-<line x1="260" y1="110" x2="422" y2="110" marker-end="url(#arrow)" mask="url(#imagine-text-gaps-qacuof)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="341" y="106" text-anchor="middle" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Direct Method: startPrint (MQTT)</text>
-
-<!-- 3. Agent: sprawdź drukarkę -->
-<line x1="430" y1="130" x2="592" y2="130" marker-end="url(#arrow)" mask="url(#imagine-text-gaps-qacuof)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="511" y="126" text-anchor="middle" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">GET /api/printer  (OctoPrint)</text>
-
-<line x1="592" y1="148" x2="438" y2="148" marker-end="url(#arrow)" stroke="var(--s)" stroke-dasharray="4 3" mask="url(#imagine-text-gaps-qacuof)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-dasharray:4px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="511" y="144" text-anchor="middle" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">state: Operational</text>
-
-<!-- 4. pobierz plik z Blob -->
-<line x1="430" y1="168" x2="592" y2="168" marker-end="url(#arrow)" mask="url(#imagine-text-gaps-qacuof)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="511" y="164" text-anchor="middle" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">download_blob(fileId)</text>
-
-<line x1="592" y1="186" x2="438" y2="186" marker-end="url(#arrow)" stroke="var(--s)" stroke-dasharray="4 3" mask="url(#imagine-text-gaps-qacuof)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-dasharray:4px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="511" y="182" text-anchor="middle" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">plik .gcode → /tmp/addipi_files/</text>
-
-<!-- 5. upload do OctoPrint -->
-<line x1="430" y1="206" x2="592" y2="206" marker-end="url(#arrow)" mask="url(#imagine-text-gaps-qacuof)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="511" y="202" text-anchor="middle" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">POST /api/files/local  (select=true)</text>
-
-<line x1="592" y1="224" x2="438" y2="224" marker-end="url(#arrow)" stroke="var(--s)" stroke-dasharray="4 3" mask="url(#imagine-text-gaps-qacuof)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-dasharray:4px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="511" y="220" text-anchor="middle" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">201 Created</text>
-
-<!-- 6. start print -->
-<line x1="430" y1="244" x2="592" y2="244" marker-end="url(#arrow)" mask="url(#imagine-text-gaps-qacuof)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="511" y="240" text-anchor="middle" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">POST /api/job  { command: start }</text>
-
-<line x1="592" y1="262" x2="438" y2="262" marker-end="url(#arrow)" stroke="var(--s)" stroke-dasharray="4 3" mask="url(#imagine-text-gaps-qacuof)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-dasharray:4px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="511" y="258" text-anchor="middle" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">204 No Content</text>
-
-<!-- 7. odpowiedź Method → IoT Hub → Printer -->
-<line x1="422" y1="282" x2="268" y2="282" marker-end="url(#arrow)" stroke="var(--s)" stroke-dasharray="4 3" mask="url(#imagine-text-gaps-qacuof)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-dasharray:4px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="345" y="278" text-anchor="middle" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">{ status: printing_started, jobId }</text>
-
-<line x1="252" y1="298" x2="93" y2="298" marker-end="url(#arrow)" stroke="var(--s)" stroke-dasharray="4 3" mask="url(#imagine-text-gaps-qacuof)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-dasharray:4px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="172" y="294" text-anchor="middle" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">MethodResponse 200</text>
-
-<!-- FAZA 2: Telemetria -->
-<rect x="20" y="314" width="640" height="14" rx="3" fill="var(--bg2)" opacity="0.6" style="fill:rgb(38, 38, 36);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="340" y="325" text-anchor="middle" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Telemetria (co ~10 s podczas druku)</text>
-
-<!-- print_started -->
-<line x1="430" y1="344" x2="268" y2="344" marker-end="url(#arrow)" mask="url(#imagine-text-gaps-qacuof)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="349" y="340" text-anchor="middle" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">D2C: event=print_started</text>
-
-<line x1="260" y1="360" x2="93" y2="360" marker-end="url(#arrow)" mask="url(#imagine-text-gaps-qacuof)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="176" y="356" text-anchor="middle" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Event Hub endpoint</text>
-
-<rect x="20" y="368" width="130" height="20" rx="4" fill="var(--bg2)" style="fill:rgb(38, 38, 36);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="85" y="382" text-anchor="middle" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">status → printing</text>
-
-<!-- print_progress -->
-<line x1="430" y1="398" x2="268" y2="398" marker-end="url(#arrow)" mask="url(#imagine-text-gaps-qacuof)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="349" y="394" text-anchor="middle" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">D2C: event=print_progress, progress=45%</text>
-
-<line x1="260" y1="414" x2="93" y2="414" marker-end="url(#arrow)" mask="url(#imagine-text-gaps-qacuof)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="176" y="410" text-anchor="middle" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Event Hub endpoint</text>
-
-<rect x="20" y="422" width="130" height="20" rx="4" fill="var(--bg2)" style="fill:rgb(38, 38, 36);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="85" y="436" text-anchor="middle" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">progress w Cosmos DB</text>
-
-<!-- print_completed -->
-<line x1="430" y1="456" x2="268" y2="456" marker-end="url(#arrow)" mask="url(#imagine-text-gaps-qacuof)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="349" y="452" text-anchor="middle" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">D2C: event=print_completed</text>
-
-<line x1="260" y1="472" x2="93" y2="472" marker-end="url(#arrow)" mask="url(#imagine-text-gaps-qacuof)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="176" y="468" text-anchor="middle" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Event Hub endpoint</text>
-
-<rect x="20" y="480" width="130" height="20" rx="4" fill="var(--bg2)" style="fill:rgb(38, 38, 36);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="85" y="494" text-anchor="middle" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">status → completed</text>
-
-<!-- Legenda -->
-<line x1="420" y1="492" x2="460" y2="492" stroke-width="1.5" marker-end="url(#arrow)" style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="466" y="496" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">żądanie</text>
-<line x1="530" y1="492" x2="570" y2="492" stroke="var(--s)" stroke-width="1" stroke-dasharray="4 3" fill="none" marker-end="url(#arrow)" style="fill:none;stroke:rgb(194, 192, 182);color:rgb(255, 255, 255);stroke-width:1px;stroke-dasharray:4px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="576" y="496" style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">odpowiedź / event</text>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="100%"
+   viewBox="0 0 689.02 520"
+   role="img"
+   style=""
+   version="1.1"
+   id="svg204"
+   sodipodi:docname="agent_startprint.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview206"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.5403846"
+     inkscape:cx="274.28215"
+     inkscape:cy="291.81024"
+     inkscape:window-width="1920"
+     inkscape:window-height="939"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg204" />
+  <title
+     style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     id="title2">Sekwencja wywołania startPrint przez Azure IoT Hub</title>
+  <desc
+     style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     id="desc4">Diagram sekwencji pokazujący jak Printer Service wywołuje metodę startPrint przez Azure IoT Hub na agencie Raspberry Pi, który następnie pobiera plik z Blob Storage i uruchamia druk w OctoPrint.</desc>
+  <defs
+     id="defs70">
+    <marker
+       id="arrow"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M2 1L8 5L2 9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path6" />
+    </marker>
+    <mask
+       id="imagine-text-gaps-qacuof"
+       maskUnits="userSpaceOnUse">
+      <rect
+         x="0"
+         y="0"
+         width="689.02"
+         height="520"
+         fill="white"
+         id="rect9" />
+      <rect
+         x="31.561019897460938"
+         y="22.99972915649414"
+         width="106.87796783447266"
+         height="22.00054168701172"
+         fill="black"
+         rx="2"
+         id="rect11" />
+      <rect
+         x="230.69454956054688"
+         y="22.99972915649414"
+         width="58.85626220703125"
+         height="22.00054168701172"
+         fill="black"
+         rx="2"
+         id="rect13" />
+      <rect
+         x="382.5690612792969"
+         y="22.99972915649414"
+         width="94.87284851074219"
+         height="22.00054168701172"
+         fill="black"
+         rx="2"
+         id="rect15" />
+      <rect
+         x="543.0296630859375"
+         y="22.99972915649414"
+         width="113.96210479736328"
+         height="22.00054168701172"
+         fill="black"
+         rx="2"
+         id="rect17" />
+      <rect
+         x="216.71519470214844"
+         y="58.99964141845703"
+         width="246.56967163085938"
+         height="19.000450134277344"
+         fill="black"
+         rx="2"
+         id="rect19" />
+      <rect
+         x="103.93570709228516"
+         y="71.9996337890625"
+         width="128.12860870361328"
+         height="19.000450134277344"
+         fill="black"
+         rx="2"
+         id="rect21" />
+      <rect
+         x="242.73153686523438"
+         y="91.99964141845703"
+         width="196.5369110107422"
+         height="19.000450134277344"
+         fill="black"
+         rx="2"
+         id="rect23" />
+      <rect
+         x="427.9039001464844"
+         y="111.99964141845703"
+         width="166.19224548339844"
+         height="19.000450134277344"
+         fill="black"
+         rx="2"
+         id="rect25" />
+      <rect
+         x="456.4438171386719"
+         y="129.9996337890625"
+         width="109.11241149902344"
+         height="19.000450134277344"
+         fill="black"
+         rx="2"
+         id="rect27" />
+      <rect
+         x="444.8731689453125"
+         y="149.9996337890625"
+         width="132.25373077392578"
+         height="19.000450134277344"
+         fill="black"
+         rx="2"
+         id="rect29" />
+      <rect
+         x="419.5130310058594"
+         y="167.99964904785156"
+         width="182.9739990234375"
+         height="19.000450134277344"
+         fill="black"
+         rx="2"
+         id="rect31" />
+      <rect
+         x="411.4815368652344"
+         y="187.9996337890625"
+         width="199.0369873046875"
+         height="19.000450134277344"
+         fill="black"
+         rx="2"
+         id="rect33" />
+      <rect
+         x="473.1708984375"
+         y="205.9996337890625"
+         width="75.65827941894531"
+         height="19.000450134277344"
+         fill="black"
+         rx="2"
+         id="rect35" />
+      <rect
+         x="416.403564453125"
+         y="225.99964904785156"
+         width="189.33680725097656"
+         height="19.000450134277344"
+         fill="black"
+         rx="2"
+         id="rect37" />
+      <rect
+         x="462.0611877441406"
+         y="243.9996337890625"
+         width="97.87770080566406"
+         height="19.000450134277344"
+         fill="black"
+         rx="2"
+         id="rect39" />
+      <rect
+         x="250.6222686767578"
+         y="263.9996337890625"
+         width="188.9111328125"
+         height="19.000450134277344"
+         fill="black"
+         rx="2"
+         id="rect41" />
+      <rect
+         x="105.9122085571289"
+         y="279.9996643066406"
+         width="132.17560577392578"
+         height="19.000450134277344"
+         fill="black"
+         rx="2"
+         id="rect43" />
+      <rect
+         x="235.91888427734375"
+         y="310.9996337890625"
+         width="208.16226196289062"
+         height="19.000450134277344"
+         fill="black"
+         rx="2"
+         id="rect45" />
+      <rect
+         x="272.614990234375"
+         y="325.9996337890625"
+         width="152.7699737548828"
+         height="19.000450134277344"
+         fill="black"
+         rx="2"
+         id="rect47" />
+      <rect
+         x="116.09207916259766"
+         y="341.9996643066406"
+         width="119.81585693359375"
+         height="19.000450134277344"
+         fill="black"
+         rx="2"
+         id="rect49" />
+      <rect
+         x="33.71733474731445"
+         y="367.9996337890625"
+         width="102.72193145751953"
+         height="19.000450134277344"
+         fill="black"
+         rx="2"
+         id="rect51" />
+      <rect
+         x="223.82447814941406"
+         y="379.9996337890625"
+         width="250.45375061035156"
+         height="19.000450134277344"
+         fill="black"
+         rx="2"
+         id="rect53" />
+      <rect
+         x="116.09207916259766"
+         y="395.9996337890625"
+         width="119.81585693359375"
+         height="19.000450134277344"
+         fill="black"
+         rx="2"
+         id="rect55" />
+      <rect
+         x="15.943363189697266"
+         y="421.9996337890625"
+         width="138.23817443847656"
+         height="19.000450134277344"
+         fill="black"
+         rx="2"
+         id="rect57" />
+      <rect
+         x="263.1381530761719"
+         y="437.9996337890625"
+         width="171.72366333007812"
+         height="19.000450134277344"
+         fill="black"
+         rx="2"
+         id="rect59" />
+      <rect
+         x="116.09207916259766"
+         y="453.9996337890625"
+         width="119.81585693359375"
+         height="19.000450134277344"
+         fill="black"
+         rx="2"
+         id="rect61" />
+      <rect
+         x="25.631155014038086"
+         y="479.9996337890625"
+         width="118.73770141601562"
+         height="19.000450134277344"
+         fill="black"
+         rx="2"
+         id="rect63" />
+      <rect
+         x="462"
+         y="481.9996337890625"
+         width="51.601436614990234"
+         height="19.000450134277344"
+         fill="black"
+         rx="2"
+         id="rect65" />
+      <rect
+         x="571.9999389648438"
+         y="481.9996337890625"
+         width="111.03434753417969"
+         height="19.000450134277344"
+         fill="black"
+         rx="2"
+         id="rect67" />
+    </mask>
+    <marker
+       id="arrow-3"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path6-6" />
+    </marker>
+    <mask
+       id="imagine-text-gaps-qacuof-7"
+       maskUnits="userSpaceOnUse">
+      <rect
+         x="0"
+         y="0"
+         width="689.02002"
+         height="520"
+         fill="#ffffff"
+         id="rect9-5" />
+      <rect
+         x="31.56102"
+         y="22.999729"
+         width="106.87797"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect11-3" />
+      <rect
+         x="230.69455"
+         y="22.999729"
+         width="58.856262"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect13-5" />
+      <rect
+         x="382.56906"
+         y="22.999729"
+         width="94.872849"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect15-6" />
+      <rect
+         x="543.02966"
+         y="22.999729"
+         width="113.9621"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect17-2" />
+      <rect
+         x="216.71519"
+         y="58.999641"
+         width="246.56967"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect19-9" />
+      <rect
+         x="103.93571"
+         y="71.999634"
+         width="128.1286"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect21-1" />
+      <rect
+         x="242.73154"
+         y="91.999641"
+         width="196.53691"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect23-2" />
+      <rect
+         x="427.9039"
+         y="111.99964"
+         width="166.19225"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect25-7" />
+      <rect
+         x="456.44382"
+         y="129.99963"
+         width="109.11241"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect27-0" />
+      <rect
+         x="444.87317"
+         y="149.99963"
+         width="132.25372"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect29-9" />
+      <rect
+         x="419.51303"
+         y="167.99965"
+         width="182.974"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect31-3" />
+      <rect
+         x="411.48154"
+         y="187.99963"
+         width="199.03699"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect33-6" />
+      <rect
+         x="473.1709"
+         y="205.99963"
+         width="75.658279"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect35-0" />
+      <rect
+         x="416.40356"
+         y="225.99965"
+         width="189.33681"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect37-6" />
+      <rect
+         x="462.06119"
+         y="243.99963"
+         width="97.877701"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect39-2" />
+      <rect
+         x="250.62227"
+         y="263.99963"
+         width="188.91113"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect41-6" />
+      <rect
+         x="105.91221"
+         y="279.99966"
+         width="132.1756"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect43-1" />
+      <rect
+         x="235.91888"
+         y="310.99963"
+         width="208.16226"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect45-8" />
+      <rect
+         x="272.61499"
+         y="325.99963"
+         width="152.76997"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect47-7" />
+      <rect
+         x="116.09208"
+         y="341.99966"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect49-9" />
+      <rect
+         x="33.717335"
+         y="367.99963"
+         width="102.72193"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect51-2" />
+      <rect
+         x="223.82448"
+         y="379.99963"
+         width="250.45375"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect53-0" />
+      <rect
+         x="116.09208"
+         y="395.99963"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect55-2" />
+      <rect
+         x="15.943363"
+         y="421.99963"
+         width="138.23817"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect57-3" />
+      <rect
+         x="263.13815"
+         y="437.99963"
+         width="171.72366"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect59-7" />
+      <rect
+         x="116.09208"
+         y="453.99963"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect61-5" />
+      <rect
+         x="25.631155"
+         y="479.99963"
+         width="118.7377"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect63-9" />
+      <rect
+         x="462"
+         y="481.99963"
+         width="51.601437"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect65-2" />
+      <rect
+         x="571.99994"
+         y="481.99963"
+         width="111.03435"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect67-2" />
+    </mask>
+    <marker
+       id="arrow-3-9"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path6-6-7" />
+    </marker>
+    <mask
+       id="imagine-text-gaps-qacuof-7-3"
+       maskUnits="userSpaceOnUse">
+      <rect
+         x="0"
+         y="0"
+         width="689.02002"
+         height="520"
+         fill="#ffffff"
+         id="rect9-5-6" />
+      <rect
+         x="31.56102"
+         y="22.999729"
+         width="106.87797"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect11-3-1" />
+      <rect
+         x="230.69455"
+         y="22.999729"
+         width="58.856262"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect13-5-2" />
+      <rect
+         x="382.56906"
+         y="22.999729"
+         width="94.872849"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect15-6-9" />
+      <rect
+         x="543.02966"
+         y="22.999729"
+         width="113.9621"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect17-2-3" />
+      <rect
+         x="216.71519"
+         y="58.999641"
+         width="246.56967"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect19-9-1" />
+      <rect
+         x="103.93571"
+         y="71.999634"
+         width="128.1286"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect21-1-9" />
+      <rect
+         x="242.73154"
+         y="91.999641"
+         width="196.53691"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect23-2-4" />
+      <rect
+         x="427.9039"
+         y="111.99964"
+         width="166.19225"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect25-7-7" />
+      <rect
+         x="456.44382"
+         y="129.99963"
+         width="109.11241"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect27-0-8" />
+      <rect
+         x="444.87317"
+         y="149.99963"
+         width="132.25372"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect29-9-4" />
+      <rect
+         x="419.51303"
+         y="167.99965"
+         width="182.974"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect31-3-5" />
+      <rect
+         x="411.48154"
+         y="187.99963"
+         width="199.03699"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect33-6-0" />
+      <rect
+         x="473.1709"
+         y="205.99963"
+         width="75.658279"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect35-0-3" />
+      <rect
+         x="416.40356"
+         y="225.99965"
+         width="189.33681"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect37-6-6" />
+      <rect
+         x="462.06119"
+         y="243.99963"
+         width="97.877701"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect39-2-1" />
+      <rect
+         x="250.62227"
+         y="263.99963"
+         width="188.91113"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect41-6-0" />
+      <rect
+         x="105.91221"
+         y="279.99966"
+         width="132.1756"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect43-1-6" />
+      <rect
+         x="235.91888"
+         y="310.99963"
+         width="208.16226"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect45-8-3" />
+      <rect
+         x="272.61499"
+         y="325.99963"
+         width="152.76997"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect47-7-2" />
+      <rect
+         x="116.09208"
+         y="341.99966"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect49-9-0" />
+      <rect
+         x="33.717335"
+         y="367.99963"
+         width="102.72193"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect51-2-6" />
+      <rect
+         x="223.82448"
+         y="379.99963"
+         width="250.45375"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect53-0-1" />
+      <rect
+         x="116.09208"
+         y="395.99963"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect55-2-5" />
+      <rect
+         x="15.943363"
+         y="421.99963"
+         width="138.23817"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect57-3-5" />
+      <rect
+         x="263.13815"
+         y="437.99963"
+         width="171.72366"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect59-7-4" />
+      <rect
+         x="116.09208"
+         y="453.99963"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect61-5-7" />
+      <rect
+         x="25.631155"
+         y="479.99963"
+         width="118.7377"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect63-9-6" />
+      <rect
+         x="462"
+         y="481.99963"
+         width="51.601437"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect65-2-5" />
+      <rect
+         x="571.99994"
+         y="481.99963"
+         width="111.03435"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect67-2-6" />
+    </mask>
+    <marker
+       id="arrow-37"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path6-4" />
+    </marker>
+    <mask
+       id="imagine-text-gaps-qacuof-5"
+       maskUnits="userSpaceOnUse">
+      <rect
+         x="0"
+         y="0"
+         width="689.02002"
+         height="520"
+         fill="#ffffff"
+         id="rect9-2" />
+      <rect
+         x="31.56102"
+         y="22.999729"
+         width="106.87797"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect11-5" />
+      <rect
+         x="230.69455"
+         y="22.999729"
+         width="58.856262"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect13-4" />
+      <rect
+         x="382.56906"
+         y="22.999729"
+         width="94.872849"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect15-7" />
+      <rect
+         x="543.02966"
+         y="22.999729"
+         width="113.9621"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect17-4" />
+      <rect
+         x="216.71519"
+         y="58.999641"
+         width="246.56967"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect19-4" />
+      <rect
+         x="103.93571"
+         y="71.999634"
+         width="128.1286"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect21-3" />
+      <rect
+         x="242.73154"
+         y="91.999641"
+         width="196.53691"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect23-0" />
+      <rect
+         x="427.9039"
+         y="111.99964"
+         width="166.19225"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect25-78" />
+      <rect
+         x="456.44382"
+         y="129.99963"
+         width="109.11241"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect27-6" />
+      <rect
+         x="444.87317"
+         y="149.99963"
+         width="132.25372"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect29-8" />
+      <rect
+         x="419.51303"
+         y="167.99965"
+         width="182.974"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect31-8" />
+      <rect
+         x="411.48154"
+         y="187.99963"
+         width="199.03699"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect33-4" />
+      <rect
+         x="473.1709"
+         y="205.99963"
+         width="75.658279"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect35-3" />
+      <rect
+         x="416.40356"
+         y="225.99965"
+         width="189.33681"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect37-1" />
+      <rect
+         x="462.06119"
+         y="243.99963"
+         width="97.877701"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect39-4" />
+      <rect
+         x="250.62227"
+         y="263.99963"
+         width="188.91113"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect41-9" />
+      <rect
+         x="105.91221"
+         y="279.99966"
+         width="132.1756"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect43-2" />
+      <rect
+         x="235.91888"
+         y="310.99963"
+         width="208.16226"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect45-0" />
+      <rect
+         x="272.61499"
+         y="325.99963"
+         width="152.76997"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect47-6" />
+      <rect
+         x="116.09208"
+         y="341.99966"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect49-8" />
+      <rect
+         x="33.717335"
+         y="367.99963"
+         width="102.72193"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect51-9" />
+      <rect
+         x="223.82448"
+         y="379.99963"
+         width="250.45375"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect53-2" />
+      <rect
+         x="116.09208"
+         y="395.99963"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect55-6" />
+      <rect
+         x="15.943363"
+         y="421.99963"
+         width="138.23817"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect57-6" />
+      <rect
+         x="263.13815"
+         y="437.99963"
+         width="171.72366"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect59-4" />
+      <rect
+         x="116.09208"
+         y="453.99963"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect61-9" />
+      <rect
+         x="25.631155"
+         y="479.99963"
+         width="118.7377"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect63-5" />
+      <rect
+         x="462"
+         y="481.99963"
+         width="51.601437"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect65-0" />
+      <rect
+         x="571.99994"
+         y="481.99963"
+         width="111.03435"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect67-4" />
+    </mask>
+    <marker
+       id="arrow-37-7"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path6-4-1" />
+    </marker>
+    <mask
+       id="imagine-text-gaps-qacuof-5-7"
+       maskUnits="userSpaceOnUse">
+      <rect
+         x="0"
+         y="0"
+         width="689.02002"
+         height="520"
+         fill="#ffffff"
+         id="rect9-2-2" />
+      <rect
+         x="31.56102"
+         y="22.999729"
+         width="106.87797"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect11-5-7" />
+      <rect
+         x="230.69455"
+         y="22.999729"
+         width="58.856262"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect13-4-2" />
+      <rect
+         x="382.56906"
+         y="22.999729"
+         width="94.872849"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect15-7-2" />
+      <rect
+         x="543.02966"
+         y="22.999729"
+         width="113.9621"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect17-4-6" />
+      <rect
+         x="216.71519"
+         y="58.999641"
+         width="246.56967"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect19-4-1" />
+      <rect
+         x="103.93571"
+         y="71.999634"
+         width="128.1286"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect21-3-0" />
+      <rect
+         x="242.73154"
+         y="91.999641"
+         width="196.53691"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect23-0-6" />
+      <rect
+         x="427.9039"
+         y="111.99964"
+         width="166.19225"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect25-78-1" />
+      <rect
+         x="456.44382"
+         y="129.99963"
+         width="109.11241"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect27-6-5" />
+      <rect
+         x="444.87317"
+         y="149.99963"
+         width="132.25372"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect29-8-9" />
+      <rect
+         x="419.51303"
+         y="167.99965"
+         width="182.974"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect31-8-4" />
+      <rect
+         x="411.48154"
+         y="187.99963"
+         width="199.03699"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect33-4-9" />
+      <rect
+         x="473.1709"
+         y="205.99963"
+         width="75.658279"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect35-3-0" />
+      <rect
+         x="416.40356"
+         y="225.99965"
+         width="189.33681"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect37-1-9" />
+      <rect
+         x="462.06119"
+         y="243.99963"
+         width="97.877701"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect39-4-1" />
+      <rect
+         x="250.62227"
+         y="263.99963"
+         width="188.91113"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect41-9-7" />
+      <rect
+         x="105.91221"
+         y="279.99966"
+         width="132.1756"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect43-2-7" />
+      <rect
+         x="235.91888"
+         y="310.99963"
+         width="208.16226"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect45-0-1" />
+      <rect
+         x="272.61499"
+         y="325.99963"
+         width="152.76997"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect47-6-1" />
+      <rect
+         x="116.09208"
+         y="341.99966"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect49-8-5" />
+      <rect
+         x="33.717335"
+         y="367.99963"
+         width="102.72193"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect51-9-9" />
+      <rect
+         x="223.82448"
+         y="379.99963"
+         width="250.45375"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect53-2-7" />
+      <rect
+         x="116.09208"
+         y="395.99963"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect55-6-7" />
+      <rect
+         x="15.943363"
+         y="421.99963"
+         width="138.23817"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect57-6-6" />
+      <rect
+         x="263.13815"
+         y="437.99963"
+         width="171.72366"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect59-4-7" />
+      <rect
+         x="116.09208"
+         y="453.99963"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect61-9-3" />
+      <rect
+         x="25.631155"
+         y="479.99963"
+         width="118.7377"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect63-5-6" />
+      <rect
+         x="462"
+         y="481.99963"
+         width="51.601437"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect65-0-5" />
+      <rect
+         x="571.99994"
+         y="481.99963"
+         width="111.03435"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect67-4-6" />
+    </mask>
+    <marker
+       id="arrow-37-9"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path6-4-4" />
+    </marker>
+    <mask
+       id="imagine-text-gaps-qacuof-5-8"
+       maskUnits="userSpaceOnUse">
+      <rect
+         x="0"
+         y="0"
+         width="689.02002"
+         height="520"
+         fill="#ffffff"
+         id="rect9-2-1" />
+      <rect
+         x="31.56102"
+         y="22.999729"
+         width="106.87797"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect11-5-2" />
+      <rect
+         x="230.69455"
+         y="22.999729"
+         width="58.856262"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect13-4-9" />
+      <rect
+         x="382.56906"
+         y="22.999729"
+         width="94.872849"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect15-7-3" />
+      <rect
+         x="543.02966"
+         y="22.999729"
+         width="113.9621"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect17-4-9" />
+      <rect
+         x="216.71519"
+         y="58.999641"
+         width="246.56967"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect19-4-0" />
+      <rect
+         x="103.93571"
+         y="71.999634"
+         width="128.1286"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect21-3-8" />
+      <rect
+         x="242.73154"
+         y="91.999641"
+         width="196.53691"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect23-0-8" />
+      <rect
+         x="427.9039"
+         y="111.99964"
+         width="166.19225"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect25-78-5" />
+      <rect
+         x="456.44382"
+         y="129.99963"
+         width="109.11241"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect27-6-0" />
+      <rect
+         x="444.87317"
+         y="149.99963"
+         width="132.25372"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect29-8-96" />
+      <rect
+         x="419.51303"
+         y="167.99965"
+         width="182.974"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect31-8-3" />
+      <rect
+         x="411.48154"
+         y="187.99963"
+         width="199.03699"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect33-4-8" />
+      <rect
+         x="473.1709"
+         y="205.99963"
+         width="75.658279"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect35-3-5" />
+      <rect
+         x="416.40356"
+         y="225.99965"
+         width="189.33681"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect37-1-6" />
+      <rect
+         x="462.06119"
+         y="243.99963"
+         width="97.877701"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect39-4-11" />
+      <rect
+         x="250.62227"
+         y="263.99963"
+         width="188.91113"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect41-9-5" />
+      <rect
+         x="105.91221"
+         y="279.99966"
+         width="132.1756"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect43-2-9" />
+      <rect
+         x="235.91888"
+         y="310.99963"
+         width="208.16226"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect45-0-8" />
+      <rect
+         x="272.61499"
+         y="325.99963"
+         width="152.76997"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect47-6-4" />
+      <rect
+         x="116.09208"
+         y="341.99966"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect49-8-8" />
+      <rect
+         x="33.717335"
+         y="367.99963"
+         width="102.72193"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect51-9-1" />
+      <rect
+         x="223.82448"
+         y="379.99963"
+         width="250.45375"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect53-2-0" />
+      <rect
+         x="116.09208"
+         y="395.99963"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect55-6-3" />
+      <rect
+         x="15.943363"
+         y="421.99963"
+         width="138.23817"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect57-6-0" />
+      <rect
+         x="263.13815"
+         y="437.99963"
+         width="171.72366"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect59-4-4" />
+      <rect
+         x="116.09208"
+         y="453.99963"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect61-9-4" />
+      <rect
+         x="25.631155"
+         y="479.99963"
+         width="118.7377"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect63-5-4" />
+      <rect
+         x="462"
+         y="481.99963"
+         width="51.601437"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect65-0-4" />
+      <rect
+         x="571.99994"
+         y="481.99963"
+         width="111.03435"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect67-4-7" />
+    </mask>
+    <marker
+       id="arrow-3-9-3"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path6-6-7-1" />
+    </marker>
+    <mask
+       id="imagine-text-gaps-qacuof-7-3-7"
+       maskUnits="userSpaceOnUse">
+      <rect
+         x="0"
+         y="0"
+         width="689.02002"
+         height="520"
+         fill="#ffffff"
+         id="rect9-5-6-5" />
+      <rect
+         x="31.56102"
+         y="22.999729"
+         width="106.87797"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect11-3-1-9" />
+      <rect
+         x="230.69455"
+         y="22.999729"
+         width="58.856262"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect13-5-2-6" />
+      <rect
+         x="382.56906"
+         y="22.999729"
+         width="94.872849"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect15-6-9-2" />
+      <rect
+         x="543.02966"
+         y="22.999729"
+         width="113.9621"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect17-2-3-1" />
+      <rect
+         x="216.71519"
+         y="58.999641"
+         width="246.56967"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect19-9-1-7" />
+      <rect
+         x="103.93571"
+         y="71.999634"
+         width="128.1286"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect21-1-9-8" />
+      <rect
+         x="242.73154"
+         y="91.999641"
+         width="196.53691"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect23-2-4-5" />
+      <rect
+         x="427.9039"
+         y="111.99964"
+         width="166.19225"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect25-7-7-7" />
+      <rect
+         x="456.44382"
+         y="129.99963"
+         width="109.11241"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect27-0-8-4" />
+      <rect
+         x="444.87317"
+         y="149.99963"
+         width="132.25372"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect29-9-4-1" />
+      <rect
+         x="419.51303"
+         y="167.99965"
+         width="182.974"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect31-3-5-8" />
+      <rect
+         x="411.48154"
+         y="187.99963"
+         width="199.03699"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect33-6-0-5" />
+      <rect
+         x="473.1709"
+         y="205.99963"
+         width="75.658279"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect35-0-3-9" />
+      <rect
+         x="416.40356"
+         y="225.99965"
+         width="189.33681"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect37-6-6-7" />
+      <rect
+         x="462.06119"
+         y="243.99963"
+         width="97.877701"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect39-2-1-5" />
+      <rect
+         x="250.62227"
+         y="263.99963"
+         width="188.91113"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect41-6-0-3" />
+      <rect
+         x="105.91221"
+         y="279.99966"
+         width="132.1756"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect43-1-6-8" />
+      <rect
+         x="235.91888"
+         y="310.99963"
+         width="208.16226"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect45-8-3-8" />
+      <rect
+         x="272.61499"
+         y="325.99963"
+         width="152.76997"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect47-7-2-3" />
+      <rect
+         x="116.09208"
+         y="341.99966"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect49-9-0-1" />
+      <rect
+         x="33.717335"
+         y="367.99963"
+         width="102.72193"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect51-2-6-8" />
+      <rect
+         x="223.82448"
+         y="379.99963"
+         width="250.45375"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect53-0-1-9" />
+      <rect
+         x="116.09208"
+         y="395.99963"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect55-2-5-6" />
+      <rect
+         x="15.943363"
+         y="421.99963"
+         width="138.23817"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect57-3-5-4" />
+      <rect
+         x="263.13815"
+         y="437.99963"
+         width="171.72366"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect59-7-4-3" />
+      <rect
+         x="116.09208"
+         y="453.99963"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect61-5-7-3" />
+      <rect
+         x="25.631155"
+         y="479.99963"
+         width="118.7377"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect63-9-6-3" />
+      <rect
+         x="462"
+         y="481.99963"
+         width="51.601437"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect65-2-5-8" />
+      <rect
+         x="571.99994"
+         y="481.99963"
+         width="111.03435"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect67-2-6-6" />
+    </mask>
+    <marker
+       id="arrow-4"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path6-8" />
+    </marker>
+    <mask
+       id="imagine-text-gaps-qacuof-8"
+       maskUnits="userSpaceOnUse">
+      <rect
+         x="0"
+         y="0"
+         width="689.02002"
+         height="520"
+         fill="#ffffff"
+         id="rect9-8" />
+      <rect
+         x="31.56102"
+         y="22.999729"
+         width="106.87797"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect11-9" />
+      <rect
+         x="230.69455"
+         y="22.999729"
+         width="58.856262"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect13-7" />
+      <rect
+         x="382.56906"
+         y="22.999729"
+         width="94.872849"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect15-76" />
+      <rect
+         x="543.02966"
+         y="22.999729"
+         width="113.9621"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect17-43" />
+      <rect
+         x="216.71519"
+         y="58.999641"
+         width="246.56967"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect19-0" />
+      <rect
+         x="103.93571"
+         y="71.999634"
+         width="128.1286"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect21-30" />
+      <rect
+         x="242.73154"
+         y="91.999641"
+         width="196.53691"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect23-9" />
+      <rect
+         x="427.9039"
+         y="111.99964"
+         width="166.19225"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect25-2" />
+      <rect
+         x="456.44382"
+         y="129.99963"
+         width="109.11241"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect27-5" />
+      <rect
+         x="444.87317"
+         y="149.99963"
+         width="132.25372"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect29-4" />
+      <rect
+         x="419.51303"
+         y="167.99965"
+         width="182.974"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect31-0" />
+      <rect
+         x="411.48154"
+         y="187.99963"
+         width="199.03699"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect33-5" />
+      <rect
+         x="473.1709"
+         y="205.99963"
+         width="75.658279"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect35-9" />
+      <rect
+         x="416.40356"
+         y="225.99965"
+         width="189.33681"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect37-4" />
+      <rect
+         x="462.06119"
+         y="243.99963"
+         width="97.877701"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect39-6" />
+      <rect
+         x="250.62227"
+         y="263.99963"
+         width="188.91113"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect41-92" />
+      <rect
+         x="105.91221"
+         y="279.99966"
+         width="132.1756"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect43-24" />
+      <rect
+         x="235.91888"
+         y="310.99963"
+         width="208.16226"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect45-7" />
+      <rect
+         x="272.61499"
+         y="325.99963"
+         width="152.76997"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect47-75" />
+      <rect
+         x="116.09208"
+         y="341.99966"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect49-4" />
+      <rect
+         x="33.717335"
+         y="367.99963"
+         width="102.72193"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect51-8" />
+      <rect
+         x="223.82448"
+         y="379.99963"
+         width="250.45375"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect53-1" />
+      <rect
+         x="116.09208"
+         y="395.99963"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect55-28" />
+      <rect
+         x="15.943363"
+         y="421.99963"
+         width="138.23817"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect57-9" />
+      <rect
+         x="263.13815"
+         y="437.99963"
+         width="171.72366"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect59-3" />
+      <rect
+         x="116.09208"
+         y="453.99963"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect61-6" />
+      <rect
+         x="25.631155"
+         y="479.99963"
+         width="118.7377"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect63-8" />
+      <rect
+         x="462"
+         y="481.99963"
+         width="51.601437"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect65-02" />
+      <rect
+         x="571.99994"
+         y="481.99963"
+         width="111.03435"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect67-1" />
+    </mask>
+    <marker
+       id="arrow-3-9-3-5"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path6-6-7-1-1" />
+    </marker>
+    <mask
+       id="imagine-text-gaps-qacuof-7-3-7-1"
+       maskUnits="userSpaceOnUse">
+      <rect
+         x="0"
+         y="0"
+         width="689.02002"
+         height="520"
+         fill="#ffffff"
+         id="rect9-5-6-5-0" />
+      <rect
+         x="31.56102"
+         y="22.999729"
+         width="106.87797"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect11-3-1-9-8" />
+      <rect
+         x="230.69455"
+         y="22.999729"
+         width="58.856262"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect13-5-2-6-5" />
+      <rect
+         x="382.56906"
+         y="22.999729"
+         width="94.872849"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect15-6-9-2-0" />
+      <rect
+         x="543.02966"
+         y="22.999729"
+         width="113.9621"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect17-2-3-1-6" />
+      <rect
+         x="216.71519"
+         y="58.999641"
+         width="246.56967"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect19-9-1-7-4" />
+      <rect
+         x="103.93571"
+         y="71.999634"
+         width="128.1286"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect21-1-9-8-6" />
+      <rect
+         x="242.73154"
+         y="91.999641"
+         width="196.53691"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect23-2-4-5-2" />
+      <rect
+         x="427.9039"
+         y="111.99964"
+         width="166.19225"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect25-7-7-7-5" />
+      <rect
+         x="456.44382"
+         y="129.99963"
+         width="109.11241"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect27-0-8-4-8" />
+      <rect
+         x="444.87317"
+         y="149.99963"
+         width="132.25372"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect29-9-4-1-6" />
+      <rect
+         x="419.51303"
+         y="167.99965"
+         width="182.974"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect31-3-5-8-2" />
+      <rect
+         x="411.48154"
+         y="187.99963"
+         width="199.03699"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect33-6-0-5-8" />
+      <rect
+         x="473.1709"
+         y="205.99963"
+         width="75.658279"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect35-0-3-9-4" />
+      <rect
+         x="416.40356"
+         y="225.99965"
+         width="189.33681"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect37-6-6-7-7" />
+      <rect
+         x="462.06119"
+         y="243.99963"
+         width="97.877701"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect39-2-1-5-2" />
+      <rect
+         x="250.62227"
+         y="263.99963"
+         width="188.91113"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect41-6-0-3-4" />
+      <rect
+         x="105.91221"
+         y="279.99966"
+         width="132.1756"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect43-1-6-8-0" />
+      <rect
+         x="235.91888"
+         y="310.99963"
+         width="208.16226"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect45-8-3-8-6" />
+      <rect
+         x="272.61499"
+         y="325.99963"
+         width="152.76997"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect47-7-2-3-2" />
+      <rect
+         x="116.09208"
+         y="341.99966"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect49-9-0-1-9" />
+      <rect
+         x="33.717335"
+         y="367.99963"
+         width="102.72193"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect51-2-6-8-9" />
+      <rect
+         x="223.82448"
+         y="379.99963"
+         width="250.45375"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect53-0-1-9-0" />
+      <rect
+         x="116.09208"
+         y="395.99963"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect55-2-5-6-8" />
+      <rect
+         x="15.943363"
+         y="421.99963"
+         width="138.23817"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect57-3-5-4-1" />
+      <rect
+         x="263.13815"
+         y="437.99963"
+         width="171.72366"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect59-7-4-3-3" />
+      <rect
+         x="116.09208"
+         y="453.99963"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect61-5-7-3-1" />
+      <rect
+         x="25.631155"
+         y="479.99963"
+         width="118.7377"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect63-9-6-3-1" />
+      <rect
+         x="462"
+         y="481.99963"
+         width="51.601437"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect65-2-5-8-0" />
+      <rect
+         x="571.99994"
+         y="481.99963"
+         width="111.03435"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect67-2-6-6-3" />
+    </mask>
+    <marker
+       id="arrow-37-9-0"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path6-4-4-3" />
+    </marker>
+    <mask
+       id="imagine-text-gaps-qacuof-5-8-9"
+       maskUnits="userSpaceOnUse">
+      <rect
+         x="0"
+         y="0"
+         width="689.02002"
+         height="520"
+         fill="#ffffff"
+         id="rect9-2-1-1" />
+      <rect
+         x="31.56102"
+         y="22.999729"
+         width="106.87797"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect11-5-2-9" />
+      <rect
+         x="230.69455"
+         y="22.999729"
+         width="58.856262"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect13-4-9-6" />
+      <rect
+         x="382.56906"
+         y="22.999729"
+         width="94.872849"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect15-7-3-9" />
+      <rect
+         x="543.02966"
+         y="22.999729"
+         width="113.9621"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect17-4-9-3" />
+      <rect
+         x="216.71519"
+         y="58.999641"
+         width="246.56967"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect19-4-0-3" />
+      <rect
+         x="103.93571"
+         y="71.999634"
+         width="128.1286"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect21-3-8-8" />
+      <rect
+         x="242.73154"
+         y="91.999641"
+         width="196.53691"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect23-0-8-0" />
+      <rect
+         x="427.9039"
+         y="111.99964"
+         width="166.19225"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect25-78-5-5" />
+      <rect
+         x="456.44382"
+         y="129.99963"
+         width="109.11241"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect27-6-0-6" />
+      <rect
+         x="444.87317"
+         y="149.99963"
+         width="132.25372"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect29-8-96-6" />
+      <rect
+         x="419.51303"
+         y="167.99965"
+         width="182.974"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect31-8-3-4" />
+      <rect
+         x="411.48154"
+         y="187.99963"
+         width="199.03699"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect33-4-8-0" />
+      <rect
+         x="473.1709"
+         y="205.99963"
+         width="75.658279"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect35-3-5-0" />
+      <rect
+         x="416.40356"
+         y="225.99965"
+         width="189.33681"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect37-1-6-4" />
+      <rect
+         x="462.06119"
+         y="243.99963"
+         width="97.877701"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect39-4-11-6" />
+      <rect
+         x="250.62227"
+         y="263.99963"
+         width="188.91113"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect41-9-5-2" />
+      <rect
+         x="105.91221"
+         y="279.99966"
+         width="132.1756"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect43-2-9-6" />
+      <rect
+         x="235.91888"
+         y="310.99963"
+         width="208.16226"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect45-0-8-7" />
+      <rect
+         x="272.61499"
+         y="325.99963"
+         width="152.76997"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect47-6-4-5" />
+      <rect
+         x="116.09208"
+         y="341.99966"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect49-8-8-6" />
+      <rect
+         x="33.717335"
+         y="367.99963"
+         width="102.72193"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect51-9-1-9" />
+      <rect
+         x="223.82448"
+         y="379.99963"
+         width="250.45375"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect53-2-0-8" />
+      <rect
+         x="116.09208"
+         y="395.99963"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect55-6-3-7" />
+      <rect
+         x="15.943363"
+         y="421.99963"
+         width="138.23817"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect57-6-0-2" />
+      <rect
+         x="263.13815"
+         y="437.99963"
+         width="171.72366"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect59-4-4-8" />
+      <rect
+         x="116.09208"
+         y="453.99963"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect61-9-4-2" />
+      <rect
+         x="25.631155"
+         y="479.99963"
+         width="118.7377"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect63-5-4-9" />
+      <rect
+         x="462"
+         y="481.99963"
+         width="51.601437"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect65-0-4-9" />
+      <rect
+         x="571.99994"
+         y="481.99963"
+         width="111.03435"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect67-4-7-6" />
+    </mask>
+    <marker
+       id="arrow-3-9-2"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path6-6-7-7" />
+    </marker>
+    <mask
+       id="imagine-text-gaps-qacuof-7-3-6"
+       maskUnits="userSpaceOnUse">
+      <rect
+         x="0"
+         y="0"
+         width="689.02002"
+         height="520"
+         fill="#ffffff"
+         id="rect9-5-6-1" />
+      <rect
+         x="31.56102"
+         y="22.999729"
+         width="106.87797"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect11-3-1-3" />
+      <rect
+         x="230.69455"
+         y="22.999729"
+         width="58.856262"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect13-5-2-2" />
+      <rect
+         x="382.56906"
+         y="22.999729"
+         width="94.872849"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect15-6-9-1" />
+      <rect
+         x="543.02966"
+         y="22.999729"
+         width="113.9621"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect17-2-3-5" />
+      <rect
+         x="216.71519"
+         y="58.999641"
+         width="246.56967"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect19-9-1-9" />
+      <rect
+         x="103.93571"
+         y="71.999634"
+         width="128.1286"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect21-1-9-9" />
+      <rect
+         x="242.73154"
+         y="91.999641"
+         width="196.53691"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect23-2-4-1" />
+      <rect
+         x="427.9039"
+         y="111.99964"
+         width="166.19225"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect25-7-7-4" />
+      <rect
+         x="456.44382"
+         y="129.99963"
+         width="109.11241"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect27-0-8-9" />
+      <rect
+         x="444.87317"
+         y="149.99963"
+         width="132.25372"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect29-9-4-10" />
+      <rect
+         x="419.51303"
+         y="167.99965"
+         width="182.974"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect31-3-5-7" />
+      <rect
+         x="411.48154"
+         y="187.99963"
+         width="199.03699"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect33-6-0-58" />
+      <rect
+         x="473.1709"
+         y="205.99963"
+         width="75.658279"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect35-0-3-7" />
+      <rect
+         x="416.40356"
+         y="225.99965"
+         width="189.33681"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect37-6-6-0" />
+      <rect
+         x="462.06119"
+         y="243.99963"
+         width="97.877701"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect39-2-1-4" />
+      <rect
+         x="250.62227"
+         y="263.99963"
+         width="188.91113"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect41-6-0-8" />
+      <rect
+         x="105.91221"
+         y="279.99966"
+         width="132.1756"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect43-1-6-0" />
+      <rect
+         x="235.91888"
+         y="310.99963"
+         width="208.16226"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect45-8-3-4" />
+      <rect
+         x="272.61499"
+         y="325.99963"
+         width="152.76997"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect47-7-2-2" />
+      <rect
+         x="116.09208"
+         y="341.99966"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect49-9-0-9" />
+      <rect
+         x="33.717335"
+         y="367.99963"
+         width="102.72193"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect51-2-6-6" />
+      <rect
+         x="223.82448"
+         y="379.99963"
+         width="250.45375"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect53-0-1-1" />
+      <rect
+         x="116.09208"
+         y="395.99963"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect55-2-5-0" />
+      <rect
+         x="15.943363"
+         y="421.99963"
+         width="138.23817"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect57-3-5-42" />
+      <rect
+         x="263.13815"
+         y="437.99963"
+         width="171.72366"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect59-7-4-2" />
+      <rect
+         x="116.09208"
+         y="453.99963"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect61-5-7-2" />
+      <rect
+         x="25.631155"
+         y="479.99963"
+         width="118.7377"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect63-9-6-0" />
+      <rect
+         x="462"
+         y="481.99963"
+         width="51.601437"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect65-2-5-5" />
+      <rect
+         x="571.99994"
+         y="481.99963"
+         width="111.03435"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect67-2-6-5" />
+    </mask>
+    <marker
+       id="arrow-3-9-2-9"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path6-6-7-7-0" />
+    </marker>
+    <mask
+       id="imagine-text-gaps-qacuof-7-3-6-2"
+       maskUnits="userSpaceOnUse">
+      <rect
+         x="0"
+         y="0"
+         width="689.02002"
+         height="520"
+         fill="#ffffff"
+         id="rect9-5-6-1-8" />
+      <rect
+         x="31.56102"
+         y="22.999729"
+         width="106.87797"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect11-3-1-3-3" />
+      <rect
+         x="230.69455"
+         y="22.999729"
+         width="58.856262"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect13-5-2-2-8" />
+      <rect
+         x="382.56906"
+         y="22.999729"
+         width="94.872849"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect15-6-9-1-0" />
+      <rect
+         x="543.02966"
+         y="22.999729"
+         width="113.9621"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect17-2-3-5-4" />
+      <rect
+         x="216.71519"
+         y="58.999641"
+         width="246.56967"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect19-9-1-9-0" />
+      <rect
+         x="103.93571"
+         y="71.999634"
+         width="128.1286"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect21-1-9-9-9" />
+      <rect
+         x="242.73154"
+         y="91.999641"
+         width="196.53691"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect23-2-4-1-1" />
+      <rect
+         x="427.9039"
+         y="111.99964"
+         width="166.19225"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect25-7-7-4-9" />
+      <rect
+         x="456.44382"
+         y="129.99963"
+         width="109.11241"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect27-0-8-9-6" />
+      <rect
+         x="444.87317"
+         y="149.99963"
+         width="132.25372"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect29-9-4-10-2" />
+      <rect
+         x="419.51303"
+         y="167.99965"
+         width="182.974"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect31-3-5-7-5" />
+      <rect
+         x="411.48154"
+         y="187.99963"
+         width="199.03699"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect33-6-0-58-4" />
+      <rect
+         x="473.1709"
+         y="205.99963"
+         width="75.658279"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect35-0-3-7-4" />
+      <rect
+         x="416.40356"
+         y="225.99965"
+         width="189.33681"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect37-6-6-0-9" />
+      <rect
+         x="462.06119"
+         y="243.99963"
+         width="97.877701"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect39-2-1-4-9" />
+      <rect
+         x="250.62227"
+         y="263.99963"
+         width="188.91113"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect41-6-0-8-3" />
+      <rect
+         x="105.91221"
+         y="279.99966"
+         width="132.1756"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect43-1-6-0-6" />
+      <rect
+         x="235.91888"
+         y="310.99963"
+         width="208.16226"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect45-8-3-4-0" />
+      <rect
+         x="272.61499"
+         y="325.99963"
+         width="152.76997"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect47-7-2-2-5" />
+      <rect
+         x="116.09208"
+         y="341.99966"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect49-9-0-9-0" />
+      <rect
+         x="33.717335"
+         y="367.99963"
+         width="102.72193"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect51-2-6-6-2" />
+      <rect
+         x="223.82448"
+         y="379.99963"
+         width="250.45375"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect53-0-1-1-9" />
+      <rect
+         x="116.09208"
+         y="395.99963"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect55-2-5-0-4" />
+      <rect
+         x="15.943363"
+         y="421.99963"
+         width="138.23817"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect57-3-5-42-3" />
+      <rect
+         x="263.13815"
+         y="437.99963"
+         width="171.72366"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect59-7-4-2-5" />
+      <rect
+         x="116.09208"
+         y="453.99963"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect61-5-7-2-1" />
+      <rect
+         x="25.631155"
+         y="479.99963"
+         width="118.7377"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect63-9-6-0-7" />
+      <rect
+         x="462"
+         y="481.99963"
+         width="51.601437"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect65-2-5-5-4" />
+      <rect
+         x="571.99994"
+         y="481.99963"
+         width="111.03435"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect67-2-6-5-3" />
+    </mask>
+    <marker
+       id="arrow-46"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path6-9" />
+    </marker>
+    <mask
+       id="imagine-text-gaps-qacuof-4"
+       maskUnits="userSpaceOnUse">
+      <rect
+         x="0"
+         y="0"
+         width="689.02002"
+         height="520"
+         fill="#ffffff"
+         id="rect9-22" />
+      <rect
+         x="31.56102"
+         y="22.999729"
+         width="106.87797"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect11-6" />
+      <rect
+         x="230.69455"
+         y="22.999729"
+         width="58.856262"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect13-41" />
+      <rect
+         x="382.56906"
+         y="22.999729"
+         width="94.872849"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect15-2" />
+      <rect
+         x="543.02966"
+         y="22.999729"
+         width="113.9621"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect17-8" />
+      <rect
+         x="216.71519"
+         y="58.999641"
+         width="246.56967"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect19-8" />
+      <rect
+         x="103.93571"
+         y="71.999634"
+         width="128.1286"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect21-9" />
+      <rect
+         x="242.73154"
+         y="91.999641"
+         width="196.53691"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect23-28" />
+      <rect
+         x="427.9039"
+         y="111.99964"
+         width="166.19225"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect25-8" />
+      <rect
+         x="456.44382"
+         y="129.99963"
+         width="109.11241"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect27-8" />
+      <rect
+         x="444.87317"
+         y="149.99963"
+         width="132.25372"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect29-6" />
+      <rect
+         x="419.51303"
+         y="167.99965"
+         width="182.974"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect31-83" />
+      <rect
+         x="411.48154"
+         y="187.99963"
+         width="199.03699"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect33-8" />
+      <rect
+         x="473.1709"
+         y="205.99963"
+         width="75.658279"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect35-33" />
+      <rect
+         x="416.40356"
+         y="225.99965"
+         width="189.33681"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect37-3" />
+      <rect
+         x="462.06119"
+         y="243.99963"
+         width="97.877701"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect39-8" />
+      <rect
+         x="250.62227"
+         y="263.99963"
+         width="188.91113"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect41-0" />
+      <rect
+         x="105.91221"
+         y="279.99966"
+         width="132.1756"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect43-4" />
+      <rect
+         x="235.91888"
+         y="310.99963"
+         width="208.16226"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect45-76" />
+      <rect
+         x="272.61499"
+         y="325.99963"
+         width="152.76997"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect47-8" />
+      <rect
+         x="116.09208"
+         y="341.99966"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect49-90" />
+      <rect
+         x="33.717335"
+         y="367.99963"
+         width="102.72193"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect51-6" />
+      <rect
+         x="223.82448"
+         y="379.99963"
+         width="250.45375"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect53-8" />
+      <rect
+         x="116.09208"
+         y="395.99963"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect55-7" />
+      <rect
+         x="15.943363"
+         y="421.99963"
+         width="138.23817"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect57-90" />
+      <rect
+         x="263.13815"
+         y="437.99963"
+         width="171.72366"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect59-33" />
+      <rect
+         x="116.09208"
+         y="453.99963"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect61-3" />
+      <rect
+         x="25.631155"
+         y="479.99963"
+         width="118.7377"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect63-7" />
+      <rect
+         x="462"
+         y="481.99963"
+         width="51.601437"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect65-3" />
+      <rect
+         x="571.99994"
+         y="481.99963"
+         width="111.03435"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect67-26" />
+    </mask>
+    <marker
+       id="arrow-2"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path6-65" />
+    </marker>
+    <mask
+       id="imagine-text-gaps-qacuof-87"
+       maskUnits="userSpaceOnUse">
+      <rect
+         x="0"
+         y="0"
+         width="689.02002"
+         height="520"
+         fill="#ffffff"
+         id="rect9-9" />
+      <rect
+         x="31.56102"
+         y="22.999729"
+         width="106.87797"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect11-60" />
+      <rect
+         x="230.69455"
+         y="22.999729"
+         width="58.856262"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect13-410" />
+      <rect
+         x="382.56906"
+         y="22.999729"
+         width="94.872849"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect15-4" />
+      <rect
+         x="543.02966"
+         y="22.999729"
+         width="113.9621"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect17-87" />
+      <rect
+         x="216.71519"
+         y="58.999641"
+         width="246.56967"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect19-08" />
+      <rect
+         x="103.93571"
+         y="71.999634"
+         width="128.1286"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect21-6" />
+      <rect
+         x="242.73154"
+         y="91.999641"
+         width="196.53691"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect23-24" />
+      <rect
+         x="427.9039"
+         y="111.99964"
+         width="166.19225"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect25-79" />
+      <rect
+         x="456.44382"
+         y="129.99963"
+         width="109.11241"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect27-3" />
+      <rect
+         x="444.87317"
+         y="149.99963"
+         width="132.25372"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect29-92" />
+      <rect
+         x="419.51303"
+         y="167.99965"
+         width="182.974"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect31-830" />
+      <rect
+         x="411.48154"
+         y="187.99963"
+         width="199.03699"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect33-1" />
+      <rect
+         x="473.1709"
+         y="205.99963"
+         width="75.658279"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect35-7" />
+      <rect
+         x="416.40356"
+         y="225.99965"
+         width="189.33681"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect37-8" />
+      <rect
+         x="462.06119"
+         y="243.99963"
+         width="97.877701"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect39-9" />
+      <rect
+         x="250.62227"
+         y="263.99963"
+         width="188.91113"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect41-1" />
+      <rect
+         x="105.91221"
+         y="279.99966"
+         width="132.1756"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect43-5" />
+      <rect
+         x="235.91888"
+         y="310.99963"
+         width="208.16226"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect45-4" />
+      <rect
+         x="272.61499"
+         y="325.99963"
+         width="152.76997"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect47-9" />
+      <rect
+         x="116.09208"
+         y="341.99966"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect49-2" />
+      <rect
+         x="33.717335"
+         y="367.99963"
+         width="102.72193"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect51-5" />
+      <rect
+         x="223.82448"
+         y="379.99963"
+         width="250.45375"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect53-7" />
+      <rect
+         x="116.09208"
+         y="395.99963"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect55-4" />
+      <rect
+         x="15.943363"
+         y="421.99963"
+         width="138.23817"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect57-99" />
+      <rect
+         x="263.13815"
+         y="437.99963"
+         width="171.72366"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect59-45" />
+      <rect
+         x="116.09208"
+         y="453.99963"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect61-93" />
+      <rect
+         x="25.631155"
+         y="479.99963"
+         width="118.7377"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect63-57" />
+      <rect
+         x="462"
+         y="481.99963"
+         width="51.601437"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect65-08" />
+      <rect
+         x="571.99994"
+         y="481.99963"
+         width="111.03435"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect67-19" />
+    </mask>
+    <marker
+       id="arrow-7"
+       viewBox="0 0 10 10"
+       refX="8"
+       refY="5"
+       markerWidth="6"
+       markerHeight="6"
+       orient="auto-start-reverse">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path6-82" />
+    </marker>
+    <mask
+       id="imagine-text-gaps-qacuof-53"
+       maskUnits="userSpaceOnUse">
+      <rect
+         x="0"
+         y="0"
+         width="689.02002"
+         height="520"
+         fill="#ffffff"
+         id="rect9-4" />
+      <rect
+         x="31.56102"
+         y="22.999729"
+         width="106.87797"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect11-90" />
+      <rect
+         x="230.69455"
+         y="22.999729"
+         width="58.856262"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect13-2" />
+      <rect
+         x="382.56906"
+         y="22.999729"
+         width="94.872849"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect15-0" />
+      <rect
+         x="543.02966"
+         y="22.999729"
+         width="113.9621"
+         height="22.000542"
+         fill="#000000"
+         rx="2"
+         id="rect17-1" />
+      <rect
+         x="216.71519"
+         y="58.999641"
+         width="246.56967"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect19-96" />
+      <rect
+         x="103.93571"
+         y="71.999634"
+         width="128.1286"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect21-2" />
+      <rect
+         x="242.73154"
+         y="91.999641"
+         width="196.53691"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect23-1" />
+      <rect
+         x="427.9039"
+         y="111.99964"
+         width="166.19225"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect25-20" />
+      <rect
+         x="456.44382"
+         y="129.99963"
+         width="109.11241"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect27-7" />
+      <rect
+         x="444.87317"
+         y="149.99963"
+         width="132.25372"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect29-3" />
+      <rect
+         x="419.51303"
+         y="167.99965"
+         width="182.974"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect31-1" />
+      <rect
+         x="411.48154"
+         y="187.99963"
+         width="199.03699"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect33-19" />
+      <rect
+         x="473.1709"
+         y="205.99963"
+         width="75.658279"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect35-05" />
+      <rect
+         x="416.40356"
+         y="225.99965"
+         width="189.33681"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect37-67" />
+      <rect
+         x="462.06119"
+         y="243.99963"
+         width="97.877701"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect39-7" />
+      <rect
+         x="250.62227"
+         y="263.99963"
+         width="188.91113"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect41-4" />
+      <rect
+         x="105.91221"
+         y="279.99966"
+         width="132.1756"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect43-0" />
+      <rect
+         x="235.91888"
+         y="310.99963"
+         width="208.16226"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect45-6" />
+      <rect
+         x="272.61499"
+         y="325.99963"
+         width="152.76997"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect47-4" />
+      <rect
+         x="116.09208"
+         y="341.99966"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect49-7" />
+      <rect
+         x="33.717335"
+         y="367.99963"
+         width="102.72193"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect51-4" />
+      <rect
+         x="223.82448"
+         y="379.99963"
+         width="250.45375"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect53-85" />
+      <rect
+         x="116.09208"
+         y="395.99963"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect55-8" />
+      <rect
+         x="15.943363"
+         y="421.99963"
+         width="138.23817"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect57-2" />
+      <rect
+         x="263.13815"
+         y="437.99963"
+         width="171.72366"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect59-6" />
+      <rect
+         x="116.09208"
+         y="453.99963"
+         width="119.81586"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect61-0" />
+      <rect
+         x="25.631155"
+         y="479.99963"
+         width="118.7377"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect63-6" />
+      <rect
+         x="462"
+         y="481.99963"
+         width="51.601437"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect65-6" />
+      <rect
+         x="571.99994"
+         y="481.99963"
+         width="111.03435"
+         height="19.00045"
+         fill="#000000"
+         rx="2"
+         id="rect67-46" />
+    </mask>
+  </defs>
+  <!-- Uczestnicy -->
+  <g
+     style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     id="g76">
+    <rect
+       x="20"
+       y="16"
+       width="130"
+       height="36"
+       rx="8"
+       stroke-width="0.5"
+       style="fill:rgb(8, 80, 65);stroke:rgb(93, 202, 165);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+       id="rect72" />
+    <text
+       x="85"
+       y="34"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="fill:rgb(159, 225, 203);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central"
+       id="text74">Printer Service</text>
+  </g>
+  <g
+     style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     id="g82">
+    <rect
+       x="200"
+       y="16"
+       width="120"
+       height="36"
+       rx="8"
+       stroke-width="0.5"
+       style="fill:rgb(99, 56, 6);stroke:rgb(239, 159, 39);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+       id="rect78" />
+    <text
+       x="260"
+       y="34"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="fill:rgb(250, 199, 117);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central"
+       id="text80">IoT Hub</text>
+  </g>
+  <g
+     style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     id="g88">
+    <rect
+       x="370"
+       y="16"
+       width="120"
+       height="36"
+       rx="8"
+       stroke-width="0.5"
+       style="fill:rgb(113, 43, 19);stroke:rgb(240, 153, 123);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+       id="rect84" />
+    <text
+       x="430"
+       y="34"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="fill:rgb(245, 196, 179);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central"
+       id="text86">AddiPi Agent</text>
+  </g>
+  <g
+     style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     id="g94">
+    <rect
+       x="540"
+       y="16"
+       width="120"
+       height="36"
+       rx="8"
+       stroke-width="0.5"
+       style="fill:rgb(99, 56, 6);stroke:rgb(239, 159, 39);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+       id="rect90" />
+    <text
+       x="600"
+       y="34"
+       text-anchor="middle"
+       dominant-baseline="central"
+       style="fill:rgb(250, 199, 117);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central"
+       id="text92">Blob / OctoPrint</text>
+  </g>
+  <!-- Linie życia -->
+  <line
+     x1="85"
+     y1="52"
+     x2="85"
+     y2="500"
+     stroke="var(--b)"
+     stroke-width="0.5"
+     stroke-dasharray="4 3"
+     mask="url(#imagine-text-gaps-qacuof)"
+     style="fill:rgb(0, 0, 0);stroke:rgba(222, 220, 209, 0.3);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-dasharray:4px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     id="line96" />
+  <line
+     x1="260"
+     y1="52"
+     x2="260"
+     y2="500"
+     stroke="var(--b)"
+     stroke-width="0.5"
+     stroke-dasharray="4 3"
+     mask="url(#imagine-text-gaps-qacuof)"
+     style="fill:rgb(0, 0, 0);stroke:rgba(222, 220, 209, 0.3);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-dasharray:4px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     id="line98" />
+  <line
+     x1="430"
+     y1="52"
+     x2="430"
+     y2="500"
+     stroke="var(--b)"
+     stroke-width="0.5"
+     stroke-dasharray="4 3"
+     mask="url(#imagine-text-gaps-qacuof)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#000000;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:4px, 3px"
+     id="line100"
+     transform="translate(141.38246,24.300726)" />
+  <line
+     x1="600"
+     y1="52"
+     x2="600"
+     y2="500"
+     stroke="var(--b)"
+     stroke-width="0.5"
+     stroke-dasharray="4 3"
+     mask="url(#imagine-text-gaps-qacuof)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#000000;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:4px, 3px"
+     id="line102"
+     transform="translate(-155.78143,-19.26557)" />
+  <!-- FAZA 1: Trigger z cron -->
+  <rect
+     x="20"
+     y="62"
+     width="640"
+     height="14"
+     rx="3"
+     fill="var(--bg2)"
+     opacity="0.6"
+     style="fill:rgb(38, 38, 36);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     id="rect104" />
+  <text
+     x="340"
+     y="73"
+     text-anchor="middle"
+     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
+     id="text106">Cron wyzwala harmonogramator (co 1 min)</text>
+  <!-- 1. confirm-ready → invokeDeviceMethod -->
+  <line
+     x1="85"
+     y1="90"
+     x2="252"
+     y2="90"
+     marker-end="url(#arrow)"
+     mask="url(#imagine-text-gaps-qacuof)"
+     style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     id="line108" />
+  <text
+     x="168"
+     y="86"
+     text-anchor="middle"
+     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
+     id="text110">invokeDeviceMethod</text>
+  <!-- 2. IoT Hub → Agent (MQTT) -->
+  <text
+     x="341"
+     y="106"
+     text-anchor="middle"
+     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
+     id="text114">Direct Method: startPrint (MQTT)</text>
+  <!-- 3. Agent: sprawdź drukarkę -->
+  <text
+     x="511"
+     y="126"
+     text-anchor="middle"
+     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#c2c0b6;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="text118">GET /api/printer (OctoPrint)</text>
+  <line
+     x1="592"
+     y1="148"
+     x2="438"
+     y2="148"
+     marker-end="url(#arrow)"
+     stroke="var(--s)"
+     stroke-dasharray="4 3"
+     mask="url(#imagine-text-gaps-qacuof)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:4px, 3px"
+     id="line120"
+     transform="translate(0,2)" />
+  <line
+     x1="592"
+     y1="148"
+     x2="438"
+     y2="148"
+     marker-end="url(#arrow-37)"
+     stroke="var(--s)"
+     stroke-dasharray="4 3"
+     mask="url(#imagine-text-gaps-qacuof-5)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:4px, 3px;marker-end:url(#arrow-37)"
+     id="line120-8"
+     transform="translate(-5.4173672e-5,75.155)" />
+  <line
+     x1="592"
+     y1="148"
+     x2="438"
+     y2="148"
+     marker-end="url(#arrow-37-9-0)"
+     stroke="var(--s)"
+     stroke-dasharray="4 3"
+     mask="url(#imagine-text-gaps-qacuof-5-8-9)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:4px, 3px;marker-end:url(#arrow-37-9-0)"
+     id="line120-8-6-0"
+     transform="translate(-170.5182,143.01941)" />
+  <text
+     x="511"
+     y="146"
+     text-anchor="middle"
+     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#c2c0b6;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="text122">state: Operational</text>
+  <!-- 4. pobierz plik z Blob -->
+  <text
+     x="511"
+     y="166"
+     text-anchor="middle"
+     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#c2c0b6;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="text126">download_blob(fileId)</text>
+  <text
+     x="511"
+     y="184"
+     text-anchor="middle"
+     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#c2c0b6;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="text130">plik .gcode → /tmp/addipi_files/</text>
+  <!-- 5. upload do OctoPrint -->
+  <text
+     x="511"
+     y="206"
+     text-anchor="middle"
+     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#c2c0b6;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="text134">POST /api/files/local (select=true)</text>
+  <text
+     x="511"
+     y="228"
+     text-anchor="middle"
+     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#c2c0b6;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="text138">201 Created</text>
+  <!-- 6. start print -->
+  <text
+     x="511"
+     y="246"
+     text-anchor="middle"
+     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#c2c0b6;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="text142">POST /api/job { command: start }</text>
+  <line
+     x1="592"
+     y1="262"
+     x2="438"
+     y2="262"
+     marker-end="url(#arrow)"
+     stroke="var(--s)"
+     stroke-dasharray="4 3"
+     mask="url(#imagine-text-gaps-qacuof)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:4px, 3px"
+     id="line144"
+     transform="translate(0,3.575)" />
+  <line
+     x1="592"
+     y1="262"
+     x2="438"
+     y2="262"
+     marker-end="url(#arrow-4)"
+     stroke="var(--s)"
+     stroke-dasharray="4 3"
+     mask="url(#imagine-text-gaps-qacuof-8)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:4px, 3px;marker-end:url(#arrow-4)"
+     id="line144-0"
+     transform="translate(-2.3031713,-72.326194)" />
+  <text
+     x="511"
+     y="270"
+     text-anchor="middle"
+     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#c2c0b6;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="text146">204 No Content</text>
+  <!-- 7. odpowiedź Method → IoT Hub → Printer -->
+  <text
+     x="345"
+     y="284"
+     text-anchor="middle"
+     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#c2c0b6;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="text150">{ status: printing_started, jobId }</text>
+  <line
+     x1="252"
+     y1="298"
+     x2="93"
+     y2="298"
+     marker-end="url(#arrow)"
+     stroke="var(--s)"
+     stroke-dasharray="4 3"
+     mask="url(#imagine-text-gaps-qacuof)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:4px, 3px"
+     id="line152"
+     transform="translate(0,4)" />
+  <text
+     x="172"
+     y="306.845"
+     text-anchor="middle"
+     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#c2c0b6;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     id="text154">MethodResponse 200</text>
+  <!-- FAZA 2: Telemetria -->
+  <rect
+     x="20"
+     y="314"
+     width="640"
+     height="14"
+     rx="3"
+     fill="var(--bg2)"
+     opacity="0.6"
+     style="fill:rgb(38, 38, 36);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     id="rect156" />
+  <text
+     x="340"
+     y="325"
+     text-anchor="middle"
+     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
+     id="text158">Telemetria (co ~10 s podczas druku)</text>
+  <!-- print_started -->
+  <text
+     x="349"
+     y="340"
+     text-anchor="middle"
+     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
+     id="text162">D2C: event=print_started</text>
+  <line
+     x1="260"
+     y1="360"
+     x2="93"
+     y2="360"
+     marker-end="url(#arrow)"
+     mask="url(#imagine-text-gaps-qacuof)"
+     style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     id="line164" />
+  <line
+     x1="260"
+     y1="360"
+     x2="93"
+     y2="360"
+     marker-end="url(#arrow-3)"
+     mask="url(#imagine-text-gaps-qacuof-7)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#arrow-3)"
+     id="line164-8"
+     transform="matrix(-1,0,0,1,345,-270)" />
+  <line
+     x1="260"
+     y1="360"
+     x2="93"
+     y2="360"
+     marker-end="url(#arrow-3-9)"
+     mask="url(#imagine-text-gaps-qacuof-7-3)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#arrow-3-9)"
+     id="line164-8-9"
+     transform="matrix(-1,0,0,1,516.87836,-246.09572)" />
+  <line
+     x1="260"
+     y1="360"
+     x2="93"
+     y2="360"
+     marker-end="url(#arrow-3-9-2)"
+     mask="url(#imagine-text-gaps-qacuof-7-3-6)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#arrow-3-9-2)"
+     id="line164-8-9-2"
+     transform="matrix(-1,0,0,1,687.239,-148.197)" />
+  <line
+     x1="260"
+     y1="360"
+     x2="93"
+     y2="360"
+     marker-end="url(#arrow-3-9-2-9)"
+     mask="url(#imagine-text-gaps-qacuof-7-3-6-2)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#arrow-3-9-2-9)"
+     id="line164-8-9-2-1"
+     transform="matrix(-1,0,0,1,687.239,-105.75803)" />
+  <line
+     x1="260"
+     y1="360"
+     x2="93"
+     y2="360"
+     marker-end="url(#arrow-3-9-3)"
+     mask="url(#imagine-text-gaps-qacuof-7-3-7)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#arrow-3-9-3)"
+     id="line164-8-9-0"
+     transform="matrix(-1,0,0,1,687.23868,-190.83202)" />
+  <line
+     x1="260"
+     y1="360"
+     x2="93"
+     y2="360"
+     marker-end="url(#arrow-3-9-3-5)"
+     mask="url(#imagine-text-gaps-qacuof-7-3-7-1)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#arrow-3-9-3-5)"
+     id="line164-8-9-0-4"
+     transform="matrix(-1,0,0,1,687.239,-227.19954)" />
+  <text
+     x="176"
+     y="356"
+     text-anchor="middle"
+     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
+     id="text166">Event Hub endpoint</text>
+  <rect
+     x="20"
+     y="368"
+     width="130"
+     height="20"
+     rx="4"
+     fill="var(--bg2)"
+     style="fill:rgb(38, 38, 36);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     id="rect168" />
+  <text
+     x="85"
+     y="382"
+     text-anchor="middle"
+     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
+     id="text170">status → printing</text>
+  <!-- print_progress -->
+  <text
+     x="349"
+     y="394"
+     text-anchor="middle"
+     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
+     id="text174">D2C: event=print_progress, progress=45%</text>
+  <line
+     x1="260"
+     y1="414"
+     x2="93"
+     y2="414"
+     marker-end="url(#arrow)"
+     mask="url(#imagine-text-gaps-qacuof)"
+     style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     id="line176" />
+  <line
+     x1="260"
+     y1="414"
+     x2="93"
+     y2="414"
+     marker-end="url(#arrow-46)"
+     mask="url(#imagine-text-gaps-qacuof-4)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#arrow-46)"
+     id="line176-5"
+     transform="translate(175.18539,-66.407733)" />
+  <text
+     x="176"
+     y="410"
+     text-anchor="middle"
+     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
+     id="text178">Event Hub endpoint</text>
+  <rect
+     x="20"
+     y="422"
+     width="130"
+     height="20"
+     rx="4"
+     fill="var(--bg2)"
+     style="fill:rgb(38, 38, 36);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     id="rect180" />
+  <text
+     x="85"
+     y="436"
+     text-anchor="middle"
+     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
+     id="text182">progress w Cosmos DB</text>
+  <!-- print_completed -->
+  <text
+     x="349"
+     y="452"
+     text-anchor="middle"
+     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
+     id="text186">D2C: event=print_completed</text>
+  <line
+     x1="260"
+     y1="472"
+     x2="93"
+     y2="472"
+     marker-end="url(#arrow)"
+     mask="url(#imagine-text-gaps-qacuof)"
+     style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     id="line188" />
+  <text
+     x="176"
+     y="468"
+     text-anchor="middle"
+     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
+     id="text190">Event Hub endpoint</text>
+  <rect
+     x="20"
+     y="480"
+     width="130"
+     height="20"
+     rx="4"
+     fill="var(--bg2)"
+     style="fill:rgb(38, 38, 36);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     id="rect192" />
+  <text
+     x="85"
+     y="494"
+     text-anchor="middle"
+     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
+     id="text194">status → completed</text>
+  <!-- Legenda -->
+  <line
+     x1="420"
+     y1="492"
+     x2="460"
+     y2="492"
+     stroke-width="1.5"
+     marker-end="url(#arrow)"
+     style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     id="line196" />
+  <text
+     x="466"
+     y="496"
+     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     id="text198">żądanie</text>
+  <line
+     x1="530"
+     y1="492"
+     x2="570"
+     y2="492"
+     stroke="var(--s)"
+     stroke-width="1"
+     stroke-dasharray="4 3"
+     fill="none"
+     marker-end="url(#arrow)"
+     style="fill:none;stroke:rgb(194, 192, 182);color:rgb(255, 255, 255);stroke-width:1px;stroke-dasharray:4px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     id="line200" />
+  <text
+     x="576"
+     y="496"
+     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     id="text202">odpowiedź / event</text>
+  <line
+     x1="260"
+     y1="414"
+     x2="93"
+     y2="414"
+     marker-end="url(#arrow-2)"
+     mask="url(#imagine-text-gaps-qacuof-87)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#arrow-2)"
+     id="line176-9"
+     transform="translate(180.59655,-11.318001)" />
+  <line
+     x1="260"
+     y1="414"
+     x2="93"
+     y2="414"
+     marker-end="url(#arrow-7)"
+     mask="url(#imagine-text-gaps-qacuof-53)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#arrow-7)"
+     id="line176-2"
+     transform="translate(175.18495,46.458061)" />
 </svg>
