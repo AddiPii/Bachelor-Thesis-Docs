@@ -1127,7 +1127,7 @@ except Exception as e:
 
 \subsubsection{Opis ogólny}
 
-Usługa \textit{Queue Service} to mikroserwis zaimplementowany w środowisku uruchomieniowym Node.js przy użyciu języka TypeScript oraz standardu modułów ECMAScript (ang. \textit{ECMAScript Modules}, ESM). Głównym zadaniem komponentu jest asynchroniczne i bezprzerwowe nasłuchiwanie (ang. \textit{listening}) komunikatów publikowanych w magistrali \textit{Azure Service Bus}~\cite{richardson2020}, a następnie ich transformacja i utrwalanie w postaci dokumentów zadań produkcyjnych w bazie danych \textit{Azure Cosmos DB}.
+Usługa \textit{Queue Service} to mikroserwis zaimplementowany w środowisku uruchomieniowym Node.js przy użyciu języka JavaScript oraz standardu modułów ECMAScript (ang. \textit{ECMAScript Modules}, ESM). Głównym zadaniem komponentu jest asynchroniczne i bezprzerwowe nasłuchiwanie (ang. \textit{listening}) komunikatów publikowanych w magistrali \textit{Azure Service Bus}~\cite{richardson2020}, a następnie ich transformacja i utrwalanie w postaci dokumentów zadań produkcyjnych w bazie danych \textit{Azure Cosmos DB}.
 
 Dodatkowo serwis udostępnia dedykowany interfejs programistyczny HTTP API, który umożliwia innym komponentom systemu (w tym aplikacji klienckiej) monitorowanie stanu kolejki oraz zarządzanie priorytetami zadań.
 
@@ -1591,9 +1591,10 @@ W celu zapewnienia wysokiej modularności oraz łatwości rozbudowy kodu źród�
 Agent sprzętowy inicjuje i utrzymuje stałe połączenie z usługą \textit{Azure IoT Hub} za pośrednictwem protokołu MQTT, wykorzystując do tego celu unikalny ciąg uwierzytelniający urządzenia (ang. \textit{device connection string}). Na listingu~\ref{lst:python_iot_init} przedstawiono fragment kodu odpowiedzialny za instancjonowanie asynchronicznego klienta oraz rejestrację funkcji zwrotnej (ang. \textit{callback function}) dedykowanej do obsługi przychodzących żądań RPC.
 
 \begin{lstlisting}[language=Python,caption={Inicjalizacja klienta usługi Azure IoT Hub (\texttt{printer\_agent.py})}, style=pyStyle, label={lst:python_iot_init}]
-	self.iot_client = IoTHubDeviceClient.create_from_connection_string(
-		device_connection_string
-	)
+	self.iot_client = IoTHubDeviceClient.
+		create_from_connection_string(
+			device_connection_string
+		)
 	
 	self.iot_client.connect()
 	

@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex dyplomWFA"] 1780180148.4045 "dyplomWFA.aux" "dyplomWFA.bbl" "dyplomWFA" 1780180149.75755 2
+["bibtex dyplomWFA"] 1780180148.4045 "dyplomWFA.aux" "dyplomWFA.bbl" "dyplomWFA" 1780250788.35146 2
   "./bibliografia.bib" 1780178764.40772 7137 0a543ddade7cb533348e9d0ac776f673 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/unsrt.bst" 1292289607 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "dyplomWFA.aux" 1780180149.64055 38091 5bd24c867ac154c9fb2f1bc0c30b9a7b "pdflatex"
+  "dyplomWFA.aux" 1780250788.13288 38091 5bd24c867ac154c9fb2f1bc0c30b9a7b "pdflatex"
   (generated)
   "dyplomWFA.bbl"
   "dyplomWFA.blg"
   (rewritten before read)
-["pdflatex"] 1780180148.42729 "dyplomWFA.tex" "dyplomWFA.pdf" "dyplomWFA" 1780180149.75771 0
+["pdflatex"] 1780250785.5364 "dyplomWFA.tex" "dyplomWFA.pdf" "dyplomWFA" 1780250788.35206 0
   "/etc/texmf/web2c/texmf.cnf" 1778443435.62456 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecit1000.600pk" 1779325020.33418 26704 be106c85f7c76012ed82c73002c20233 ""
   "/home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk" 1778504777.11581 20008 57f77999dde6ccfb99116543975b33b2 ""
@@ -166,11 +166,11 @@
   "dashboard2.png" 1779454894.96728 110881 3d2aa802d7206d59d2924e45bb72a837 ""
   "diagram-architektury.pdf" 1779147745.78817 95966 246f6e1390e8d002ec9292c46d2a5642 ""
   "docker_compose.pdf" 1780089485.27645 30362 08cda27aa5df1bdbeb0de47e3f7fba04 ""
-  "dyplomWFA.aux" 1780180149.64055 38091 5bd24c867ac154c9fb2f1bc0c30b9a7b "pdflatex"
+  "dyplomWFA.aux" 1780250788.13288 38091 5bd24c867ac154c9fb2f1bc0c30b9a7b "pdflatex"
   "dyplomWFA.bbl" 1780180148.41636 5170 48cc43e8ba712d12f31d66f295da0192 "bibtex dyplomWFA"
-  "dyplomWFA.out" 1780180149.64249 27340 c77a03e9f4ab3e61f8605527a4b15bc6 "pdflatex"
-  "dyplomWFA.tex" 1780179942.00952 169975 269d0da8fa668b8809d26e4cae3513a9 ""
-  "dyplomWFA.toc" 1780180149.64249 12406 df763cf49c75e0594f16a15680217fda "pdflatex"
+  "dyplomWFA.out" 1780250788.13688 27340 c77a03e9f4ab3e61f8605527a4b15bc6 "pdflatex"
+  "dyplomWFA.tex" 1780250766.97529 169980 711b6c9ff09efa03341213c2b9475505 ""
+  "dyplomWFA.toc" 1780250788.13788 12406 df763cf49c75e0594f16a15680217fda "pdflatex"
   "octoprint-panel.png" 1779900001.23974 166433 e68cba1135525b2cd7d4a9af9066ab1c ""
   "physical-stand.jpeg" 1779909878.70742 2777727 0f9274435280fb2a1cc90f4be7400841 ""
   "print-control2.png" 1779454593.95192 434042 4657109e630fdfd8859dc683abdfab4e ""
