@@ -140,6 +140,31 @@ Sam Newman.
 \bibitem{martin2022}
 Robert~C. Martin.
 \newblock {\em Czysty kod. {P}odr\k{e}cznik dobrego programisty.}
+\newblock Helion, 2 edition, 2022.
+
+\bibitem{nodemailer}
+{Andris Reinman}.
+\newblock Nodemailer documentation.
+\newblock \url{https://nodemailer.com/}.
+\newblock Dostęp: 2026.
+
+\bibitem{flask}
+{Pallets Projects}.
+\newblock Flask documentation.
+\newblock \url{https://flask.palletsprojects.com/en/stable/}.
+\newblock Dostęp: 2026.
+
+\bibitem{router}
+{Remix Software}.
+\newblock React router documentation.
+\newblock \url{https://reactrouter.com/}.
+\newblock Dostęp: 2026.
+
+\bibitem{axios}
+{Axios Team}.
+\newblock Axios http client documentation.
+\newblock \url{https://axios-http.com}.
+\newblock Dostęp: 2026.
 
 \bibitem{grabcad219}
 {219 Design}.

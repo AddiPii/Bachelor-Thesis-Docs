@@ -852,7 +852,7 @@ Takie podejście pozwala na odseparowanie logiki biznesowej od mechanizmów infr
 
 Usługa \textit{Auth Service} odpowiada za procesy uwierzytelniania, autoryzacji oraz zarządzania kontami użytkowników. W zakres jej funkcjonalności wchodzi: rejestracja, logowanie i wylogowanie użytkowników, odświeżanie tokenów sesyjnych oraz weryfikacja adresów poczty elektronicznej.
 
-Komponent ten został zaimplementowany w środowisku uruchomieniowym Node.js z wykorzystaniem frameworka Express.js oraz języka TypeScript. Serwis realizuje operacje wejścia-wyjścia poprzez komunikację z bazą danych \textit{Azure Cosmos DB} (w ramach kontenerów \texttt{users} oraz \texttt{refresh-tokens}). Ponadto integruje się z zewnętrznym serwerem SMTP firmy Google w celu dystrybucji wiadomości aktywacyjnych, wykorzystując do tego celu bibliotekę \texttt{Nodemailer}.
+Komponent ten został zaimplementowany w środowisku uruchomieniowym Node.js z wykorzystaniem frameworka Express.js oraz języka TypeScript. Serwis realizuje operacje wejścia-wyjścia poprzez komunikację z bazą danych \textit{Azure Cosmos DB} (w ramach kontenerów \texttt{users} oraz \texttt{refresh-tokens}). Ponadto integruje się z zewnętrznym serwerem SMTP firmy Google w celu dystrybucji wiadomości aktywacyjnych, wykorzystując do tego celu bibliotekę \texttt{Nodemailer}~\cite{nodemailer}.
 
 
 \subsubsection{Punkty końcowe API}
@@ -1072,7 +1072,7 @@ export default requireAuth;
 
 \subsubsection{Opis ogólny}
 
-Usługa \textit{Files Service} stanowi mikroserwis zaimplementowany w języku Python z wykorzystaniem mikroframeworka Flask. Komponent ten odpowiada za asynchroniczne przyjmowanie plików z kodem sterującym (G-code) od aplikacji klienckiej, ich bezpieczne utrwalanie w repozytorium obiektowym \textit{Azure Blob Storage} oraz rozgłaszanie zdarzeń systemowych za pośrednictwem magistrali komunikatów \textit{Azure Service Bus}.
+Usługa \textit{Files Service} stanowi mikroserwis zaimplementowany w języku Python z wykorzystaniem mikroframeworka Flask~\cite{flask}. Komponent ten odpowiada za asynchroniczne przyjmowanie plików z kodem sterującym (G-code) od aplikacji klienckiej, ich bezpieczne utrwalanie w repozytorium obiektowym \textit{Azure Blob Storage} oraz rozgłaszanie zdarzeń systemowych za pośrednictwem magistrali komunikatów \textit{Azure Service Bus}.
 
 \subsubsection{Procedura przetwarzania i przesyłania plików}
 
@@ -1394,7 +1394,7 @@ W tabeli~\ref{tab:video_endpoints} zestawiono i opisano punkty końcowe (ang. \t
 
 \subsection{Struktura architektoniczna aplikacji klienckiej}
 
-Aplikacja frontendowa została zaimplementowana z wykorzystaniem biblioteki \textit{React} w wersji 18 oraz języka TypeScript. Jako środowisko deweloperskie i narzędzie budujące (ang. \textit{bundler}) wykorzystano \textit{Vite}, natomiast zarządzanie mapowaniem adresów URL i nawigacją realizowane jest przy użyciu biblioteki \textit{React Router} w wersji 6.
+Aplikacja frontendowa została zaimplementowana z wykorzystaniem biblioteki \textit{React} w wersji 18 oraz języka TypeScript. Jako środowisko deweloperskie i narzędzie budujące (ang. \textit{bundler}) wykorzystano \textit{Vite}, natomiast zarządzanie mapowaniem adresów URL i nawigacją realizowane jest przy użyciu biblioteki \textit{React Router}~\cite{router} w wersji 6.
 
 Zarządzanie globalnym stanem aplikacji klienckiej (obejmującym dane profilowe zalogowanego użytkownika, bieżący status operacyjny drukarki oraz metryki systemowe) powierzono bibliotece \textit{Zustand}. W celu zachowania ciągłości sesji i preferencji interfejsu (takich jak motyw graficzny czy wybrany język), wykorzystano oprogramowanie pośredniczące \texttt{persist}, które automatyzuje proces synchronizacji i trwałego przechowywania danych w pamięci podręcznej \texttt{localStorage} przeglądarki internetowej.
 
@@ -1411,7 +1411,7 @@ Struktura drzewa katalogów aplikacji została zorganizowana w sposób modułowy
 
 \subsection{Scentralizowany klient API}
 
-Komunikacja z rozproszoną warstwą backendową realizowana jest przez klasę \texttt{ApiClient} zdefiniowaną w module \texttt{api.ts}. Klasa ta enkapsuluje i konfiguruje niezależne instancje biblioteki \textit{Axios} dedykowane dla poszczególnych mikroserwisów systemu (\textit{Auth Service}, \textit{User Service}, \textit{Printer Service} oraz \textit{Files Service}).
+Komunikacja z rozproszoną warstwą backendową realizowana jest przez klasę \texttt{ApiClient} zdefiniowaną w module \texttt{api.ts}. Klasa ta enkapsuluje i konfiguruje niezależne instancje biblioteki \textit{Axios}~\cite{axios} dedykowane dla poszczególnych mikroserwisów systemu (\textit{Auth Service}, \textit{User Service}, \textit{Printer Service} oraz \textit{Files Service}).
 
 W celu automatyzacji obsługi protokołu HTTP, w konfiguracji instancji zaimplementowano mechanizmy przechwytujące (ang. \textit{interceptors}). Odpowiadają one za automatyczne wstrzykiwanie tokenu dostępu do nagłówka \texttt{Authorization} (w standardzie \textit{Bearer}) dla każdego żądania wychodzącego, a także realizują asynchroniczną procedurę odświeżania sesji w przypadku przechwycenia odpowiedzi z kodem błędu HTTP 401 (\textit{Unauthorized}).
 
