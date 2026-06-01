@@ -671,7 +671,7 @@ W ramach systemu wyodrębniono następujące komponenty:
 	
 	\item \textbf{AddiPi Agent} (Raspberry Pi) - agent uruchamiany na urządzeniu Raspberry Pi, pośredniczący pomiędzy Azure IoT Hub a systemem \textit{OctoPrint}.
 	
-	\item \textbf{AddiPi Frontend} (Vercel / port 5173) - aplikacja webowa zbudowana z wykorzystaniem biblioteki \textit{React}~\cite{react} oraz narzędzia \textit{Vite}~\cite{vite}.
+	\item \textbf{AddiPi Frontend} (Vercel~\cite{vercel} / port 5173) - aplikacja webowa zbudowana z wykorzystaniem biblioteki \textit{React}~\cite{react} oraz narzędzia \textit{Vite}~\cite{vite}.
 \end{enumerate}
 
 \subsection{Diagram architektury}
@@ -1947,7 +1947,7 @@ Narzędzie \texttt{cloudflared} zestawia szyfrowane, bezpieczne połączenie wyc
 
 \subsubsection{Instalacja narzędzia cloudflared}
 
-Wdrożenie oficjalnego klienta \texttt{cloudflared} na platformie sprzętowej z procesorem o architekturze ARM wymaga pobrania skompilowanego pliku binarnego, nadania mu uprawnień wykonywania oraz relokacji do katalogu systemowego. Operacje te realizuje się sekwencyjnie w terminalu systemu operacyjnego za pomocą następujących instrukcji:
+Wdrożenie oficjalnego klienta \texttt{cloudflared}~\cite{cloudflare} na platformie sprzętowej z procesorem o architekturze ARM wymaga pobrania skompilowanego pliku binarnego, nadania mu uprawnień wykonywania oraz relokacji do katalogu systemowego. Operacje te realizuje się sekwencyjnie w terminalu systemu operacyjnego za pomocą następujących instrukcji:
 \begin{center}
 	\texttt{wget https://github.com} \\
 	\texttt{chmod +x cloudflared-linux-arm64} \\
@@ -2252,7 +2252,7 @@ Na listingu~\ref{lst:docker_compose_yaml} przedstawiono reprezentatywny fragment
 			restart: unless-stopped
 \end{lstlisting}
 
-Ciągłość operacyjną środowiska zabezpiecza wspomniany wcześniej kontener \textit{Watchtower}, działający w tle jako demon aktualizacyjny. Bezpieczeństwo sieciowe instancji maszyn wirtualnych OCI egzekwowane jest na poziomie warstwy sieciowej chmury, ograniczając ruch przychodzący wyłącznie do niezbędnych portów: 22 (SSH), 3001 (\textit{Auth Service}), 3002 (\textit{User Service}), 3050 (\textit{Printer Service}), 3070 (\textit{Queue Service}) oraz 5000 (\textit{Files Service}). Reguły te są definiowane deklaratywnie w module \texttt{terraform-oci/}. Topologię tak zorganizowanej sieci kontenerów oraz ich zależności startowe przedstawiono na rysunku~\ref{fig:container_schema}.
+Ciągłość operacyjną środowiska zabezpiecza wspomniany wcześniej kontener \textit{Watchtower}~\cite{watchtower}, działający w tle jako demon aktualizacyjny. Bezpieczeństwo sieciowe instancji maszyn wirtualnych OCI egzekwowane jest na poziomie warstwy sieciowej chmury, ograniczając ruch przychodzący wyłącznie do niezbędnych portów: 22 (SSH), 3001 (\textit{Auth Service}), 3002 (\textit{User Service}), 3050 (\textit{Printer Service}), 3070 (\textit{Queue Service}) oraz 5000 (\textit{Files Service}). Reguły te są definiowane deklaratywnie w module \texttt{terraform-oci/}. Topologię tak zorganizowanej sieci kontenerów oraz ich zależności startowe przedstawiono na rysunku~\ref{fig:container_schema}.
 
 \begin{figure}[H]
 	\centering
@@ -2355,9 +2355,9 @@ W ramach realizacji projektu inżynierskiego opracowano i zaimplementowano nast�
 	\item \textbf{System monitorowania w czasie rzeczywistym} --- mechanizm akwizycji danych telemetrycznych urządzenia (metryki termiczne i statusy mechaniczne) oraz asynchronicznej dystrybucji strumienia wideo z kamery CSI w formacie MJPEG,
 	\item \textbf{Wielojęzyczna aplikacja kliencka} --- responsywna warstwa prezentacji zbudowana w oparciu o bibliotekę \textit{React}~\cite{react} oraz język TypeScript, wspierająca architekturę dynamicznych motywów graficznych (jasny i ciemny) oraz wzorzec projektowy RWD,
 	\item \textbf{Infrastruktura jako kod (IaC)} --- deklaratywne szablony konfiguracyjne narzędzia \textit{Terraform}~\cite{terraform}, automatyzujące procesy aprowizacji i replikacji zasobów chmurowych w architekturze hybrydowej \textit{Microsoft Azure} oraz \textit{Oracle Cloud Infrastructure}~\cite{oci},
-	\item \textbf{Zautomatyzowany potok wdrożeniowy (CI/CD)} --- konfiguracja środowisk potokowych \textit{GitHub Actions} zintegrowanych z rejestrem GHCR oraz automatycznym demonem aktualizacyjnym \textit{Watchtower} w produkcyjnym środowisku kontenerowym,
+	\item \textbf{Zautomatyzowany potok wdrożeniowy (CI/CD)} --- konfiguracja środowisk potokowych \textit{GitHub Actions} zintegrowanych z rejestrem GHCR oraz automatycznym demonem aktualizacyjnym \textit{Watchtower}~\cite{watchtower} w produkcyjnym środowisku kontenerowym,
 	\item \textbf{Projekt mechaniczny CAD} --- zoptymalizowana pod kątem tolerancji wymiarowych obudowa mikrokomputera oparta na modelu otwartym \textit{GrabCAD} ~\cite{grabcad219} wraz z przegubowym ramieniem pozycjonującym kamerę, zaprojektowana w programie \textit{SolidWorks}~\cite{solidworks} i przygotowana do wytwarzania przyrostowego (FDM),
-	\item \textbf{Automatyzacja i konfiguracja węzła brzegowego} --- autorskie skrypty powłoki Bash zintegrowane z demonem \texttt{systemd} oraz systemowym harmonogramem \textit{cron}, zabezpieczające bezobsługowy rozruch sieciowy i stabilność tunelu \textit{Cloudflare Tunnel}.
+	\item \textbf{Automatyzacja i konfiguracja węzła brzegowego} --- autorskie skrypty powłoki Bash zintegrowane z demonem \texttt{systemd} oraz systemowym harmonogramem \textit{cron}, zabezpieczające bezobsługowy rozruch sieciowy i stabilność tunelu \textit{Cloudflare Tunnel}~\cite{cloudflare}.
 \end{itemize}
 
 Ostatecznie w ramach pracy powstał kompletny, w pełni funkcjonalny prototyp rozproszonego systemu zdalnego zarządzania autonomicznym stanowiskiem druku trójwymiarowego. Gotowe rozwiązanie zostało pomyślnie wdrożone i poddane długoterminowej walidacji w rzeczywistym środowisku pracy z fizyczną drukarką 3D. Przeprowadzone testy integracyjne oraz użytkowe potwierdziły wysoką niezawodność, bezpieczeństwo oraz bezobsługowość całego ekosystemu, udowadniając poprawność przyjętych założeń inżynierskich oraz wysoką efektywność wybranych technologii chmurowych i brzegowych.
@@ -2370,7 +2370,7 @@ Realizacja rozproszonego systemu \textit{AddiPi} wiązała się z konieczności�
 
 \begin{itemize}
 	\item \textbf{Integracja rozproszonego i heterogenicznego środowiska chmurowego} \\
-	Jednym z największych wyzwań architektonicznych było zapewnienie stabilnej orkiestracji komponentów działających w odmiennych środowiskach wykonawczych ~\cite{newman2022}. Ekosystem wykorzystuje jednocześnie zasoby \textit{Microsoft Azure} (\textit{Cosmos DB}, \textit{Blob Storage}, \textit{Service Bus}, \textit{IoT Hub}), instancję maszyn wirtualnych \textit{Oracle Cloud Infrastructure}~\cite{oci}, platformę \textit{Vercel} oraz fizyczny mikrokomputer brzegowy działający wewnątrz sieci lokalnej. Konieczne było zaprojektowanie spójnego modelu komunikacji, który uwzględniałby fluktuacje sieciowe, opóźnienia pakietów~\cite{kleppmann2017} oraz skrajnie odmienne standardy uwierzytelniania dostawców. Wyzwanie to zminimalizowano poprzez wdrożenie hybrydowej architektury opartej na synchronicznych interfejsach REST API oraz asynchronicznej wymianie komunikatów z wykorzystaniem kolejki brokera, uzupełnionej o autorskie mechanizmy ponawiania żądań.
+	Jednym z największych wyzwań architektonicznych było zapewnienie stabilnej orkiestracji komponentów działających w odmiennych środowiskach wykonawczych ~\cite{newman2022}. Ekosystem wykorzystuje jednocześnie zasoby \textit{Microsoft Azure} (\textit{Cosmos DB}, \textit{Blob Storage}, \textit{Service Bus}, \textit{IoT Hub}), instancję maszyn wirtualnych \textit{Oracle Cloud Infrastructure}~\cite{oci}, platformę \textit{Vercel}~\cite{vercel} oraz fizyczny mikrokomputer brzegowy działający wewnątrz sieci lokalnej. Konieczne było zaprojektowanie spójnego modelu komunikacji, który uwzględniałby fluktuacje sieciowe, opóźnienia pakietów~\cite{kleppmann2017} oraz skrajnie odmienne standardy uwierzytelniania dostawców. Wyzwanie to zminimalizowano poprzez wdrożenie hybrydowej architektury opartej na synchronicznych interfejsach REST API oraz asynchronicznej wymianie komunikatów z wykorzystaniem kolejki brokera, uzupełnionej o autorskie mechanizmy ponawiania żądań.
 	
 	\item \textbf{Spójność i normalizacja reprezentacji czasu} \\
 	Poszczególne warstwy systemu natywnie operowały na zróżnicowanych standardach zapisu dat i czasu. Informacje generowane przez silnik bazy danych, usługi backendowe oraz biblioteki frontendowe nie zawsze cechowały się identyczną strukturą, co generowało błędy w interpretacji i renderowaniu harmonogramów zadań. Problem ten rozwiązano na poziomie warstwy prezentacji poprzez implementację scentralizowanego modułu normalizacji danych chronologicznych, wykorzystującego autorską funkcję \texttt{normalizeDateString}.
@@ -2382,7 +2382,7 @@ Realizacja rozproszonego systemu \textit{AddiPi} wiązała się z konieczności�
 	Podczas integracji backendu z bibliotekami SDK \textit{Azure IoT} w środowisku Node.js napotkano na konflikty struktur modułów \textit{CommonJS} oraz \textit{ECMAScript Modules} (ESM). Wybrane pakiety zależne eksportowały swoje składowe w sposób silnie uzależniony od kontekstu uruchomieniowego. W celu zapewnienia pełnej kompatybilności i stabilności kodu, w strukturze usługi \textit{Printer Service} zaimplementowano mechanizm defensywnej detekcji i dynamicznej ekstrakcji dostępnych interfejsów eksportu.
 	
 	\item \textbf{Udostępnienie strumienia wideo poza barierę sieci lokalnej} \\
-	Ponieważ serwer \textit{OctoPrint} operuje wewnątrz lokalnej sieci prywatnej, strumień wizyjny MJPEG nie był domyślnie trasowany do publicznego Internetu, co uniemożliwiało jego odbiór przez aplikację webową. Dodatkową barierę stanowiła zmienność adresów URL przy każdej renegocjacji połączenia tunelowego. Wyzwanie to rozwiązano za pomocą technologii \textit{Cloudflare Tunnel} połączonej z autonomiczną usługą \textit{Video Service}, która działa jako dynamiczny rejestrator aktualnego punktu końcowego wideo.
+	Ponieważ serwer \textit{OctoPrint} operuje wewnątrz lokalnej sieci prywatnej, strumień wizyjny MJPEG nie był domyślnie trasowany do publicznego Internetu, co uniemożliwiało jego odbiór przez aplikację webową. Dodatkową barierę stanowiła zmienność adresów URL przy każdej renegocjacji połączenia tunelowego. Wyzwanie to rozwiązano za pomocą technologii \textit{Cloudflare Tunnel}~\cite{cloudflare} połączonej z autonomiczną usługą \textit{Video Service}, która działa jako dynamiczny rejestrator aktualnego punktu końcowego wideo.
 	
 	\item \textbf{Obsługa opóźnień w synchronicznej komunikacji IoT} \\
 	Sterowanie parametrami fizycznej maszyny przy użyciu metod bezpośrednich (ang. \textit{Direct Methods}) generowało opóźnienia rzędu kilku sekund w warunkach gorszej przepustowości sieciowej węzła brzegowego. Zjawisko to zostało uwzględnione na poziomie projektowania interfejsu użytkownika (UX) poprzez wprowadzenie asynchronicznych stanów ładowania, blokad przycisków przed wielokrotnym kliknięciem (ang. \textit{debouncers}) oraz deterministycznej obsługi przekroczenia czasu oczekiwania (ang. \textit{timeouts}).

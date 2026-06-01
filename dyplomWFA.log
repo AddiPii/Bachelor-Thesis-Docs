@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.10)  1 JUN 2026 18:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.10)  1 JUN 2026 18:27
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -888,13 +888,13 @@ Overfull \hbox (6.39302pt too wide) in paragraph at lines 630--641
  []
 
 [19]
-<diagram-architektury.pdf, id=814, 597.50786pt x 426.79132pt>
+<diagram-architektury.pdf, id=815, 597.50786pt x 426.79132pt>
 File: diagram-architektury.pdf Graphic file (type pdf)
 <use diagram-architektury.pdf>
 Package pdftex.def Info: diagram-architektury.pdf  used on input line 683.
 (pdftex.def)             Requested size: 426.79135pt x 304.85391pt.
  [20] [21 <./diagram-architektury.pdf>]
-<AddiPi-CosmosDB3.pdf, id=980, 613.63261pt x 386.94562pt>
+<AddiPi-CosmosDB3.pdf, id=982, 613.63261pt x 386.94562pt>
 File: AddiPi-CosmosDB3.pdf Graphic file (type pdf)
 <use AddiPi-CosmosDB3.pdf>
 Package pdftex.def Info: AddiPi-CosmosDB3.pdf  used on input line 716.
@@ -910,7 +910,7 @@ Overfull \hbox (3.65771pt too wide) in paragraph at lines 768--774
  []
 
 [24]
-<cykl-zycia-zadania.pdf, id=1088, 511.9125pt x 421.575pt>
+<cykl-zycia-zadania.pdf, id=1090, 511.9125pt x 421.575pt>
 File: cykl-zycia-zadania.pdf Graphic file (type pdf)
 <use cykl-zycia-zadania.pdf>
 Package pdftex.def Info: cykl-zycia-zadania.pdf  used on input line 815.
@@ -1000,7 +1000,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has
                                                   \__shipout_drop_firstpage_...
 l.1020 \end{xltabular}
                       ] [33] [34] [35]
-<przeplyw-przesylania-pliku.pdf, id=1325, 511.9125pt x 301.125pt>
+<przeplyw-przesylania-pliku.pdf, id=1327, 511.9125pt x 301.125pt>
 File: przeplyw-przesylania-pliku.pdf Graphic file (type pdf)
 <use przeplyw-przesylania-pliku.pdf>
 Package pdftex.def Info: przeplyw-przesylania-pliku.pdf  used on input line 109
@@ -1134,13 +1134,13 @@ na-li-za-cji apli-ka-cji oparta na bi-blio-tece \T1/ptm/m/it/12 i18next
  []
 
 [46] [47] [48]
-<strona-glowna2.png, id=1672, 480.5955pt x 645.612pt>
+<strona-glowna2.png, id=1674, 480.5955pt x 645.612pt>
 File: strona-glowna2.png Graphic file (type png)
 <use strona-glowna2.png>
 Package pdftex.def Info: strona-glowna2.png  used on input line 1483.
 (pdftex.def)             Requested size: 245.88512pt x 330.3089pt.
  [49 <./strona-glowna2.png>]
-<dashboard2.png, id=1686, 775.09575pt x 478.78876pt>
+<dashboard2.png, id=1688, 775.09575pt x 478.78876pt>
 File: dashboard2.png Graphic file (type png)
 <use dashboard2.png>
 Package pdftex.def Info: dashboard2.png  used on input line 1501.
@@ -1152,18 +1152,18 @@ u-j¡c po-prawne roz-sze-rze-nie (\T1/cmtt/l/it/12 .gcode\T1/ptm/m/n/12 )
  []
 
 [50 <./dashboard2.png>]
-<upload-print.png, id=1695, 983.675pt x 745.78625pt>
+<upload-print.png, id=1697, 983.675pt x 745.78625pt>
 File: upload-print.png Graphic file (type png)
 <use upload-print.png>
 Package pdftex.def Info: upload-print.png  used on input line 1514.
 (pdftex.def)             Requested size: 405.45047pt x 307.40166pt.
  [51 <./upload-print.png>]
-<print-control2.png, id=1703, 662.475pt x 492.03825pt>
+<print-control2.png, id=1705, 662.475pt x 492.03825pt>
 File: print-control2.png Graphic file (type png)
 <use print-control2.png>
 Package pdftex.def Info: print-control2.png  used on input line 1527.
 (pdftex.def)             Requested size: 426.79135pt x 316.9906pt.
-<admin-panel.png, id=1705, 1245.65375pt x 761.84625pt>
+<admin-panel.png, id=1707, 1245.65375pt x 761.84625pt>
 File: admin-panel.png Graphic file (type png)
 <use admin-panel.png>
 Package pdftex.def Info: admin-panel.png  used on input line 1545.
@@ -1175,7 +1175,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <14> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 1629.
-<agent_startprint.pdf, id=1740, 518.70288pt x 391.4625pt>
+<agent_startprint.pdf, id=1742, 518.70288pt x 391.4625pt>
 File: agent_startprint.pdf Graphic file (type pdf)
 <use agent_startprint.pdf>
 Package pdftex.def Info: agent_startprint.pdf  used on input line 1635.
@@ -1188,7 +1188,7 @@ o-
  []
 
 [58]
-<octoprint-panel.png, id=2027, 819.06pt x 579.66562pt>
+<octoprint-panel.png, id=2029, 819.06pt x 579.66562pt>
 File: octoprint-panel.png Graphic file (type png)
 <use octoprint-panel.png>
 Package pdftex.def Info: octoprint-panel.png  used on input line 1696.
@@ -1198,18 +1198,18 @@ Overfull \hbox (5.20607pt too wide) in paragraph at lines 1763--1778
  [][] 
  []
 
-<physical-stand.jpeg, id=2060, 1032.0156pt x 703.428pt>
+<physical-stand.jpeg, id=2062, 1032.0156pt x 703.428pt>
 File: physical-stand.jpeg Graphic file (type jpg)
 <use physical-stand.jpeg>
 Package pdftex.def Info: physical-stand.jpeg  used on input line 1788.
 (pdftex.def)             Requested size: 384.1096pt x 261.80989pt.
 [62] [63 <./physical-stand.jpeg>]
-<Full_Assembly.png, id=2076, 630.55576pt x 433.62pt>
+<Full_Assembly.png, id=2078, 630.55576pt x 433.62pt>
 File: Full_Assembly.png Graphic file (type png)
 <use Full_Assembly.png>
 Package pdftex.def Info: Full_Assembly.png  used on input line 1803.
 (pdftex.def)             Requested size: 320.0935pt x 220.12433pt.
-<cad_assembly.pdf, id=2079, 511.9125pt x 304.13625pt>
+<cad_assembly.pdf, id=2081, 511.9125pt x 304.13625pt>
 File: cad_assembly.pdf Graphic file (type pdf)
 <use cad_assembly.pdf>
 Package pdftex.def Info: cad_assembly.pdf  used on input line 1810.
@@ -1232,7 +1232,7 @@ ctl start addipi-agent\T1/ptm/m/n/12 . Bie-»¡cy stan pro-cesu we-
  []
 
 [67]
-<rpi_boot.pdf, id=2170, 511.9125pt x 385.44pt>
+<rpi_boot.pdf, id=2172, 511.9125pt x 385.44pt>
 File: rpi_boot.pdf Graphic file (type pdf)
 <use rpi_boot.pdf>
 Package pdftex.def Info: rpi_boot.pdf  used on input line 1931.
@@ -1241,12 +1241,6 @@ Package pdftex.def Info: rpi_boot.pdf  used on input line 1931.
 Overfull \hbox (1.42989pt too wide) in paragraph at lines 1945--1946
 \T1/ptm/m/n/12 (np. \T1/cmtt/l/it/12 https://<losowy-hash>.trycloudflare.com\T1
 /ptm/m/n/12 ) bez ko-niecz-no-±ci kon-fi-gu-ra-cji pu-
- []
-
-
-Overfull \hbox (0.17787pt too wide) in paragraph at lines 1950--1951
-\T1/ptm/m/n/12 chi-tek-tu-rze ARM wy-maga po-bra-nia skom-pi-lo-wa-nego pliku b
-i-nar-nego, nada-nia mu upraw-
  []
 
 [68 <./rpi_boot.pdf>] [69] [70] [71]
@@ -1369,7 +1363,7 @@ o-no-miczny kom-po-nent \T1/ptm/m/it/12 Watch-
  []
 
 [78]
-<docker_compose.pdf, id=2402, 511.9125pt x 346.29375pt>
+<docker_compose.pdf, id=2406, 511.9125pt x 346.29375pt>
 File: docker_compose.pdf Graphic file (type pdf)
 <use docker_compose.pdf>
 Package pdftex.def Info: docker_compose.pdf  used on input line 2259.
@@ -1398,7 +1392,7 @@ Overfull \hbox (14.52954pt too wide) in paragraph at lines 2309--2310
 -wej za-pre-zen-to-wano na ry-sunku [][]18[][],
  []
 
-<IoT_hub.png, id=2475, 1199.48125pt x 376.40625pt>
+<IoT_hub.png, id=2478, 1199.48125pt x 376.40625pt>
 File: IoT_hub.png Graphic file (type png)
 <use IoT_hub.png>
 Package pdftex.def Info: IoT_hub.png  used on input line 2313.
@@ -1416,6 +1410,12 @@ Overfull \hbox (0.36763pt too wide) in paragraph at lines 2360--2361
  []
 
 [83]
+Overfull \hbox (3.00925pt too wide) in paragraph at lines 2372--2374
+\T1/ptm/m/n/12 delu ko-mu-ni-ka-cji, który uwzgl¦d-niaªby fluk-tu-acje sie-ciow
+e, opó¹-nie-nia pa-kie-tów [[]]
+ []
+
+
 Overfull \hbox (2.99582pt too wide) in paragraph at lines 2375--2377
 \T1/ptm/m/n/12 bac-ken-dowe oraz bi-blio-teki fron-ten-dowe nie za-wsze ce-cho-
 waªy si¦ iden-tyczn¡ struk-
@@ -1480,10 +1480,10 @@ pk> </home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecit1000.60
 share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/times/utmri8a.pfb>
-Output written on dyplomWFA.pdf (92 pages, 4757442 bytes).
+Output written on dyplomWFA.pdf (92 pages, 4757823 bytes).
 PDF statistics:
- 3012 PDF objects out of 3580 (max. 8388607)
- 2348 compressed objects within 24 object streams
+ 3019 PDF objects out of 3580 (max. 8388607)
+ 2355 compressed objects within 24 object streams
  770 named destinations out of 1000 (max. 500000)
  1067 words of extra memory for PDF output out of 10000 (max. 10000000)
 
