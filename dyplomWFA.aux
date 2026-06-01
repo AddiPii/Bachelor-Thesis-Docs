@@ -28,6 +28,7 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.3}Platformy komercyjne}{12}{subsubsection.2.3.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.4}Wnioski końcowe}{12}{subsubsection.2.3.4}\protected@file@percent }
 \citation{typescript}
+\citation{martin2022}
 \citation{nodejs}
 \citation{python}
 \citation{nodejs}
@@ -84,6 +85,7 @@
 \newlabel{tab:porownanie_kolejek}{{2}{19}{Porównanie rozwiązań kolejkowania wiadomości}{table.caption.3}{}}
 \citation{richardson2020}
 \citation{newman2022}
+\citation{iothub}
 \citation{jwt}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Architektura systemu}{20}{section.4}\protected@file@percent }
 \newlabel{sec:architektura}{{4}{20}{Architektura systemu}{section.4}{}}
@@ -147,6 +149,7 @@
 \@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Punkty końcowe usługi User Service.}}{32}{table.4}\protected@file@percent }
 \newlabel{tab:user_endpoints}{{4}{32}{Punkty końcowe usługi User Service}{table.4}{}}
 \citation{express}
+\citation{martin2022}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.3}Mechanizm autoryzacji żądań}{33}{subsubsection.5.2.3}\protected@file@percent }
 \newlabel{lst:middleware_auth_real}{{6}{33}{Implementacja oprogramowania pośredniczącego \texttt {requireAuth} (\texttt {requireAuth.ts})}{lstlisting.6}{}}
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {6}{\ignorespaces Implementacja oprogramowania pośredniczącego \texttt  {requireAuth} (\texttt  {requireAuth.ts})}}{33}{lstlisting.6}\protected@file@percent }
@@ -198,6 +201,7 @@
 \newlabel{tab:video_endpoints}{{8}{45}{Punkty końcowe usługi Video Service}{table.caption.10}{}}
 \citation{typescript}
 \citation{router}
+\citation{martin2022}
 \@writefile{toc}{\contentsline {section}{\numberline {6}Implementacja warstwy prezentacji}{46}{section.6}\protected@file@percent }
 \newlabel{sec:frontend}{{6}{46}{Implementacja warstwy prezentacji}{section.6}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Struktura architektoniczna aplikacji klienckiej}{46}{subsection.6.1}\protected@file@percent }
@@ -230,6 +234,7 @@
 \citation{octoprint}
 \citation{python}
 \citation{martin2022}
+\citation{iothub}
 \@writefile{toc}{\contentsline {section}{\numberline {7}Agent sprzętowy --- AddiPi Agent}{55}{section.7}\protected@file@percent }
 \newlabel{sec:agent}{{7}{55}{Agent sprzętowy --- AddiPi Agent}{section.7}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Opis ogólny}{55}{subsection.7.1}\protected@file@percent }
@@ -238,9 +243,9 @@
 \newlabel{lst:python_iot_init}{{12}{56}{Inicjalizacja klienta usługi Azure IoT Hub (\texttt {printer\_agent.py})}{lstlisting.12}{}}
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {12}{\ignorespaces Inicjalizacja klienta usługi Azure IoT Hub (\texttt  {printer\_agent.py})}}{56}{lstlisting.12}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.4}Obsługiwane metody bezpośrednie}{56}{subsection.7.4}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Metody bezpośrednie obsługiwane przez agenta sprzętowego.}}{56}{table.caption.16}\protected@file@percent }
-\newlabel{tab:agent_methods}{{9}{56}{Metody bezpośrednie obsługiwane przez agenta sprzętowego}{table.caption.16}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.5}Przebieg obsługi metody bezpośredniej \texttt  {startPrint}}{57}{subsection.7.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.5}Przebieg obsługi metody bezpośredniej \texttt  {startPrint}}{56}{subsection.7.5}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Metody bezpośrednie obsługiwane przez agenta sprzętowego.}}{57}{table.caption.16}\protected@file@percent }
+\newlabel{tab:agent_methods}{{9}{57}{Metody bezpośrednie obsługiwane przez agenta sprzętowego}{table.caption.16}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Diagram sekwencji obsługi metody bezpośredniej \texttt  {startPrint} przez \textit  {Azure IoT Hub}.}}{57}{figure.caption.17}\protected@file@percent }
 \newlabel{fig:startPrint_sequence}{{11}{57}{Diagram sekwencji obsługi metody bezpośredniej \texttt {startPrint} przez \textit {Azure IoT Hub}}{figure.caption.17}{}}
 \citation{octoprint}
@@ -250,118 +255,120 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.7}Niskopoziomowa komunikacja z serwerem OctoPrint}{58}{subsection.7.7}\protected@file@percent }
 \newlabel{lst:octoprint_methods}{{14}{59}{Struktura metod klasy \texttt {OctoPrintClient} i ich mapowanie na punkty końcowe API}{lstlisting.14}{}}
 \@writefile{lol}{\contentsline {lstlisting}{\numberline {14}{\ignorespaces Struktura metod klasy \texttt  {OctoPrintClient} i ich mapowanie na punkty końcowe API.}}{59}{lstlisting.14}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Interfejs systemu \textit  {OctoPrint} z widokiem aktywnego procesu druku.}}{59}{figure.caption.18}\protected@file@percent }
-\newlabel{fig:octoprint_panel}{{12}{59}{Interfejs systemu \textit {OctoPrint} z widokiem aktywnego procesu druku}{figure.caption.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Interfejs systemu \textit  {OctoPrint} z widokiem aktywnego procesu druku.}}{60}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:octoprint_panel}{{12}{60}{Interfejs systemu \textit {OctoPrint} z widokiem aktywnego procesu druku}{figure.caption.18}{}}
 \citation{gibson2021}
 \citation{grabcad219}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Projekt mechaniczny obudowy i pozycjonowania zestawu}{60}{section.8}\protected@file@percent }
-\newlabel{sec:cad}{{8}{60}{Projekt mechaniczny obudowy i pozycjonowania zestawu}{section.8}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Cel i zakres projektu mechanicznego}{60}{subsection.8.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Moduł CASE --- obudowa Raspberry Pi z kamerą}{60}{subsection.8.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.1}Podstawa projektowa}{60}{subsubsection.8.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.2}Zakres modyfikacji geometrycznych}{61}{subsubsection.8.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.3}Integracja strukturalna i mocowanie modułu kamery brzegowej}{61}{subsubsection.8.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.4}Struktura plików i organizacja zasobów modułu CASE}{62}{subsubsection.8.2.4}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Struktura katalogów i plików produkcyjnych modułu CASE}}{62}{table.caption.19}\protected@file@percent }
-\newlabel{tab:case_file_structure}{{10}{62}{Struktura katalogów i plików produkcyjnych modułu CASE}{table.caption.19}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}Moduł STAND --- regulowany mechanizm pozycjonujący}{62}{subsection.8.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Gotowa konstrukcja mechaniczna zainstalowana przy urządzeniu wytwórczym.}}{63}{figure.caption.20}\protected@file@percent }
-\newlabel{fig:physical_stand}{{13}{63}{Gotowa konstrukcja mechaniczna zainstalowana przy urządzeniu wytwórczym}{figure.caption.20}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.4}Złożenie kompletnego modelu geometrycznego}{63}{subsection.8.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}Projekt mechaniczny obudowy i pozycjonowania zestawu}{61}{section.8}\protected@file@percent }
+\newlabel{sec:cad}{{8}{61}{Projekt mechaniczny obudowy i pozycjonowania zestawu}{section.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Cel i zakres projektu mechanicznego}{61}{subsection.8.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Moduł CASE --- obudowa Raspberry Pi z kamerą}{61}{subsection.8.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.1}Podstawa projektowa}{61}{subsubsection.8.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.2}Zakres modyfikacji geometrycznych}{62}{subsubsection.8.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.3}Integracja strukturalna i mocowanie modułu kamery brzegowej}{62}{subsubsection.8.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.4}Struktura plików i organizacja zasobów modułu CASE}{63}{subsubsection.8.2.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Struktura katalogów i plików produkcyjnych modułu CASE}}{63}{table.caption.19}\protected@file@percent }
+\newlabel{tab:case_file_structure}{{10}{63}{Struktura katalogów i plików produkcyjnych modułu CASE}{table.caption.19}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}Moduł STAND --- regulowany mechanizm pozycjonujący}{63}{subsection.8.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Gotowa konstrukcja mechaniczna zainstalowana przy urządzeniu wytwórczym.}}{64}{figure.caption.20}\protected@file@percent }
+\newlabel{fig:physical_stand}{{13}{64}{Gotowa konstrukcja mechaniczna zainstalowana przy urządzeniu wytwórczym}{figure.caption.20}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.4}Złożenie kompletnego modelu geometrycznego}{64}{subsection.8.4}\protected@file@percent }
 \citation{gibson2021}
-\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Trójwymiarowy widok złożenia modułów CASE oraz STAND w środowisku CAD.}}{64}{figure.caption.21}\protected@file@percent }
-\newlabel{fig:full_assembly}{{14}{64}{Trójwymiarowy widok złożenia modułów CASE oraz STAND w środowisku CAD}{figure.caption.21}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Struktura hierarchiczna złożeń, komponentów oraz formatów produkcyjnych modułów CAD.}}{64}{figure.caption.22}\protected@file@percent }
-\newlabel{fig:cad_schematic}{{15}{64}{Struktura hierarchiczna złożeń, komponentów oraz formatów produkcyjnych modułów CAD}{figure.caption.22}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.5}Parametry wydruku}{64}{subsection.8.5}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces Zalecane parametry druku 3D elementów obudowy systemu.}}{65}{table.caption.23}\protected@file@percent }
-\newlabel{tab:print_parameters}{{11}{65}{Zalecane parametry druku 3D elementów obudowy systemu}{table.caption.23}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.6}Procedura montażu zestawu mechanicznego}{65}{subsection.8.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Trójwymiarowy widok złożenia modułów CASE oraz STAND w środowisku CAD.}}{65}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:full_assembly}{{14}{65}{Trójwymiarowy widok złożenia modułów CASE oraz STAND w środowisku CAD}{figure.caption.21}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Struktura hierarchiczna złożeń, komponentów oraz formatów produkcyjnych modułów CAD.}}{65}{figure.caption.22}\protected@file@percent }
+\newlabel{fig:cad_schematic}{{15}{65}{Struktura hierarchiczna złożeń, komponentów oraz formatów produkcyjnych modułów CAD}{figure.caption.22}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.5}Parametry wydruku}{65}{subsection.8.5}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces Zalecane parametry druku 3D elementów obudowy systemu.}}{66}{table.caption.23}\protected@file@percent }
+\newlabel{tab:print_parameters}{{11}{66}{Zalecane parametry druku 3D elementów obudowy systemu}{table.caption.23}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.6}Procedura montażu zestawu mechanicznego}{66}{subsection.8.6}\protected@file@percent }
 \citation{octopiimg}
-\@writefile{toc}{\contentsline {section}{\numberline {9}Konfiguracja Raspberry Pi}{66}{section.9}\protected@file@percent }
-\newlabel{sec:rpi}{{9}{66}{Konfiguracja Raspberry Pi}{section.9}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.1}Opis środowiska}{66}{subsection.9.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.2}Instalacja agenta}{66}{subsection.9.2}\protected@file@percent }
-\newlabel{lst:agent_install}{{15}{66}{Instalacja i inicjalizacja agenta na platformie Raspberry Pi}{lstlisting.15}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {15}{\ignorespaces Instalacja i inicjalizacja agenta na platformie Raspberry Pi.}}{66}{lstlisting.15}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.3}Automatyzacja uruchamiania za pomocą systemd}{67}{subsection.9.3}\protected@file@percent }
-\newlabel{lst:systemd_unit}{{16}{67}{Plik jednostki konfiguracji addipi-agent.service dla menedżera systemd}{lstlisting.16}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {16}{\ignorespaces Plik jednostki konfiguracji addipi-agent.service dla menedżera systemd.}}{67}{lstlisting.16}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Konfiguracja Raspberry Pi}{67}{section.9}\protected@file@percent }
+\newlabel{sec:rpi}{{9}{67}{Konfiguracja Raspberry Pi}{section.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.1}Opis środowiska}{67}{subsection.9.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.2}Instalacja agenta}{67}{subsection.9.2}\protected@file@percent }
+\newlabel{lst:agent_install}{{15}{67}{Instalacja i inicjalizacja agenta na platformie Raspberry Pi}{lstlisting.15}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {15}{\ignorespaces Instalacja i inicjalizacja agenta na platformie Raspberry Pi.}}{67}{lstlisting.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.3}Automatyzacja uruchamiania za pomocą systemd}{68}{subsection.9.3}\protected@file@percent }
+\newlabel{lst:systemd_unit}{{16}{68}{Plik jednostki konfiguracji addipi-agent.service dla menedżera systemd}{lstlisting.16}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {16}{\ignorespaces Plik jednostki konfiguracji addipi-agent.service dla menedżera systemd.}}{68}{lstlisting.16}\protected@file@percent }
 \citation{cloudflare}
-\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Diagram potoku rozruchowego mikrokomputera po restarcie systemu.}}{68}{figure.caption.24}\protected@file@percent }
-\newlabel{fig:rpi_boot}{{16}{68}{Diagram potoku rozruchowego mikrokomputera po restarcie systemu}{figure.caption.24}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.4}Udostępnianie strumienia wideo przez Cloudflare Tunnel}{68}{subsection.9.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.4.1}Instalacja narzędzia cloudflared}{68}{subsubsection.9.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.4.2}Skrypt automatyzacji publikacji adresu sieciowego}{69}{subsubsection.9.4.2}\protected@file@percent }
-\newlabel{lst:bash_script}{{17}{69}{Skrypt automatycznej rejestracji dynamicznego adresu URL tunelu (\texttt {publish-camera-url.sh})}{lstlisting.17}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {17}{\ignorespaces Skrypt automatycznej rejestracji dynamicznego adresu URL tunelu (\texttt  {publish-camera-url.sh}).}}{69}{lstlisting.17}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.4.3}Automatyzacja odnawiania adresu w harmonogramie cron}{70}{subsubsection.9.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.5}Konfiguracja harmonogramu zadań crontab}{71}{subsection.9.5}\protected@file@percent }
-\newlabel{lst:crontab_config}{{18}{71}{Konfiguracja zadań harmonogramu cron dla użytkownika pi}{lstlisting.18}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {18}{\ignorespaces Konfiguracja zadań harmonogramu cron dla użytkownika pi.}}{71}{lstlisting.18}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.5.1}Uzasadnienie zastosowanych parametrów}{71}{subsubsection.9.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.6}Problem dostępności sieci podczas uruchamiania systemu}{71}{subsection.9.6}\protected@file@percent }
-\newlabel{lst:systemd_camera}{{19}{72}{Alternatywna konfiguracja skryptu publikacji jako uslugi systemd}{lstlisting.19}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {19}{\ignorespaces Alternatywna konfiguracja skryptu publikacji jako uslugi systemd.}}{72}{lstlisting.19}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.7}Podsumowanie konfiguracji węzła brzegowego}{72}{subsection.9.7}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Diagram potoku rozruchowego mikrokomputera po restarcie systemu.}}{69}{figure.caption.24}\protected@file@percent }
+\newlabel{fig:rpi_boot}{{16}{69}{Diagram potoku rozruchowego mikrokomputera po restarcie systemu}{figure.caption.24}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.4}Udostępnianie strumienia wideo przez Cloudflare Tunnel}{69}{subsection.9.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.4.1}Instalacja narzędzia cloudflared}{69}{subsubsection.9.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.4.2}Skrypt automatyzacji publikacji adresu sieciowego}{70}{subsubsection.9.4.2}\protected@file@percent }
+\newlabel{lst:bash_script}{{17}{70}{Skrypt automatycznej rejestracji dynamicznego adresu URL tunelu (\texttt {publish-camera-url.sh})}{lstlisting.17}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {17}{\ignorespaces Skrypt automatycznej rejestracji dynamicznego adresu URL tunelu (\texttt  {publish-camera-url.sh}).}}{70}{lstlisting.17}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.4.3}Automatyzacja odnawiania adresu w harmonogramie cron}{71}{subsubsection.9.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.5}Konfiguracja harmonogramu zadań crontab}{72}{subsection.9.5}\protected@file@percent }
+\newlabel{lst:crontab_config}{{18}{72}{Konfiguracja zadań harmonogramu cron dla użytkownika pi}{lstlisting.18}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {18}{\ignorespaces Konfiguracja zadań harmonogramu cron dla użytkownika pi.}}{72}{lstlisting.18}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.5.1}Uzasadnienie zastosowanych parametrów}{72}{subsubsection.9.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.6}Problem dostępności sieci podczas uruchamiania systemu}{72}{subsection.9.6}\protected@file@percent }
+\newlabel{lst:systemd_camera}{{19}{73}{Alternatywna konfiguracja skryptu publikacji jako uslugi systemd}{lstlisting.19}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {19}{\ignorespaces Alternatywna konfiguracja skryptu publikacji jako uslugi systemd.}}{73}{lstlisting.19}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.7}Podsumowanie konfiguracji węzła brzegowego}{73}{subsection.9.7}\protected@file@percent }
 \gdef \LT@iv {\LT@entry 
     {1}{83.13188pt}\LT@entry 
     {1}{125.81102pt}\LT@entry 
     {1}{217.84845pt}}
-\@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces Podsumowanie usług i zadań cyklicznych na platformie Raspberry Pi.}}{73}{table.12}\protected@file@percent }
-\newlabel{tab:rpi_summary}{{12}{73}{Podsumowanie usług i zadań cyklicznych na platformie Raspberry Pi}{table.12}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces Podsumowanie usług i zadań cyklicznych na platformie Raspberry Pi.}}{74}{table.12}\protected@file@percent }
+\newlabel{tab:rpi_summary}{{12}{74}{Podsumowanie usług i zadań cyklicznych na platformie Raspberry Pi}{table.12}{}}
 \citation{oci}
-\@writefile{toc}{\contentsline {section}{\numberline {10}Wdrożenie i infrastruktura produkcyjna}{74}{section.10}\protected@file@percent }
-\newlabel{sec:wdrozenie}{{10}{74}{Wdrożenie i infrastruktura produkcyjna}{section.10}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.1}Hybrydowa strategia architektoniczna}{74}{subsection.10.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {13}{\ignorespaces Podział infrastruktury produkcyjnej systemu AddiPi.}}{74}{table.caption.25}\protected@file@percent }
-\newlabel{tab:infrastructure_split}{{13}{74}{Podział infrastruktury produkcyjnej systemu AddiPi}{table.caption.25}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.2}Zarządzane usługi integracji danych i komunikacji chmurowej}{74}{subsection.10.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {10}Wdrożenie i infrastruktura produkcyjna}{75}{section.10}\protected@file@percent }
+\newlabel{sec:wdrozenie}{{10}{75}{Wdrożenie i infrastruktura produkcyjna}{section.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.1}Hybrydowa strategia architektoniczna}{75}{subsection.10.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {13}{\ignorespaces Podział infrastruktury produkcyjnej systemu AddiPi.}}{75}{table.caption.25}\protected@file@percent }
+\newlabel{tab:infrastructure_split}{{13}{75}{Podział infrastruktury produkcyjnej systemu AddiPi}{table.caption.25}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.2}Zarządzane usługi integracji danych i komunikacji chmurowej}{75}{subsection.10.2}\protected@file@percent }
 \citation{terraform}
-\@writefile{lot}{\contentsline {table}{\numberline {14}{\ignorespaces Specyfikacja konfiguracji usług Microsoft Azure wykorzystanych w projekcie.}}{75}{table.caption.26}\protected@file@percent }
-\newlabel{tab:azure_services_config}{{14}{75}{Specyfikacja konfiguracji usług Microsoft Azure wykorzystanych w projekcie}{table.caption.26}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.3}Automatyzacja orkiestracji chmurowej --- Terraform}{75}{subsection.10.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {14}{\ignorespaces Specyfikacja konfiguracji usług Microsoft Azure wykorzystanych w projekcie.}}{76}{table.caption.26}\protected@file@percent }
+\newlabel{tab:azure_services_config}{{14}{76}{Specyfikacja konfiguracji usług Microsoft Azure wykorzystanych w projekcie}{table.caption.26}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.3}Automatyzacja orkiestracji chmurowej --- Terraform}{76}{subsection.10.3}\protected@file@percent }
 \citation{nodejs}
-\newlabel{lst:terraform_cmd}{{20}{76}{Inicjalizacja i aplikacja planu infrastruktury przez Terraform}{lstlisting.20}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {20}{\ignorespaces Inicjalizacja i aplikacja planu infrastruktury przez Terraform.}}{76}{lstlisting.20}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.4}Specyfikacja konteneryzacji i optymalizacja obrazów}{76}{subsection.10.4}\protected@file@percent }
-\newlabel{lst:dockerfile_node}{{21}{76}{Wieloetapowy plik konfiguracyjny Dockerfile serwisu Node.js}{lstlisting.21}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {21}{\ignorespaces Wieloetapowy plik konfiguracyjny Dockerfile serwisu Node.js.}}{76}{lstlisting.21}\protected@file@percent }
-\newlabel{lst:dockerfile_python}{{22}{77}{Konfiguracja Dockerfile dla uslugi Files Service (Python)}{lstlisting.22}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {22}{\ignorespaces Konfiguracja Dockerfile dla uslugi Files Service (Python).}}{77}{lstlisting.22}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.5}Automatyzacja procesów CI/CD}{77}{subsection.10.5}\protected@file@percent }
+\newlabel{lst:terraform_cmd}{{20}{77}{Inicjalizacja i aplikacja planu infrastruktury przez Terraform}{lstlisting.20}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {20}{\ignorespaces Inicjalizacja i aplikacja planu infrastruktury przez Terraform.}}{77}{lstlisting.20}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.4}Specyfikacja konteneryzacji i optymalizacja obrazów}{77}{subsection.10.4}\protected@file@percent }
+\newlabel{lst:dockerfile_node}{{21}{77}{Wieloetapowy plik konfiguracyjny Dockerfile serwisu Node.js}{lstlisting.21}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {21}{\ignorespaces Wieloetapowy plik konfiguracyjny Dockerfile serwisu Node.js.}}{77}{lstlisting.21}\protected@file@percent }
+\newlabel{lst:dockerfile_python}{{22}{78}{Konfiguracja Dockerfile dla uslugi Files Service (Python)}{lstlisting.22}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {22}{\ignorespaces Konfiguracja Dockerfile dla uslugi Files Service (Python).}}{78}{lstlisting.22}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.5}Automatyzacja procesów CI/CD}{78}{subsection.10.5}\protected@file@percent }
 \citation{watchtower}
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.6}Orkiestracja kontenerowa warstwy serwerowej --- Docker Compose}{78}{subsection.10.6}\protected@file@percent }
-\newlabel{lst:docker_compose_yaml}{{23}{78}{Fragment produkcyjnego pliku konfiguracyjnego docker-compose.ghcr.yml}{lstlisting.23}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {23}{\ignorespaces Fragment produkcyjnego pliku konfiguracyjnego docker-compose.ghcr.yml.}}{78}{lstlisting.23}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Diagram architektury kontenerów Docker Compose i ich relacji zależności.}}{79}{figure.caption.27}\protected@file@percent }
-\newlabel{fig:container_schema}{{17}{79}{Diagram architektury kontenerów Docker Compose i ich relacji zależności}{figure.caption.27}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.6}Orkiestracja kontenerowa warstwy serwerowej --- Docker Compose}{79}{subsection.10.6}\protected@file@percent }
+\newlabel{lst:docker_compose_yaml}{{23}{79}{Fragment produkcyjnego pliku konfiguracyjnego docker-compose.ghcr.yml}{lstlisting.23}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {23}{\ignorespaces Fragment produkcyjnego pliku konfiguracyjnego docker-compose.ghcr.yml.}}{79}{lstlisting.23}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Diagram architektury kontenerów Docker Compose i ich relacji zależności.}}{80}{figure.caption.27}\protected@file@percent }
+\newlabel{fig:container_schema}{{17}{80}{Diagram architektury kontenerów Docker Compose i ich relacji zależności}{figure.caption.27}{}}
 \citation{vercel}
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.7}Zarządzanie konfiguracją i sekretami przez zmienne środowiskowe}{80}{subsection.10.7}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {15}{\ignorespaces Kluczowe zmienne środowiskowe systemu}}{80}{table.caption.28}\protected@file@percent }
-\newlabel{tab:env_variables}{{15}{80}{Kluczowe zmienne środowiskowe systemu}{table.caption.28}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.8}Wdrożenie warstwy prezentacji oraz usługi wideo}{80}{subsection.10.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.9}Wdrożenie komponentu brzegowego}{81}{subsection.10.9}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Widok zarejestrowanego i połączonego mikrokomputera w panelu usługi Azure IoT Hub.}}{81}{figure.caption.29}\protected@file@percent }
-\newlabel{fig:iot_hub}{{18}{81}{Widok zarejestrowanego i połączonego mikrokomputera w panelu usługi Azure IoT Hub}{figure.caption.29}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.7}Zarządzanie konfiguracją i sekretami przez zmienne środowiskowe}{81}{subsection.10.7}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {15}{\ignorespaces Kluczowe zmienne środowiskowe systemu}}{81}{table.caption.28}\protected@file@percent }
+\newlabel{tab:env_variables}{{15}{81}{Kluczowe zmienne środowiskowe systemu}{table.caption.28}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.8}Wdrożenie warstwy prezentacji oraz usługi wideo}{81}{subsection.10.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.9}Wdrożenie komponentu brzegowego}{82}{subsection.10.9}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Widok zarejestrowanego i połączonego mikrokomputera w panelu usługi Azure IoT Hub.}}{82}{figure.caption.29}\protected@file@percent }
+\newlabel{fig:iot_hub}{{18}{82}{Widok zarejestrowanego i połączonego mikrokomputera w panelu usługi Azure IoT Hub}{figure.caption.29}{}}
 \citation{richardson2020}
 \citation{newman2022}
 \citation{jwt}
-\@writefile{toc}{\contentsline {section}{\numberline {11}Podsumowanie i wnioski końcowe}{82}{section.11}\protected@file@percent }
-\newlabel{sec:podsumowanie}{{11}{82}{Podsumowanie i wnioski końcowe}{section.11}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {11.1}Osiągnięte rezultaty i wkład inżynierski}{82}{subsection.11.1}\protected@file@percent }
+\citation{iothub}
+\@writefile{toc}{\contentsline {section}{\numberline {11}Podsumowanie i wnioski końcowe}{83}{section.11}\protected@file@percent }
+\newlabel{sec:podsumowanie}{{11}{83}{Podsumowanie i wnioski końcowe}{section.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.1}Osiągnięte rezultaty i wkład inżynierski}{83}{subsection.11.1}\protected@file@percent }
 \citation{kleppmann2017}
-\@writefile{toc}{\contentsline {subsection}{\numberline {11.2}Analiza napotkanych trudności projektowo-implementacyjnych}{84}{subsection.11.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.2}Analiza napotkanych trudności projektowo-implementacyjnych}{85}{subsection.11.2}\protected@file@percent }
 \citation{kleppmann2017}
-\@writefile{toc}{\contentsline {subsection}{\numberline {11.3}Ograniczenia przyjętego rozwiązania}{86}{subsection.11.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {11.4}Perspektywy i potencjalne kierunki dalszego rozwoju systemu}{87}{subsection.11.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.3}Ograniczenia przyjętego rozwiązania}{87}{subsection.11.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.4}Perspektywy i potencjalne kierunki dalszego rozwoju systemu}{88}{subsection.11.4}\protected@file@percent }
+\citation{martin2022}
 \citation{newman2022}
 \citation{kleppmann2017}
 \citation{richardson2020}
 \citation{martin2022}
 \citation{typescript}
 \citation{python}
-\@writefile{toc}{\contentsline {subsection}{\numberline {11.5}Wnioski końcowe}{88}{subsection.11.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.5}Wnioski końcowe}{89}{subsection.11.5}\protected@file@percent }
 \citation{servicebus}
 \citation{cosmosdb}
 \citation{octoprint}
@@ -369,32 +376,32 @@
 \bibdata{bibliografia}
 \bibcite{gibson2021}{1}
 \bibcite{jwt}{2}
-\bibcite{bcrypt}{3}
-\bibcite{octoprint}{4}
-\bibcite{typescript}{5}
-\bibcite{nodejs}{6}
-\bibcite{python}{7}
-\bibcite{express}{8}
-\bibcite{cosmosdb}{9}
-\bibcite{kleppmann2017}{10}
-\bibcite{blobstorage}{11}
-\bibcite{servicebus}{12}
-\bibcite{richardson2020}{13}
-\bibcite{iothub}{14}
-\bibcite{react}{15}
-\bibcite{vite}{16}
-\bibcite{zustand}{17}
-\bibcite{tailwind}{18}
-\bibcite{docker}{19}
-\bibcite{terraform}{20}
-\bibcite{oci}{21}
-\bibcite{solidworks}{22}
-\bibcite{postgresql}{23}
-\bibcite{mongodb_atlas}{24}
-\bibcite{rabbitmq}{25}
-\bibcite{apache_kafka}{26}
-\bibcite{newman2022}{27}
-\bibcite{martin2022}{28}
+\bibcite{kleppmann2017}{3}
+\bibcite{bcrypt}{4}
+\bibcite{octoprint}{5}
+\bibcite{typescript}{6}
+\bibcite{martin2022}{7}
+\bibcite{nodejs}{8}
+\bibcite{python}{9}
+\bibcite{express}{10}
+\bibcite{cosmosdb}{11}
+\bibcite{blobstorage}{12}
+\bibcite{servicebus}{13}
+\bibcite{richardson2020}{14}
+\bibcite{iothub}{15}
+\bibcite{react}{16}
+\bibcite{vite}{17}
+\bibcite{zustand}{18}
+\bibcite{tailwind}{19}
+\bibcite{docker}{20}
+\bibcite{terraform}{21}
+\bibcite{oci}{22}
+\bibcite{solidworks}{23}
+\bibcite{postgresql}{24}
+\bibcite{mongodb_atlas}{25}
+\bibcite{rabbitmq}{26}
+\bibcite{apache_kafka}{27}
+\bibcite{newman2022}{28}
 \bibcite{nodemailer}{29}
 \bibcite{flask}{30}
 \bibcite{router}{31}
@@ -405,4 +412,4 @@
 \bibcite{cloudflare}{36}
 \bibcite{watchtower}{37}
 \bibcite{vercel}{38}
-\gdef \@abspage@last{92}
+\gdef \@abspage@last{93}

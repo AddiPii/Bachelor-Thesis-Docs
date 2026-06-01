@@ -10,6 +10,12 @@ M.~Jones, J.~Bradley, and N.~Sakimura.
 \newblock {RFC} 7519: {JSON} {W}eb {T}oken ({JWT}).
 \newblock Technical report, IETF, 2015.
 
+\bibitem{kleppmann2017}
+Martin Kleppmann.
+\newblock {\em Designing {D}ata-{I}ntensive {A}pplications: {T}he {B}ig {I}deas
+  {B}ehind {R}eliable, {S}calable, and {M}aintainable {S}ystems}.
+\newblock O'Reilly Media, 2017.
+
 \bibitem{bcrypt}
 Niels Provos and David Mazi{\`e}res.
 \newblock A {F}uture-{A}daptable {P}assword {S}cheme.
@@ -27,6 +33,11 @@ Gina H{\"a}u{\ss}ge.
 \newblock Typescript -- {J}ava{S}cript {W}ith {S}yntax {F}or {T}ypes.
 \newblock \url{https://www.typescriptlang.org}.
 \newblock Dostęp: 2026.
+
+\bibitem{martin2022}
+Robert~C. Martin.
+\newblock {\em Czysty kod. {P}odr\k{e}cznik dobrego programisty.}
+\newblock Helion, 2 edition, 2022.
 
 \bibitem{nodejs}
 {OpenJS Foundation}.
@@ -52,12 +63,6 @@ Gina H{\"a}u{\ss}ge.
 \newblock Azure {C}osmos {DB} documentation.
 \newblock \url{https://learn.microsoft.com/en-us/azure/cosmos-db/}.
 \newblock Dostęp: 2026.
-
-\bibitem{kleppmann2017}
-Martin Kleppmann.
-\newblock {\em Designing {D}ata-{I}ntensive {A}pplications: {T}he {B}ig {I}deas
-  {B}ehind {R}eliable, {S}calable, and {M}aintainable {S}ystems}.
-\newblock O'Reilly Media, 2017.
 
 \bibitem{blobstorage}
 {Microsoft Corporation}.
@@ -160,11 +165,6 @@ Sam Newman.
 \newblock {\em Budowanie mikrous{\l}ug. Projektowanie drobnoziarnistych
   system{\'o}w. Wydanie II}.
 \newblock Helion, 2022.
-
-\bibitem{martin2022}
-Robert~C. Martin.
-\newblock {\em Czysty kod. {P}odr\k{e}cznik dobrego programisty.}
-\newblock Helion, 2 edition, 2022.
 
 \bibitem{nodemailer}
 {Andris Reinman}.

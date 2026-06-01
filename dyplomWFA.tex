@@ -518,7 +518,7 @@ Przeprowadzona analiza wykazała, że żadne z dostępnych na rynku rozwiązań 
 
 \subsubsection{TypeScript oraz Node.js}
 
-Większość serwisów backendowych oraz aplikację frontendową zaimplementowano w języku TypeScript~\cite{typescript}, będącym nadzbiorem języka JavaScript, który wprowadza statyczne typowanie. Wybór ten znacząco ułatwia utrzymanie rozbudowanych baz kodu poprzez wykrywanie błędów na etapie kompilacji, zaawansowane wsparcie środowisk programistycznych (IDE) oraz samodokumentowanie struktury danych za pomocą typów.
+Większość serwisów backendowych oraz aplikację frontendową zaimplementowano w języku TypeScript~\cite{typescript}, będącym nadzbiorem języka JavaScript, który wprowadza statyczne typowanie. Wybór ten znacząco ułatwia utrzymanie rozbudowanych baz kodu~\cite{martin2022} poprzez wykrywanie błędów na etapie kompilacji, zaawansowane wsparcie środowisk programistycznych (IDE) oraz samodokumentowanie struktury danych za pomocą typów.
 
 Platformę Node.js~\cite{nodejs} wybrano ze względu na asynchroniczny, nieblokujący model wejścia-wyjścia. Rozwiązanie to charakteryzuje się wysoką wydajnością w systemach obsługujących liczne, równoległe połączenia HTTP oraz intensywną komunikację z usługami zewnętrznymi, takimi jak bazy danych, kolejki komunikatów czy usługa \textit{Azure IoT Hub}.
 
@@ -663,15 +663,15 @@ W ramach systemu wyodrębniono następujące komponenty:
 	
 	\item \textbf{AddiPi Files Service} (port 5000) - umożliwia przesyłanie oraz przechowywanie plików G-code.
 	
-	\item \textbf{AddiPi Queue Service} (porty 3070) - odbiera komunikaty z kolejki oraz zapisuje informacje o zadaniach w bazie Azure Cosmos DB.
+	\item \textbf{AddiPi Queue Service} (porty 3070) - odbiera komunikaty z kolejki oraz zapisuje informacje o zadaniach w bazie \textit{Azure Cosmos DB}.
 	
-	\item \textbf{AddiPi Printer Service} (port 3050) - odpowiada za harmonogramowanie zadań do wydruku, komunikację z Azure IoT Hub oraz odbiór telemetrii urządzenia.
+	\item \textbf{AddiPi Printer Service} (port 3050) - odpowiada za harmonogramowanie zadań do wydruku, komunikację z \textit{Azure IoT Hub}~\cite{iothub} oraz odbiór telemetrii urządzenia.
 	
-	\item \textbf{AddiPi Video Service} (port 3003) - odpowiada za rejestrację i udostępnianie adresu URL kamery systemu OctoPrint.
+	\item \textbf{AddiPi Video Service} (port 3003) - odpowiada za rejestrację i udostępnianie adresu URL kamery systemu \textit{OctoPrint}.
 	
-	\item \textbf{AddiPi Agent} (Raspberry Pi) - agent uruchamiany na urządzeniu Raspberry Pi, pośredniczący pomiędzy Azure IoT Hub a systemem OctoPrint.
+	\item \textbf{AddiPi Agent} (Raspberry Pi) - agent uruchamiany na urządzeniu Raspberry Pi, pośredniczący pomiędzy Azure IoT Hub a systemem \textit{OctoPrint}.
 	
-	\item \textbf{AddiPi Frontend} (Vercel / port 5173) - aplikacja webowa zbudowana z wykorzystaniem biblioteki React.
+	\item \textbf{AddiPi Frontend} (Vercel / port 5173) - aplikacja webowa zbudowana z wykorzystaniem biblioteki \textit{React}.
 \end{enumerate}
 
 \subsection{Diagram architektury}
@@ -1023,7 +1023,7 @@ W tabeli~\ref{tab:user_endpoints} wyszczególniono i opisano punkty końcowe (an
 
 Na listingu~\ref{lst:middleware_auth_real} zaprezentowano produkcyjną implementację oprogramowania pośredniczącego \texttt{requireAuth}. Komponent ten w pełni wykorzystuje silne typowanie języka TypeScript, w tym parametry generyczne interfejsów \texttt{Request} oraz \texttt{Response} z biblioteki \texttt{express}~\cite{express}. 
 
-Procedura autoryzacji polega na bezpiecznej ekstrakcji tokenu dostępu z nagłówka \texttt{Authorization}, a następnie wykonaniu asynchronicznego żądania sieciowego metodą \texttt{POST} do punktu końcowego usługi \textit{Auth Service}. Po odebraniu odpowiedzi struktura danych jest rzutowana na dedykowany typ \texttt{Data}. W przypadku poprawnej walidacji następuje asercja typu obiektu żądania, wstrzyknięcie profilu użytkownika do pola \texttt{user} oraz wywołanie funkcji \texttt{next()}, która przekazuje sterowanie do kolejnego elementu w potoku przetwarzania (ang. \textit{middleware chain}).
+Procedura autoryzacji polega na bezpiecznej ekstrakcji tokenu dostępu z nagłówka \texttt{Authorization}, a następnie wykonaniu asynchronicznego żądania sieciowego metodą \texttt{POST} do punktu końcowego usługi \textit{Auth Service}. Po odebraniu odpowiedzi struktura danych jest rzutowana na dedykowany typ \texttt{Data}. W przypadku poprawnej walidacji następuje asercja typu obiektu żądania, wstrzyknięcie profilu użytkownika do pola \texttt{user} oraz wywołanie funkcji \texttt{next()}, która przekazuje sterowanie do kolejnego elementu w potoku przetwarzania~\cite{martin2022} (ang. \textit{middleware chain}).
 
 \begin{lstlisting}[language=TypeScript,caption={Implementacja oprogramowania pośredniczącego \texttt{requireAuth} (\texttt{requireAuth.ts})},style=tsStyle,label={lst:middleware_auth_real}]
 import { CONFIG } from "../config/config";
@@ -1398,7 +1398,7 @@ Aplikacja frontendowa została zaimplementowana z wykorzystaniem biblioteki \tex
 
 Zarządzanie globalnym stanem aplikacji klienckiej (obejmującym dane profilowe zalogowanego użytkownika, bieżący status operacyjny drukarki oraz metryki systemowe) powierzono bibliotece \textit{Zustand}. W celu zachowania ciągłości sesji i preferencji interfejsu (takich jak motyw graficzny czy wybrany język), wykorzystano oprogramowanie pośredniczące \texttt{persist}, które automatyzuje proces synchronizacji i trwałego przechowywania danych w pamięci podręcznej \texttt{localStorage} przeglądarki internetowej.
 
-Struktura drzewa katalogów aplikacji została zorganizowana w sposób modułowy i przedstawia się następująco:
+Struktura drzewa katalogów aplikacji została zorganizowana w sposób modułowy~\cite{martin2022} i przedstawia się następująco:
 \begin{itemize}
 	\item \texttt{src/components/} --- komponenty interfejsu użytkownika wielokrotnego użytku, odpowiadające za renderowanie pojedynczych elementów (m.in. \texttt{Card}, \texttt{StatusBadge}, \texttt{ProgressBar}, \texttt{ConfirmDialog}, \texttt{Layout}, \texttt{LoadingSpinner}),
 	\item \texttt{src/pages/} --- komponenty wysokiego poziomu reprezentujące autonomiczne widoki aplikacji (m.in. \texttt{HomePage}, \texttt{LoginPage}, \texttt{RegisterPage}, \texttt{DashboardPage}, \texttt{UploadPage}, \texttt{ProfilePage}, \texttt{PrintControlPage}, \texttt{AdminDashboard}),
@@ -1588,7 +1588,7 @@ W celu zapewnienia wysokiej modularności oraz łatwości rozbudowy kodu źród�
 
 \subsection{Połączenie z IoT Hub}
 
-Agent sprzętowy inicjuje i utrzymuje stałe połączenie z usługą \textit{Azure IoT Hub} za pośrednictwem protokołu MQTT, wykorzystując do tego celu unikalny ciąg uwierzytelniający urządzenia (ang. \textit{device connection string}). Na listingu~\ref{lst:python_iot_init} przedstawiono fragment kodu odpowiedzialny za instancjonowanie asynchronicznego klienta oraz rejestrację funkcji zwrotnej (ang. \textit{callback function}) dedykowanej do obsługi przychodzących żądań RPC.
+Agent sprzętowy inicjuje i utrzymuje stałe połączenie z usługą \textit{Azure IoT Hub}~\cite{iothub} za pośrednictwem protokołu MQTT, wykorzystując do tego celu unikalny ciąg uwierzytelniający urządzenia (ang. \textit{device connection string}). Na listingu~\ref{lst:python_iot_init} przedstawiono fragment kodu odpowiedzialny za instancjonowanie asynchronicznego klienta oraz rejestrację funkcji zwrotnej (ang. \textit{callback function}) dedykowanej do obsługi przychodzących żądań RPC.
 
 \begin{lstlisting}[language=Python,caption={Inicjalizacja klienta usługi Azure IoT Hub (\texttt{printer\_agent.py})}, style=pyStyle, label={lst:python_iot_init}]
 	self.iot_client = IoTHubDeviceClient.
@@ -2351,7 +2351,7 @@ W ramach realizacji projektu inżynierskiego opracowano i zaimplementowano nast�
 	\item \textbf{Rozproszona architektura mikroserwisowa}~\cite{richardson2020}~\cite{newman2022} --- struktura backendowa złożona z sześciu autonomicznych serwisów komunikujących się hybrydowo za pośrednictwem synchronicznych interfejsów REST API oraz asynchronicznej magistrali komunikatów \textit{Azure Service Bus},
 	\item \textbf{Scentralizowany podsystem bezpieczeństwa} --- model uwierzytelniania i autoryzacji bazujący na standardzie podwójnych tokenów JWT~\cite{jwt}, integrujący mechanizm bezpiecznego odświeżania sesji, dwuetapową weryfikację adresów e-mail w domenie akademickiej oraz kontrolę dostępu opartą na rolach (RBAC),
 	\item \textbf{Mechanizm orkiestracji i harmonogramowania zadań} --- zaawansowany algorytm zarządzania kolejką produkcyjną, pozwalający zarówno na natychmiastową alokację zasobów sprzętowych, jak i długoterminowe planowanie kalendarzowe procesów przyrostowych,
-	\item \textbf{Integracja brzegowa IoT} --- powiązanie platformy sprzętowej z usługą \textit{Azure IoT Hub}, umożliwiające synchroniczne sterowanie drukarką 3D za pomocą wywołań metod bezpośrednich (ang. \textit{Direct Methods}) w standardzie RPC,
+	\item \textbf{Integracja brzegowa IoT} --- powiązanie platformy sprzętowej z usługą \textit{Azure IoT Hub}~\cite{iothub}, umożliwiające synchroniczne sterowanie drukarką 3D za pomocą wywołań metod bezpośrednich (ang. \textit{Direct Methods}) w standardzie RPC,
 	\item \textbf{System monitorowania w czasie rzeczywistym} --- mechanizm akwizycji danych telemetrycznych urządzenia (metryki termiczne i statusy mechaniczne) oraz asynchronicznej dystrybucji strumienia wideo z kamery CSI w formacie MJPEG,
 	\item \textbf{Wielojęzyczna aplikacja kliencka} --- responsywna warstwa prezentacji zbudowana w oparciu o bibliotekę \textit{React} oraz język TypeScript, wspierająca architekturę dynamicznych motywów graficznych (jasny i ciemny) oraz wzorzec projektowy RWD,
 	\item \textbf{Infrastruktura jako kod (IaC)} --- deklaratywne szablony konfiguracyjne narzędzia \textit{Terraform}, automatyzujące procesy aprowizacji i replikacji zasobów chmurowych w architekturze hybrydowej \textit{Microsoft Azure} oraz \textit{Oracle Cloud Infrastructure},
@@ -2417,7 +2417,7 @@ Opracowany system \textit{AddiPi} został zaprojektowany z zachowaniem paradygma
 	\item \textbf{Rozbudowa mechanizmów federacyjnego uwierzytelniania} --- implementacja protokołów \textit{OAuth 2.0} oraz \textit{OpenID Connect} (OIDC), co umożliwi bezpieczną integrację z zewnętrznymi dostawcami tożsamości (ang. \textit{Identity Providers}), takimi jak konta \textit{Microsoft}, \textit{Google} lub \textit{GitHub},
 	\item \textbf{Dedykowana aplikacja mobilna} --- implementacja natywnej lub hybrydowej warstwy prezentacji (np. w technologii \textit{React Native}), co podniosłoby ergonomię monitorowania telemetrii urządzenia na ekranach przenośnych,
 	\item \textbf{Skalowanie i orkiestracja infrastruktury produkcyjnej} --- przeniesienie struktury kontenerowej do środowiska orkiestracji \textit{Kubernetes} (K8s) w celu wdrożenia mechanizmów automatycznego skalowania pionowego i poziomego, zaawansowanego równoważenia obciążenia (ang. \textit{load balancing}) oraz scentralizowanego routingu usług,
-	\item \textbf{Rozszerzenie warstwy jakości i odporności oprogramowania} --- uzupełnienie kodu źródłowego o pełne pokrycie testami automatycznymi, generowanie żywej dokumentacji API w standardzie \textit{OpenAPI/Swagger} oraz wdrożenie mechanizmów ochrony przed przeciążeniem interfejsów, takich jak \textit{rate limiting} czy warstwa buforowania \textit{Redis}.
+	\item \textbf{Rozszerzenie warstwy jakości i odporności oprogramowania} --- uzupełnienie kodu źródłowego o pełne pokrycie testami automatycznymi~\cite{martin2022}, generowanie żywej dokumentacji API w standardzie \textit{OpenAPI/Swagger} oraz wdrożenie mechanizmów ochrony przed przeciążeniem interfejsów, takich jak \textit{rate limiting} czy warstwa buforowania \textit{Redis}.
 \end{itemize}
 
 
