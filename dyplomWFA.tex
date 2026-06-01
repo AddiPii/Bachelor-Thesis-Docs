@@ -1572,7 +1572,7 @@ Bieżąca preferencja operatora dotycząca wybranego schematu kolorów jest utrw
 
 Komponent \textit{AddiPi Agent} stanowi lokalną warstwę oprogramowania uruchamianą bezpośrednio na mikrokomputerze Raspberry Pi. Pełni on rolę dwukierunkowego pośrednika (ang. \textit{proxy}) pomiędzy rozproszoną architekturą chmurową (usługami \textit{Azure IoT Hub} oraz \textit{Azure Blob Storage}) a niskopoziomowym, lokalnym interfejsem sterującym drukarki 3D, którym zarządza serwer \textit{OctoPrint}~\cite{octoprint}.
 
-Agent został zaimplementowany w języku Python~\cite{python}. Architektura operacyjna tego komponentu została zaprojektowana w taki sposób, aby funkcjonował on jako proces działający w pętli ciągłej. W zależności od konfiguracji docelowej, jego cyklem życia zarządza demon systemowy oprogramowania układowego \texttt{systemd} lub odizolowany kontener środowiska \textit{Docker}.
+Agent został zaimplementowany w języku Python~\cite{python}. Architektura operacyjna tego komponentu została zaprojektowana w taki sposób, aby funkcjonował on jako proces działający w pętli ciągłej. W zależności od konfiguracji docelowej, jego cyklem życia zarządza demon systemowy oprogramowania układowego \texttt{systemd} lub odizolowany kontener środowiska \textit{Docker}~\cite{docker}.
 
 \subsection{Struktura obiektowa i architektura klas}
 
@@ -2168,7 +2168,7 @@ Po pomyślnym zastosowaniu planu, wygenerowane wartości niejawne (ang. \textit{
 
 \subsection{Specyfikacja konteneryzacji i optymalizacja obrazów}
 
-W celu zapewnienia powtarzalności środowisk uruchomieniowych, każdy z mikroserwisów został odizolowany w strukturze kontenera \textit{Docker}. Dla usług opartych na technologii \textit{Node.js}~\cite{nodejs} wdrożono mechanizm wieloetapowego budowania (ang. \textit{multi-stage build}), którego celem jest separacja zależności deweloperskich i procesu kompilacji \textit{TypeScript} (etap \texttt{builder}) od lekkiego obrazu produkcyjnego. Wzorcową konfigurację tego potoku dla usługi \textit{Auth Service} zaprezentowano na listingu~\ref{lst:dockerfile_node}.
+W celu zapewnienia powtarzalności środowisk uruchomieniowych, każdy z mikroserwisów został odizolowany w strukturze kontenera \textit{Docker}~\cite{docker}. Dla usług opartych na technologii \textit{Node.js}~\cite{nodejs} wdrożono mechanizm wieloetapowego budowania (ang. \textit{multi-stage build}), którego celem jest separacja zależności deweloperskich i procesu kompilacji \textit{TypeScript} (etap \texttt{builder}) od lekkiego obrazu produkcyjnego. Wzorcową konfigurację tego potoku dla usługi \textit{Auth Service} zaprezentowano na listingu~\ref{lst:dockerfile_node}.
 
 \begin{lstlisting}[language=,caption={Wieloetapowy plik konfiguracyjny Dockerfile serwisu Node.js.},style=plListing,label={lst:dockerfile_node}]
 	FROM node:20-alpine AS builder
@@ -2220,7 +2220,7 @@ Na produkcyjnej maszynie wirtualnej OCI osadzono autonomiczny komponent \textit{
 
 \subsection{Orkiestracja kontenerowa warstwy serwerowej --- Docker Compose}
 
-Uruchomienie mikroserwisów backendowych na instancji \textit{Oracle Cloud} realizowane jest przy użyciu narzędzia \textit{Docker Compose}. W środowisku produkcyjnym wykorzystano wariant konfiguracyjny \texttt{docker-compose.ghcr.yml}, który pobiera skompilowane artefakty bezpośrednio z rejestru kontenerów GHCR. Rozwiązanie to drastycznie minimalizuje obciążenie procesora i pamięci RAM instancji IaaS, eliminując potrzebę lokalnego budowania obrazów. Każdy z komponentów funkcjonuje w odizolowanym środowisku z dedykowaną polityką restartu \texttt{unless-stopped}, a komunikacja wewnętrzna odbywa się w ramach wirtualnej sieci \texttt{addipi-network}. 
+Uruchomienie mikroserwisów backendowych na instancji \textit{Oracle Cloud} realizowane jest przy użyciu narzędzia \textit{Docker~\cite{docker} Compose}. W środowisku produkcyjnym wykorzystano wariant konfiguracyjny \texttt{docker-compose.ghcr.yml}, który pobiera skompilowane artefakty bezpośrednio z rejestru kontenerów GHCR. Rozwiązanie to drastycznie minimalizuje obciążenie procesora i pamięci RAM instancji IaaS, eliminując potrzebę lokalnego budowania obrazów. Każdy z komponentów funkcjonuje w odizolowanym środowisku z dedykowaną polityką restartu \texttt{unless-stopped}, a komunikacja wewnętrzna odbywa się w ramach wirtualnej sieci \texttt{addipi-network}. 
 
 Na listingu~\ref{lst:docker_compose_yaml} przedstawiono reprezentatywny fragment produkcyjnego pliku konfiguracyjnego.
 
@@ -2264,7 +2264,7 @@ Ciągłość operacyjną środowiska zabezpiecza wspomniany wcześniej kontener 
 
 \subsection{Zarządzanie konfiguracją i sekretami przez zmienne środowiskowe}
 
-Konfiguracja serwisów uruchamianych na instancji OCI realizowana jest przy pomocy zmiennych środowiskowych przekazywanych do kontenerów Docker za pośrednictwem pliku \texttt{.env}. Mechanizm ten umożliwia oddzielenie konfiguracji od kodu źródłowego, co upraszcza wdrażanie aplikacji w różnych środowiskach oraz zwiększa bezpieczeństwo poprzez eliminację konieczności przechowywania poufnych danych w repozytoriach kodu.
+Konfiguracja serwisów uruchamianych na instancji OCI realizowana jest przy pomocy zmiennych środowiskowych przekazywanych do kontenerów \textit{Docker}~\cite{docker} za pośrednictwem pliku \texttt{.env}. Mechanizm ten umożliwia oddzielenie konfiguracji od kodu źródłowego, co upraszcza wdrażanie aplikacji w różnych środowiskach oraz zwiększa bezpieczeństwo poprzez eliminację konieczności przechowywania poufnych danych w repozytoriach kodu.
 
 W środowisku produkcyjnym plik \texttt{.env} udostępniany jest wszystkim serwisom za pomocą dyrektywy \texttt{env\_file} w konfiguracji Docker Compose. Repozytorium projektu zawiera również plik \texttt{.env.example}, stanowiący szablon wymaganej konfiguracji i dokumentujący znaczenie poszczególnych parametrów.
 
