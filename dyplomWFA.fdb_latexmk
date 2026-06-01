@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex dyplomWFA"] 1780334503.6547 "dyplomWFA.aux" "dyplomWFA.bbl" "dyplomWFA" 1780334749.42159 0
+["bibtex dyplomWFA"] 0 "dyplomWFA.aux" "dyplomWFA.bbl" "dyplomWFA" 0 -1
   "./bibliografia.bib" 1780319224.03792 8913 6f10e29b3bc6ee5211b9259c108b02d0 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/unsrt.bst" 1292289607 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "dyplomWFA.aux" 1780334749.33172 40475 42386528b678077e5c8352268b1ba5eb "pdflatex"
+  "dyplomWFA.aux" 1780337686.68337 40475 42386528b678077e5c8352268b1ba5eb "pdflatex"
   (generated)
   "dyplomWFA.bbl"
   "dyplomWFA.blg"
   (rewritten before read)
-["pdflatex"] 1780334748.02092 "dyplomWFA.tex" "dyplomWFA.pdf" "dyplomWFA" 1780334749.42178 0
+["pdflatex"] 1780337685.25356 "dyplomWFA.tex" "dyplomWFA.pdf" "dyplomWFA" 1780337686.78773 2
   "/etc/texmf/web2c/texmf.cnf" 1778443435.62456 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecit1000.600pk" 1779325020.33418 26704 be106c85f7c76012ed82c73002c20233 ""
   "/home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk" 1778504777.11581 20008 57f77999dde6ccfb99116543975b33b2 ""
@@ -98,6 +98,7 @@
   "/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty" 1696191071 56128 c2ccf1a29d78c33bc553880402e4fb9a ""
   "/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty" 1696191071 72619 ee90b6612147680fd73c3b1406a74245 ""
   "/usr/share/texlive/texmf-dist/tex/latex/caption/ltcaption.sty" 1645391520 7418 021d7c4eb11bde94592761855a3d046e ""
+  "/usr/share/texlive/texmf-dist/tex/latex/encxvlna/encxvlna.sty" 1215117846 4276 5f0600e1bbb25d607e7e1ed5ecdd5bc5 ""
   "/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty" 1561238569 51697 f8f08183cd2080d9d18a41432d651dfb ""
   "/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1579991033 13886 d1306dcf79a944f6988e688c1785f9ce ""
   "/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty" 1601931149 46845 3b58f70c6e861a13d927bff09d35ecbc ""
@@ -112,6 +113,7 @@
   "/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty" 1654720880 2671 7e67d78d9b88c845599a85b2d41f2e39 ""
   "/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx" 1667332637 2885 9c645d672ae17285bba324998918efd8 ""
   "/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty" 1654720880 4023 293ea1c16429fc0c4cf605f4da1791a9 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/grfext/grfext.sty" 1575499774 7133 b94bbacbee6e4fdccdc7f810b2aec370 ""
   "/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty" 1580250785 17914 4c28a13fc3d975e6e81c9bea1d697276 ""
   "/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def" 1705871765 48154 e46bf8adeb936500541441171d61726d ""
   "/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty" 1705871765 220920 fd3cbb5f1a2bc9b8f451b8b7d8171264 ""
@@ -161,7 +163,7 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1778443441.63762 134010 f1887e56959c0569e2f0dd6e19ae604f ""
-  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1778443460 6814157 84f02840595401b3a65a5ca7e425812f ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1780336713 6814193 3bc2e7969a7d7e0bf4f6077450ca870d ""
   "AddiPi-CosmosDB3.pdf" 1780084577.86543 33157 cb216d3c1aefa446ef398c2e8db88e69 ""
   "Full_Assembly.png" 1779924877.37245 91800 a2123bba8047b119eb34d89dbfc7d12f ""
   "IoT_hub.png" 1780104683.42628 51601 1b75902554abc3dce1db6b94bc90ae65 ""
@@ -172,11 +174,11 @@
   "dashboard2.png" 1779454894.96728 110881 3d2aa802d7206d59d2924e45bb72a837 ""
   "diagram-architektury.pdf" 1779147745.78817 95966 246f6e1390e8d002ec9292c46d2a5642 ""
   "docker_compose.pdf" 1780089485.27645 30362 08cda27aa5df1bdbeb0de47e3f7fba04 ""
-  "dyplomWFA.aux" 1780334749.33172 40475 42386528b678077e5c8352268b1ba5eb "pdflatex"
-  "dyplomWFA.bbl" 1780334503.6669 6618 857da2e5819b1599824c7282dba456a6 "bibtex dyplomWFA"
-  "dyplomWFA.out" 1780334749.33372 27426 1b6e8f0c3a7882d0523eeac6c6e84159 "pdflatex"
-  "dyplomWFA.tex" 1780334660.62449 171695 30c68ea31e095efddf8b88e530c53cf7 ""
-  "dyplomWFA.toc" 1780334749.33372 12422 79fc9e39e8a6502637bf80cd831b7efa "pdflatex"
+  "dyplomWFA.aux" 1780337686.68337 40475 42386528b678077e5c8352268b1ba5eb "pdflatex"
+  "dyplomWFA.bbl" 1780337430.11599 6618 857da2e5819b1599824c7282dba456a6 "bibtex dyplomWFA"
+  "dyplomWFA.out" 1780337686.68537 27426 1b6e8f0c3a7882d0523eeac6c6e84159 "pdflatex"
+  "dyplomWFA.tex" 1780337685.10345 171725 dfa5af8b76a190331e92db4875a2b3ed ""
+  "dyplomWFA.toc" 1780337686.68537 12422 79fc9e39e8a6502637bf80cd831b7efa "pdflatex"
   "octoprint-panel.png" 1779900001.23974 166433 e68cba1135525b2cd7d4a9af9066ab1c ""
   "physical-stand.jpeg" 1779909878.70742 2777727 0f9274435280fb2a1cc90f4be7400841 ""
   "print-control2.png" 1779454593.95192 434042 4657109e630fdfd8859dc683abdfab4e ""

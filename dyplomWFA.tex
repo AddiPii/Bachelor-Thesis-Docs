@@ -325,6 +325,7 @@
     {8}{{{\color{gray}8}}}1
     {9}{{{\color{gray}9}}}1
 }
+
 %------------------------------------------------------------
 \begin{document}
 	
@@ -351,7 +352,7 @@ Wydział Fizyki i~Astronomii\\
 
 \Large Oliwer Urbaniak \\
 \vspace{3.2cm}
-\Large System zarządzania pracą drukarki 3D w~laboratorium studenckim. \\
+\Large System zarządzania pracą drukarki 3D w~laboratorium studenckim \\
 
 \end{center}
 \vspace{5.5cm}
@@ -454,7 +455,7 @@ Na podstawie szczegółowej analizy specyfiki oraz potrzeb akademickiego laborat
 \noindent\textbf{W obszarze kont użytkowników (rola standardowa):}
 \begin{itemize}
 	\item rejestracja konta powiązana z~dwuetapową weryfikacją adresu e-mail, ograniczoną wyłącznie do domeny akademickiej \texttt{@uwr.edu.pl},
-	\item bezpieczne uwierzytelnianie i~autoryzacja z~wykorzystaniem mechanizmu podwójnych tokenów JWT (\textit{access token} oraz \textit{refresh token}) \cite{jwt},
+\item bezpieczne uwierzytelnianie i~autoryzacja z~wykorzystaniem mechanizmu podwójnych tokenów JWT (\textit{access token} oraz \textit{refresh token})~\cite{jwt},
 	\item asynchroniczne przesyłanie plików z~kodem sterującym (G-code) o~maksymalnym rozmiarze pojedynczego wolumenu do 50~MB i~rozszerzeniu \texttt{.gcode},
 	\item elastyczne harmonogramowanie procesów wytwórczych na wybrany termin kalendarzowy lub lokowanie ich w~ogólnej kolejce systemu,
 	\item przeglądanie historii własnych zleceń produkcyjnych z~opcją dynamicznego filtrowania według stanów maszyny,
@@ -537,7 +538,7 @@ Wszystkie serwisy warstwy Node.js~\cite{nodejs} wykorzystują framework Express.
 Wybór tej technologii został podyktowany następującymi czynnikami:
 \begin{itemize}
 	\item \textbf{Model usługowy PaaS (Platform as a~Service)} --- pełne zarządzanie infrastrukturą przez dostawcę chmurowego eliminuje konieczność administracji serwerem bazy danych,
-	\item \textbf{Elastyczny schemat danych} --- poszczególne mikroserwisy przechowują obiekty o~zróżnicowanej, heterogenicznej strukturze w~ramach jednej bazy danych (\texttt{addipi}) ~\cite{kleppmann2017}, z~podziałem na dedykowane kontenery (\texttt{users}, \texttt{jobs}, \texttt{refresh-tokens}),
+	\item \textbf{Elastyczny schemat danych} --- poszczególne mikroserwisy przechowują obiekty o~zróżnicowanej, heterogenicznej strukturze w~ramach jednej bazy danych (\texttt{addi pi})~\cite{kleppmann2017}, z~podziałem na dedykowane kontenery (\texttt{users}, \texttt{jobs}, \texttt{refresh-tokens}),
 	\item \textbf{Natywna integracja} --- bezszwowe współdziałanie z~pozostałymi komponentami ekosystemu chmurowego \textit{Microsoft Azure},
 	\item \textbf{Automatyczne indeksowanie} --- domyślne indeksowanie wszystkich pól w~strukturze dokumentu, co optymalizuje czas wykonywania zapytań.
 \end{itemize}
@@ -899,7 +900,7 @@ W tabeli~\ref{tab:auth_endpoints} zestawiono i~opisano punkty końcowe (ang. \te
 
 \subsubsection{Kluczowe fragmenty implementacji}
 
-Na listingu~\ref{lst:jwt_generation} przedstawiono implementację funkcji odpowiedzialnych za generowanie tokenu dostępu oraz tokenu odświeżającego przy użyciu biblioteki \texttt{jsonwebtoken} \cite{jwt}.
+Na listingu~\ref{lst:jwt_generation} przedstawiono implementację funkcji odpowiedzialnych za generowanie tokenu dostępu oraz tokenu odświeżającego przy użyciu biblioteki \texttt{jsonwebtoken}~\cite{jwt}.
 
 \begin{lstlisting}[language=TypeScript,caption={Implementacja generowania tokenów JWT (\texttt{token-service.ts})},style=tsStyle,label={lst:jwt_generation}]
 export function generateAccessToken(user: User): string {
@@ -1196,26 +1197,39 @@ export function startPrintQueueListener(container, receiver) {
 
 W tabeli~\ref{tab:queue_endpoints} zestawiono punkty końcowe udostępniane przez interfejs sieciowy usługi \textit{Queue Service}.
 
-\begin{table}[htbp]
-	\centering
-	\caption{Punkty końcowe usługi Queue Service.}
-	\label{tab:queue_endpoints}
-	\begin{tabular}{llp{7cm}}
-		\toprule
-		\textbf{Metoda} & \textbf{Ścieżka} & \textbf{Opis} \\
-		\midrule
-		GET & \texttt{/queue} & Pobranie spaginowanej listy zadań z~możliwością definiowania filtrów wyszukiwania. \\
-		\addlinespace
-		GET & \texttt{/queue/next} & Pobranie kolejnego zadania przeznaczonego bezpośrednio do realizacji (zwraca kod \texttt{204 No Content} w~przypadku braku pozycji). \\
-		\addlinespace
-		PATCH & \texttt{/queue/cancel/:id} & Anulowanie wybranego zadania drukowania (dostęp ograniczony do roli administratora). \\
-		\addlinespace
-		GET & \texttt{/queues} & Pobranie metryk i~informacji o~stanie kolejek w~ramach usługi \textit{Azure Service Bus} (dostęp dla administratora). \\
-		\addlinespace
-		GET & \texttt{/health} & Punkt końcowy diagnostyki stanu działania mikroserwisu (ang. \textit{health check}). \\
-		\bottomrule
-	\end{tabular}
-\end{table}
+\begin{xltabular}{\textwidth}{p{1.5cm}p{4.5cm}X}
+	\caption{Punkty końcowe usługi Queue Service.} \label{tab:queue_endpoints} \\
+	\toprule
+	\textbf{Metoda} & \textbf{Ścieżka} & \textbf{Opis} \\
+	\midrule
+	\endfirsthead
+	
+	% Nagłówek powtarzany na kolejnej stronie w przypadku podziału
+	\multicolumn{3}{c}{{\bfseries \tablename\ \thetable{} -- ciąg dalszy z poprzedniej strony}} \\
+	\toprule
+	\textbf{Metoda} & \textbf{Ścieżka} & \textbf{Opis} \\
+	\midrule
+	\endhead
+	
+	% Linia dolna na stronach, gdzie tabela się dzieli
+	\bottomrule
+	\endfoot
+	
+	% Linia dolna na samym końcu tabeli
+	\bottomrule
+	\endlastfoot
+	
+	GET & \texttt{/queue} & Pobranie spaginowanej listy zadań z~możliwością definiowania filtrów wyszukiwania. \\
+	\addlinespace
+	GET & \texttt{/queue/next} & Pobranie kolejnego zadania przeznaczonego bezpośrednio do realizacji (zwraca kod \texttt{204 No Content} w~przypadku braku pozycji). \\
+	\addlinespace
+	PATCH & \texttt{/queue/cancel/:id} & Anulowanie wybranego zadania drukowania (dostęp ograniczony do roli administratora). \\
+	\addlinespace
+	GET & \texttt{/queues} & Pobranie metryk i~informacji o~stanie kolejek w~ramach usługi \textit{Azure Service Bus} (dostęp dla administratora). \\
+	\addlinespace
+	GET & \texttt{/health} & Punkt końcowy diagnostyki stanu działania mikroserwisu (ang. \textit{health check}). \\
+\end{xltabular}
+
 
 
 \subsection{Printer Service}
@@ -1717,7 +1731,7 @@ W ramach niniejszej pracy inżynierskiej opracowano, a~następnie wytworzono tec
 	\item \textbf{STAND} --- regulowane ramię pozycjonujące (uchwyt), umożliwiające swobodną zmianę kąta widzenia i~stabilizację zestawu względem pola roboczego drukarki 3D.
 \end{itemize}
 
-Trójwymiarowe modele geometryczne (CAD) opracowano w~programie \textit{SolidWorks} ~\cite{solidworks} (format \texttt{.SLDPRT} dla pojedynczych części oraz \texttt{.SLDASM} dla złożeń).
+Trójwymiarowe modele geometryczne (CAD) opracowano w~programie \textit{SolidWorks}~\cite{solidworks} (format \texttt{.SLDPRT} dla pojedynczych części oraz \texttt{.SLDASM} dla złożeń).
 
 W celu zapewnienia otwartości projektu, w~repozytorium zasobów systemu --- obok natywnych formatów oprogramowania \textit{SolidWorks} --- umieszczono modele w~neutralnym formacie wymiany danych \texttt{.STEP}, umożliwiającym dalszą edycję w~innych środowiskach CAD, a~także pliki \texttt{.3MF} i~\texttt{.gcode} przygotowane do wydruku na drukarce Prusa MK3S wyposażonej w~dyszę o~średnicy 0{,}6~mm z~wykorzystaniem filamentu PLA.
 
