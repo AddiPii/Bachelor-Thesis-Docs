@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.10)  1 JUN 2026 18:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.10)  1 JUN 2026 19:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -311,15 +311,42 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box65
 \@float@everytoks=\toks34
 \@floatcapt=\box66
-) (/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2023/03/13 v3.1a Micro-typographical refinements (RS)
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count309
+)
+\MT@toks=\toks35
+\MT@tempbox=\box67
+\MT@count=\count310
+LaTeX Info: Redefining \noprotrusionifhmode on input line 1059.
+LaTeX Info: Redefining \leftprotrusion on input line 1060.
+\MT@prot@toks=\toks36
+LaTeX Info: Redefining \rightprotrusion on input line 1078.
+LaTeX Info: Redefining \textls on input line 1368.
+\MT@outer@kern=\dimen193
+LaTeX Info: Redefining \textmicrotypecontext on input line 1988.
+\MT@listname@count=\count311
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def
+File: microtype-pdftex.def 2023/03/13 v3.1a Definitions specific to pdftex (RS)
+
+LaTeX Info: Redefining \lsstyle on input line 902.
+LaTeX Info: Redefining \lslig on input line 902.
+\MT@outer@space=\skip60
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2023/03/13 v3.1a microtype main configuration file (RS)
+)) (/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2023/07/08 v2.11c `tabularx' package (DPC)
-\TX@col@width=\dimen193
-\TX@old@table=\dimen194
-\TX@old@col=\dimen195
-\TX@target=\dimen196
-\TX@delta=\dimen197
-\TX@cols=\count309
-\TX@ftn=\toks35
+\TX@col@width=\dimen194
+\TX@old@table=\dimen195
+\TX@old@col=\dimen196
+\TX@target=\dimen197
+\TX@delta=\dimen198
+\TX@cols=\count312
+\TX@ftn=\toks37
 ) (/usr/share/texlive/texmf-dist/tex/latex/xltabular/xltabular.sty
 Package: xltabular 2020/11/04 v0.2e `xltabular' package (hv,RN)
 (/usr/share/texlive/texmf-dist/tex/latex/ltablex/ltablex.sty
@@ -374,15 +401,15 @@ LaTeX Info: Redefining \hbar on input line 50.
 Package: setspace 2022/12/04 v6.7b set line spacing
 ) (/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2023/10/27 v2.16 Sectioning titles
-\ttl@box=\box67
-\beforetitleunit=\skip60
-\aftertitleunit=\skip61
-\ttl@plus=\dimen198
-\ttl@minus=\dimen199
-\ttl@toksa=\toks36
-\titlewidth=\dimen256
-\titlewidthlast=\dimen257
-\titlewidthfirst=\dimen258
+\ttl@box=\box68
+\beforetitleunit=\skip61
+\aftertitleunit=\skip62
+\ttl@plus=\dimen199
+\ttl@minus=\dimen256
+\ttl@toksa=\toks38
+\titlewidth=\dimen257
+\titlewidthlast=\dimen258
+\titlewidthfirst=\dimen259
 ) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
 (/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
@@ -415,14 +442,11 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 (/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count310
-) (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count311
+\c@section@level=\count313
 )
-\@linkdim=\dimen259
-\Hy@linkcounter=\count312
-\Hy@pagecounter=\count313
+\@linkdim=\dimen260
+\Hy@linkcounter=\count314
+\Hy@pagecounter=\count315
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -430,7 +454,7 @@ Now handling font encoding PD1 ...
 ) (/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count314
+\Hy@SavedSpaceFactor=\count316
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -443,18 +467,18 @@ Package hyperref Info: Plain pages OFF on input line 4194.
 Package hyperref Info: Backreferencing OFF on input line 4199.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4446.
-\c@Hy@tempcnt=\count315
+\c@Hy@tempcnt=\count317
 LaTeX Info: Redefining \url on input line 4784.
-\XeTeXLinkMargin=\dimen260
+\XeTeXLinkMargin=\dimen261
 (/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count316
-\Field@Width=\dimen261
-\Fld@charsize=\dimen262
+\Fld@menulength=\count318
+\Field@Width=\dimen262
+\Fld@charsize=\dimen263
 Package hyperref Info: Hyper figures OFF on input line 6063.
 Package hyperref Info: Link nesting OFF on input line 6068.
 Package hyperref Info: Hyper index ON on input line 6071.
@@ -466,9 +490,9 @@ Package hyperref Info: PDF/A mode OFF on input line 6093.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count317
-\c@Item=\count318
-\c@Hfootnote=\count319
+\Hy@abspage=\count319
+\c@Item=\count320
+\c@Hfootnote=\count321
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
@@ -478,8 +502,8 @@ Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
 with kernel methods
 )
-\Fld@listcount=\count320
-\c@bookmark@seq@number=\count321
+\Fld@listcount=\count322
+\c@bookmark@seq@number=\count323
 (/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
@@ -488,7 +512,7 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 85.
 )
-\Hy@SectionHShift=\skip62
+\Hy@SectionHShift=\skip63
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 75.
 LaTeX Font Info:    Trying to load font information for T1+ptm on input line 32
@@ -518,17 +542,17 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 329.
 LaTeX Font Info:    ... okay on input line 329.
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count322
-\scratchdimen=\dimen263
-\scratchbox=\box68
-\nofMPsegments=\count323
-\nofMParguments=\count324
-\everyMPshowfont=\toks37
-\MPscratchCnt=\count325
-\MPscratchDim=\dimen264
-\MPnumerator=\count326
-\makeMPintoPDFobject=\count327
-\everyMPtoPDFconversion=\toks38
+\scratchcounter=\count324
+\scratchdimen=\dimen264
+\scratchbox=\box69
+\nofMPsegments=\count325
+\nofMParguments=\count326
+\everyMPshowfont=\toks39
+\MPscratchCnt=\count327
+\MPscratchDim=\dimen265
+\MPnumerator=\count328
+\makeMPintoPDFobject=\count329
+\everyMPtoPDFconversion=\toks40
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -581,12 +605,35 @@ Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count328
+\c@lstlisting=\count330
+LaTeX Info: Redefining \microtypecontext on input line 329.
+Package microtype Info: Applying patch `item' on input line 329.
+Package microtype Info: Applying patch `toc' on input line 329.
+Package microtype Info: Applying patch `eqnum' on input line 329.
+Package microtype Info: Applying patch `footnote' on input line 329.
+Package microtype Info: Applying patch `verbatim' on input line 329.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `alltext-nott'.
+LaTeX Info: Redefining \showhyphens on input line 329.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-ptm.cfg
+File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
+)
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 3
 29.
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `cmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
 
 LaTeX Font Warning: Font shape `T1/cmtt/m/scsl' undefined
 (Font)              using `T1/cmtt/m/sc' instead on input line 329.
@@ -725,6 +772,10 @@ LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `ztmcm' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
 LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line
  4.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlztmcm.fd
@@ -739,6 +790,10 @@ LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line
  4.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
+) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 4
 .
@@ -755,50 +810,20 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 \tf@toc=\write4
 \openout4 = `dyplomWFA.toc'.
 
-[5]
-Overfull \hbox (5.72974pt too wide) in paragraph at lines 391--392
-[]\T1/ptm/m/n/12 Poszczególne ser-wisy za-im-ple-men-to-wano w j¦-zy-kach Ty-pe
--Script (±ro-do-wi-sko Node.js)
- []
-
-[6
+[5] [6
 
 ]
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 4
 11.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) [7]
-Overfull \hbox (8.03522pt too wide) in paragraph at lines 435--436
-[]\T1/ptm/m/n/12 Szczegóªowa im-ple-men-ta-cja po-szcze-gól-nych kom-po-nen-tów
- pro-gra-mo-wych, z uwzgl¦d-
- []
-
-
-Overfull \hbox (8.51399pt too wide) in paragraph at lines 437--439
-[]\T1/ptm/m/n/12 Ko«cowe etapy prac, obej-mu-j¡ce or-kie-stra-cj¦ in-fra-struk-
-tury chmu-ro-wej \T1/ptm/m/it/12 Mi-cro-soft Azure
- []
-
-[8] [9]
-Overfull \hbox (2.95996pt too wide) in paragraph at lines 479--480
-[]\T1/ptm/b/n/12 Skalowalno±¢ \T1/ptm/m/n/12 [[]] --- ar-chi-tek-tura roz-pro-s
-zona po-winna umo»-li-wia¢ bez-pro-ble-mow¡
- []
-
-[10] [11] [12] [13]
-Overfull \hbox (1.08606pt too wide) in paragraph at lines 540--541
-\T1/ptm/m/n/12 o zró»-ni-co-wa-nej, he-te-ro-ge-nicz-nej struk-tu-rze w ra-mach
- jed-nej bazy da-nych (\T1/cmtt/l/it/12 addipi\T1/ptm/m/n/12 )
- []
-
-[14] [15] [16]
-<tech-comparison.pdf, id=756, 534.49687pt x 436.63126pt>
+) [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17]
+<tech-comparison.pdf, id=761, 534.49687pt x 436.63126pt>
 File: tech-comparison.pdf Graphic file (type pdf)
 <use tech-comparison.pdf>
 Package pdftex.def Info: tech-comparison.pdf  used on input line 598.
 (pdftex.def)             Requested size: 384.1096pt x 313.79463pt.
-[17] [18 <./tech-comparison.pdf>]
+[18 <./tech-comparison.pdf>]
 Overfull \hbox (6.39302pt too wide) in paragraph at lines 630--641
  [][] 
  []
@@ -818,48 +843,13 @@ Package pdftex.def Info: AddiPi-CosmosDB3.pdf  used on input line 716.
 [22]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 726.
-[23 <./AddiPi-CosmosDB3.pdf>]
-Overfull \hbox (3.65771pt too wide) in paragraph at lines 768--774
-[]\T1/ptm/m/n/12 Pole \T1/cmtt/l/it/12 sta-tus \T1/ptm/m/n/12 mo»e przyj-mo-wa¢
- war-to-±ci: \T1/cmtt/l/it/12 pen-ding\T1/ptm/m/n/12 , \T1/cmtt/l/it/12 sche-du
--led\T1/ptm/m/n/12 , \T1/cmtt/l/it/12 wa-iting_-for_-prin-
- []
-
-[24]
+[23 <./AddiPi-CosmosDB3.pdf>] [24]
 <cykl-zycia-zadania.pdf, id=1090, 511.9125pt x 421.575pt>
 File: cykl-zycia-zadania.pdf Graphic file (type pdf)
 <use cykl-zycia-zadania.pdf>
 Package pdftex.def Info: cykl-zycia-zadania.pdf  used on input line 815.
 (pdftex.def)             Requested size: 426.79135pt x 351.47673pt.
-[25]
-Overfull \hbox (4.6411pt too wide) in paragraph at lines 825--826
-\T1/ptm/m/n/12 nut), prze-ka-zy-wany w na-gªówku pro-to-koªu HTTP (\T1/cmtt/l/i
-t/12 Authorization: Be-arer <to-
- []
-
-[26 <./cykl-zycia-zadania.pdf>]
-Overfull \hbox (2.57903pt too wide) in paragraph at lines 836--837
-\T1/ptm/m/n/12 wy-sªa-nie we-wn¦trz-nego »¡-da-nia we-ry-fi-ka-cyj-nego do punk
-tu ko«-co-wego \T1/cmtt/l/it/12 POST /au-
- []
-
-[27]
-Overfull \hbox (6.40205pt too wide) in paragraph at lines 855--856
-[]\T1/ptm/m/n/12 Komponent ten zo-staª za-im-ple-men-to-wany w ±ro-do-wi-sku ur
-u-cho-mie-nio-wym Node.js [[]]
- []
-
-
-Underfull \hbox (badness 5681) in paragraph at lines 897--897
-[]|\T1/ptm/m/n/12 Weryfikacja po-praw-no-±ci to-kenu do-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 897--897
-\T1/ptm/m/n/12 st¦pu, wy-ko-rzy-sty-wana we-wn¦trz-nie
- []
-
-[28
+[25] [26 <./cykl-zycia-zadania.pdf>] [27] [28
 pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -868,45 +858,24 @@ l.897 \end{xltabular}
                      ]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 905.
-[29]
-Overfull \hbox (6.62183pt too wide) in paragraph at lines 923--924
-\T1/ptm/m/n/12 muje za-równo kryp-to-gra-ficzn¡ we-ry-fi-ka-cj¦ po-praw-no-±ci 
-pod-pisu cy-fro-wego struk-tury JWT,
- []
-
-[30] [31]
-Underfull \hbox (badness 10000) in paragraph at lines 1020--1020
-[]|\T1/ptm/m/n/12 Aktualizacja da-nych oso-bo-wych
+[29] [30] [31]
+Underfull \hbox (badness 6032) in paragraph at lines 1020--1020
+[]|\T1/ptm/m/n/12 (+20) Aktualizacja da-nych oso-bo-wych
  []
 
 
-Underfull \hbox (badness 4328) in paragraph at lines 1020--1020
-[]|\T1/ptm/m/n/12 Pobranie hi-sto-rii wszyst-kich za-
+Underfull \hbox (badness 7522) in paragraph at lines 1020--1020
+[]|\T1/ptm/m/n/12 (+20) Pobranie sta-ty-styk u»yt-kow-nika,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1020--1020
-[]|\T1/ptm/m/n/12 Pobranie sta-ty-styk u»yt-kow-nika,
+Underfull \hbox (badness 1540) in paragraph at lines 1020--1020
+\T1/ptm/m/n/12 (+20) obej-mu-j¡-cych m.in. za-gre-go-wan¡
  []
 
 
-Underfull \hbox (badness 3758) in paragraph at lines 1020--1020
-\T1/ptm/m/n/12 obej-mu-j¡-cych m.in. za-gre-go-wan¡
- []
-
-
-Underfull \hbox (badness 1038) in paragraph at lines 1020--1020
-\T1/ptm/m/n/12 liczb¦ za-da« z po-dzia-ªem na ich
- []
-
-
-Underfull \hbox (badness 4279) in paragraph at lines 1020--1020
-\T1/ptm/m/n/12 nie« u»yt-kow-nika o wska-za-nym
- []
-
-
-Underfull \hbox (badness 1521) in paragraph at lines 1020--1020
-[]|\T1/ptm/m/n/12 Trwaªe usu-ni¦-cie konta u»yt-kow-
+Underfull \hbox (badness 2591) in paragraph at lines 1020--1020
+\T1/ptm/m/n/12 (+20) nie« u»yt-kow-nika o wska-za-nym
  []
 
 [32
@@ -916,7 +885,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has
                                                   \__shipout_drop_firstpage_...
 l.1020 \end{xltabular}
                       ] [33] [34] [35]
-<przeplyw-przesylania-pliku.pdf, id=1327, 511.9125pt x 301.125pt>
+<przeplyw-przesylania-pliku.pdf, id=1328, 511.9125pt x 301.125pt>
 File: przeplyw-przesylania-pliku.pdf Graphic file (type pdf)
 <use przeplyw-przesylania-pliku.pdf>
 Package pdftex.def Info: przeplyw-przesylania-pliku.pdf  used on input line 109
@@ -924,84 +893,19 @@ Package pdftex.def Info: przeplyw-przesylania-pliku.pdf  used on input line 109
 (pdftex.def)             Requested size: 426.79135pt x 251.05481pt.
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
-) [36 <./przeplyw-przesylania-pliku.pdf>]
-Overfull \hbox (5.23775pt too wide) in paragraph at lines 1132--1133
-[]\T1/ptm/m/n/12 Dodatkowo ser-wis udo-st¦p-nia de-dy-ko-wany in-ter-fejs pro-g
-ra-mi-styczny HTTP API, który
- []
-
-[37] [38]
-Underfull \hbox (badness 10000) in paragraph at lines 1209--1210
-\T1/ptm/m/n/12 kod \T1/cmtt/l/it/12 204 No Con-tent \T1/ptm/m/n/12 w przy-padku
-
- []
-
-
-Overfull \hbox (3.24901pt too wide) in paragraph at lines 1225--1226
-\T1/ptm/m/n/12 Usªuga \T1/ptm/m/it/12 Prin-ter Se-rvice \T1/ptm/m/n/12 sta-nowi
- cen-tralny kom-po-nent or-kie-stra-cji sys-temu, od-po-wie-dzialny
- []
-
-[39] [40] [41]
-Overfull \hbox (5.56682pt too wide) in paragraph at lines 1273--1274
-\T1/cmtt/l/it/12 wa-iting_-for_-prin-ter_-re-ady \T1/ptm/m/n/12 oraz \T1/cmtt/l
-/it/12 de-layed\T1/ptm/m/n/12 . Kom-po-nent ten re-ali-zuje wie-lo-po-zio-mowy,
-
- []
-
-[42]
-Underfull \hbox (badness 1077) in paragraph at lines 1354--1354
-[]|\T1/ptm/m/n/12 Pobranie szcze-gó-ªo-wych pa-ra-
+) [36 <./przeplyw-przesylania-pliku.pdf>] [37] [38] [39] [40] [41] [42]
+Underfull \hbox (badness 2057) in paragraph at lines 1354--1354
+[]|\T1/ptm/m/n/12 (+20) Ponowne do-da-nie wy-bra-nego
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 1354--1354
-[]|\T1/ptm/m/n/12 Wymuszenie prze-rwa-nia i
+[]|\T1/ptm/m/n/12 (+20) Punkt ko«-cowy dia-gno-styki
  []
 
 
-Underfull \hbox (badness 2922) in paragraph at lines 1354--1354
-\T1/ptm/m/n/12 anu-lo-wa-nia za-da-nia dru-ko-wa-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1354--1354
-\T1/ptm/m/n/12 nia (do-st¦p za-strze-»ony dla
- []
-
-
-Underfull \hbox (badness 4279) in paragraph at lines 1354--1354
-[]|\T1/ptm/m/n/12 Ponowne do-da-nie wy-bra-nego
- []
-
-
-Underfull \hbox (badness 1028) in paragraph at lines 1354--1354
-\T1/ptm/m/n/12 (np. prze-rwa-nego) za-da-nia do
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1354--1354
-[]|\T1/ptm/m/n/12 Pobranie ak-tu-al-nego stanu
- []
-
-
-Underfull \hbox (badness 3930) in paragraph at lines 1354--1354
-[]|\T1/ptm/m/n/12 Pobranie za-gre-go-wa-nych me-
- []
-
-
-Underfull \hbox (badness 7151) in paragraph at lines 1354--1354
-\T1/ptm/m/n/12 tryk sta-ty-stycz-nych sys-te-mo-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1354--1354
-[]|\T1/ptm/m/n/12 Punkt ko«-cowy dia-gno-styki
- []
-
-
-Underfull \hbox (badness 6016) in paragraph at lines 1354--1354
-\T1/ptm/m/n/12 stanu dzia-ªa-nia mi-kro-ser-wisu
+Underfull \hbox (badness 3199) in paragraph at lines 1354--1354
+\T1/ptm/m/n/12 (+20) stanu dzia-ªa-nia mi-kro-ser-wisu
  []
 
 [43
@@ -1010,46 +914,8 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.7}) has
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.1354 \end{xltabular}
-                      ]
-Overfull \hbox (5.22063pt too wide) in paragraph at lines 1361--1362
-\T1/ptm/m/n/12 mie-nia wi-deo z ka-mery sys-temu \T1/ptm/m/it/12 Octo-Print \T1
-/ptm/m/n/12 w pa-mi¦ci ope-ra-cyj-nej ser-wera (ang. \T1/ptm/m/it/12 in-memory
- []
-
-[44]
-Overfull \hbox (10.26022pt too wide) in paragraph at lines 1363--1364
-\T1/ptm/m/n/12 po-±red-nio w in-ter-fej-sie u»yt-kow-nika w ele-men-cie \T1/cmt
-t/l/it/12 <img> \T1/ptm/m/n/12 z wy-ko-rzy-sta-niem for-matu MJPEG
- []
-
-[45]
-Overfull \hbox (2.61218pt too wide) in paragraph at lines 1397--1398
-\T1/ptm/m/n/12 Aplikacja fron-ten-dowa zo-staªa za-im-ple-men-to-wana z wy-ko-r
-zy-sta-niem bi-blio-teki \T1/ptm/m/it/12 Re-act \T1/ptm/m/n/12 [[]]
- []
-
-
-Overfull \hbox (12.0358pt too wide) in paragraph at lines 1404--1405
-\T1/ptm/m/n/12 doki apli-ka-cji (m.in. \T1/cmtt/l/it/12 Ho-me-Page\T1/ptm/m/n/1
-2 , \T1/cmtt/l/it/12 Lo-gin-Page\T1/ptm/m/n/12 , \T1/cmtt/l/it/12 Re-gi-ster-Pa
-ge\T1/ptm/m/n/12 , \T1/cmtt/l/it/12 Da-sh-bo-ard-Page\T1/ptm/m/n/12 , \T1/cmtt/
-l/it/12 Uplo-
- []
-
-
-Overfull \hbox (10.46062pt too wide) in paragraph at lines 1406--1407
-[]\T1/cmtt/l/it/12 src/store/useStore.ts \T1/ptm/m/n/12 --- im-ple-men-ta-cja g
-lo-bal-nego ma-ga-zynu stanu (ang. \T1/ptm/m/it/12 store\T1/ptm/m/n/12 )
- []
-
-
-Overfull \hbox (1.95299pt too wide) in paragraph at lines 1407--1408
-[]\T1/cmtt/l/it/12 src/i18n/ \T1/ptm/m/n/12 --- kon-fi-gu-ra-cja in-ter-na-cjo-
-na-li-za-cji apli-ka-cji oparta na bi-blio-tece \T1/ptm/m/it/12 i18next
- []
-
-[46] [47] [48]
-<strona-glowna2.png, id=1675, 480.5955pt x 645.612pt>
+                      ] [44] [45] [46] [47] [48]
+<strona-glowna2.png, id=1677, 480.5955pt x 645.612pt>
 File: strona-glowna2.png Graphic file (type png)
 <use strona-glowna2.png>
 Package pdftex.def Info: strona-glowna2.png  used on input line 1483.
@@ -1060,12 +926,6 @@ File: dashboard2.png Graphic file (type png)
 <use dashboard2.png>
 Package pdftex.def Info: dashboard2.png  used on input line 1501.
 (pdftex.def)             Requested size: 426.79135pt x 263.63416pt.
-
-Overfull \hbox (9.34227pt too wide) in paragraph at lines 1508--1509
-\T1/ptm/m/n/12 re-ali-zuje wst¦pn¡ wa-li-da-cj¦ po stro-nie klienta, we-ry-fi-k
-u-j¡c po-prawne roz-sze-rze-nie (\T1/cmtt/l/it/12 .gcode\T1/ptm/m/n/12 )
- []
-
 [50 <./dashboard2.png>]
 <upload-print.png, id=1698, 983.675pt x 745.78625pt>
 File: upload-print.png Graphic file (type png)
@@ -1084,29 +944,20 @@ File: admin-panel.png Graphic file (type png)
 Package pdftex.def Info: admin-panel.png  used on input line 1545.
 (pdftex.def)             Requested size: 384.1096pt x 234.92604pt.
 [52 <./print-control2.png>] [53 <./admin-panel.png>] [54] [55]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <14> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 1629.
-<agent_startprint.pdf, id=1743, 518.70288pt x 391.4625pt>
+[56]
+<agent_startprint.pdf, id=1760, 518.70288pt x 391.4625pt>
 File: agent_startprint.pdf Graphic file (type pdf)
 <use agent_startprint.pdf>
 Package pdftex.def Info: agent_startprint.pdf  used on input line 1635.
 (pdftex.def)             Requested size: 384.1096pt x 289.89275pt.
-[56] [57 <./agent_startprint.pdf>]
-Overfull \hbox (1.71101pt too wide) in paragraph at lines 1677--1678
-\T1/ptm/m/n/12 Klasa \T1/cmtt/l/it/12 Octo-PrintC-lient \T1/ptm/m/n/12 her-me-t
-y-zuje i re-ali-zuje ko-mu-ni-ka-cj¦ sie-ciow¡ z sys-te-mem \T1/ptm/m/it/12 Oct
-o-
- []
-
-[58]
-<octoprint-panel.png, id=2030, 819.06pt x 579.66562pt>
+[57 <./agent_startprint.pdf>] [58]
+<octoprint-panel.png, id=2031, 819.06pt x 579.66562pt>
 File: octoprint-panel.png Graphic file (type png)
 <use octoprint-panel.png>
 Package pdftex.def Info: octoprint-panel.png  used on input line 1696.
-(pdftex.def)             Requested size: 311.55586pt x 220.49634pt.
+(pdftex.def)             Requested size: 384.1096pt x 271.85027pt.
 [59 <./octoprint-panel.png>] [60] [61]
 Overfull \hbox (5.20607pt too wide) in paragraph at lines 1763--1778
  [][] 
@@ -1128,240 +979,113 @@ File: cad_assembly.pdf Graphic file (type pdf)
 <use cad_assembly.pdf>
 Package pdftex.def Info: cad_assembly.pdf  used on input line 1810.
 (pdftex.def)             Requested size: 320.0935pt x 190.17285pt.
-[64 <./Full_Assembly.png> <./cad_assembly.pdf>]
-Overfull \hbox (0.68167pt too wide) in paragraph at lines 1853--1854
-[]\T1/ptm/b/n/12 Instalacja elek-tro-niki: \T1/ptm/m/n/12 Za-mon-to-wa-nie mi-k
-ro-kom-pu-tera Ra-sp-berry Pi w dol-nej cz¦-
- []
-
-[65] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+[64 <./Full_Assembly.png> <./cad_assembly.pdf>] [65] (/usr/share/texlive/texmf-
+dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
-) [66]
-Overfull \hbox (1.4629pt too wide) in paragraph at lines 1925--1926
-\T1/cmtt/l/it/12 addipi-agent \T1/ptm/m/n/12 oraz \T1/cmtt/l/it/12 sudo sys-tem
-ctl start addipi-agent\T1/ptm/m/n/12 . Bie-»¡cy stan pro-cesu we-
- []
-
-[67]
+) [66] [67]
 <rpi_boot.pdf, id=2173, 511.9125pt x 385.44pt>
 File: rpi_boot.pdf Graphic file (type pdf)
 <use rpi_boot.pdf>
 Package pdftex.def Info: rpi_boot.pdf  used on input line 1931.
 (pdftex.def)             Requested size: 320.0935pt x 241.01115pt.
-
-Overfull \hbox (1.42989pt too wide) in paragraph at lines 1945--1946
-\T1/ptm/m/n/12 (np. \T1/cmtt/l/it/12 https://<losowy-hash>.trycloudflare.com\T1
-/ptm/m/n/12 ) bez ko-niecz-no-±ci kon-fi-gu-ra-cji pu-
- []
-
 [68 <./rpi_boot.pdf>] [69] [70] [71]
-Overfull \hbox (6.18307pt too wide) in paragraph at lines 2034--2035
-[]\T1/ptm/m/n/12 W przy-padku agenta \T1/ptm/m/it/12 Ad-diPi \T1/ptm/m/n/12 pro
--blem roz-wi¡-zano z wy-ko-rzy-sta-niem dy-rek-tywy \T1/cmtt/l/it/12 After=
- []
-
-
-Overfull \hbox (6.60414pt too wide) in paragraph at lines 2036--2037
-\T1/ptm/m/n/12 sys-temu. Przy-kªa-dow¡ kon-fi-gu-ra-cj¦ jed-nostki typu \T1/cmt
-t/l/it/12 one-shot \T1/ptm/m/n/12 za-pre-zen-to-wano na li-stingu [][]19[][]. 
+Underfull \hbox (badness 10000) in paragraph at lines 2084--2084
+[]|\T1/ptm/b/n/12 (+20) Mechanizm uru-cho-
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 2084--2084
-[]|\T1/ptm/b/n/12 Mechanizm uru-cho-
+[]|\T1/ptm/b/n/12 (+20) Mechanizm uru-cho-
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 2084--2084
-[]|\T1/ptm/b/n/12 Mechanizm uru-cho-
- []
-
-
-Underfull \hbox (badness 2689) in paragraph at lines 2084--2084
-[]|\T1/cmtt/l/it/12 systemd \T1/ptm/m/n/12 (na-tywny w
+[]|\T1/cmtt/l/it/12 systemd \T1/ptm/m/n/12 (+20) (na-tywny
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 2084--2084
-[]|\T1/ptm/m/n/12 Niskopoziomowe ste-ro-wa-nie dru-kark¡
+[]|\T1/ptm/m/n/12 (+20) Niskopoziomowe ste-ro-wa-nie dru-kark¡
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 2084--2084
-[]|\T1/cmtt/l/it/12 systemd \T1/ptm/m/n/12 (\T1/cmtt/l/it/12 addipi-
+[]|\T1/cmtt/l/it/12 systemd \T1/ptm/m/n/12 (+20) (\T1/cmtt/l/it/12 addipi-
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 2084--2084
-[]|\T1/ptm/m/it/12 Cloudflare
- []
-
-
-Underfull \hbox (badness 3590) in paragraph at lines 2084--2084
-\T1/ptm/m/n/12 cho-dz¡-cego, ini-cjo-wane z opó¹-nie-niem
+[]|\T1/ptm/m/it/12 (+20) Cloudflare
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 2084--2084
-[]|\T1/ptm/m/n/12 Odnowienie
+[]|\T1/ptm/m/n/12 (+20) Odnowienie
  []
 
-[72] [73
+[72
 pdfTeX warning (ext4): destination with the same identifier (name{table.12}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2087 \newpage
-               ]
-Underfull \hbox (badness 1226) in paragraph at lines 2108--2109
-[]|\T1/ptm/b/n/12 Hostowane kom-po-nenty eko-
- []
-
-
+l.2084 \end{xltabular}
+                      ] [73]
 Underfull \hbox (badness 10000) in paragraph at lines 2112--2113
-[]|\T1/ptm/m/n/12 Kontenery \T1/ptm/m/it/12 Do-cker Com-pose\T1/ptm/m/n/12 :
+[]|\T1/ptm/m/n/12 (+20) Kontenery \T1/ptm/m/it/12 (+20) Do-cker Com-pose\T1/ptm
+/m/n/12 (+20) :
  []
 
 
-Underfull \hbox (badness 8189) in paragraph at lines 2116--2117
-[]|\T1/ptm/m/n/12 Lokalny ste-row-nik \T1/ptm/m/it/12 Octo-Print
+Underfull \hbox (badness 4634) in paragraph at lines 2116--2117
+[]|\T1/ptm/m/n/12 (+20) Lokalny ste-row-nik \T1/ptm/m/it/12 (+20) Octo-Print
  []
 
 [74]
-Underfull \hbox (badness 10000) in paragraph at lines 2134--2135
-[]|\T1/ptm/b/n/12 Parametry kon-fi-gu-ra-cyjne i
+Underfull \hbox (badness 7012) in paragraph at lines 2136--2137
+\T1/cmtt/l/it/12 tokens\T1/ptm/m/n/12 (+20) ; klucz par-ty-cjo-no-wa-nia:
  []
 
 
-Underfull \hbox (badness 7869) in paragraph at lines 2136--2137
-\T1/cmtt/l/it/12 tokens\T1/ptm/m/n/12 ; klucz par-ty-cjo-no-wa-nia:
+Underfull \hbox (badness 6542) in paragraph at lines 2138--2139
+\T1/cmtt/l/it/12 gcode\T1/ptm/m/n/12 (+20) , war-stwa wy-daj-no-±ciowa
  []
 
 
-Underfull \hbox (badness 1365) in paragraph at lines 2138--2139
-[]|\T1/ptm/m/n/12 Instancja \T1/cmtt/l/it/12 ad-di-pi-fi-les\T1/ptm/m/n/12 , ko
-n-te-ner
+Underfull \hbox (badness 1735) in paragraph at lines 2142--2143
+[]|\T1/ptm/m/n/12 (+20) Hub \T1/cmtt/l/it/12 addipi-iothub\T1/ptm/m/n/12 (+20) 
+, to»-sa-mo±¢
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 2138--2139
-\T1/cmtt/l/it/12 gcode\T1/ptm/m/n/12 , war-stwa wy-daj-no-±ciowa
- []
-
-
-Underfull \hbox (badness 2698) in paragraph at lines 2142--2143
-[]|\T1/ptm/m/n/12 Hub \T1/cmtt/l/it/12 addipi-iothub\T1/ptm/m/n/12 , to»-sa-mo±
-¢
- []
-
-
-Overfull \hbox (0.94713pt too wide) in paragraph at lines 2153--2154
-\T1/ptm/m/n/12 guªy bez-pie-cze«-stwa dla por-tów: 3001, 3002, 3050, 3070, 5000
-, in-stan-cja \T1/cmtt/l/it/12 VM.Stan-
- []
-
-[75]
-Overfull \hbox (7.11783pt too wide) in paragraph at lines 2166--2167
-\T1/cmtt/l/it/12 <na-zwa_-zmien-nej> \T1/ptm/m/n/12 (np. dla zmien-nych \T1/cmt
-t/l/it/12 sto-rage_-con-nec-tion_-string\T1/ptm/m/n/12 , \T1/cmtt/l/it/12 se-rv
-ice_-bus_-
- []
-
-[76] [77]
-Overfull \hbox (1.24191pt too wide) in paragraph at lines 2218--2219
-[]\T1/ptm/m/n/12 Na pro-duk-cyj-nej ma-szy-nie wir-tu-al-nej OCI osa-dzono au-t
-o-no-miczny kom-po-nent \T1/ptm/m/it/12 Watch-
- []
-
-[78]
+[75] [76] [77] [78]
 <docker_compose.pdf, id=2407, 511.9125pt x 346.29375pt>
 File: docker_compose.pdf Graphic file (type pdf)
 <use docker_compose.pdf>
 Package pdftex.def Info: docker_compose.pdf  used on input line 2259.
 (pdftex.def)             Requested size: 260.34297pt x 176.11606pt.
-
-Overfull \hbox (6.75706pt too wide) in paragraph at lines 2265--2265
-|[]\T1/ptm/b/n/14 Zarz¡dzanie kon-fi-gu-ra-cj¡ i se-kre-tami przez zmienne ±ro-
-do-wi-skowe| 
- []
-
 [79 <./docker_compose.pdf>]
 Overfull \hbox (1.44728pt too wide) in paragraph at lines 2277--2296
  [][] 
  []
 
 [80]
-Overfull \hbox (1.39543pt too wide) in paragraph at lines 2307--2308
-\T1/ptm/m/n/12 dziale [][]9[][], pro-ces ten oparto na de-mo-nie sys-te-mo-wym 
-\T1/cmtt/l/it/12 sys-temd \T1/ptm/m/n/12 (\T1/cmtt/l/it/12 addipi-agent.service
-\T1/ptm/m/n/12 ).
- []
-
-
-Overfull \hbox (14.52954pt too wide) in paragraph at lines 2309--2310
-\T1/ptm/m/n/12 po-ª¡-cze-nia urz¡-dze-nia brze-go-wego w chmu-rze ob-li-cze-nio
--wej za-pre-zen-to-wano na ry-sunku [][]18[][],
- []
-
 <IoT_hub.png, id=2479, 1199.48125pt x 376.40625pt>
 File: IoT_hub.png Graphic file (type png)
 <use IoT_hub.png>
 Package pdftex.def Info: IoT_hub.png  used on input line 2313.
 (pdftex.def)             Requested size: 384.1096pt x 120.53287pt.
-[81 <./IoT_hub.png>] [82]
-Overfull \hbox (4.42406pt too wide) in paragraph at lines 2357--2358
-\T1/ptm/m/n/12 dzia \T1/ptm/m/it/12 Ter-ra-form \T1/ptm/m/n/12 [[]], au-to-ma-t
-y-zu-j¡ce pro-cesy apro-wi-za-cji i re-pli-ka-cji za-so-bów chmu-
- []
-
-
-Overfull \hbox (0.36763pt too wide) in paragraph at lines 2360--2361
-\T1/ptm/m/n/12 za-bez-pie-cza-j¡ce bez-ob-sªu-gowy roz-ruch sie-ciowy i sta-bil
--no±¢ tu-nelu \T1/ptm/m/it/12 Clo-ud-flare Tun-
- []
-
-[83]
-Overfull \hbox (3.00925pt too wide) in paragraph at lines 2372--2374
-\T1/ptm/m/n/12 delu ko-mu-ni-ka-cji, który uwzgl¦d-niaªby fluk-tu-acje sie-ciow
-e, opó¹-nie-nia pa-kie-tów [[]]
- []
-
-
-Overfull \hbox (2.99582pt too wide) in paragraph at lines 2375--2377
-\T1/ptm/m/n/12 bac-ken-dowe oraz bi-blio-teki fron-ten-dowe nie za-wsze ce-cho-
-waªy si¦ iden-tyczn¡ struk-
- []
-
-[84]
-Overfull \hbox (7.89583pt too wide) in paragraph at lines 2384--2386
-\T1/ptm/m/n/12 mo»-li-wiaªo jego od-biór przez apli-ka-cj¦ we-bow¡. Do-dat-kow¡
- ba-rier¦ sta-no-wiªa zmien-
- []
-
-[85]
-Overfull \hbox (1.99321pt too wide) in paragraph at lines 2398--2399
-\T1/ptm/m/n/12 ob-sªugi po-je-dyn-czego urz¡-dze-nia. Cho¢ ar-chi-tek-tura po-z
-wala na ska-lo-wa-nie, obecna
- []
-
-[86] [87] [88] [89] (./dyplomWFA.bbl [90]
-Underfull \hbox (badness 1286) in paragraph at lines 85--89
-[]\T1/ptm/m/n/12 Microsoft Cor-po-ra-tion.  Azure IoT Hub do-cu-men-ta-tion.  [
-][]$\T1/cmtt/l/it/12 https : / / learn .
+[81 <./IoT_hub.png>] [82] [83] [84] [85] [86] [87] [88] [89] (./dyplomWFA.bbl [
+90]
+Underfull \hbox (badness 1127) in paragraph at lines 85--89
+[]\T1/ptm/m/n/12 (+20) Microsoft Cor-po-ra-tion.  Azure IoT Hub do-cu-men-ta-ti
+on.  [][]$\T1/cmtt/l/it/12 https : / / learn .
  []
 
 [91]
-Underfull \hbox (badness 1158) in paragraph at lines 219--224
-[]\T1/ptm/m/n/12 Cloudflare Inc.  Clo-ud-flare Tun-nel ^^V Se-cu-rely con-nect 
-your in-fra-struc-ture.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 219--224
-[][]$\T1/cmtt/l/it/12 https : / / developers . cloudflare . com / cloudflare-[]
-one / connections /
+Underfull \hbox (badness 2662) in paragraph at lines 219--224
+[]\T1/ptm/m/n/12 (+20) Cloudflare Inc.  Clo-ud-flare Tun-nel ^^V Se-cu-rely con
+-nect your in-fra-struc-
  []
 
 ) [92] (./dyplomWFA.aux)
@@ -1373,16 +1097,16 @@ L3 programming layer <2024-01-22>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `dyplomWFA.out' has not changed.
-(rerunfilecheck)             Checksum: C77A03E9F4AB3E61F8605527A4B15BC6;27340.
+(rerunfilecheck)             Checksum: 1B6E8F0C3A7882D0523EEAC6C6E84159;27426.
  ) 
 Here is how much of TeX's memory you used:
- 18748 strings out of 476147
- 291942 string characters out of 5794719
- 2108975 words of memory out of 5000000
- 39699 multiletter control sequences out of 15000+600000
- 597901 words of font info for 92 fonts, out of 8000000 for 9000
+ 21014 strings out of 476147
+ 329249 string characters out of 5794719
+ 2115975 words of memory out of 5000000
+ 41545 multiletter control sequences out of 15000+600000
+ 618135 words of font info for 347 fonts, out of 8000000 for 9000
  34 hyphenation exceptions out of 8191
- 79i,15n,93p,1084b,2166s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 79i,15n,93p,1089b,2175s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1440.600
 pk> </home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecit1000.60
 0pk> </home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.6
@@ -1392,10 +1116,10 @@ pk> </home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecit1000.60
 share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/times/utmri8a.pfb>
-Output written on dyplomWFA.pdf (92 pages, 4757841 bytes).
+Output written on dyplomWFA.pdf (92 pages, 4780814 bytes).
 PDF statistics:
- 3020 PDF objects out of 3580 (max. 8388607)
+ 3022 PDF objects out of 3580 (max. 8388607)
  2356 compressed objects within 24 object streams
  770 named destinations out of 1000 (max. 500000)
- 1067 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 53291 words of extra memory for PDF output out of 61914 (max. 10000000)
 

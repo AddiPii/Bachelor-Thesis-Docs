@@ -1,10 +1,10 @@
 \babel@toc {polish}{}\relax 
 \contentsline {section}{Streszczenie}{6}{Doc-Start}%
 \contentsline {section}{\numberline {1}Wprowadzenie}{7}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Motywacja i cel pracy}{7}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.1}Motywacja i~cel pracy}{7}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Zakres pracy}{7}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}Struktura pracy}{8}{subsection.1.3}%
-\contentsline {section}{\numberline {2}Analiza wymagań i przegląd rozwiązań}{9}{section.2}%
+\contentsline {section}{\numberline {2}Analiza wymagań i~przegląd rozwiązań}{9}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Wymagania funkcjonalne}{9}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Wymagania niefunkcjonalne}{10}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Przegląd istniejących rozwiązań}{11}{subsection.2.3}%
@@ -24,7 +24,7 @@
 \contentsline {subsection}{\numberline {3.7}Interfejs użytkownika --- React oraz Vite}{15}{subsection.3.7}%
 \contentsline {subsection}{\numberline {3.8}Konteneryzacja --- Docker oraz Docker Compose}{16}{subsection.3.8}%
 \contentsline {subsection}{\numberline {3.9}Automatyzacja infrastruktury chmurowej --- Terraform}{16}{subsection.3.9}%
-\contentsline {subsection}{\numberline {3.10}Środowisko hostingowe backendu --- Oracle Cloud Infrastructure}{17}{subsection.3.10}%
+\contentsline {subsection}{\numberline {3.10}Środowisko hostingowe warstwy serwerowej --- Oracle Cloud Infrastructure}{17}{subsection.3.10}%
 \contentsline {subsection}{\numberline {3.11}CAD - SolidWorks}{17}{subsection.3.11}%
 \contentsline {subsection}{\numberline {3.12}Porównanie wybranych alternatyw}{17}{subsection.3.12}%
 \contentsline {section}{\numberline {4}Architektura systemu}{20}{section.4}%
@@ -35,8 +35,8 @@
 \contentsline {subsubsection}{\numberline {4.3.2}Zadanie do wydruku (kontener \texttt {jobs})}{24}{subsubsection.4.3.2}%
 \contentsline {subsubsection}{\numberline {4.3.3}Token odświeżania (kontener \texttt {refresh-tokens})}{24}{subsubsection.4.3.3}%
 \contentsline {subsection}{\numberline {4.4}Cykl życia zadania do wydruku}{25}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Bezpieczeństwo i uwierzytelnianie}{26}{subsection.4.5}%
-\contentsline {section}{\numberline {5}Implementacja serwisów backendowych}{28}{section.5}%
+\contentsline {subsection}{\numberline {4.5}Bezpieczeństwo i~uwierzytelnianie}{26}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Implementacja serwisów warstwy serwerowej}{28}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Auth Service}{28}{subsection.5.1}%
 \contentsline {subsubsection}{\numberline {5.1.1}Opis ogólny}{28}{subsubsection.5.1.1}%
 \contentsline {subsubsection}{\numberline {5.1.2}Punkty końcowe API}{28}{subsubsection.5.1.2}%
@@ -48,47 +48,47 @@
 \contentsline {subsubsection}{\numberline {5.2.3}Mechanizm autoryzacji żądań}{33}{subsubsection.5.2.3}%
 \contentsline {subsection}{\numberline {5.3}Files Service}{35}{subsection.5.3}%
 \contentsline {subsubsection}{\numberline {5.3.1}Opis ogólny}{35}{subsubsection.5.3.1}%
-\contentsline {subsubsection}{\numberline {5.3.2}Procedura przetwarzania i przesyłania plików}{35}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.2}Procedura przetwarzania i~przesyłania plików}{35}{subsubsection.5.3.2}%
 \contentsline {subsection}{\numberline {5.4}Queue Service}{37}{subsection.5.4}%
 \contentsline {subsubsection}{\numberline {5.4.1}Opis ogólny}{37}{subsubsection.5.4.1}%
-\contentsline {subsubsection}{\numberline {5.4.2}Mechanizm nasłuchiwania kolejki}{38}{subsubsection.5.4.2}%
+\contentsline {subsubsection}{\numberline {5.4.2}Mechanizm nasłuchiwania kolejki}{37}{subsubsection.5.4.2}%
 \contentsline {subsubsection}{\numberline {5.4.3}Punkty końcowe HTTP API}{39}{subsubsection.5.4.3}%
-\contentsline {subsection}{\numberline {5.5}Printer Service}{40}{subsection.5.5}%
-\contentsline {subsubsection}{\numberline {5.5.1}Opis ogólny}{40}{subsubsection.5.5.1}%
-\contentsline {subsubsection}{\numberline {5.5.2}Mechanizm harmonogramowania}{41}{subsubsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5}Printer Service}{39}{subsection.5.5}%
+\contentsline {subsubsection}{\numberline {5.5.1}Opis ogólny}{39}{subsubsection.5.5.1}%
+\contentsline {subsubsection}{\numberline {5.5.2}Mechanizm harmonogramowania}{40}{subsubsection.5.5.2}%
 \contentsline {subsubsection}{\numberline {5.5.3}Monitor gotowości urządzenia}{42}{subsubsection.5.5.3}%
 \contentsline {subsubsection}{\numberline {5.5.4}Odbiornik telemetrii}{42}{subsubsection.5.5.4}%
 \contentsline {subsubsection}{\numberline {5.5.5}Punkty końcowe HTTP API}{43}{subsubsection.5.5.5}%
-\contentsline {subsection}{\numberline {5.6}Video Service}{45}{subsection.5.6}%
-\contentsline {subsubsection}{\numberline {5.6.1}Opis ogólny}{45}{subsubsection.5.6.1}%
+\contentsline {subsection}{\numberline {5.6}Video Service}{44}{subsection.5.6}%
+\contentsline {subsubsection}{\numberline {5.6.1}Opis ogólny}{44}{subsubsection.5.6.1}%
 \contentsline {subsubsection}{\numberline {5.6.2}Punkty końcowe API}{45}{subsubsection.5.6.2}%
 \contentsline {section}{\numberline {6}Implementacja warstwy prezentacji}{46}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Struktura architektoniczna aplikacji klienckiej}{46}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Scentralizowany klient API}{47}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Mechanizm routingu i ochrona tras}{48}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.3}Mechanizm routingu i~ochrona tras}{48}{subsection.6.3}%
 \contentsline {subsection}{\numberline {6.4}Ekrany aplikacji klienckiej}{49}{subsection.6.4}%
 \contentsline {subsubsection}{\numberline {6.4.1}Strona główna systemu}{49}{subsubsection.6.4.1}%
 \contentsline {subsubsection}{\numberline {6.4.2}Panel użytkownika}{50}{subsubsection.6.4.2}%
-\contentsline {subsubsection}{\numberline {6.4.3}Przesyłanie i planowanie zadań}{50}{subsubsection.6.4.3}%
+\contentsline {subsubsection}{\numberline {6.4.3}Przesyłanie i~planowanie zadań}{50}{subsubsection.6.4.3}%
 \contentsline {subsubsection}{\numberline {6.4.4}Kontrola procesu drukowania}{51}{subsubsection.6.4.4}%
 \contentsline {subsubsection}{\numberline {6.4.5}Panel administracyjny}{52}{subsubsection.6.4.5}%
 \contentsline {subsection}{\numberline {6.5}Internacjonalizacja aplikacji}{53}{subsection.6.5}%
 \contentsline {subsection}{\numberline {6.6}Zarządzanie motywami graficznymi interfejsu}{53}{subsection.6.6}%
 \contentsline {section}{\numberline {7}Agent sprzętowy --- AddiPi Agent}{55}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Opis ogólny}{55}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Struktura obiektowa i architektura klas}{55}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Połączenie z IoT Hub}{56}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.2}Struktura obiektowa i~architektura klas}{55}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Połączenie z~IoT Hub}{56}{subsection.7.3}%
 \contentsline {subsection}{\numberline {7.4}Obsługiwane metody bezpośrednie}{56}{subsection.7.4}%
-\contentsline {subsection}{\numberline {7.5}Przebieg obsługi metody bezpośredniej \texttt {startPrint}}{56}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.5}Przebieg obsługi metody bezpośredniej \texttt {startPrint}}{57}{subsection.7.5}%
 \contentsline {subsection}{\numberline {7.6}Transmisja danych telemetrycznych}{58}{subsection.7.6}%
-\contentsline {subsection}{\numberline {7.7}Niskopoziomowa komunikacja z serwerem OctoPrint}{58}{subsection.7.7}%
-\contentsline {section}{\numberline {8}Projekt mechaniczny obudowy i pozycjonowania zestawu}{60}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Cel i zakres projektu mechanicznego}{60}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Moduł CASE --- obudowa Raspberry Pi z kamerą}{60}{subsection.8.2}%
+\contentsline {subsection}{\numberline {7.7}Niskopoziomowa komunikacja z~serwerem OctoPrint}{58}{subsection.7.7}%
+\contentsline {section}{\numberline {8}Projekt mechaniczny obudowy i~pozycjonowania zestawu}{60}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Cel i~zakres projektu mechanicznego}{60}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Moduł CASE --- obudowa Raspberry Pi z~kamerą}{60}{subsection.8.2}%
 \contentsline {subsubsection}{\numberline {8.2.1}Podstawa projektowa}{60}{subsubsection.8.2.1}%
 \contentsline {subsubsection}{\numberline {8.2.2}Zakres modyfikacji geometrycznych}{61}{subsubsection.8.2.2}%
-\contentsline {subsubsection}{\numberline {8.2.3}Integracja strukturalna i mocowanie modułu kamery brzegowej}{61}{subsubsection.8.2.3}%
-\contentsline {subsubsection}{\numberline {8.2.4}Struktura plików i organizacja zasobów modułu CASE}{62}{subsubsection.8.2.4}%
+\contentsline {subsubsection}{\numberline {8.2.3}Integracja strukturalna i~mocowanie modułu kamery brzegowej}{61}{subsubsection.8.2.3}%
+\contentsline {subsubsection}{\numberline {8.2.4}Struktura plików i~organizacja zasobów modułu CASE}{62}{subsubsection.8.2.4}%
 \contentsline {subsection}{\numberline {8.3}Moduł STAND --- regulowany mechanizm pozycjonujący}{62}{subsection.8.3}%
 \contentsline {subsection}{\numberline {8.4}Złożenie kompletnego modelu geometrycznego}{63}{subsection.8.4}%
 \contentsline {subsection}{\numberline {8.5}Parametry wydruku}{64}{subsection.8.5}%
@@ -100,24 +100,24 @@
 \contentsline {subsection}{\numberline {9.4}Udostępnianie strumienia wideo przez Cloudflare Tunnel}{68}{subsection.9.4}%
 \contentsline {subsubsection}{\numberline {9.4.1}Instalacja narzędzia cloudflared}{68}{subsubsection.9.4.1}%
 \contentsline {subsubsection}{\numberline {9.4.2}Skrypt automatyzacji publikacji adresu sieciowego}{69}{subsubsection.9.4.2}%
-\contentsline {subsubsection}{\numberline {9.4.3}Automatyzacja odnawiania adresu w harmonogramie cron}{70}{subsubsection.9.4.3}%
+\contentsline {subsubsection}{\numberline {9.4.3}Automatyzacja odnawiania adresu w~harmonogramie cron}{70}{subsubsection.9.4.3}%
 \contentsline {subsection}{\numberline {9.5}Konfiguracja harmonogramu zadań crontab}{71}{subsection.9.5}%
 \contentsline {subsubsection}{\numberline {9.5.1}Uzasadnienie zastosowanych parametrów}{71}{subsubsection.9.5.1}%
 \contentsline {subsection}{\numberline {9.6}Problem dostępności sieci podczas uruchamiania systemu}{71}{subsection.9.6}%
 \contentsline {subsection}{\numberline {9.7}Podsumowanie konfiguracji węzła brzegowego}{72}{subsection.9.7}%
-\contentsline {section}{\numberline {10}Wdrożenie i infrastruktura produkcyjna}{74}{section.10}%
+\contentsline {section}{\numberline {10}Wdrożenie i~infrastruktura produkcyjna}{74}{section.10}%
 \contentsline {subsection}{\numberline {10.1}Hybrydowa strategia architektoniczna}{74}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Zarządzane usługi integracji danych i komunikacji chmurowej}{74}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.2}Zarządzane usługi integracji danych i~komunikacji chmurowej}{74}{subsection.10.2}%
 \contentsline {subsection}{\numberline {10.3}Automatyzacja orkiestracji chmurowej --- Terraform}{75}{subsection.10.3}%
-\contentsline {subsection}{\numberline {10.4}Specyfikacja konteneryzacji i optymalizacja obrazów}{76}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.4}Specyfikacja konteneryzacji i~optymalizacja obrazów}{76}{subsection.10.4}%
 \contentsline {subsection}{\numberline {10.5}Automatyzacja procesów CI/CD}{77}{subsection.10.5}%
 \contentsline {subsection}{\numberline {10.6}Orkiestracja kontenerowa warstwy serwerowej --- Docker Compose}{78}{subsection.10.6}%
-\contentsline {subsection}{\numberline {10.7}Zarządzanie konfiguracją i sekretami przez zmienne środowiskowe}{80}{subsection.10.7}%
+\contentsline {subsection}{\numberline {10.7}Zarządzanie konfiguracją i~sekretami przez zmienne środowiskowe}{80}{subsection.10.7}%
 \contentsline {subsection}{\numberline {10.8}Wdrożenie warstwy prezentacji oraz usługi wideo}{80}{subsection.10.8}%
 \contentsline {subsection}{\numberline {10.9}Wdrożenie komponentu brzegowego}{81}{subsection.10.9}%
-\contentsline {section}{\numberline {11}Podsumowanie i wnioski końcowe}{82}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Osiągnięte rezultaty i wkład inżynierski}{82}{subsection.11.1}%
+\contentsline {section}{\numberline {11}Podsumowanie i~wnioski końcowe}{82}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Osiągnięte rezultaty i~wkład inżynierski}{82}{subsection.11.1}%
 \contentsline {subsection}{\numberline {11.2}Analiza napotkanych trudności projektowo-implementacyjnych}{84}{subsection.11.2}%
 \contentsline {subsection}{\numberline {11.3}Ograniczenia przyjętego rozwiązania}{86}{subsection.11.3}%
-\contentsline {subsection}{\numberline {11.4}Perspektywy i potencjalne kierunki dalszego rozwoju systemu}{87}{subsection.11.4}%
+\contentsline {subsection}{\numberline {11.4}Perspektywy i~potencjalne kierunki dalszego rozwoju systemu}{87}{subsection.11.4}%
 \contentsline {subsection}{\numberline {11.5}Wnioski końcowe}{88}{subsection.11.5}%
