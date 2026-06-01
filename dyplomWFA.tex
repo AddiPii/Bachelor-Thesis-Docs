@@ -537,7 +537,7 @@ Wszystkie serwisy warstwy Node.js~\cite{nodejs} wykorzystują framework Express.
 Wybór tej technologii został podyktowany następującymi czynnikami:
 \begin{itemize}
 	\item \textbf{Model usługowy PaaS (Platform as a Service)} --- pełne zarządzanie infrastrukturą przez dostawcę chmurowego eliminuje konieczność administracji serwerem bazy danych,
-	\item \textbf{Elastyczny schemat danych} --- poszczególne mikroserwisy przechowują obiekty o zróżnicowanej, heterogenicznej strukturze w ramach jednej bazy danych (\texttt{addipi})~\cite{kleppmann2017}, z podziałem na dedykowane kontenery (\texttt{users}, \texttt{jobs}, \texttt{refresh-tokens}),
+	\item \textbf{Elastyczny schemat danych} --- poszczególne mikroserwisy przechowują obiekty o zróżnicowanej, heterogenicznej strukturze w ramach jednej bazy danych (\texttt{addipi}) ~\cite{kleppmann2017}, z podziałem na dedykowane kontenery (\texttt{users}, \texttt{jobs}, \texttt{refresh-tokens}),
 	\item \textbf{Natywna integracja} --- bezszwowe współdziałanie z pozostałymi komponentami ekosystemu chmurowego \textit{Microsoft Azure},
 	\item \textbf{Automatyczne indeksowanie} --- domyślne indeksowanie wszystkich pól w strukturze dokumentu, co optymalizuje czas wykonywania zapytań.
 \end{itemize}
@@ -652,7 +652,7 @@ Ostatnim etapem konfiguracji było zdefiniowanie środowiska uruchomieniowego. O
 
 \subsection{Ogólna struktura}
 
-System \textit{AddiPi} zbudowany jest w architekturze mikroserwisowej~\cite{newman2022}. Każdy serwis stanowi niezależną jednostkę wdrożeniową odpowiedzialną za określoną domenę biznesową oraz komunikuje się z pozostałymi komponentami za pośrednictwem zdefiniowanych interfejsów (HTTP REST lub kolejka komunikatów).
+System \textit{AddiPi} zbudowany jest w architekturze mikroserwisowej~\cite{richardson2020}~\cite{newman2022}. Każdy serwis stanowi niezależną jednostkę wdrożeniową odpowiedzialną za określoną domenę biznesową oraz komunikuje się z pozostałymi komponentami za pośrednictwem zdefiniowanych interfejsów (HTTP REST lub kolejka komunikatów).
 
 W ramach systemu wyodrębniono następujące komponenty:
 
@@ -1133,7 +1133,7 @@ Dodatkowo serwis udostępnia dedykowany interfejs programistyczny HTTP API, któ
 
 \subsubsection{Mechanizm nasłuchiwania kolejki}
 
-Na listingu~\ref{lst:queue_listener} przedstawiono implementację procedury odpowiedzialnej za rejestrację i obsługę potoku zdarzeń pochodzących z kolejki chmurowej. Logika biznesowa realizuje bezpieczne parsowanie komunikatów w formacie JSON oraz obsługuje scenariusz awaryjny (ang. \textit{dead-lettering/abandonment}) poprzez wywołanie metody \texttt{abandonMessage()}, co pozwala na zachowanie spójności danych w przypadku wystąpienia błędów infrastrukturalnych.
+Na listingu~\ref{lst:queue_listener} przedstawiono implementację procedury odpowiedzialnej za rejestrację i obsługę potoku zdarzeń pochodzących z kolejki chmurowej. Logika biznesowa realizuje bezpieczne parsowanie komunikatów w formacie JSON oraz obsługuje scenariusz awaryjny (ang. \textit{dead-lettering/abandonment})~\cite{richardson2020} poprzez wywołanie metody \texttt{abandonMessage()}, co pozwala na zachowanie spójności danych w przypadku wystąpienia błędów infrastrukturalnych.
 
 \begin{lstlisting}[language=JavaScript,caption={Implementacja mechanizmu nasłuchiwania kolejki (\texttt{printQueueListener.js})},style=jsStyle,label={lst:queue_listener}]
 export function startPrintQueueListener(container, receiver) {
@@ -2348,7 +2348,7 @@ Głównym celem niniejszej pracy inżynierskiej było zaprojektowanie, implement
 
 W ramach realizacji projektu inżynierskiego opracowano i zaimplementowano następujące komponenty oraz mechanizmy:
 \begin{itemize}
-	\item \textbf{Rozproszona architektura mikroserwisowa~\cite{newman2022}} --- struktura backendowa złożona z sześciu autonomicznych serwisów komunikujących się hybrydowo za pośrednictwem synchronicznych interfejsów REST API oraz asynchronicznej magistrali komunikatów \textit{Azure Service Bus},
+	\item \textbf{Rozproszona architektura mikroserwisowa}~\cite{richardson2020}~\cite{newman2022} --- struktura backendowa złożona z sześciu autonomicznych serwisów komunikujących się hybrydowo za pośrednictwem synchronicznych interfejsów REST API oraz asynchronicznej magistrali komunikatów \textit{Azure Service Bus},
 	\item \textbf{Scentralizowany podsystem bezpieczeństwa} --- model uwierzytelniania i autoryzacji bazujący na standardzie podwójnych tokenów JWT~\cite{jwt}, integrujący mechanizm bezpiecznego odświeżania sesji, dwuetapową weryfikację adresów e-mail w domenie akademickiej oraz kontrolę dostępu opartą na rolach (RBAC),
 	\item \textbf{Mechanizm orkiestracji i harmonogramowania zadań} --- zaawansowany algorytm zarządzania kolejką produkcyjną, pozwalający zarówno na natychmiastową alokację zasobów sprzętowych, jak i długoterminowe planowanie kalendarzowe procesów przyrostowych,
 	\item \textbf{Integracja brzegowa IoT} --- powiązanie platformy sprzętowej z usługą \textit{Azure IoT Hub}, umożliwiające synchroniczne sterowanie drukarką 3D za pomocą wywołań metod bezpośrednich (ang. \textit{Direct Methods}) w standardzie RPC,
@@ -2425,7 +2425,7 @@ Opracowany system \textit{AddiPi} został zaprojektowany z zachowaniem paradygma
 
 Przeprowadzone prace projektowe, implementacyjne oraz walidacyjne potwierdziły, że integracja rozproszonej architektury mikroserwisowej z usługami chmurowymi w modelu PaaS (\textit{Platform as a Service}) stanowi wysoce efektywny paradygmat budowy systemów zarządzania autonomicznymi stanowiskami druku 3D. Wszystkie założone we wstępie cele pracy zostały w pełni zrealizowane. Opracowany system \textit{AddiPi} umożliwia w pełni bezpieczne, zdalne przesyłanie plików z kodem sterującym, elastyczne harmonogramowanie zadań, ciągłe monitorowanie parametrów środowiskowych procesu oraz orkiestrację urządzenia z poziomu uniwersalnego interfejsu webowego.
 
-Zastosowanie architektury zorientowanej na mikroserwisy~\cite{newman2022} okazało się właściwym i uzasadnionym wyborem projektowym dla systemu tej klasy. Dekompozycja funkcjonalna na niezależne komponenty uprościła rozwój poszczególnych warstw logicznych, zwiększyła ogólną modularność rozwiązania oraz umożliwiła bezprzerwowe, asynchroniczne wdrażanie aktualizacji (ang. \textit{zero-downtime deployment}). Jednocześnie realizacja projektu wykazała, że podejście mikroserwisowe generuje dodatkowy narzut architektoniczny (ang. \textit{overhead})~\cite{kleppmann2017}, związany z koniecznością zapewnienia spójności danych, scentralizowanego zarządzania konfiguracją środowiskową oraz monitorowania rozproszonych potoków komunikacyjnych. Kluczowym czynnikiem sukcesu było również rygorystyczne stosowanie zasad czystego kodu~\cite{martin2022}, co umożliwiło sprawną integrację heterogenicznych technologii (TypeScript~\cite{typescript}, Python~\cite{python}) w ramach jednego ekosystemu.
+Zastosowanie architektury zorientowanej na mikroserwisy~\cite{newman2022} okazało się właściwym i uzasadnionym wyborem projektowym dla systemu tej klasy. Dekompozycja funkcjonalna na niezależne komponenty uprościła rozwój poszczególnych warstw logicznych, zwiększyła ogólną modularność rozwiązania oraz umożliwiła bezprzerwowe, asynchroniczne wdrażanie aktualizacji (ang. \textit{zero-downtime deployment}). Jednocześnie realizacja projektu wykazała, że podejście mikroserwisowe generuje dodatkowy narzut architektoniczny (ang. \textit{overhead})~\cite{kleppmann2017}~\cite{richardson2020}, związany z koniecznością zapewnienia spójności danych, scentralizowanego zarządzania konfiguracją środowiskową oraz monitorowania rozproszonych potoków komunikacyjnych. Kluczowym czynnikiem sukcesu było również rygorystyczne stosowanie zasad czystego kodu~\cite{martin2022}, co umożliwiło sprawną integrację heterogenicznych technologii (TypeScript~\cite{typescript}, Python~\cite{python}) w ramach jednego ekosystemu.
 
 Wykorzystanie ekosystemu \textit{Microsoft Azure} pozwoliło na sprawną implementację kluczowych mechanizmów platformy bez konieczności ponoszenia kosztów budowy i utrzymania własnej infrastruktury serwerowej (ang. \textit{on-premise backend}). Krytyczne znaczenie dla stabilności systemu miało wdrożenie usług \textit{Azure IoT Hub}, \textit{Azure Service Bus}~\cite{servicebus} oraz \textit{Azure Cosmos DB}~\cite{cosmosdb}. Komponenty te umożliwiły bezbłędną realizację asynchronicznego routingu komunikatów, synchronicznego sterowania urządzeniem brzegowym przez protokół RPC oraz bezpiecznej persystencji obiektów JSON.
 
