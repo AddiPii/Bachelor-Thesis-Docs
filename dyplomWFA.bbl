@@ -131,6 +131,30 @@ Poimandres.
 \newblock \url{https://www.solidworks.com}.
 \newblock Dostęp: 2026.
 
+\bibitem{postgresql}
+{PostgreSQL Global Development Group}.
+\newblock Postgresql documentation.
+\newblock \url{https://www.postgresql.org/docs/}.
+\newblock Dostęp: 2026.
+
+\bibitem{mongodb_atlas}
+{MongoDB, Inc.}
+\newblock Mongodb atlas cloud database service.
+\newblock \url{https://www.mongodb.com/docs/atlas/index/}.
+\newblock Dostęp: 2026.
+
+\bibitem{rabbitmq}
+{Broadcom}.
+\newblock Rabbitmq documentation.
+\newblock \url{https://www.rabbitmq.com/docs}.
+\newblock Dostęp: 2026.
+
+\bibitem{apache_kafka}
+{Apache Software Foundation}.
+\newblock Apache kafka documentation.
+\newblock \url{https://kafka.apache.org/43/getting-started/introduction/}.
+\newblock Dostęp: 2026.
+
 \bibitem{newman2022}
 Sam Newman.
 \newblock {\em Budowanie mikrous{\l}ug. Projektowanie drobnoziarnistych
@@ -164,6 +188,12 @@ Robert~C. Martin.
 {Axios Team}.
 \newblock Axios http client documentation.
 \newblock \url{https://axios-http.com}.
+\newblock Dostęp: 2026.
+
+\bibitem{i18next}
+{i18next Team}.
+\newblock i18next internationalization framework documentation.
+\newblock \url{https://i18next.com}.
 \newblock Dostęp: 2026.
 
 \bibitem{grabcad219}

@@ -478,7 +478,7 @@ W celu zapewnienia odpowiedniej jakości, wydajności oraz stabilności działan
 \begin{itemize}
 	\item \textbf{Skalowalność} --- architektura rozproszona powinna umożliwiać bezproblemową integrację i rejestrację kolejnych fizycznych urządzeń drukujących bez konieczności modyfikacji lub przebudowy rdzenia systemu.
 	\item \textbf{Niezawodność i tolerancja błędów} --- asynchroniczne przetwarzanie komunikatów z wykorzystaniem magistrali powinno gwarantować, że chwilowa niedostępność komponentów nie spowoduje trwałej utraty zlecenia druku ani niespójności stanów w bazie danych.
-	\item \textbf{Bezpieczeństwo danych} --- autoryzacja dostępu do interfejsów programistycznych REST API realizowana za pomocą kryptograficznie podpisanych tokenów JWT, natomiast hasła użytkowników bezwzględnie utrwalane w bazie danych w postaci kryptograficznych skrótów (ang. \textit{hashes}) wygenerowanych algorytmem \textit{bcrypt}~\cite{bcrypt}.
+	\item \textbf{Bezpieczeństwo danych} --- autoryzacja dostępu do interfejsów programistycznych REST API realizowana za pomocą kryptograficznie podpisanych tokenów JWT~\cite{jwt}, natomiast hasła użytkowników bezwzględnie utrwalane w bazie danych w postaci kryptograficznych skrótów (ang. \textit{hashes}) wygenerowanych algorytmem \textit{bcrypt}~\cite{bcrypt}.
 	\item \textbf{Responsywność interfejsu} --- warstwa prezentacji (aplikacja frontendowa) musi zostać zaprojektowana zgodnie z paradygmatem RWD (ang. \textit{Responsive Web Design}), zapewniając pełną ergonomię i poprawność wyświetlania zarówno na urządzeniach stacjonarnych, jak i mobilnych.
 	\item \textbf{Wydajność czasowa} --- czas odpowiedzi punktów końcowych API na zapytania synchroniczne nie powinien przekraczać 2 sekund w warunkach standardowego, nominalnego obciążenia infrastruktury.
 	\item \textbf{Przenośność i konteneryzacja} --- wszystkie komponenty, mikroserwisy oraz bazy danych wchodzące w skład systemu muszą zostać spakowane w niezależne kontenery środowiska \textit{Docker}, umożliwiając pełne uruchomienie całego ekosystemu za pomocą jednego polecenia skryptowego (\textit{Docker Compose}).
@@ -556,7 +556,7 @@ Dedykowana kolejka \texttt{print-queue} zapewnia niezawodną semantykę dostarcz
 
 \textit{Azure IoT Hub}~\cite{iothub} to usługa chmurowa przeznaczona do scentralizowanego zarządzania, bezpiecznego uwierzytelniania oraz monitorowania urządzeń Internetu Rzeczy (IoT). Usługa ta umożliwia pełną dwukierunkową komunikację (ang. \textit{Device-to-Cloud} oraz \textit{\newline Cloud-to-Device}), a także udostępnia mechanizm metod bezpośrednich (ang. \textit{Direct Methods}). Metody te stanowią synchroniczny wzorzec wywołań typu RPC (ang. \textit{Remote Procedure Call}), realizowany na urządzeniach brzegowych komunikujących się za pośrednictwem protokołów MQTT lub AMQP.
 
-W architekturze systemu \textit{AddiPi} usługa \textit{Printer Service} zdalnie wywołuje na agencie (uruchomionym na platformie Raspberry Pi) metody bezpośrednie: \texttt{startPrint}, \newline\texttt{cancelPrint} oraz \texttt{getStatus}. W odpowiedzi zwrotnej agent transmituje asynchroniczny strumień danych telemetrycznych w postaci zdarzeń systemowych (m.in. \texttt{print\_started}, \texttt{print\_progress} czy \texttt{print\_completed}). Komunikaty te są agregowane przez usługę \textit{Printer Service} za pośrednictwem punktu końcowego zgodnego ze specyfikacją \textit{Azure Event Hubs}.
+W architekturze systemu \textit{AddiPi} usługa \textit{Printer Service} zdalnie wywołuje na agencie (uruchomionym na platformie Raspberry Pi) metody bezpośrednie: \texttt{startPrint}, \texttt{cancelPrint} oraz \texttt{getStatus}. W odpowiedzi zwrotnej agent transmituje asynchroniczny strumień danych telemetrycznych w postaci zdarzeń systemowych (m.in. \texttt{print\_started}, \texttt{print\_progress} czy \texttt{print\_completed}). Komunikaty te są agregowane przez usługę \textit{Printer Service} za pośrednictwem punktu końcowego zgodnego ze specyfikacją \textit{Azure Event Hubs}.
 
 \subsection{Interfejs użytkownika --- React oraz Vite}
 
@@ -568,7 +568,7 @@ Projekt graficzny oraz warstwa stylów zostały zrealizowane przy użyciu framew
 
 \subsection{Konteneryzacja --- Docker oraz Docker Compose}
 
-W celu zapewnienia powtarzalności środowiska uruchomieniowego, każdy z mikroserwisów wchodzących w skład ekosystemu posiada dedykowany plik konfiguracyjny \newline\texttt{Dockerfile}. Proces budowania obrazów realizuje mechanizm wieloetapowy (ang. \textit{multi-stage build}). Podejście to pozwala na drastyczne ograniczenie rozmiaru finalnych obrazów kontenerów oraz całkowite odizolowanie środowiska kompilacji i zależności deweloperskich od produkcyjnego środowiska uruchomieniowego.
+W celu zapewnienia powtarzalności środowiska uruchomieniowego, każdy z mikroserwisów wchodzących w skład ekosystemu posiada dedykowany plik konfiguracyjny \texttt{Dockerfile}. Proces budowania obrazów realizuje mechanizm wieloetapowy (ang. \textit{multi-stage build}). Podejście to pozwala na drastyczne ograniczenie rozmiaru finalnych obrazów kontenerów oraz całkowite odizolowanie środowiska kompilacji i zależności deweloperskich od produkcyjnego środowiska uruchomieniowego.
 
 Narzędzie \textit{Docker Compose}~\cite{docker} wykorzystano do zautomatyzowanej orkiestracji i zarządzania cyklem życia wszystkich kontenerów zarówno w środowisku lokalnym, jak i produkcyjnym. Narzędzie to definiuje odizolowaną, wspólną sieć wirtualną \texttt{addipi-\allowbreak{}network} oraz odpowiada za bezpieczne wstrzykiwanie zmiennych środowiskowych odczytywanych z pliku \texttt{.env}.
 
@@ -610,7 +610,7 @@ Kluczowe znaczenie dla stabilności systemu miało precyzyjne dobranie silnika b
 	\label{tab:porownanie_baz}
 	\begin{tabular}{lccc}
 		\toprule
-		\textbf{Cecha} & \textbf{Cosmos DB} & \textbf{PostgreSQL} & \textbf{MongoDB Atlas} \\
+		\textbf{Cecha} & \textbf{Cosmos DB} & \textbf{PostgreSQL}~\cite{postgresql} & \textbf{MongoDB Atlas}~\cite{mongodb_atlas} \\
 		\midrule
 		Model danych & Dokument (JSON) & Relacyjny & Dokument (BSON) \\
 		Zarządzanie & PaaS (bez serwera) & Samodzielny/PaaS & PaaS \\
@@ -621,7 +621,7 @@ Kluczowe znaczenie dla stabilności systemu miało precyzyjne dobranie silnika b
 	\end{tabular}
 \end{table}
 
-Jak wynika z tabeli~\ref{tab:porownanie_baz}, baza \textit{Azure Cosmos DB} została wybrana ze względu na bezobsługowy model bezserwerowy (Serverless PaaS) oraz natywną integrację z ekosystemem \textit{Azure}. Wybór modelu NoSQL zamiast relacyjnego PostgreSQL podyktowany był dążeniem do minimalizacji narzutu związanego z migracjami schematu, co w systemach intensywnie korzystających z danych pozwala na szybszą iterację i skalowanie~\cite{kleppmann2017}.
+Jak wynika z tabeli~\ref{tab:porownanie_baz}, baza \textit{Azure Cosmos DB} została wybrana ze względu na bezobsługowy model bezserwerowy (Serverless PaaS) oraz natywną integrację z ekosystemem \textit{Azure}. Wybór modelu NoSQL zamiast relacyjnego PostgreSQL~\cite{postgresql} podyktowany był dążeniem do minimalizacji narzutu związanego z migracjami schematu, co w systemach intensywnie korzystających z danych pozwala na szybszą iterację i skalowanie~\cite{kleppmann2017}.
 
 \begin{table}[h!]
 	\centering
@@ -629,7 +629,7 @@ Jak wynika z tabeli~\ref{tab:porownanie_baz}, baza \textit{Azure Cosmos DB} zost
 	\label{tab:porownanie_kolejek}
 	\begin{tabular}{lccc}
 		\toprule
-		\textbf{Cecha} & \textbf{Azure Service Bus} & \textbf{RabbitMQ} & \textbf{Apache Kafka} \\
+		\textbf{Cecha} & \textbf{Azure Service Bus} & \textbf{RabbitMQ}~\cite{rabbitmq} & \textbf{Apache Kafka}~\cite{apache_kafka} \\
 		\midrule
 		Model wdrożenia & PaaS & Self-hosted & Self-hosted / PaaS \\
 		Semantyka dostarczania & At-least-once & At-least-once & At-least-once \\
@@ -640,7 +640,7 @@ Jak wynika z tabeli~\ref{tab:porownanie_baz}, baza \textit{Azure Cosmos DB} zost
 	\end{tabular}
 \end{table}
 
-W przypadku infrastruktury kolejki (tab. \ref{tab:porownanie_kolejek}), usługa \textit{Azure Service Bus} przewyższyła alternatywy brakiem konieczności samodzielnego zarządzania serwerem oraz wbudowaną automatyczną skalowalnością. Narzut konfiguracyjny rozwiązań takich jak \textit{Apache Kafka} okazał się nieuzasadniony w stosunku do skali projektu, natomiast \textit{Azure Service Bus} zapewnił wymaganą semantykę dostarczania wiadomości \textit{at-least-once} bezpośrednio po uruchomieniu usługi.
+W przypadku infrastruktury kolejki (tab. \ref{tab:porownanie_kolejek}), usługa \textit{Azure Service Bus} przewyższyła alternatywy brakiem konieczności samodzielnego zarządzania serwerem oraz wbudowaną automatyczną skalowalnością. Narzut konfiguracyjny rozwiązań takich jak \textit{Apache Kafka}~\cite{apache_kafka} okazał się nieuzasadniony w stosunku do skali projektu, natomiast \textit{Azure Service Bus} zapewnił wymaganą semantykę dostarczania wiadomości \textit{at-least-once} bezpośrednio po uruchomieniu usługi.
 
 Ostatnim etapem konfiguracji było zdefiniowanie środowiska uruchomieniowego. Odrzucono złożone systemy orkiestracji (Kubernetes) oraz instalacje bezpośrednie (bare metal) na rzecz narzędzia Docker + Compose. Zapewniło to pełną przenośność kodu, powtarzalność wdrożeń przy użyciu wieloetapowego budowania obrazów (\textit{multi-stage build}) oraz bezpieczną izolację usług w ramach dedykowanej sieci wirtualnej o nazwie \texttt{addipi-\allowbreak{}network}.
 \newpage
@@ -688,7 +688,7 @@ Na rysunku~\ref{fig:architektura} przedstawiono sekwencyjny przepływ danych pom
 
 
 \begin{enumerate}
-	\item \textbf{Uwierzytelnianie użytkownika:} Użytkownik loguje się w systemie za pośrednictwem aplikacji klienckiej (frontendowej). Aplikacja nawiązuje komunikację z usługą \textit{Auth Service}, która po pomyślnej weryfikacji tożsamości zwraca parę tokenów JWT (\textit{JSON Web Token}).
+	\item \textbf{Uwierzytelnianie użytkownika:} Użytkownik loguje się w systemie za pośrednictwem aplikacji klienckiej (frontendowej). Aplikacja nawiązuje komunikację z usługą \textit{Auth Service}, która po pomyślnej weryfikacji tożsamości zwraca parę tokenów JWT (\textit{JSON Web Token})~\cite{jwt}.
 	
 	\item \textbf{Przesyłanie pliku produkcyjnego:} Użytkownik przesyła plik z kodem sterującym (G-code). Aplikacja frontendowa wywołuje punkt końcowy (ang. \textit{endpoint}) \texttt{POST /files/upload} w ramach usługi \textit{Files Service}. Następnie komponent ten zapisuje plik w repozytorium \textit{Azure Blob Storage} oraz publikuje komunikat \texttt{file\_uploaded} w kolejce usługi \textit{Azure Service Bus}.
 	
@@ -766,7 +766,7 @@ Dokument zadania (listing~\ref{lst:json_job}) agreguje informacje o pliku steruj
 \end{lstlisting}
 
 Pole \texttt{status} może przyjmować wartości:
-\texttt{pending}, \texttt{scheduled}, \newline
+\texttt{pending}, \texttt{scheduled},
 \texttt{waiting\_for\_printer\_ready},
 \texttt{delayed}, \texttt{printing},
 \texttt{completed}, \texttt{failed},
@@ -822,7 +822,7 @@ Na rysunku~\ref{fig:state_machine} przedstawiono formalny model maszyny stanów,
 W celu zapewnienia poufności danych oraz kontroli dostępu, w systemie zaimplementowano dwutokenowy model uwierzytelniania oparty na standardzie JWT (\textit{JSON Web Token}) \cite{jwt}. Mechanizm ten wykorzystuje dwa rodzaje obiektów:
 
 \begin{itemize}
-	\item \textbf{Access token} --- token dostępu o krótkim czasie autoryzacji (ważny przez 15 minut), przekazywany w nagłówku protokołu HTTP (\texttt{Authorization: Bearer \newline<token>}). Integralność i autentyczność tokenu są weryfikowane kryptograficznie przy użyciu klucza symetrycznego \texttt{JWT\_SECRET}.
+	\item \textbf{Access token} --- token dostępu o krótkim czasie autoryzacji (ważny przez 15 minut), przekazywany w nagłówku protokołu HTTP (\texttt{Authorization: Bearer <token>}). Integralność i autentyczność tokenu są weryfikowane kryptograficznie przy użyciu klucza symetrycznego \texttt{JWT\_SECRET}.
 	
 	\item \textbf{Refresh token} --- token odświeżający o wydłużonym czasie ważności (wynoszącym 7 dni), utrwalany w bazie danych \textit{Azure Cosmos DB} oraz przechowywany po stronie aplikacji klienckiej. Podpisywany jest przy użyciu dedykowanego klucza \texttt{JWT\_REFRESH\_SECRET}. Służy do generowania nowej pary tokenów bez konieczności ponownego wprowadzania danych uwierzytelniających przez użytkownika.
 \end{itemize}
@@ -833,7 +833,7 @@ Proces rejestracji nowych kont został ze względów bezpieczeństwa ograniczony
 
 Kontrola dostępu na poziomie kodu realizowana jest za pomocą oprogramowania pośredniczącego (ang. \textit{middleware}):
 \begin{itemize}
-	\item \texttt{requireAuth} --- odpowiada za ekstrakcję i weryfikację tokenu dostępu poprzez wysłanie wewnętrznego żądania weryfikacyjnego do punktu końcowego \texttt{POST \newline /auth/verify} usługi \textit{Auth Service}.
+	\item \texttt{requireAuth} --- odpowiada za ekstrakcję i weryfikację tokenu dostępu poprzez wysłanie wewnętrznego żądania weryfikacyjnego do punktu końcowego \texttt{POST /auth/verify} usługi \textit{Auth Service}.
 	\item \texttt{requireAdmin} --- realizuje mechanizm kontroli dostępu opartej na rolach (ang. \textit{Role-Based Access Control}, RBAC), sprawdzając, czy zdekodowany profil użytkownika posiada przypisane uprawnienia klasy \texttt{admin}.
 \end{itemize}
 Takie podejście pozwala na odseparowanie logiki biznesowej od mechanizmów infrastrukturalnych, co zwiększa czytelność i ułatwia testowanie poszczególnych modułów systemu ~\cite{martin2022}.
@@ -1241,7 +1241,7 @@ W ramach każdej minutowej iteracji usługa harmonogramująca wykonuje sekwencj�
 	
 	\item \textbf{Weryfikacja stanu oczekiwania:} System kontroluje, czy proces nie został wstrzymany przez zadanie oczekujące na potwierdzenie fizycznej gotowości drukarki. Jeżeli takie zadanie istnieje, wybór kolejnej pozycji z kolejki zostaje pominięty.
 	
-	\item \textbf{Wybór i alokacja zasobu:} W przypadku braku blokad, system wyszukuje zadanie o statusie \texttt{pending} lub \texttt{scheduled} o najwcześniejszej sygnaturze czasowej (\texttt{scheduledAt}), a następnie dokonuje atomowej zmiany jego statusu na \newline\texttt{waiting\_for\_printer\_ready}.
+	\item \textbf{Wybór i alokacja zasobu:} W przypadku braku blokad, system wyszukuje zadanie o statusie \texttt{pending} lub \texttt{scheduled} o najwcześniejszej sygnaturze czasowej (\texttt{scheduledAt}), a następnie dokonuje atomowej zmiany jego statusu na \texttt{waiting\_for\_printer\_ready}.
 \end{enumerate}
 
 Na listingu~\ref{lst:start_scheduled_jobs} zaprezentowano implementację logiki wyboru oraz rezerwacji zadania, z uwzględnieniem dialektu zapytań SQL specyficznego dla bazy danych \textit{Azure Cosmos DB}.
@@ -1549,7 +1549,7 @@ Z poziomu tego widoku administrator posiada uprawnienia do:
 
 \subsection{Internacjonalizacja aplikacji}
 
-W celu zapewnienia uniwersalności oraz dostępności systemu, interfejs użytkownika został przygotowany w dwóch wersjach językowych: polskiej (ustawionej jako domyślna) oraz angielskiej. Warstwa translacji opiera się na bibliotece \textit{i18next}, a same tłumaczenia poszczególnych fraz i etykiet są przechowywane w ustrukturyzowanych plikach formatu JSON (\texttt{pl.json} oraz \texttt{en.json}), zlokalizowanych w dedykowanym katalogu \texttt{src/i18n/ locales/}.
+W celu zapewnienia uniwersalności oraz dostępności systemu, interfejs użytkownika został przygotowany w dwóch wersjach językowych: polskiej (ustawionej jako domyślna) oraz angielskiej. Warstwa translacji opiera się na bibliotece \textit{i18next}~\cite{i18next}, a same tłumaczenia poszczególnych fraz i etykiet są przechowywane w ustrukturyzowanych plikach formatu JSON (\texttt{pl.json} oraz \texttt{en.json}), zlokalizowanych w dedykowanym katalogu \texttt{src/i18n/locales/}.
 
 Przełączanie wersji językowej realizowane jest w sposób dynamiczny i asynchroniczny, eliminując konieczność ponownego przeładowania struktury dokumentu DOM przez przeglądarkę internetową. Jako dowód poprawnego działania mechanizmu umiędzynarodowienia (ang. \textit{internationalization}), na opisanym wcześniej rysunku~\ref{fig:website_upload} zaprezentowano widok panelu przesyłania zadań z aktywnym językiem angielskim.
 
@@ -2349,7 +2349,7 @@ Głównym celem niniejszej pracy inżynierskiej było zaprojektowanie, implement
 W ramach realizacji projektu inżynierskiego opracowano i zaimplementowano następujące komponenty oraz mechanizmy:
 \begin{itemize}
 	\item \textbf{Rozproszona architektura mikroserwisowa~\cite{newman2022}} --- struktura backendowa złożona z sześciu autonomicznych serwisów komunikujących się hybrydowo za pośrednictwem synchronicznych interfejsów REST API oraz asynchronicznej magistrali komunikatów \textit{Azure Service Bus},
-	\item \textbf{Scentralizowany podsystem bezpieczeństwa} --- model uwierzytelniania i autoryzacji bazujący na standardzie podwójnych tokenów JWT, integrujący mechanizm bezpiecznego odświeżania sesji, dwuetapową weryfikację adresów e-mail w domenie akademickiej oraz kontrolę dostępu opartą na rolach (RBAC),
+	\item \textbf{Scentralizowany podsystem bezpieczeństwa} --- model uwierzytelniania i autoryzacji bazujący na standardzie podwójnych tokenów JWT~\cite{jwt}, integrujący mechanizm bezpiecznego odświeżania sesji, dwuetapową weryfikację adresów e-mail w domenie akademickiej oraz kontrolę dostępu opartą na rolach (RBAC),
 	\item \textbf{Mechanizm orkiestracji i harmonogramowania zadań} --- zaawansowany algorytm zarządzania kolejką produkcyjną, pozwalający zarówno na natychmiastową alokację zasobów sprzętowych, jak i długoterminowe planowanie kalendarzowe procesów przyrostowych,
 	\item \textbf{Integracja brzegowa IoT} --- powiązanie platformy sprzętowej z usługą \textit{Azure IoT Hub}, umożliwiające synchroniczne sterowanie drukarką 3D za pomocą wywołań metod bezpośrednich (ang. \textit{Direct Methods}) w standardzie RPC,
 	\item \textbf{System monitorowania w czasie rzeczywistym} --- mechanizm akwizycji danych telemetrycznych urządzenia (metryki termiczne i statusy mechaniczne) oraz asynchronicznej dystrybucji strumienia wideo z kamery CSI w formacie MJPEG,
