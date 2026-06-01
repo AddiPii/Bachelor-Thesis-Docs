@@ -1570,7 +1570,7 @@ Bieżąca preferencja operatora dotycząca wybranego schematu kolorów jest utrw
 
 \subsection{Opis ogólny}
 
-Komponent \textit{AddiPi Agent} stanowi lokalną warstwę oprogramowania uruchamianą bezpośrednio na mikrokomputerze Raspberry Pi. Pełni on rolę dwukierunkowego pośrednika (ang. \textit{proxy}) pomiędzy rozproszoną architekturą chmurową (usługami \textit{Azure IoT Hub} oraz \textit{Azure Blob Storage}) a niskopoziomowym, lokalnym interfejsem sterującym drukarki 3D, którym zarządza serwer \textit{OctoPrint}.
+Komponent \textit{AddiPi Agent} stanowi lokalną warstwę oprogramowania uruchamianą bezpośrednio na mikrokomputerze Raspberry Pi. Pełni on rolę dwukierunkowego pośrednika (ang. \textit{proxy}) pomiędzy rozproszoną architekturą chmurową (usługami \textit{Azure IoT Hub} oraz \textit{Azure Blob Storage}) a niskopoziomowym, lokalnym interfejsem sterującym drukarki 3D, którym zarządza serwer \textit{OctoPrint}~\cite{octoprint}.
 
 Agent został zaimplementowany w języku Python. Architektura operacyjna tego komponentu została zaprojektowana w taki sposób, aby funkcjonował on jako proces działający w pętli ciągłej. W zależności od konfiguracji docelowej, jego cyklem życia zarządza demon systemowy oprogramowania układowego \texttt{systemd} lub odizolowany kontener środowiska \textit{Docker}.
 
@@ -1674,7 +1674,7 @@ W trakcie aktywnego procesu produkcyjnego, agent sprzętowy w sposób ciągły m
 
 \subsection{Niskopoziomowa komunikacja z serwerem OctoPrint}
 
-Klasa \texttt{OctoPrintClient} hermetyzuje i realizuje komunikację sieciową z systemem \textit{OctoPrint} w ramach lokalnej sieci komputerowej (z wykorzystaniem lokalnego mapowania adresów, np. \texttt{http://prusai3mk3.local}). Autoryzacja i bezpieczeństwo zapytań HTTP są zapewniane poprzez wstrzykiwanie unikalnego klucza dostępowego do nagłówka \texttt{X-Api-Key} każdego żądania.
+Klasa \texttt{OctoPrintClient} hermetyzuje i realizuje komunikację sieciową z systemem \textit{OctoPrint}~\cite{octoprint} w ramach lokalnej sieci komputerowej (z wykorzystaniem lokalnego mapowania adresów, np. \texttt{http://prusai3mk3.local}). Autoryzacja i bezpieczeństwo zapytań HTTP są zapewniane poprzez wstrzykiwanie unikalnego klucza dostępowego do nagłówka \texttt{X-Api-Key} każdego żądania.
 
 Na listingu~\ref{lst:octoprint_methods} zestawiono kluczowe operacje zaimplementowane w strukturze omawianej klasy wraz z przypisanymi do nich punktami końcowymi (ang. \textit{endpoints}) oraz strukturami poleceń lokalnego interfejsu REST API.
 
@@ -2429,7 +2429,7 @@ Zastosowanie architektury zorientowanej na mikroserwisy~\cite{newman2022} okaza�
 
 Wykorzystanie ekosystemu \textit{Microsoft Azure} pozwoliło na sprawną implementację kluczowych mechanizmów platformy bez konieczności ponoszenia kosztów budowy i utrzymania własnej infrastruktury serwerowej (ang. \textit{on-premise backend}). Krytyczne znaczenie dla stabilności systemu miało wdrożenie usług \textit{Azure IoT Hub}, \textit{Azure Service Bus} oraz \textit{Azure Cosmos DB}. Komponenty te umożliwiły bezbłędną realizację asynchronicznego routingu komunikatów, synchronicznego sterowania urządzeniem brzegowym przez protokół RPC oraz bezpiecznej persystencji obiektów JSON.
 
-Realizacja warstwy sprzętowej potwierdziła, że mikrokomputer Raspberry Pi zintegrowany z serwerem \textit{OctoPrint} stanowi stabilną, skalowalną i elastyczną platformę pośredniczącą pomiędzy fizyczną kinematyką drukarki 3D a systemami rozproszonymi. Opracowany komponent \textit{AddiPi Agent} zabezpiecza poprawną i dwukierunkową wymianę informacji, gwarantując zarówno niskopoziomowe sterowanie maszyną, jak i ciągłą akwizycję danych telemetrycznych w czasie rzeczywistym.
+Realizacja warstwy sprzętowej potwierdziła, że mikrokomputer Raspberry Pi zintegrowany z serwerem \textit{OctoPrint}~\cite{octoprint} stanowi stabilną, skalowalną i elastyczną platformę pośredniczącą pomiędzy fizyczną kinematyką drukarki 3D a systemami rozproszonymi. Opracowany komponent \textit{AddiPi Agent} zabezpiecza poprawną i dwukierunkową wymianę informacji, gwarantując zarówno niskopoziomowe sterowanie maszyną, jak i ciągłą akwizycję danych telemetrycznych w czasie rzeczywistym.
 
 Uzyskane rezultaty aplikacyjne wskazują, że system \textit{AddiPi} posiada wysoki potencjał wdrożeniowy i może znaleźć realne zastosowanie nie tylko w strukturach akademickich laboratoriów studenckich, lecz również w placówkach badawczo-rozwojowych, szkołach technicznych, biurach projektowych oraz przedsiębiorstwach wykorzystujących współdzielone zasoby wytwarzania przyrostowego. Modułowa topologia rozwiązania pozostawia pełną swobodę w zakresie dalszej ewolucji systemu, umożliwiając implementację nowych funkcji oraz orkiestrację większej liczby maszyn bez konieczności modyfikacji lub przebudowy istniejących komponentów rdzenia.
 
