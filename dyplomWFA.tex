@@ -476,7 +476,7 @@ Na podstawie szczegółowej analizy specyfiki oraz potrzeb akademickiego laborat
 W celu zapewnienia odpowiedniej jakości, wydajności oraz stabilności działania rozproszonej platformy informatycznej, określono następujące wymagania jakościowe (niefunkcjonalne):
 
 \begin{itemize}
-	\item \textbf{Skalowalność} --- architektura rozproszona powinna umożliwiać bezproblemową integrację i rejestrację kolejnych fizycznych urządzeń drukujących bez konieczności modyfikacji lub przebudowy rdzenia systemu.
+	\item \textbf{Skalowalność}~\cite{kleppmann2017} --- architektura rozproszona powinna umożliwiać bezproblemową integrację i rejestrację kolejnych fizycznych urządzeń drukujących bez konieczności modyfikacji lub przebudowy rdzenia systemu.
 	\item \textbf{Niezawodność i tolerancja błędów} --- asynchroniczne przetwarzanie komunikatów z wykorzystaniem magistrali powinno gwarantować, że chwilowa niedostępność komponentów nie spowoduje trwałej utraty zlecenia druku ani niespójności stanów w bazie danych.
 	\item \textbf{Bezpieczeństwo danych} --- autoryzacja dostępu do interfejsów programistycznych REST API realizowana za pomocą kryptograficznie podpisanych tokenów JWT~\cite{jwt}, natomiast hasła użytkowników bezwzględnie utrwalane w bazie danych w postaci kryptograficznych skrótów (ang. \textit{hashes}) wygenerowanych algorytmem \textit{bcrypt}~\cite{bcrypt}.
 	\item \textbf{Responsywność interfejsu} --- warstwa prezentacji (aplikacja frontendowa) musi zostać zaprojektowana zgodnie z paradygmatem RWD (ang. \textit{Responsive Web Design}), zapewniając pełną ergonomię i poprawność wyświetlania zarówno na urządzeniach stacjonarnych, jak i mobilnych.
@@ -550,7 +550,7 @@ Pliki G-code przesyłane przez użytkowników są przechowywane w usłudze repoz
 
 \textit{Azure Service Bus}~\cite{servicebus} to chmurowa usługa kolejkowania komunikatów i zarządzania strumieniami danych klasy korporacyjnej. W architekturze systemu \textit{AddiPi} pełni ona kluczową rolę brokera komunikatów (ang. \textit{message broker}) odpowiedzialnego za asynchroniczne i bezprzerwowe pośrednictwo pomiędzy usługą \textit{Files Service} (producentem komunikatów) a komponentem \textit{Queue Service} (konsumentem)~\cite{richardson2020}.
 
-Dedykowana kolejka \texttt{print-queue} zapewnia niezawodną semantykę dostarczania wiadomości typu \textit{at-least-once} (co najmniej raz). Rozwiązanie to gwarantuje, że w przypadku awarii usługi konsumenckiej lub utraty połączenia sieciowego, komunikat nie zostanie skasowany --- pozostaje on zabezpieczony w strukturze magistrali chmurowej i może zostać przetworzony powtórnie po przywróceniu operacyjności konsumenta, co bezpośrednio realizuje wymaganie niefunkcjonalne dotyczące tolerancji błędów.
+Dedykowana kolejka \texttt{print-queue} zapewnia niezawodną semantykę dostarczania wiadomości typu \textit{at-least-once} (co najmniej raz)~\cite{kleppmann2017}. Rozwiązanie to gwarantuje, że w przypadku awarii usługi konsumenckiej lub utraty połączenia sieciowego, komunikat nie zostanie skasowany --- pozostaje on zabezpieczony w strukturze magistrali chmurowej i może zostać przetworzony powtórnie po przywróceniu operacyjności konsumenta, co bezpośrednio realizuje wymaganie niefunkcjonalne dotyczące tolerancji błędów.
 
 \subsection{Sterowanie urządzeniem --- Azure IoT Hub}
 
@@ -2398,7 +2398,7 @@ Pomimo pełnego spełnienia założonych wymagań projektowych, opracowany syste
 	\item \textbf{Skala stanowiska produkcyjnego} --- system został zoptymalizowany pod kątem obsługi pojedynczego urządzenia. Choć architektura pozwala na skalowanie, obecna implementacja dedykowana jest dla jednej kolejki zadań i jednego aktywnego węzła brzegowego.
 	\item \textbf{Zależność od infrastruktury zewnętrznej} --- podgląd wideo opiera się na bezpłatnym wariancie \texttt{trycloudflare.com}, co uniemożliwia przypisanie statycznego adresu URL i może generować okresowe przerwy w dostępności usługi sieciowej.
 	\item \textbf{Limity darmowych planów chmurowych} --- wdrożenie produkcyjne bazuje na bezpłatnych pakietach zasobów (\textit{Oracle Always Free} oraz \textit{Azure Free Tier}). Posiadają one sztywne limity wydajnościowe i pojemnościowe, wymagające migracji do planów komercyjnych przy wyższym obciążeniu.
-	\item \textbf{Punkt pojedynczej awarii (SPOF)} --- komunikacja z urządzeniem zależy bezpośrednio od stabilności serwera \textit{OctoPrint} oraz mikrokomputera. Awaria warstwy brzegowej całkowicie paraliżuje proces realizacji nowych zleceń.
+	\item \textbf{Punkt pojedynczej awarii (SPOF)}~\cite{kleppmann2017} --- komunikacja z urządzeniem zależy bezpośrednio od stabilności serwera \textit{OctoPrint} oraz mikrokomputera. Awaria warstwy brzegowej całkowicie paraliżuje proces realizacji nowych zleceń.
 	\item \textbf{Brak statycznej walidacji kodu sterującego} --- system nie realizuje automatycznej weryfikacji poprawności struktury plików G-code przed alokacją w kolejce. Walidacja poprawności technologicznej pliku spoczywa wyłącznie na operatorze.
 	\item \textbf{Ograniczone pokrycie testami} --- bieżąca wersja prototypowa nie została wyposażona w kompleksowy, zautomatyzowany zestaw testów integracyjnych typu \textit{end-to-end}, który pokrywałby pełen cykl życia zadania.
 \end{itemize}
