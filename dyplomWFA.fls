@@ -188,8 +188,6 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
-INPUT /usr/share/texlive/texmf-dist/tex/latex/encxvlna/encxvlna.sty
-INPUT /usr/share/texlive/texmf-dist/tex/latex/encxvlna/encxvlna.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
@@ -203,8 +201,6 @@ INPUT /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
-INPUT /usr/share/texlive/texmf-dist/tex/latex/grfext/grfext.sty
-INPUT /usr/share/texlive/texmf-dist/tex/latex/grfext/grfext.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
