@@ -528,7 +528,7 @@ Agent działający na platformie Raspberry Pi został zaimplementowany w języku
 
 \subsection{Framework webowy --- Express.js}
 
-Wszystkie serwisy warstwy Node.js wykorzystują framework Express.js~\cite{express} w wersji stabilnej 5.0. Rozwiązanie to charakteryzuje się minimalistyczną architekturą i niskim narzutem wydajnościowym. Framework nie narzuca sztywnej struktury katalogów (ang. \textit{unopinionated framework}), co pozwala na elastyczne dostosowanie architektury każdego z mikroserwisów do jego specyficznych wymagań. Express.js zapewnia również ustandaryzowane mechanizmy obsługi żądań pośredniczących (ang. \textit{middleware}), routingu oraz zarządzania błędami.
+Wszystkie serwisy warstwy Node.js~\cite{nodejs} wykorzystują framework Express.js~\cite{express} w wersji stabilnej 5.0. Rozwiązanie to charakteryzuje się minimalistyczną architekturą i niskim narzutem wydajnościowym. Framework nie narzuca sztywnej struktury katalogów (ang. \textit{unopinionated framework}), co pozwala na elastyczne dostosowanie architektury każdego z mikroserwisów do jego specyficznych wymagań. Express.js zapewnia również ustandaryzowane mechanizmy obsługi żądań pośredniczących (ang. \textit{middleware}), routingu oraz zarządzania błędami.
 
 \subsection{Baza danych --- Azure Cosmos DB}
 
@@ -852,7 +852,7 @@ Takie podejście pozwala na odseparowanie logiki biznesowej od mechanizmów infr
 
 Usługa \textit{Auth Service} odpowiada za procesy uwierzytelniania, autoryzacji oraz zarządzania kontami użytkowników. W zakres jej funkcjonalności wchodzi: rejestracja, logowanie i wylogowanie użytkowników, odświeżanie tokenów sesyjnych oraz weryfikacja adresów poczty elektronicznej.
 
-Komponent ten został zaimplementowany w środowisku uruchomieniowym Node.js z wykorzystaniem frameworka Express.js oraz języka TypeScript~\cite{typescript}. Serwis realizuje operacje wejścia-wyjścia poprzez komunikację z bazą danych \textit{Azure Cosmos DB} (w ramach kontenerów \texttt{users} oraz \texttt{refresh-tokens}). Ponadto integruje się z zewnętrznym serwerem SMTP firmy Google w celu dystrybucji wiadomości aktywacyjnych, wykorzystując do tego celu bibliotekę \texttt{Nodemailer}~\cite{nodemailer}.
+Komponent ten został zaimplementowany w środowisku uruchomieniowym Node.js~\cite{nodejs} z wykorzystaniem frameworka Express.js oraz języka TypeScript~\cite{typescript}. Serwis realizuje operacje wejścia-wyjścia poprzez komunikację z bazą danych \textit{Azure Cosmos DB} (w ramach kontenerów \texttt{users} oraz \texttt{refresh-tokens}). Ponadto integruje się z zewnętrznym serwerem SMTP firmy Google w celu dystrybucji wiadomości aktywacyjnych, wykorzystując do tego celu bibliotekę \texttt{Nodemailer}~\cite{nodemailer}.
 
 
 \subsubsection{Punkty końcowe API}
@@ -1127,7 +1127,7 @@ except Exception as e:
 
 \subsubsection{Opis ogólny}
 
-Usługa \textit{Queue Service} to mikroserwis zaimplementowany w środowisku uruchomieniowym Node.js przy użyciu języka JavaScript oraz standardu modułów ECMAScript (ang. \textit{ECMAScript Modules}, ESM). Głównym zadaniem komponentu jest asynchroniczne i bezprzerwowe nasłuchiwanie (ang. \textit{listening}) komunikatów publikowanych w magistrali \textit{Azure Service Bus}~\cite{richardson2020}, a następnie ich transformacja i utrwalanie w postaci dokumentów zadań produkcyjnych w bazie danych \textit{Azure Cosmos DB}.
+Usługa \textit{Queue Service} to mikroserwis zaimplementowany w środowisku uruchomieniowym Node.js~\cite{nodejs} przy użyciu języka JavaScript oraz standardu modułów ECMAScript (ang. \textit{ECMAScript Modules}, ESM). Głównym zadaniem komponentu jest asynchroniczne i bezprzerwowe nasłuchiwanie (ang. \textit{listening}) komunikatów publikowanych w magistrali \textit{Azure Service Bus}~\cite{richardson2020}, a następnie ich transformacja i utrwalanie w postaci dokumentów zadań produkcyjnych w bazie danych \textit{Azure Cosmos DB}.
 
 Dodatkowo serwis udostępnia dedykowany interfejs programistyczny HTTP API, który umożliwia innym komponentom systemu (w tym aplikacji klienckiej) monitorowanie stanu kolejki oraz zarządzanie priorytetami zadań.
 
@@ -1358,7 +1358,7 @@ W tabeli~\ref{tab:printer_endpoints} zestawiono i opisano punkty końcowe (ang. 
 
 \subsubsection{Opis ogólny}
 
-Usługa \textit{Video Service} to mikroserwis zaimplementowany w środowisku uruchomieniowym Node.js z wykorzystaniem frameworka Express.js oraz języka JavaScript. Komponent ten odpowiada za tymczasowe przechowywanie aktualnego adresu URL strumienia wideo z kamery systemu \textit{OctoPrint} w pamięci operacyjnej serwera (ang. \textit{in-memory storage}), co eliminuje konieczność ciągłego odpytywania bazy danych o wolnozmienne parametry sieciowe.
+Usługa \textit{Video Service} to mikroserwis zaimplementowany w środowisku uruchomieniowym Node.js~\cite{nodejs} z wykorzystaniem frameworka Express.js oraz języka JavaScript. Komponent ten odpowiada za tymczasowe przechowywanie aktualnego adresu URL strumienia wideo z kamery systemu \textit{OctoPrint} w pamięci operacyjnej serwera (ang. \textit{in-memory storage}), co eliminuje konieczność ciągłego odpytywania bazy danych o wolnozmienne parametry sieciowe.
 
 Agent uruchamiany na mikrokomputerze Raspberry Pi rejestruje bieżący adres kamery (lokalny adres IP lub adres publiczny udostępniany za pośrednictwem tunelu sieciowego \textit{Cloudflare}) po każdym zainicjowaniu systemu operacyjnego. Aplikacja kliencka (frontendowa) cyklicznie pobiera ten adres i renderuje dynamiczny strumień wideo bezpośrednio w interfejsie użytkownika w elemencie \texttt{<img>} z wykorzystaniem formatu MJPEG (\textit{Motion JPEG}).
 
@@ -2168,7 +2168,7 @@ Po pomyślnym zastosowaniu planu, wygenerowane wartości niejawne (ang. \textit{
 
 \subsection{Specyfikacja konteneryzacji i optymalizacja obrazów}
 
-W celu zapewnienia powtarzalności środowisk uruchomieniowych, każdy z mikroserwisów został odizolowany w strukturze kontenera \textit{Docker}. Dla usług opartych na technologii \textit{Node.js} wdrożono mechanizm wieloetapowego budowania (ang. \textit{multi-stage build}), którego celem jest separacja zależności deweloperskich i procesu kompilacji \textit{TypeScript} (etap \texttt{builder}) od lekkiego obrazu produkcyjnego. Wzorcową konfigurację tego potoku dla usługi \textit{Auth Service} zaprezentowano na listingu~\ref{lst:dockerfile_node}.
+W celu zapewnienia powtarzalności środowisk uruchomieniowych, każdy z mikroserwisów został odizolowany w strukturze kontenera \textit{Docker}. Dla usług opartych na technologii \textit{Node.js}~\cite{nodejs} wdrożono mechanizm wieloetapowego budowania (ang. \textit{multi-stage build}), którego celem jest separacja zależności deweloperskich i procesu kompilacji \textit{TypeScript} (etap \texttt{builder}) od lekkiego obrazu produkcyjnego. Wzorcową konfigurację tego potoku dla usługi \textit{Auth Service} zaprezentowano na listingu~\ref{lst:dockerfile_node}.
 
 \begin{lstlisting}[language=,caption={Wieloetapowy plik konfiguracyjny Dockerfile serwisu Node.js.},style=plListing,label={lst:dockerfile_node}]
 	FROM node:20-alpine AS builder
