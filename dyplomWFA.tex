@@ -1396,14 +1396,14 @@ W tabeli~\ref{tab:video_endpoints} zestawiono i opisano punkty końcowe (ang. \t
 
 Aplikacja frontendowa została zaimplementowana z wykorzystaniem biblioteki \textit{React}~\cite{react} w wersji 18 oraz języka TypeScript~\cite{typescript}. Jako środowisko deweloperskie i narzędzie budujące (ang. \textit{bundler}) wykorzystano \textit{Vite}~\cite{vite}, natomiast zarządzanie mapowaniem adresów URL i nawigacją realizowane jest przy użyciu biblioteki \textit{React Router}~\cite{router} w wersji 6.
 
-Zarządzanie globalnym stanem aplikacji klienckiej (obejmującym dane profilowe zalogowanego użytkownika, bieżący status operacyjny drukarki oraz metryki systemowe) powierzono bibliotece \textit{Zustand}. W celu zachowania ciągłości sesji i preferencji interfejsu (takich jak motyw graficzny czy wybrany język), wykorzystano oprogramowanie pośredniczące \texttt{persist}, które automatyzuje proces synchronizacji i trwałego przechowywania danych w pamięci podręcznej \texttt{localStorage} przeglądarki internetowej.
+Zarządzanie globalnym stanem aplikacji klienckiej (obejmującym dane profilowe zalogowanego użytkownika, bieżący status operacyjny drukarki oraz metryki systemowe) powierzono bibliotece \textit{Zustand}~\cite{zustand}. W celu zachowania ciągłości sesji i preferencji interfejsu (takich jak motyw graficzny czy wybrany język), wykorzystano oprogramowanie pośredniczące \texttt{persist}, które automatyzuje proces synchronizacji i trwałego przechowywania danych w pamięci podręcznej \texttt{localStorage} przeglądarki internetowej.
 
 Struktura drzewa katalogów aplikacji została zorganizowana w sposób modułowy~\cite{martin2022} i przedstawia się następująco:
 \begin{itemize}
 	\item \texttt{src/components/} --- komponenty interfejsu użytkownika wielokrotnego użytku, odpowiadające za renderowanie pojedynczych elementów (m.in. \texttt{Card}, \texttt{StatusBadge}, \texttt{ProgressBar}, \texttt{ConfirmDialog}, \texttt{Layout}, \texttt{LoadingSpinner}),
 	\item \texttt{src/pages/} --- komponenty wysokiego poziomu reprezentujące autonomiczne widoki aplikacji (m.in. \texttt{HomePage}, \texttt{LoginPage}, \texttt{RegisterPage}, \texttt{DashboardPage}, \texttt{UploadPage}, \texttt{ProfilePage}, \texttt{PrintControlPage}, \texttt{AdminDashboard}),
 	\item \texttt{src/services/api.ts} --- implementacja scentralizowanego klienta API odpowiedzialnego za komunikację sieciową z backendową warstwą mikroserwisów,
-	\item \texttt{src/store/useStore.ts} --- implementacja globalnego magazynu stanu (ang. \textit{store}) biblioteki \textit{Zustand},
+	\item \texttt{src/store/useStore.ts} --- implementacja globalnego magazynu stanu (ang. \textit{store}) biblioteki \textit{Zustand}~\cite{zustand},
 	\item \texttt{src/i18n/} --- konfiguracja internacjonalizacji aplikacji oparta na bibliotece \textit{i18next} wraz z plikami translacji interfejsu,
 	\item \texttt{src/types/} --- definicje interfejsów i typów języka TypeScript, w tym struktur \texttt{User}, \texttt{Job} oraz \texttt{PrinterStatus},
 	\item \texttt{src/utils/formatters.ts} --- funkcje pomocnicze realizujące operacje bezstanowe, takie jak formatowanie dat, rozmiarów plików czy czasu.
@@ -1557,7 +1557,7 @@ Przełączanie wersji językowej realizowane jest w sposób dynamiczny i asynchr
 
 Aplikacja kliencka w pełni obsługuje dwa warianty wizualne interfejsu użytkownika: motyw jasny (ang. \textit{light mode}) oraz ciemny (ang. \textit{dark mode}). Architektura tego mechanizmu bazuje na natywnych zmiennych CSS (ang. \textit{CSS custom properties}), które zdefiniowano w selektorach \texttt{:root} oraz \texttt{.dark}. Są one dynamicznie interpretowane i wstrzykiwane przez silnik frameworka \textit{Tailwind CSS}.
 
-Bieżąca preferencja operatora dotycząca wybranego schematu kolorów jest utrwalana w pamięci podręcznej \texttt{localStorage} z wykorzystaniem mechanizmu automatycznej persystencji stanu globalnego biblioteki \textit{Zustand}. Pozwala to na zachowanie wybranego wariantu przy kolejnych sesjach użytkownika. Dla porównania walorów wizualnych, na przytoczonym wcześniej rysunku~\ref{fig:admin_panel} przedstawiono interfejs panelu administracyjnego z aktywnym motywem jasnym, podczas gdy pozostałe ekrany zobrazowano w domyślnym wariancie ciemnym.
+Bieżąca preferencja operatora dotycząca wybranego schematu kolorów jest utrwalana w pamięci podręcznej \texttt{localStorage} z wykorzystaniem mechanizmu automatycznej persystencji stanu globalnego biblioteki \textit{Zustand}~\cite{zustand}. Pozwala to na zachowanie wybranego wariantu przy kolejnych sesjach użytkownika. Dla porównania walorów wizualnych, na przytoczonym wcześniej rysunku~\ref{fig:admin_panel} przedstawiono interfejs panelu administracyjnego z aktywnym motywem jasnym, podczas gdy pozostałe ekrany zobrazowano w domyślnym wariancie ciemnym.
 
 
 \newpage
