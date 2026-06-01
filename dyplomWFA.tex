@@ -852,7 +852,7 @@ Takie podejście pozwala na odseparowanie logiki biznesowej od mechanizmów infr
 
 Usługa \textit{Auth Service} odpowiada za procesy uwierzytelniania, autoryzacji oraz zarządzania kontami użytkowników. W zakres jej funkcjonalności wchodzi: rejestracja, logowanie i wylogowanie użytkowników, odświeżanie tokenów sesyjnych oraz weryfikacja adresów poczty elektronicznej.
 
-Komponent ten został zaimplementowany w środowisku uruchomieniowym Node.js~\cite{nodejs} z wykorzystaniem frameworka Express.js oraz języka TypeScript~\cite{typescript}. Serwis realizuje operacje wejścia-wyjścia poprzez komunikację z bazą danych \textit{Azure Cosmos DB} (w ramach kontenerów \texttt{users} oraz \texttt{refresh-tokens}). Ponadto integruje się z zewnętrznym serwerem SMTP firmy Google w celu dystrybucji wiadomości aktywacyjnych, wykorzystując do tego celu bibliotekę \texttt{Nodemailer}~\cite{nodemailer}.
+Komponent ten został zaimplementowany w środowisku uruchomieniowym Node.js~\cite{nodejs} z wykorzystaniem frameworka Express.js~\cite{express} oraz języka TypeScript~\cite{typescript}. Serwis realizuje operacje wejścia-wyjścia poprzez komunikację z bazą danych \textit{Azure Cosmos DB} (w ramach kontenerów \texttt{users} oraz \texttt{refresh-tokens}). Ponadto integruje się z zewnętrznym serwerem SMTP firmy Google w celu dystrybucji wiadomości aktywacyjnych, wykorzystując do tego celu bibliotekę \texttt{Nodemailer}~\cite{nodemailer}.
 
 
 \subsubsection{Punkty końcowe API}
@@ -1021,7 +1021,7 @@ W tabeli~\ref{tab:user_endpoints} wyszczególniono i opisano punkty końcowe (an
 
 \subsubsection{Mechanizm autoryzacji żądań}
 
-Na listingu~\ref{lst:middleware_auth_real} zaprezentowano produkcyjną implementację oprogramowania pośredniczącego \texttt{requireAuth}. Komponent ten w pełni wykorzystuje silne typowanie języka TypeScript, w tym parametry generyczne interfejsów \texttt{Request} oraz \texttt{Response} z biblioteki \texttt{express}. 
+Na listingu~\ref{lst:middleware_auth_real} zaprezentowano produkcyjną implementację oprogramowania pośredniczącego \texttt{requireAuth}. Komponent ten w pełni wykorzystuje silne typowanie języka TypeScript, w tym parametry generyczne interfejsów \texttt{Request} oraz \texttt{Response} z biblioteki \texttt{express}~\cite{express}. 
 
 Procedura autoryzacji polega na bezpiecznej ekstrakcji tokenu dostępu z nagłówka \texttt{Authorization}, a następnie wykonaniu asynchronicznego żądania sieciowego metodą \texttt{POST} do punktu końcowego usługi \textit{Auth Service}. Po odebraniu odpowiedzi struktura danych jest rzutowana na dedykowany typ \texttt{Data}. W przypadku poprawnej walidacji następuje asercja typu obiektu żądania, wstrzyknięcie profilu użytkownika do pola \texttt{user} oraz wywołanie funkcji \texttt{next()}, która przekazuje sterowanie do kolejnego elementu w potoku przetwarzania (ang. \textit{middleware chain}).
 
@@ -1358,7 +1358,7 @@ W tabeli~\ref{tab:printer_endpoints} zestawiono i opisano punkty końcowe (ang. 
 
 \subsubsection{Opis ogólny}
 
-Usługa \textit{Video Service} to mikroserwis zaimplementowany w środowisku uruchomieniowym Node.js~\cite{nodejs} z wykorzystaniem frameworka Express.js oraz języka JavaScript. Komponent ten odpowiada za tymczasowe przechowywanie aktualnego adresu URL strumienia wideo z kamery systemu \textit{OctoPrint} w pamięci operacyjnej serwera (ang. \textit{in-memory storage}), co eliminuje konieczność ciągłego odpytywania bazy danych o wolnozmienne parametry sieciowe.
+Usługa \textit{Video Service} to mikroserwis zaimplementowany w środowisku uruchomieniowym Node.js~\cite{nodejs} z wykorzystaniem frameworka Express.js~\cite{express} oraz języka JavaScript. Komponent ten odpowiada za tymczasowe przechowywanie aktualnego adresu URL strumienia wideo z kamery systemu \textit{OctoPrint} w pamięci operacyjnej serwera (ang. \textit{in-memory storage}), co eliminuje konieczność ciągłego odpytywania bazy danych o wolnozmienne parametry sieciowe.
 
 Agent uruchamiany na mikrokomputerze Raspberry Pi rejestruje bieżący adres kamery (lokalny adres IP lub adres publiczny udostępniany za pośrednictwem tunelu sieciowego \textit{Cloudflare}) po każdym zainicjowaniu systemu operacyjnego. Aplikacja kliencka (frontendowa) cyklicznie pobiera ten adres i renderuje dynamiczny strumień wideo bezpośrednio w interfejsie użytkownika w elemencie \texttt{<img>} z wykorzystaniem formatu MJPEG (\textit{Motion JPEG}).
 
