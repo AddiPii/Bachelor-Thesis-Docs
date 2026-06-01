@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.1)  1 JUN 2026 20:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.1)  1 JUN 2026 21:22
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -210,40 +210,15 @@ Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
 \l__lipsum_b_int=\count282
 
 (/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex))
-(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count283
-\lst@gtempboxa=\box55
-\lst@token=\toks28
-\lst@length=\count284
-\lst@currlwidth=\dimen170
-\lst@column=\count285
-\lst@pos=\count286
-\lst@lostspace=\dimen171
-\lst@width=\dimen172
-\lst@newlines=\count287
-\lst@lineno=\count288
-\lst@maxwidth=\dimen173
-
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
-\c@lstnumber=\count289
-\lst@skipnumbers=\count290
-\lst@framebox=\box56
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
-File: listings.cfg 2023/02/27 1.9 listings configuration
-))
-Package: listings 2023/02/27 1.9 (Carsten Heinz)
-
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2024/01/07 v24.1 The Babel package
-\babel@savecnt=\count291
-\U@D=\dimen174
+\babel@savecnt=\count283
+\U@D=\dimen170
 \l@unhyphenated=\language6
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
-\bbl@dirlevel=\count292
+\bbl@dirlevel=\count284
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel-polish/polish.ldf
 Language: polish 2022/03/12 1.3 Babel support for Polish
@@ -255,9 +230,9 @@ Package babel Info: Importing font and identification data for polish
 )
 (/usr/share/texlive/texmf-dist/tex/latex/appendix/appendix.sty
 Package: appendix 2020/02/08 v1.2c extra appendix facilities
-\c@@pps=\count293
-\c@@ppsavesec=\count294
-\c@@ppsaveapp=\count295
+\c@@pps=\count285
+\c@@ppsavesec=\count286
+\c@@ppsaveapp=\count287
 )
 (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
@@ -266,31 +241,31 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 (/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip53
-\enit@outerparindent=\dimen175
-\enit@toks=\toks29
-\enit@inbox=\box57
-\enit@count@id=\count296
-\enitdp@description=\count297
+\enit@outerparindent=\dimen171
+\enit@toks=\toks28
+\enit@inbox=\box55
+\enit@count@id=\count288
+\enitdp@description=\count289
 )
 (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen176
-\lightrulewidth=\dimen177
-\cmidrulewidth=\dimen178
-\belowrulesep=\dimen179
-\belowbottomsep=\dimen180
-\aboverulesep=\dimen181
-\abovetopsep=\dimen182
-\cmidrulesep=\dimen183
-\cmidrulekern=\dimen184
-\defaultaddspace=\dimen185
-\@cmidla=\count298
-\@cmidlb=\count299
-\@aboverulesep=\dimen186
-\@belowrulesep=\dimen187
-\@thisruleclass=\count300
-\@lastruleclass=\count301
-\@thisrulewidth=\dimen188
+\heavyrulewidth=\dimen172
+\lightrulewidth=\dimen173
+\cmidrulewidth=\dimen174
+\belowrulesep=\dimen175
+\belowbottomsep=\dimen176
+\aboverulesep=\dimen177
+\abovetopsep=\dimen178
+\cmidrulesep=\dimen179
+\cmidrulekern=\dimen180
+\defaultaddspace=\dimen181
+\@cmidla=\count290
+\@cmidlb=\count291
+\@aboverulesep=\dimen182
+\@belowrulesep=\dimen183
+\@thisruleclass=\count292
+\@lastruleclass=\count293
+\@thisrulewidth=\dimen184
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2023-11-01 v4.19 Multi-page Table package (DPC)
@@ -298,28 +273,28 @@ Package: longtable 2023-11-01 v4.19 Multi-page Table package (DPC)
 \LTright=\skip55
 \LTpre=\skip56
 \LTpost=\skip57
-\LTchunksize=\count302
-\LTcapwidth=\dimen189
-\LT@head=\box58
-\LT@firsthead=\box59
-\LT@foot=\box60
-\LT@lastfoot=\box61
-\LT@gbox=\box62
-\LT@cols=\count303
-\LT@rows=\count304
-\c@LT@tables=\count305
-\c@LT@chunks=\count306
-\LT@p@ftn=\toks30
+\LTchunksize=\count294
+\LTcapwidth=\dimen185
+\LT@head=\box56
+\LT@firsthead=\box57
+\LT@foot=\box58
+\LT@lastfoot=\box59
+\LT@gbox=\box60
+\LT@cols=\count295
+\LT@rows=\count296
+\c@LT@tables=\count297
+\c@LT@chunks=\count298
+\LT@p@ftn=\toks29
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
-\col@sep=\dimen190
-\ar@mcellbox=\box63
-\extrarowheight=\dimen191
-\NC@list=\toks31
+\col@sep=\dimen186
+\ar@mcellbox=\box61
+\extrarowheight=\dimen187
+\NC@list=\toks30
 \extratabsurround=\skip58
 \backup@length=\skip59
-\ar@cellbox=\box64
+\ar@cellbox=\box62
 )
 (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
@@ -343,36 +318,36 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/makecell/makecell.sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
-\rotheadsize=\dimen192
-\c@nlinenum=\count307
-\TeXr@lab=\toks32
+\rotheadsize=\dimen188
+\c@nlinenum=\count299
+\TeXr@lab=\toks31
 )
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count308
-\float@exts=\toks33
-\float@box=\box65
-\@float@everytoks=\toks34
-\@floatcapt=\box66
+\c@float@type=\count300
+\float@exts=\toks32
+\float@box=\box63
+\@float@everytoks=\toks33
+\@floatcapt=\box64
 )
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
 Package: microtype 2023/03/13 v3.1a Micro-typographical refinements (RS)
 
 (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count309
+\etb@tempcnta=\count301
 )
-\MT@toks=\toks35
-\MT@tempbox=\box67
-\MT@count=\count310
+\MT@toks=\toks34
+\MT@tempbox=\box65
+\MT@count=\count302
 LaTeX Info: Redefining \noprotrusionifhmode on input line 1059.
 LaTeX Info: Redefining \leftprotrusion on input line 1060.
-\MT@prot@toks=\toks36
+\MT@prot@toks=\toks35
 LaTeX Info: Redefining \rightprotrusion on input line 1078.
 LaTeX Info: Redefining \textls on input line 1368.
-\MT@outer@kern=\dimen193
+\MT@outer@kern=\dimen189
 LaTeX Info: Redefining \textmicrotypecontext on input line 1988.
-\MT@listname@count=\count311
+\MT@listname@count=\count303
 
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def
 File: microtype-pdftex.def 2023/03/13 v3.1a Definitions specific to pdftex (RS)
@@ -388,13 +363,13 @@ File: microtype.cfg 2023/03/13 v3.1a microtype main configuration file (RS)
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2023/07/08 v2.11c `tabularx' package (DPC)
-\TX@col@width=\dimen194
-\TX@old@table=\dimen195
-\TX@old@col=\dimen196
-\TX@target=\dimen197
-\TX@delta=\dimen198
-\TX@cols=\count312
-\TX@ftn=\toks37
+\TX@col@width=\dimen190
+\TX@old@table=\dimen191
+\TX@old@col=\dimen192
+\TX@target=\dimen193
+\TX@delta=\dimen194
+\TX@cols=\count304
+\TX@ftn=\toks36
 )
 (/usr/share/texlive/texmf-dist/tex/latex/xltabular/xltabular.sty
 Package: xltabular 2020/11/04 v0.2e `xltabular' package (hv,RN)
@@ -414,7 +389,32 @@ Package hyphenat Warning: *******************************
 
 \langwohyphens=\language7
 LaTeX Info: Redefining \_ on input line 43.
-) (/usr/share/texlive/texmf-dist/tex/latex/psnfss/mathptmx.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count305
+\lst@gtempboxa=\box66
+\lst@token=\toks37
+\lst@length=\count306
+\lst@currlwidth=\dimen195
+\lst@column=\count307
+\lst@pos=\count308
+\lst@lostspace=\dimen196
+\lst@width=\dimen197
+\lst@newlines=\count309
+\lst@lineno=\count310
+\lst@maxwidth=\dimen198
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
+\c@lstnumber=\count311
+\lst@skipnumbers=\count312
+\lst@framebox=\box67
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2023/02/27 1.9 listings configuration
+))
+Package: listings 2023/02/27 1.9 (Carsten Heinz)
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/mathptmx.sty
 Package: mathptmx 2020/03/25 PSNFSS-v9.3 Times w/ Math, improved (SPQR, WaS) 
 LaTeX Font Info:    Redeclaring symbol font `operators' on input line 28.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
@@ -591,33 +591,33 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip63
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 75.
+Package hyperref Info: Option `colorlinks' set `true' on input line 74.
 LaTeX Font Info:    Trying to load font information for T1+ptm on input line 33
-0.
+1.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 ) (./dyplomWFA.aux)
 \openout1 = `dyplomWFA.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 330.
-LaTeX Font Info:    ... okay on input line 330.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 330.
-LaTeX Font Info:    ... okay on input line 330.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 330.
-LaTeX Font Info:    ... okay on input line 330.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 330.
-LaTeX Font Info:    ... okay on input line 330.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 330.
-LaTeX Font Info:    ... okay on input line 330.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 330.
-LaTeX Font Info:    ... okay on input line 330.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 330.
-LaTeX Font Info:    ... okay on input line 330.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 330.
-LaTeX Font Info:    ... okay on input line 330.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 330.
-LaTeX Font Info:    ... okay on input line 330.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 331.
+LaTeX Font Info:    ... okay on input line 331.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 331.
+LaTeX Font Info:    ... okay on input line 331.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 331.
+LaTeX Font Info:    ... okay on input line 331.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 331.
+LaTeX Font Info:    ... okay on input line 331.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 331.
+LaTeX Font Info:    ... okay on input line 331.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 331.
+LaTeX Font Info:    ... okay on input line 331.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 331.
+LaTeX Font Info:    ... okay on input line 331.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 331.
+LaTeX Font Info:    ... okay on input line 331.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 331.
+LaTeX Font Info:    ... okay on input line 331.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -685,20 +685,19 @@ Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count330
-LaTeX Info: Redefining \microtypecontext on input line 330.
-Package microtype Info: Applying patch `item' on input line 330.
-Package microtype Info: Applying patch `toc' on input line 330.
-Package microtype Info: Applying patch `eqnum' on input line 330.
-Package microtype Info: Applying patch `footnote' on input line 330.
-Package microtype Info: Applying patch `verbatim' on input line 330.
+LaTeX Info: Redefining \microtypecontext on input line 331.
+Package microtype Info: Applying patch `item' on input line 331.
+Package microtype Info: Applying patch `toc' on input line 331.
+Package microtype Info: Applying patch `eqnum' on input line 331.
+Package microtype Info: Applying patch `footnote' on input line 331.
+Package microtype Info: Applying patch `verbatim' on input line 331.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 330.
+LaTeX Info: Redefining \showhyphens on input line 331.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -707,7 +706,7 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 )
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 3
-30.
+31.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
@@ -719,129 +718,130 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/m/scsl' undefined
-(Font)              using `T1/cmtt/m/sc' instead on input line 330.
+(Font)              using `T1/cmtt/m/sc' instead on input line 331.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/m/n' instead on input line 330.
+(Font)              using `T1/cmtt/m/n' instead on input line 331.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/it' undefined
-(Font)              using `T1/cmtt/b/n' instead on input line 330.
+(Font)              using `T1/cmtt/b/n' instead on input line 331.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/sl' undefined
-(Font)              using `T1/cmtt/b/it' instead on input line 330.
+(Font)              using `T1/cmtt/b/it' instead on input line 331.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/scit' undefined
-(Font)              using `T1/cmtt/b/sc' instead on input line 330.
+(Font)              using `T1/cmtt/b/sc' instead on input line 331.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/b/sc' undefined
-(Font)              using `T1/cmtt/b/n' instead on input line 330.
+(Font)              using `T1/cmtt/b/n' instead on input line 331.
 
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 330.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 331.
 LaTeX Font Info:    Font shape `T1/cmtt/bx/it' in size <12> not available
-(Font)              Font shape `T1/cmtt/m/it' tried instead on input line 330.
+(Font)              Font shape `T1/cmtt/m/it' tried instead on input line 331.
 
 LaTeX Font Warning: Font shape `T1/cmtt/bx/sl' undefined
-(Font)              using `T1/cmtt/bx/it' instead on input line 330.
+(Font)              using `T1/cmtt/bx/it' instead on input line 331.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/bx/scit' undefined
-(Font)              using `T1/cmtt/bx/sc' instead on input line 330.
+(Font)              using `T1/cmtt/bx/sc' instead on input line 331.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/bx/sc' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 330.
+(Font)              using `T1/cmtt/bx/n' instead on input line 331.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/sbx/sc' undefined
-(Font)              using `T1/cmtt/sb/sc' instead on input line 330.
+(Font)              using `T1/cmtt/sb/sc' instead on input line 331.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/sb/n' undefined
-(Font)              using `T1/cmtt/m/n' instead on input line 330.
+(Font)              using `T1/cmtt/m/n' instead on input line 331.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/sb/it' undefined
-(Font)              using `T1/cmtt/sb/n' instead on input line 330.
+(Font)              using `T1/cmtt/sb/n' instead on input line 331.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/sb/sl' undefined
-(Font)              using `T1/cmtt/sb/it' instead on input line 330.
+(Font)              using `T1/cmtt/sb/it' instead on input line 331.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/sb/scit' undefined
-(Font)              using `T1/cmtt/sb/sc' instead on input line 330.
+(Font)              using `T1/cmtt/sb/sc' instead on input line 331.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/sb/sc' undefined
-(Font)              using `T1/cmtt/sb/n' instead on input line 330.
+(Font)              using `T1/cmtt/sb/n' instead on input line 331.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/sbc/sc' undefined
-(Font)              using `T1/cmtt/c/sc' instead on input line 330.
+(Font)              using `T1/cmtt/c/sc' instead on input line 331.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/c/n' undefined
-(Font)              using `T1/cmtt/m/n' instead on input line 330.
+(Font)              using `T1/cmtt/m/n' instead on input line 331.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/c/it' undefined
-(Font)              using `T1/cmtt/c/n' instead on input line 330.
+(Font)              using `T1/cmtt/c/n' instead on input line 331.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/c/sl' undefined
-(Font)              using `T1/cmtt/c/it' instead on input line 330.
+(Font)              using `T1/cmtt/c/it' instead on input line 331.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/c/scit' undefined
-(Font)              using `T1/cmtt/c/sc' instead on input line 330.
+(Font)              using `T1/cmtt/c/sc' instead on input line 331.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/c/sc' undefined
-(Font)              using `T1/cmtt/c/n' instead on input line 330.
+(Font)              using `T1/cmtt/c/n' instead on input line 331.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/lc/sc' undefined
-(Font)              using `T1/cmtt/l/sc' instead on input line 330.
+(Font)              using `T1/cmtt/l/sc' instead on input line 331.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/l/n' undefined
-(Font)              using `T1/cmtt/m/n' instead on input line 330.
+(Font)              using `T1/cmtt/m/n' instead on input line 331.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/l/it' undefined
-(Font)              using `T1/cmtt/l/n' instead on input line 330.
+(Font)              using `T1/cmtt/l/n' instead on input line 331.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/l/sl' undefined
-(Font)              using `T1/cmtt/l/it' instead on input line 330.
+(Font)              using `T1/cmtt/l/it' instead on input line 331.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/l/scit' undefined
-(Font)              using `T1/cmtt/l/sc' instead on input line 330.
+(Font)              using `T1/cmtt/l/sc' instead on input line 331.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/l/sc' undefined
-(Font)              using `T1/cmtt/l/n' instead on input line 330.
+(Font)              using `T1/cmtt/l/n' instead on input line 331.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/m/ui' undefined
-(Font)              using `T1/cmtt/m/n' instead on input line 330.
+(Font)              using `T1/cmtt/m/n' instead on input line 331.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/bx/ui' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 330.
+(Font)              using `T1/cmtt/bx/n' instead on input line 331.
 
 
 LaTeX Font Warning: Font shape `T1/cmtt/m/In' undefined
-(Font)              using `T1/cmtt/m/n' instead on input line 330.
+(Font)              using `T1/cmtt/m/n' instead on input line 331.
 
-Package hyperref Info: Link coloring ON on input line 330.
+\c@lstlisting=\count330
+Package hyperref Info: Link coloring ON on input line 331.
 (./dyplomWFA.out) (./dyplomWFA.out)
 \@outlinefile=\write3
 \openout3 = `dyplomWFA.out'.
@@ -905,7 +905,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 
 ]
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 4
-12.
+14.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 ) [7] [8]
@@ -913,10 +913,10 @@ File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 <tech-comparison.pdf, id=761, 534.49687pt x 436.63126pt>
 File: tech-comparison.pdf Graphic file (type pdf)
 <use tech-comparison.pdf>
-Package pdftex.def Info: tech-comparison.pdf  used on input line 599.
+Package pdftex.def Info: tech-comparison.pdf  used on input line 601.
 (pdftex.def)             Requested size: 384.1096pt x 313.79463pt.
  [18 <./tech-comparison.pdf>]
-Overfull \hbox (6.39302pt too wide) in paragraph at lines 631--642
+Overfull \hbox (6.39302pt too wide) in paragraph at lines 633--644
  [][] 
  []
 
@@ -924,50 +924,50 @@ Overfull \hbox (6.39302pt too wide) in paragraph at lines 631--642
 <diagram-architektury.pdf, id=815, 597.50786pt x 426.79132pt>
 File: diagram-architektury.pdf Graphic file (type pdf)
 <use diagram-architektury.pdf>
-Package pdftex.def Info: diagram-architektury.pdf  used on input line 684.
+Package pdftex.def Info: diagram-architektury.pdf  used on input line 686.
 (pdftex.def)             Requested size: 426.79135pt x 304.85391pt.
  [20] [21 <./diagram-architektury.pdf>]
 <AddiPi-CosmosDB3.pdf, id=982, 613.63261pt x 386.94562pt>
 File: AddiPi-CosmosDB3.pdf Graphic file (type pdf)
 <use AddiPi-CosmosDB3.pdf>
-Package pdftex.def Info: AddiPi-CosmosDB3.pdf  used on input line 717.
+Package pdftex.def Info: AddiPi-CosmosDB3.pdf  used on input line 719.
 (pdftex.def)             Requested size: 384.1096pt x 242.21239pt.
  [22]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 727.
+nput line 729.
  [23 <./AddiPi-CosmosDB3.pdf>]
 [24]
 <cykl-zycia-zadania.pdf, id=1090, 511.9125pt x 421.575pt>
 File: cykl-zycia-zadania.pdf Graphic file (type pdf)
 <use cykl-zycia-zadania.pdf>
-Package pdftex.def Info: cykl-zycia-zadania.pdf  used on input line 816.
+Package pdftex.def Info: cykl-zycia-zadania.pdf  used on input line 818.
 (pdftex.def)             Requested size: 426.79135pt x 351.47673pt.
  [25] [26 <./cykl-zycia-zadania.pdf>] [27] [28
 pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.898 \end{xltabular}
+l.900 \end{xltabular}
                      ]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 906.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 908.
  [29] [30] [31]
-Underfull \hbox (badness 6032) in paragraph at lines 1021--1021
+Underfull \hbox (badness 6032) in paragraph at lines 1023--1023
 []|\T1/ptm/m/n/12 (+20) Aktualizacja da-nych oso-bo-wych
  []
 
 
-Underfull \hbox (badness 7522) in paragraph at lines 1021--1021
+Underfull \hbox (badness 7522) in paragraph at lines 1023--1023
 []|\T1/ptm/m/n/12 (+20) Pobranie sta-ty-styk u»yt-kow-nika,
  []
 
 
-Underfull \hbox (badness 1540) in paragraph at lines 1021--1021
+Underfull \hbox (badness 1540) in paragraph at lines 1023--1023
 \T1/ptm/m/n/12 (+20) obej-mu-j¡-cych m.in. za-gre-go-wan¡
  []
 
 
-Underfull \hbox (badness 2591) in paragraph at lines 1021--1021
+Underfull \hbox (badness 2591) in paragraph at lines 1023--1023
 \T1/ptm/m/n/12 (+20) nie« u»yt-kow-nika o wska-za-nym
  []
 
@@ -976,13 +976,13 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1021 \end{xltabular}
+l.1023 \end{xltabular}
                       ] [33] [34] [35]
 <przeplyw-przesylania-pliku.pdf, id=1328, 511.9125pt x 301.125pt>
 File: przeplyw-przesylania-pliku.pdf Graphic file (type pdf)
 <use przeplyw-przesylania-pliku.pdf>
 Package pdftex.def Info: przeplyw-przesylania-pliku.pdf  used on input line 109
-5.
+7.
 (pdftex.def)             Requested size: 426.79135pt x 251.05481pt.
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -992,19 +992,19 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1231 \end{xltabular}
+l.1233 \end{xltabular}
                       ] [40] [41] [42]
-Underfull \hbox (badness 2057) in paragraph at lines 1368--1368
+Underfull \hbox (badness 2057) in paragraph at lines 1370--1370
 []|\T1/ptm/m/n/12 (+20) Ponowne do-da-nie wy-bra-nego
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1368--1368
+Underfull \hbox (badness 10000) in paragraph at lines 1370--1370
 []|\T1/ptm/m/n/12 (+20) Punkt ko«-cowy dia-gno-styki
  []
 
 
-Underfull \hbox (badness 3199) in paragraph at lines 1368--1368
+Underfull \hbox (badness 3199) in paragraph at lines 1370--1370
 \T1/ptm/m/n/12 (+20) stanu dzia-ªa-nia mi-kro-ser-wisu
  []
 
@@ -1013,80 +1013,80 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.7}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1368 \end{xltabular}
+l.1370 \end{xltabular}
                       ] [44] [45] [46] [47] [48]
 <strona-glowna2.png, id=1677, 480.5955pt x 645.612pt>
 File: strona-glowna2.png Graphic file (type png)
 <use strona-glowna2.png>
-Package pdftex.def Info: strona-glowna2.png  used on input line 1497.
+Package pdftex.def Info: strona-glowna2.png  used on input line 1499.
 (pdftex.def)             Requested size: 245.88512pt x 330.3089pt.
  [49 <./strona-glowna2.png>]
 <dashboard2.png, id=1689, 775.09575pt x 478.78876pt>
 File: dashboard2.png Graphic file (type png)
 <use dashboard2.png>
-Package pdftex.def Info: dashboard2.png  used on input line 1515.
+Package pdftex.def Info: dashboard2.png  used on input line 1517.
 (pdftex.def)             Requested size: 426.79135pt x 263.63416pt.
 
 [50 <./dashboard2.png>]
 <upload-print.png, id=1698, 983.675pt x 745.78625pt>
 File: upload-print.png Graphic file (type png)
 <use upload-print.png>
-Package pdftex.def Info: upload-print.png  used on input line 1528.
+Package pdftex.def Info: upload-print.png  used on input line 1530.
 (pdftex.def)             Requested size: 405.45047pt x 307.40166pt.
  [51 <./upload-print.png>]
 <print-control2.png, id=1706, 662.475pt x 492.03825pt>
 File: print-control2.png Graphic file (type png)
 <use print-control2.png>
-Package pdftex.def Info: print-control2.png  used on input line 1541.
+Package pdftex.def Info: print-control2.png  used on input line 1543.
 (pdftex.def)             Requested size: 426.79135pt x 316.9906pt.
 <admin-panel.png, id=1708, 1245.65375pt x 761.84625pt>
 File: admin-panel.png Graphic file (type png)
 <use admin-panel.png>
-Package pdftex.def Info: admin-panel.png  used on input line 1559.
+Package pdftex.def Info: admin-panel.png  used on input line 1561.
 (pdftex.def)             Requested size: 384.1096pt x 234.92604pt.
  [52 <./print-control2.png>]
 [53 <./admin-panel.png>] [54] [55]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <14> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 1643.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 1645.
  [56]
 <agent_startprint.pdf, id=1760, 518.70288pt x 391.4625pt>
 File: agent_startprint.pdf Graphic file (type pdf)
 <use agent_startprint.pdf>
-Package pdftex.def Info: agent_startprint.pdf  used on input line 1649.
+Package pdftex.def Info: agent_startprint.pdf  used on input line 1651.
 (pdftex.def)             Requested size: 384.1096pt x 289.89275pt.
  [57 <./agent_startprint.pdf>] [58]
 <octoprint-panel.png, id=2031, 819.06pt x 579.66562pt>
 File: octoprint-panel.png Graphic file (type png)
 <use octoprint-panel.png>
-Package pdftex.def Info: octoprint-panel.png  used on input line 1710.
+Package pdftex.def Info: octoprint-panel.png  used on input line 1712.
 (pdftex.def)             Requested size: 384.1096pt x 271.85027pt.
 
 [59 <./octoprint-panel.png>]
-Overfull \hbox (4.18922pt too wide) in paragraph at lines 1734--1735
+Overfull \hbox (4.18922pt too wide) in paragraph at lines 1736--1737
 []\T1/ptm/m/n/12 (-20) Trójwymiarowe mo-dele geo-me-tryczne (CAD) opra-co-wano 
 w pro-gra-mie \T1/ptm/m/it/12 (-20) So-li-dWorks \T1/ptm/m/n/12 (-20) [[]]
  []
 
 [60] [61]
-Overfull \hbox (5.20607pt too wide) in paragraph at lines 1777--1792
+Overfull \hbox (5.20607pt too wide) in paragraph at lines 1779--1794
  [][] 
  []
 
 <physical-stand.jpeg, id=2063, 1032.0156pt x 703.428pt>
 File: physical-stand.jpeg Graphic file (type jpg)
 <use physical-stand.jpeg>
-Package pdftex.def Info: physical-stand.jpeg  used on input line 1802.
+Package pdftex.def Info: physical-stand.jpeg  used on input line 1804.
 (pdftex.def)             Requested size: 384.1096pt x 261.80989pt.
 [62] [63 <./physical-stand.jpeg>]
 <Full_Assembly.png, id=2079, 630.55576pt x 433.62pt>
 File: Full_Assembly.png Graphic file (type png)
 <use Full_Assembly.png>
-Package pdftex.def Info: Full_Assembly.png  used on input line 1817.
+Package pdftex.def Info: Full_Assembly.png  used on input line 1819.
 (pdftex.def)             Requested size: 320.0935pt x 220.12433pt.
 <cad_assembly.pdf, id=2082, 511.9125pt x 304.13625pt>
 File: cad_assembly.pdf Graphic file (type pdf)
 <use cad_assembly.pdf>
-Package pdftex.def Info: cad_assembly.pdf  used on input line 1824.
+Package pdftex.def Info: cad_assembly.pdf  used on input line 1826.
 (pdftex.def)             Requested size: 320.0935pt x 190.17285pt.
  [64 <./Full_Assembly.png> <./cad_assembly.pdf>] [65] (/usr/share/texlive/texmf
 -dist/tex/latex/listings/lstlang1.sty
@@ -1098,41 +1098,41 @@ File: lstlang1.sty 2023/02/27 1.9 listings language file
 <rpi_boot.pdf, id=2173, 511.9125pt x 385.44pt>
 File: rpi_boot.pdf Graphic file (type pdf)
 <use rpi_boot.pdf>
-Package pdftex.def Info: rpi_boot.pdf  used on input line 1945.
+Package pdftex.def Info: rpi_boot.pdf  used on input line 1947.
 (pdftex.def)             Requested size: 320.0935pt x 241.01115pt.
 
 [68 <./rpi_boot.pdf>] [69] [70] [71]
-Underfull \hbox (badness 10000) in paragraph at lines 2098--2098
+Underfull \hbox (badness 10000) in paragraph at lines 2100--2100
 []|\T1/ptm/b/n/12 (+20) Mechanizm uru-cho-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2098--2098
+Underfull \hbox (badness 10000) in paragraph at lines 2100--2100
 []|\T1/ptm/b/n/12 (+20) Mechanizm uru-cho-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2098--2098
+Underfull \hbox (badness 10000) in paragraph at lines 2100--2100
 []|\T1/cmtt/l/it/12 systemd \T1/ptm/m/n/12 (+20) (na-tywny
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2098--2098
+Underfull \hbox (badness 10000) in paragraph at lines 2100--2100
 []|\T1/ptm/m/n/12 (+20) Niskopoziomowe ste-ro-wa-nie dru-kark¡
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2098--2098
+Underfull \hbox (badness 10000) in paragraph at lines 2100--2100
 []|\T1/cmtt/l/it/12 systemd \T1/ptm/m/n/12 (+20) (\T1/cmtt/l/it/12 addipi-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2098--2098
+Underfull \hbox (badness 10000) in paragraph at lines 2100--2100
 []|\T1/ptm/m/it/12 (+20) Cloudflare
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2098--2098
+Underfull \hbox (badness 10000) in paragraph at lines 2100--2100
 []|\T1/ptm/m/n/12 (+20) Odnowienie
  []
 
@@ -1141,30 +1141,30 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.12}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2098 \end{xltabular}
+l.2100 \end{xltabular}
                       ] [73]
-Underfull \hbox (badness 10000) in paragraph at lines 2126--2127
+Underfull \hbox (badness 10000) in paragraph at lines 2128--2129
 []|\T1/ptm/m/n/12 (+20) Kontenery \T1/ptm/m/it/12 (+20) Do-cker Com-pose\T1/ptm
 /m/n/12 (+20) :
  []
 
 
-Underfull \hbox (badness 4634) in paragraph at lines 2130--2131
+Underfull \hbox (badness 4634) in paragraph at lines 2132--2133
 []|\T1/ptm/m/n/12 (+20) Lokalny ste-row-nik \T1/ptm/m/it/12 (+20) Octo-Print
  []
 
 [74]
-Underfull \hbox (badness 7012) in paragraph at lines 2150--2151
+Underfull \hbox (badness 7012) in paragraph at lines 2152--2153
 \T1/cmtt/l/it/12 tokens\T1/ptm/m/n/12 (+20) ; klucz par-ty-cjo-no-wa-nia:
  []
 
 
-Underfull \hbox (badness 6542) in paragraph at lines 2152--2153
+Underfull \hbox (badness 6542) in paragraph at lines 2154--2155
 \T1/cmtt/l/it/12 gcode\T1/ptm/m/n/12 (+20) , war-stwa wy-daj-no-±ciowa
  []
 
 
-Underfull \hbox (badness 1735) in paragraph at lines 2156--2157
+Underfull \hbox (badness 1735) in paragraph at lines 2158--2159
 []|\T1/ptm/m/n/12 (+20) Hub \T1/cmtt/l/it/12 addipi-iothub\T1/ptm/m/n/12 (+20) 
 , to»-sa-mo±¢
  []
@@ -1173,10 +1173,10 @@ Underfull \hbox (badness 1735) in paragraph at lines 2156--2157
 <docker_compose.pdf, id=2407, 511.9125pt x 346.29375pt>
 File: docker_compose.pdf Graphic file (type pdf)
 <use docker_compose.pdf>
-Package pdftex.def Info: docker_compose.pdf  used on input line 2273.
+Package pdftex.def Info: docker_compose.pdf  used on input line 2275.
 (pdftex.def)             Requested size: 260.34297pt x 176.11606pt.
  [79 <./docker_compose.pdf>]
-Overfull \hbox (1.44728pt too wide) in paragraph at lines 2291--2310
+Overfull \hbox (1.44728pt too wide) in paragraph at lines 2293--2312
  [][] 
  []
 
@@ -1184,7 +1184,7 @@ Overfull \hbox (1.44728pt too wide) in paragraph at lines 2291--2310
 <IoT_hub.png, id=2479, 1199.48125pt x 376.40625pt>
 File: IoT_hub.png Graphic file (type png)
 <use IoT_hub.png>
-Package pdftex.def Info: IoT_hub.png  used on input line 2327.
+Package pdftex.def Info: IoT_hub.png  used on input line 2329.
 (pdftex.def)             Requested size: 384.1096pt x 120.53287pt.
  [81 <./IoT_hub.png>] [82] [83] [84] [85] [86] [87] [88] [89]
 (./dyplomWFA.bbl [90]
@@ -1212,10 +1212,10 @@ Package rerunfilecheck Info: File `dyplomWFA.out' has not changed.
 (rerunfilecheck)             Checksum: 1B6E8F0C3A7882D0523EEAC6C6E84159;27426.
  ) 
 Here is how much of TeX's memory you used:
- 21015 strings out of 476147
- 329244 string characters out of 5794720
+ 21016 strings out of 476147
+ 329256 string characters out of 5794720
  2115975 words of memory out of 5000000
- 41546 multiletter control sequences out of 15000+600000
+ 41547 multiletter control sequences out of 15000+600000
  618135 words of font info for 347 fonts, out of 8000000 for 9000
  34 hyphenation exceptions out of 8191
  79i,15n,93p,1089b,2175s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1228,7 +1228,7 @@ pk> </home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecit1000.60
 share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/times/utmri8a.pfb>
-Output written on dyplomWFA.pdf (92 pages, 4781161 bytes).
+Output written on dyplomWFA.pdf (92 pages, 4781383 bytes).
 PDF statistics:
  3022 PDF objects out of 3580 (max. 8388607)
  2356 compressed objects within 24 object streams

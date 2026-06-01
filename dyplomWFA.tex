@@ -24,8 +24,7 @@
 }
 
 \usepackage{wrapfig}
-\usepackage{lipsum}  
-\usepackage{listings}
+\usepackage{lipsum} 
 \usepackage[polish]{babel}
 \usepackage[toc,page]{appendix}
 \usepackage{url}
@@ -46,7 +45,7 @@
 \lstset{
 	extendedchars=true,
 	inputencoding=utf8,
-	literate={ą}{{\k{a}}}1 {ć}{{\'c}}1 {ę}{{\k{e}}}1 {ł}{{\l{}}}1 {ń}{{\'n}}1 {ó}{{\'o}}1 {ś}{{\'s}}1 {ź}{{\'z}}1 {ż}{{\'z}}1
+	literate={ą}{{\k{a}}}1 {ć}{{\'c}}1 {ę}{{\k{e}}}1 {ł}{{\l{}}}1 {ń}{{\'n}}1 {ó}{{\'o}}1 {ś}{{\'s}}1 {ź}{{\'z}}1 {ż}{{\. z}}1
 	{Ą}{{\k{A}}}1 {Ć}{{\'C}}1 {Ę}{{\k{E}}}1 {Ł}{{\L{}}}1 {Ń}{{\'N}}1 {Ó}{{\'O}}1 {Ś}{{\'S}}1 {Ź}{{\'Z}}1 {Ż}{{\'Z}}1
 }
 
@@ -255,7 +254,7 @@
 	% Główne słowa kluczowe JavaScript
 	keywords={async, await, break, case, catch, class, const, continue, debugger, default, delete, do, else, export, extends, false, finally, for, from, function, get, if, import, in, instanceof, let, new, null, of, return, set, static, super, switch, this, throw, true, try, typeof, var, void, while, with, yield},
 	% Wbudowane obiekty, globalne zmienne i~metody (druga grupa)
-	keywords={window, document, console, log, error, warn, Object, Array, String, Number, Boolean, Function, Promise, JSON, Math, Date, RegExp, Map, Set, parseInt, parseFloat, isNaN},
+	keywords=[2]{window, document, console, log, error, warn, Object, Array, String, Number, Boolean, Function, Promise, JSON, Math, Date, RegExp, Map, Set, parseInt, parseFloat, isNaN},
 	sensitive=true,
 	morecomment=[l]{//},
 	morecomment=[s]{/*}{*/},
@@ -326,6 +325,8 @@
     {9}{{{\color{gray}9}}}1
 }
 
+
+
 %------------------------------------------------------------
 \begin{document}
 	
@@ -393,6 +394,7 @@ Poszczególne serwisy zaimplementowano w~językach TypeScript (środowisko Node.
 
 \vspace{0.5cm}
 \noindent\textbf{Słowa kluczowe:} mikroserwisy, drukowanie 3D, OctoPrint, Raspberry Pi, Azure IoT Hub, Azure Cosmos DB, Docker, TypeScript, Python, REST API, systemy rozproszone.
+
 
 \newpage
 
@@ -615,7 +617,7 @@ Kluczowe znaczenie dla stabilności systemu miało precyzyjne dobranie silnika b
 		\midrule
 		Model danych & Dokument (JSON) & Relacyjny & Dokument (BSON) \\
 		Zarządzanie & PaaS (bez serwera) & Samodzielny/PaaS & PaaS \\
-		Integracja z~Azure & Natywna & Ograniczona & Pośrednia \\
+		Integracja z~\textit{Azure} & Natywna & Ograniczona & Pośrednia \\
 		\makecell[l]{Elastyczny \\ schemat danych} & Tak & Nie & Tak \\
 		\makecell[l]{Dostępność \\ bezpłatnego planu} & Tak (400 RU/s) & Tak (self-hosted) & Tak (512 MB) \\
 		\bottomrule
@@ -635,7 +637,7 @@ Jak wynika z~tabeli~\ref{tab:porownanie_baz}, baza \textit{Azure Cosmos DB} zost
 		Model wdrożenia & PaaS & Self-hosted & Self-hosted / PaaS \\
 		Semantyka dostarczania & At-least-once & At-least-once & At-least-once \\
 		Złożoność konfiguracji & Niska & Średnia & Wysoka \\
-		Integracja z~Azure & Natywna & Ograniczona & Pośrednia \\
+		Integracja z~\textit{Azure} & Natywna & Ograniczona & Pośrednia \\
 		Skalowalność & Automatyczna & Ręczna & Wysoka \\
 		\bottomrule
 	\end{tabular}
@@ -658,21 +660,21 @@ System \textit{AddiPi} zbudowany jest w~architekturze mikroserwisowej~\cite{rich
 W ramach systemu wyodrębniono następujące komponenty:
 
 \begin{enumerate}
-	\item \textbf{AddiPi Auth Service} (port 3001) - realizuje proces uwierzytelniania użytkowników oraz obsługę tokenów JWT.
+	\item \textbf{AddiPi Auth Service} (port 3001) --- realizuje proces uwierzytelniania użytkowników oraz obsługę tokenów JWT.
 	
-	\item \textbf{AddiPi User Service} (port 3002) - odpowiada za zarządzanie profilami użytkowników oraz historią zadań do wydruku.
+	\item \textbf{AddiPi User Service} (port 3002) --- odpowiada za zarządzanie profilami użytkowników oraz historią zadań do wydruku.
 	
-	\item \textbf{AddiPi Files Service} (port 5000) - umożliwia przesyłanie oraz przechowywanie plików G-code.
+	\item \textbf{AddiPi Files Service} (port 5000) --- umożliwia przesyłanie oraz przechowywanie plików G-code.
 	
-	\item \textbf{AddiPi Queue Service} (porty 3070) - odbiera komunikaty z~kolejki oraz zapisuje informacje o~zadaniach w~bazie \textit{Azure Cosmos DB}.
+	\item \textbf{AddiPi Queue Service} (porty 3070) --- odbiera komunikaty z~kolejki oraz zapisuje informacje o~zadaniach w~bazie \textit{Azure Cosmos DB}.
 	
-	\item \textbf{AddiPi Printer Service} (port 3050) - odpowiada za harmonogramowanie zadań do wydruku, komunikację z~\textit{Azure IoT Hub}~\cite{iothub} oraz odbiór telemetrii urządzenia.
+	\item \textbf{AddiPi Printer Service} (port 3050) --- odpowiada za harmonogramowanie zadań do wydruku, komunikację z~\textit{Azure IoT Hub}~\cite{iothub} oraz odbiór telemetrii urządzenia.
 	
-	\item \textbf{AddiPi Video Service} (port 3003) - odpowiada za rejestrację i~udostępnianie adresu URL kamery systemu \textit{OctoPrint}.
+	\item \textbf{AddiPi Video Service} (port 3003) --- odpowiada za rejestrację i~udostępnianie adresu URL kamery systemu \textit{OctoPrint}.
 	
-	\item \textbf{AddiPi Agent} (Raspberry Pi) - agent uruchamiany na urządzeniu Raspberry Pi, pośredniczący pomiędzy Azure IoT Hub a~systemem \textit{OctoPrint}.
+	\item \textbf{AddiPi Agent} (Raspberry Pi) --- agent uruchamiany na urządzeniu Raspberry Pi, pośredniczący pomiędzy \textit{Azure IoT Hub} a~systemem \textit{OctoPrint}.
 	
-	\item \textbf{AddiPi Frontend} (Vercel~\cite{vercel} / port 5173) - aplikacja webowa zbudowana z~wykorzystaniem biblioteki \textit{React}~\cite{react} oraz narzędzia \textit{Vite}~\cite{vite}.
+	\item \textbf{AddiPi Frontend} (Vercel~\cite{vercel} / port 5173) --- aplikacja webowa zbudowana z~wykorzystaniem biblioteki \textit{React}~\cite{react} oraz narzędzia \textit{Vite}~\cite{vite}.
 \end{enumerate}
 
 \subsection{Diagram architektury}
@@ -724,7 +726,7 @@ Na rysunku~\ref{fig:db_schema} przedstawiono fizyczny diagram encji i~relacji (a
 
 Dokument przechowuje informacje profilowe użytkowników, dane autoryzacyjne oraz status weryfikacji konta. Przykładową strukturę przedstawiono na listingu~\ref{lst:json_user}. Pole \texttt{password} przechowuje bezpieczny skrót hasła wygenerowany przy użyciu opisanego dalej algorytmu \textit{bcrypt}~\cite{bcrypt}.
 
-\begin{lstlisting}[language=,caption={Przykładowy dokument użytkownika w~Azure Cosmos DB},style=jsonStyle, label={lst:json_user}]
+\begin{lstlisting}[language=,caption={Przykładowy dokument użytkownika w~\textit{Azure Cosmos DB}},style=jsonStyle, label={lst:json_user}]
 	{
 		"id": "user_<timestamp>",
 		"email": "student@uwr.edu.pl",
@@ -1177,7 +1179,7 @@ export function startPrintQueueListener(container, receiver) {
 			try { 
 				await receiver.abandonMessage(message); 
 			} catch(e) { 
-				// Obsługa błędu komunikacji z~repozytorium kolejki
+				// Obsługa błędu komunikacji z repozytorium kolejki
 			}
 		}
 	};
@@ -1604,7 +1606,7 @@ W celu zapewnienia wysokiej modularności oraz łatwości rozbudowy kodu źród�
 
 Agent sprzętowy inicjuje i~utrzymuje stałe połączenie z~usługą \textit{Azure IoT Hub}~\cite{iothub} za pośrednictwem protokołu MQTT, wykorzystując do tego celu unikalny ciąg uwierzytelniający urządzenia (ang. \textit{device connection string}). Na listingu~\ref{lst:python_iot_init} przedstawiono fragment kodu odpowiedzialny za instancjonowanie asynchronicznego klienta oraz rejestrację funkcji zwrotnej (ang. \textit{callback function}) dedykowanej do obsługi przychodzących żądań RPC.
 
-\begin{lstlisting}[language=Python,caption={Inicjalizacja klienta usługi Azure IoT Hub (\texttt{printer\_agent.py})}, style=pyStyle, label={lst:python_iot_init}]
+\begin{lstlisting}[language=Python,caption={Inicjalizacja klienta usługi \textit{Azure IoT Hub} (\texttt{printer\_agent.py})}, style=pyStyle, label={lst:python_iot_init}]
 	self.iot_client = IoTHubDeviceClient.
 		create_from_connection_string(
 			device_connection_string
@@ -1630,7 +1632,7 @@ Komponent realizuje zestaw metod bezpośrednich (ang. \textit{Direct Methods}) u
 		\textbf{Metoda} & \textbf{Parametry wejściowe} & \textbf{Opis operacji systemowej} \\
 		\midrule
 		
-		\texttt{startPrint} & \texttt{fileId}, \texttt{jobId} & Pobranie pliku z~Azure Blob Storage, przesłanie go do \textit{OctoPrint} oraz uruchomienie procesu drukowania \\
+		\texttt{startPrint} & \texttt{fileId}, \texttt{jobId} & Pobranie pliku z~\textit{Azure Blob Storage}, przesłanie go do \textit{OctoPrint} oraz uruchomienie procesu drukowania \\
 		
 		\texttt{cancelPrint} & --- & Anulowanie aktywnego procesu wytwórczego za pośrednictwem interfejsu API systemu \textit{OctoPrint} \\
 		
@@ -2115,7 +2117,7 @@ W tabeli~\ref{tab:infrastructure_split} zestawiono szczegółową strukturę lok
 
 \begin{table}[htbp]
 	\centering
-	\caption{Podział infrastruktury produkcyjnej systemu AddiPi.}
+	\caption{Podział infrastruktury produkcyjnej systemu \textit{AddiPi}.}
 	\label{tab:infrastructure_split}
 	\begin{tabular}{llp{5.5cm}}
 		\toprule
@@ -2141,7 +2143,7 @@ Wszystkie zasoby dostarczane przez platformę \textit{Microsoft Azure} funkcjonu
 
 \begin{table}[htbp]
 	\centering
-	\caption{Specyfikacja konfiguracji usług Microsoft Azure wykorzystanych w~projekcie.}
+	\caption{Specyfikacja konfiguracji usług \textit{Microsoft Azure} wykorzystanych w~projekcie.}
 	\label{tab:azure_services_config}
 	\begin{tabular}{llp{6cm}}
 		\toprule
@@ -2168,7 +2170,7 @@ Kompletna infrastruktura chmurowa systemu została zdefiniowana w~sposób deklar
 \end{itemize}
 Oba moduły wykorzystują pliki \texttt{imports.tf} zawierające deklaratywne bloki \texttt{import}, co pozwala na asymilację istniejącej infrastruktury do pliku stanu (ang. \textit{state file}) bez konieczności niszczenia i~ponownego tworzenia obiektów chmurowych.
 
-Proces inicjalizacji dla wybranego środowiska (katalog \texttt{terraform/} dla Azure lub \texttt{terraform-oci/} dla OCI) polega na przygotowaniu parametrów wejściowych w~pliku \texttt{terraform.tfvars} (na podstawie dostarczonego szablonu \texttt{.example}) i~wykonaniu sekwencji instrukcji zaprezentowanych na listingu~\ref{lst:terraform_cmd}.
+Proces inicjalizacji dla wybranego środowiska (katalog \texttt{terraform/} dla \textit{Azure} lub \texttt{terraform-oci/} dla OCI) polega na przygotowaniu parametrów wejściowych w~pliku \texttt{terraform.tfvars} (na podstawie dostarczonego szablonu \texttt{.example}) i~wykonaniu sekwencji instrukcji zaprezentowanych na listingu~\ref{lst:terraform_cmd}.
 
 \begin{lstlisting}[language=bash,caption={Inicjalizacja i~aplikacja planu infrastruktury przez Terraform~\cite{terraform}.},style=plListing,label={lst:terraform_cmd}]
 	# Inicjalizacja providerów i~wdrożenie konfiguracji
