@@ -819,7 +819,7 @@ Na rysunku~\ref{fig:state_machine} przedstawiono formalny model maszyny stanów,
 
 \subsection{Bezpieczeństwo i uwierzytelnianie}
 
-W celu zapewnienia poufności danych oraz kontroli dostępu, w systemie zaimplementowano dwutokenowy model uwierzytelniania oparty na standardzie JWT (\textit{JSON Web Token}) \cite{jwt}. Mechanizm ten wykorzystuje dwa rodzaje obiektów:
+W celu zapewnienia poufności danych oraz kontroli dostępu, w systemie zaimplementowano dwutokenowy model uwierzytelniania oparty na standardzie JWT (\textit{JSON Web Token})~\cite{jwt}~\cite{newman2022}. Mechanizm ten wykorzystuje dwa rodzaje obiektów:
 
 \begin{itemize}
 	\item \textbf{Access token} --- token dostępu o krótkim czasie autoryzacji (ważny przez 15 minut), przekazywany w nagłówku protokołu HTTP (\texttt{Authorization: Bearer <token>}). Integralność i autentyczność tokenu są weryfikowane kryptograficznie przy użyciu klucza symetrycznego \texttt{JWT\_SECRET}.
@@ -850,7 +850,7 @@ Takie podejście pozwala na odseparowanie logiki biznesowej od mechanizmów infr
 
 \subsubsection{Opis ogólny}
 
-Usługa \textit{Auth Service} odpowiada za procesy uwierzytelniania, autoryzacji oraz zarządzania kontami użytkowników. W zakres jej funkcjonalności wchodzi: rejestracja, logowanie i wylogowanie użytkowników, odświeżanie tokenów sesyjnych oraz weryfikacja adresów poczty elektronicznej.
+Usługa \textit{Auth Service} odpowiada za procesy uwierzytelniania, autoryzacji oraz zarządzania kontami użytkowników. W zakres jej funkcjonalności wchodzi: rejestracja, logowanie i wylogowanie użytkowników~\cite{newman2022}, odświeżanie tokenów sesyjnych oraz weryfikacja adresów poczty elektronicznej.
 
 Komponent ten został zaimplementowany w środowisku uruchomieniowym Node.js~\cite{nodejs} z wykorzystaniem frameworka Express.js~\cite{express} oraz języka TypeScript~\cite{typescript}. Serwis realizuje operacje wejścia-wyjścia poprzez komunikację z bazą danych \textit{Azure Cosmos DB} (w ramach kontenerów \texttt{users} oraz \texttt{refresh-tokens}). Ponadto integruje się z zewnętrznym serwerem SMTP firmy Google w celu dystrybucji wiadomości aktywacyjnych, wykorzystując do tego celu bibliotekę \texttt{Nodemailer}~\cite{nodemailer}.
 
@@ -1693,7 +1693,7 @@ W celu zobrazowania środowiska niskopoziomowego, z którym bezpośrednio integr
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{octoprint-panel.png} 
+	\includegraphics[width=0.73\textwidth]{octoprint-panel.png} 
 	\caption{Interfejs systemu \textit{OctoPrint} z widokiem aktywnego procesu druku.}
 	\label{fig:octoprint_panel}
 \end{figure}
@@ -1717,7 +1717,7 @@ W ramach niniejszej pracy inżynierskiej opracowano, a następnie wytworzono tec
 	\item \textbf{STAND} --- regulowane ramię pozycjonujące (uchwyt), umożliwiające swobodną zmianę kąta widzenia i stabilizację zestawu względem pola roboczego drukarki 3D.
 \end{itemize}
 
-Trójwymiarowe modele geometryczne (CAD) opracowano w programie \textit{SolidWorks}~\cite{solidworks} (format \texttt{.SLDPRT} dla pojedynczych części oraz \texttt{.SLDASM} dla złożeń).
+Trójwymiarowe modele geometryczne (CAD) opracowano w programie \textit{SolidWorks} ~\cite{solidworks} (format \texttt{.SLDPRT} dla pojedynczych części oraz \texttt{.SLDASM} dla złożeń).
 
 W celu zapewnienia otwartości projektu, w repozytorium zasobów systemu --- obok natywnych formatów oprogramowania \textit{SolidWorks} --- umieszczono modele w neutralnym formacie wymiany danych \texttt{.STEP}, umożliwiającym dalszą edycję w innych środowiskach CAD, a także pliki \texttt{.3MF} i \texttt{.gcode} przygotowane do wydruku na drukarce Prusa MK3S wyposażonej w dyszę o średnicy 0{,}6~mm z wykorzystaniem filamentu PLA.
 
@@ -2370,7 +2370,7 @@ Realizacja rozproszonego systemu \textit{AddiPi} wiązała się z konieczności�
 
 \begin{itemize}
 	\item \textbf{Integracja rozproszonego i heterogenicznego środowiska chmurowego} \\
-	Jednym z największych wyzwań architektonicznych było zapewnienie stabilnej orkiestracji komponentów działających w odmiennych środowiskach wykonawczych. Ekosystem wykorzystuje jednocześnie zasoby \textit{Microsoft Azure} (\textit{Cosmos DB}, \textit{Blob Storage}, \textit{Service Bus}, \textit{IoT Hub}), instancję maszyn wirtualnych \textit{Oracle Cloud Infrastructure}~\cite{oci}, platformę \textit{Vercel} oraz fizyczny mikrokomputer brzegowy działający wewnątrz sieci lokalnej. Konieczne było zaprojektowanie spójnego modelu komunikacji, który uwzględniałby fluktuacje sieciowe, opóźnienia pakietów~\cite{kleppmann2017} oraz skrajnie odmienne standardy uwierzytelniania dostawców. Wyzwanie to zminimalizowano poprzez wdrożenie hybrydowej architektury opartej na synchronicznych interfejsach REST API oraz asynchronicznej wymianie komunikatów z wykorzystaniem kolejki brokera, uzupełnionej o autorskie mechanizmy ponawiania żądań.
+	Jednym z największych wyzwań architektonicznych było zapewnienie stabilnej orkiestracji komponentów działających w odmiennych środowiskach wykonawczych ~\cite{newman2022}. Ekosystem wykorzystuje jednocześnie zasoby \textit{Microsoft Azure} (\textit{Cosmos DB}, \textit{Blob Storage}, \textit{Service Bus}, \textit{IoT Hub}), instancję maszyn wirtualnych \textit{Oracle Cloud Infrastructure}~\cite{oci}, platformę \textit{Vercel} oraz fizyczny mikrokomputer brzegowy działający wewnątrz sieci lokalnej. Konieczne było zaprojektowanie spójnego modelu komunikacji, który uwzględniałby fluktuacje sieciowe, opóźnienia pakietów~\cite{kleppmann2017} oraz skrajnie odmienne standardy uwierzytelniania dostawców. Wyzwanie to zminimalizowano poprzez wdrożenie hybrydowej architektury opartej na synchronicznych interfejsach REST API oraz asynchronicznej wymianie komunikatów z wykorzystaniem kolejki brokera, uzupełnionej o autorskie mechanizmy ponawiania żądań.
 	
 	\item \textbf{Spójność i normalizacja reprezentacji czasu} \\
 	Poszczególne warstwy systemu natywnie operowały na zróżnicowanych standardach zapisu dat i czasu. Informacje generowane przez silnik bazy danych, usługi backendowe oraz biblioteki frontendowe nie zawsze cechowały się identyczną strukturą, co generowało błędy w interpretacji i renderowaniu harmonogramów zadań. Problem ten rozwiązano na poziomie warstwy prezentacji poprzez implementację scentralizowanego modułu normalizacji danych chronologicznych, wykorzystującego autorską funkcję \texttt{normalizeDateString}.
