@@ -671,7 +671,7 @@ W ramach systemu wyodrębniono następujące komponenty:
 	
 	\item \textbf{AddiPi Agent} (Raspberry Pi) - agent uruchamiany na urządzeniu Raspberry Pi, pośredniczący pomiędzy Azure IoT Hub a systemem \textit{OctoPrint}.
 	
-	\item \textbf{AddiPi Frontend} (Vercel / port 5173) - aplikacja webowa zbudowana z wykorzystaniem biblioteki \textit{React}~\cite{react}.
+	\item \textbf{AddiPi Frontend} (Vercel / port 5173) - aplikacja webowa zbudowana z wykorzystaniem biblioteki \textit{React}~\cite{react} oraz narzędzia \textit{Vite}~\cite{vite}.
 \end{enumerate}
 
 \subsection{Diagram architektury}
@@ -1394,7 +1394,7 @@ W tabeli~\ref{tab:video_endpoints} zestawiono i opisano punkty końcowe (ang. \t
 
 \subsection{Struktura architektoniczna aplikacji klienckiej}
 
-Aplikacja frontendowa została zaimplementowana z wykorzystaniem biblioteki \textit{React}~\cite{react} w wersji 18 oraz języka TypeScript~\cite{typescript}. Jako środowisko deweloperskie i narzędzie budujące (ang. \textit{bundler}) wykorzystano \textit{Vite}, natomiast zarządzanie mapowaniem adresów URL i nawigacją realizowane jest przy użyciu biblioteki \textit{React Router}~\cite{router} w wersji 6.
+Aplikacja frontendowa została zaimplementowana z wykorzystaniem biblioteki \textit{React}~\cite{react} w wersji 18 oraz języka TypeScript~\cite{typescript}. Jako środowisko deweloperskie i narzędzie budujące (ang. \textit{bundler}) wykorzystano \textit{Vite}~\cite{vite}, natomiast zarządzanie mapowaniem adresów URL i nawigacją realizowane jest przy użyciu biblioteki \textit{React Router}~\cite{router} w wersji 6.
 
 Zarządzanie globalnym stanem aplikacji klienckiej (obejmującym dane profilowe zalogowanego użytkownika, bieżący status operacyjny drukarki oraz metryki systemowe) powierzono bibliotece \textit{Zustand}. W celu zachowania ciągłości sesji i preferencji interfejsu (takich jak motyw graficzny czy wybrany język), wykorzystano oprogramowanie pośredniczące \texttt{persist}, które automatyzuje proces synchronizacji i trwałego przechowywania danych w pamięci podręcznej \texttt{localStorage} przeglądarki internetowej.
 
@@ -2298,7 +2298,7 @@ Tabela~\ref{tab:env_variables} przedstawia najważniejsze zmienne środowiskowe 
 
 \subsection{Wdrożenie warstwy prezentacji oraz usługi wideo}
 
-Aplikacja kliencka (frontendowa) oraz usługa \textit{Video Service} zostały wdrożone na platformie chmurowej \textit{Vercel}~\cite{vercel}, co zapewnia ich globalną dystrybucję za pośrednictwem sieci CDN (ang. \textit{Content Delivery Network}). Proces budowania i aktualizacji zasobów statycznych pod adresem \url{https://addipi.vercel.app} realizowany jest w pełni automatycznie w modelu CD po każdym zdarzeniu \texttt{push} do gałęzi \texttt{main} repozytorium \textit{GitHub}, uruchamiając komendę produkcyjną \texttt{npm run build}.
+Aplikacja kliencka (frontendowa) oraz usługa \textit{Video Service} zostały wdrożone na platformie chmurowej \textit{Vercel}~\cite{vercel}, co zapewnia ich globalną dystrybucję za pośrednictwem sieci CDN (ang. \textit{Content Delivery Network}). Proces budowania i aktualizacji zasobów statycznych pod adresem \url{https://addipi.vercel.app} realizowany jest w pełni automatycznie w modelu CD po każdym zdarzeniu \texttt{push} do gałęzi \texttt{main} repozytorium \textit{GitHub}, uruchamiając komendę produkcyjną środowiska \textit{Vite}~\cite{vite} \texttt{npm run build}.
 
 Specyfika platformy \textit{Vercel} opiera się na paradygmacie bezserwerowym (ang. \textit{Serverless}), który narzuca sztywne ograniczenia czasowe na egzekucję kodu (ang. \textit{execution timeouts}). Z tego względu infrastruktura ta została wykorzystana wyłącznie do hostowania interfejsu użytkownika oraz lekkiej, bezstanowej usługi \textit{Video Service}, przechowującej adres URL strumienia w pamięci RAM. Mikroserwisy wymagające ciągłego, asynchronicznego nasłuchiwania kolejek komunikatów (\textit{Queue Service}) oraz orkiestracji zadań telemetrycznych (\textit{Printer Service}) charakteryzują się naturą procesów długotrwale działających (ang. \textit{long-running processes}). Ich implementacja w modelu \textit{Serverless} byłaby niemożliwa, co w pełni uzasadnia ich lokowanie na dedykowanej maszynie wirtualnej OCI.
 
