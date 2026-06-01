@@ -671,7 +671,7 @@ W ramach systemu wyodrębniono następujące komponenty:
 	
 	\item \textbf{AddiPi Agent} (Raspberry Pi) - agent uruchamiany na urządzeniu Raspberry Pi, pośredniczący pomiędzy Azure IoT Hub a systemem \textit{OctoPrint}.
 	
-	\item \textbf{AddiPi Frontend} (Vercel / port 5173) - aplikacja webowa zbudowana z wykorzystaniem biblioteki \textit{React}.
+	\item \textbf{AddiPi Frontend} (Vercel / port 5173) - aplikacja webowa zbudowana z wykorzystaniem biblioteki \textit{React}~\cite{react}.
 \end{enumerate}
 
 \subsection{Diagram architektury}
@@ -1394,7 +1394,7 @@ W tabeli~\ref{tab:video_endpoints} zestawiono i opisano punkty końcowe (ang. \t
 
 \subsection{Struktura architektoniczna aplikacji klienckiej}
 
-Aplikacja frontendowa została zaimplementowana z wykorzystaniem biblioteki \textit{React} w wersji 18 oraz języka TypeScript~\cite{typescript}. Jako środowisko deweloperskie i narzędzie budujące (ang. \textit{bundler}) wykorzystano \textit{Vite}, natomiast zarządzanie mapowaniem adresów URL i nawigacją realizowane jest przy użyciu biblioteki \textit{React Router}~\cite{router} w wersji 6.
+Aplikacja frontendowa została zaimplementowana z wykorzystaniem biblioteki \textit{React}~\cite{react} w wersji 18 oraz języka TypeScript~\cite{typescript}. Jako środowisko deweloperskie i narzędzie budujące (ang. \textit{bundler}) wykorzystano \textit{Vite}, natomiast zarządzanie mapowaniem adresów URL i nawigacją realizowane jest przy użyciu biblioteki \textit{React Router}~\cite{router} w wersji 6.
 
 Zarządzanie globalnym stanem aplikacji klienckiej (obejmującym dane profilowe zalogowanego użytkownika, bieżący status operacyjny drukarki oraz metryki systemowe) powierzono bibliotece \textit{Zustand}. W celu zachowania ciągłości sesji i preferencji interfejsu (takich jak motyw graficzny czy wybrany język), wykorzystano oprogramowanie pośredniczące \texttt{persist}, które automatyzuje proces synchronizacji i trwałego przechowywania danych w pamięci podręcznej \texttt{localStorage} przeglądarki internetowej.
 
@@ -2353,7 +2353,7 @@ W ramach realizacji projektu inżynierskiego opracowano i zaimplementowano nast�
 	\item \textbf{Mechanizm orkiestracji i harmonogramowania zadań} --- zaawansowany algorytm zarządzania kolejką produkcyjną, pozwalający zarówno na natychmiastową alokację zasobów sprzętowych, jak i długoterminowe planowanie kalendarzowe procesów przyrostowych,
 	\item \textbf{Integracja brzegowa IoT} --- powiązanie platformy sprzętowej z usługą \textit{Azure IoT Hub}~\cite{iothub}, umożliwiające synchroniczne sterowanie drukarką 3D za pomocą wywołań metod bezpośrednich (ang. \textit{Direct Methods}) w standardzie RPC,
 	\item \textbf{System monitorowania w czasie rzeczywistym} --- mechanizm akwizycji danych telemetrycznych urządzenia (metryki termiczne i statusy mechaniczne) oraz asynchronicznej dystrybucji strumienia wideo z kamery CSI w formacie MJPEG,
-	\item \textbf{Wielojęzyczna aplikacja kliencka} --- responsywna warstwa prezentacji zbudowana w oparciu o bibliotekę \textit{React} oraz język TypeScript, wspierająca architekturę dynamicznych motywów graficznych (jasny i ciemny) oraz wzorzec projektowy RWD,
+	\item \textbf{Wielojęzyczna aplikacja kliencka} --- responsywna warstwa prezentacji zbudowana w oparciu o bibliotekę \textit{React}~\cite{react} oraz język TypeScript, wspierająca architekturę dynamicznych motywów graficznych (jasny i ciemny) oraz wzorzec projektowy RWD,
 	\item \textbf{Infrastruktura jako kod (IaC)} --- deklaratywne szablony konfiguracyjne narzędzia \textit{Terraform}, automatyzujące procesy aprowizacji i replikacji zasobów chmurowych w architekturze hybrydowej \textit{Microsoft Azure} oraz \textit{Oracle Cloud Infrastructure},
 	\item \textbf{Zautomatyzowany potok wdrożeniowy (CI/CD)} --- konfiguracja środowisk potokowych \textit{GitHub Actions} zintegrowanych z rejestrem GHCR oraz automatycznym demonem aktualizacyjnym \textit{Watchtower} w produkcyjnym środowisku kontenerowym,
 	\item \textbf{Projekt mechaniczny CAD} --- zoptymalizowana pod kątem tolerancji wymiarowych obudowa mikrokomputera wraz z przegubowym ramieniem pozycjonującym kamerę, zaprojektowana w programie \textit{SolidWorks} i przygotowana do wytwarzania przyrostowego (FDM),
