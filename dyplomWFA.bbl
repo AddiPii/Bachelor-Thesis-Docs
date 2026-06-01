@@ -166,6 +166,13 @@ Sam Newman.
   system{\'o}w. Wydanie II}.
 \newblock Helion, 2022.
 
+\bibitem{vercel}
+{Vercel Inc.}
+\newblock Vercel — build and deploy the best web experiences with the
+  frontend cloud.
+\newblock \url{https://vercel.com}.
+\newblock Dostęp: 2026.
+
 \bibitem{nodemailer}
 {Andris Reinman}.
 \newblock Nodemailer documentation.
@@ -219,13 +226,6 @@ Sam Newman.
 {containrrr}.
 \newblock Watchtower — automatically update docker containers.
 \newblock \url{https://containrrr.dev/watchtower/}.
-\newblock Dostęp: 2026.
-
-\bibitem{vercel}
-{Vercel Inc.}
-\newblock Vercel — build and deploy the best web experiences with the
-  frontend cloud.
-\newblock \url{https://vercel.com}.
 \newblock Dostęp: 2026.
 
 \end{thebibliography}

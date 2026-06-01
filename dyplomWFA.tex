@@ -1451,7 +1451,7 @@ client.interceptors.response.use(
 
 \subsection{Mechanizm routingu i ochrona tras}
 
-W celu zapewnienia selektywnej kontroli dostępu do zasobów warstwy prezentacji, w aplikacji zaimplementowano mechanizm tras chronionych (ang. \textit{protected routes}). Wykorzystuje on autorski komponent opakowujący, który dynamicznie weryfikuje stan sesji użytkownika. Dostęp do widoków domenowych wymaga aktywnego uwierzytelnienia, podczas gdy trasy administracyjne realizują dodatkową autoryzację opartą na rolach (RBAC), sprawdzając uprawnienia użytkownika przed wyrenderowaniem komponentów docelowych.
+W celu zapewnienia selektywnej kontroli dostępu do zasobów warstwy prezentacji, w aplikacji zaimplementowano mechanizm tras chronionych (ang. \textit{protected routes})~\cite{router}. Wykorzystuje on autorski komponent opakowujący, który dynamicznie weryfikuje stan sesji użytkownika. Dostęp do widoków domenowych wymaga aktywnego uwierzytelnienia, podczas gdy trasy administracyjne realizują dodatkową autoryzację opartą na rolach (RBAC), sprawdzając uprawnienia użytkownika przed wyrenderowaniem komponentów docelowych.
 
 Na listingu~\ref{lst:protected_route} zaprezentowano deklaratywną implementację komponentu \texttt{ProtectedRoute}, zintegrowanego z globalnym magazynem stanu systemu.
 
