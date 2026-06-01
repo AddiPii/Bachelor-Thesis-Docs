@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.10)  1 JUN 2026 18:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.10)  1 JUN 2026 18:19
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1369,7 +1369,7 @@ o-no-miczny kom-po-nent \T1/ptm/m/it/12 Watch-
  []
 
 [78]
-<docker_compose.pdf, id=2401, 511.9125pt x 346.29375pt>
+<docker_compose.pdf, id=2402, 511.9125pt x 346.29375pt>
 File: docker_compose.pdf Graphic file (type pdf)
 <use docker_compose.pdf>
 Package pdftex.def Info: docker_compose.pdf  used on input line 2259.
@@ -1398,7 +1398,7 @@ Overfull \hbox (14.52954pt too wide) in paragraph at lines 2309--2310
 -wej za-pre-zen-to-wano na ry-sunku [][]18[][],
  []
 
-<IoT_hub.png, id=2474, 1199.48125pt x 376.40625pt>
+<IoT_hub.png, id=2475, 1199.48125pt x 376.40625pt>
 File: IoT_hub.png Graphic file (type png)
 <use IoT_hub.png>
 Package pdftex.def Info: IoT_hub.png  used on input line 2313.
@@ -1480,10 +1480,10 @@ pk> </home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecit1000.60
 share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/times/utmri8a.pfb>
-Output written on dyplomWFA.pdf (92 pages, 4757302 bytes).
+Output written on dyplomWFA.pdf (92 pages, 4757442 bytes).
 PDF statistics:
- 3011 PDF objects out of 3580 (max. 8388607)
- 2347 compressed objects within 24 object streams
+ 3012 PDF objects out of 3580 (max. 8388607)
+ 2348 compressed objects within 24 object streams
  770 named destinations out of 1000 (max. 500000)
  1067 words of extra memory for PDF output out of 10000 (max. 10000000)
 

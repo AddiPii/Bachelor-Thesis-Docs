@@ -2021,7 +2021,7 @@ Zarządzanie potokami cyklicznymi oraz automatyzację skryptów na platformie Ra
 \subsubsection{Uzasadnienie zastosowanych parametrów}
 
 \begin{itemize}
-	\item \textbf{\texttt{@reboot sleep 60}} — opóźnienie wynoszące 60 sekund po uruchomieniu systemu jest wymagane, ponieważ środowisko \textit{OctoPi} podczas startu inicjalizuje wiele usług systemowych, m.in.\ \textit{OctoPrint}, obsługę kamery oraz interfejs sieciowy Wi-Fi. Próba uruchomienia tunelu na wcześniejszym etapie może zakończyć się błędem z powodu niedostępności lokalnego portu strumienia wideo.
+	\item \textbf{\texttt{@reboot sleep 60}} — opóźnienie wynoszące 60 sekund po uruchomieniu systemu jest wymagane, ponieważ środowisko \textit{OctoPi}~\cite{octopiimg} podczas startu inicjalizuje wiele usług systemowych, m.in.\ \textit{OctoPrint}, obsługę kamery oraz interfejs sieciowy Wi-Fi. Próba uruchomienia tunelu na wcześniejszym etapie może zakończyć się błędem z powodu niedostępności lokalnego portu strumienia wideo.
 	
 	\item \textbf{\texttt{0 */6 * * *}} — cykliczne uruchamianie skryptu co 6 godzin umożliwia weryfikację dostępności tunelu \textit{Cloudflare} oraz ponowną publikację adresu URL w przypadku zerwania połączenia. Wybrany interwał stanowi kompromis pomiędzy częstotliwością odświeżania a ograniczeniem zbędnego obciążenia sieci i usług zewnętrznych.
 \end{itemize}
