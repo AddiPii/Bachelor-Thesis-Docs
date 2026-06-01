@@ -1555,7 +1555,7 @@ Przełączanie wersji językowej realizowane jest w sposób dynamiczny i asynchr
 
 \subsection{Zarządzanie motywami graficznymi interfejsu}
 
-Aplikacja kliencka w pełni obsługuje dwa warianty wizualne interfejsu użytkownika: motyw jasny (ang. \textit{light mode}) oraz ciemny (ang. \textit{dark mode}). Architektura tego mechanizmu bazuje na natywnych zmiennych CSS (ang. \textit{CSS custom properties}), które zdefiniowano w selektorach \texttt{:root} oraz \texttt{.dark}. Są one dynamicznie interpretowane i wstrzykiwane przez silnik frameworka \textit{Tailwind CSS}.
+Aplikacja kliencka w pełni obsługuje dwa warianty wizualne interfejsu użytkownika: motyw jasny (ang. \textit{light mode}) oraz ciemny (ang. \textit{dark mode}). Architektura tego mechanizmu bazuje na natywnych zmiennych CSS (ang. \textit{CSS custom properties}), które zdefiniowano w selektorach \texttt{:root} oraz \texttt{.dark}. Są one dynamicznie interpretowane i wstrzykiwane przez silnik frameworka \textit{Tailwind CSS}~\cite{tailwind}.
 
 Bieżąca preferencja operatora dotycząca wybranego schematu kolorów jest utrwalana w pamięci podręcznej \texttt{localStorage} z wykorzystaniem mechanizmu automatycznej persystencji stanu globalnego biblioteki \textit{Zustand}~\cite{zustand}. Pozwala to na zachowanie wybranego wariantu przy kolejnych sesjach użytkownika. Dla porównania walorów wizualnych, na przytoczonym wcześniej rysunku~\ref{fig:admin_panel} przedstawiono interfejs panelu administracyjnego z aktywnym motywem jasnym, podczas gdy pozostałe ekrany zobrazowano w domyślnym wariancie ciemnym.
 
