@@ -690,7 +690,7 @@ Na rysunku~\ref{fig:architektura} przedstawiono sekwencyjny przepływ danych pom
 \begin{enumerate}
 	\item \textbf{Uwierzytelnianie użytkownika:} Użytkownik loguje się w systemie za pośrednictwem aplikacji klienckiej (frontendowej). Aplikacja nawiązuje komunikację z usługą \textit{Auth Service}, która po pomyślnej weryfikacji tożsamości zwraca parę tokenów JWT (\textit{JSON Web Token})~\cite{jwt}.
 	
-	\item \textbf{Przesyłanie pliku produkcyjnego:} Użytkownik przesyła plik z kodem sterującym (G-code). Aplikacja frontendowa wywołuje punkt końcowy (ang. \textit{endpoint}) \texttt{POST /files/upload} w ramach usługi \textit{Files Service}. Następnie komponent ten zapisuje plik w repozytorium \textit{Azure Blob Storage} oraz publikuje komunikat \texttt{file\_uploaded} w kolejce usługi \textit{Azure Service Bus}.
+	\item \textbf{Przesyłanie pliku produkcyjnego:} Użytkownik przesyła plik z kodem sterującym (G-code). Aplikacja frontendowa wywołuje punkt końcowy (ang. \textit{endpoint}) \texttt{POST /files/upload} w ramach usługi \textit{Files Service}. Następnie komponent ten zapisuje plik w repozytorium \textit{Azure Blob Storage}~\cite{blobstorage} oraz publikuje komunikat \texttt{file\_uploaded} w kolejce usługi \textit{Azure Service Bus}.
 	
 	\item \textbf{Inicjalizacja zadania w bazie danych:} Usługa \textit{Queue Service} asynchronicznie odbiera komunikaty z kolejki i na ich podstawie tworzy dokument zadania w bazie danych \textit{Azure Cosmos DB} (w ramach kontenera \texttt{jobs}), przypisując mu status początkowy \texttt{pending} lub \texttt{scheduled}.
 	
@@ -698,7 +698,7 @@ Na rysunku~\ref{fig:architektura} przedstawiono sekwencyjny przepływ danych pom
 	
 	\item \textbf{Inicjacja komunikacji IoT:} Po autoryzacji gotowości urządzenia przez użytkownika lub administratora, usługa \textit{Printer Service} zdalnie wywołuje metodę bezpośrednią (ang. \textit{Direct Method}) \texttt{startPrint} na dedykowanym agencie, wykorzystując do tego celu usługę \textit{Azure IoT Hub}.
 	
-	\item \textbf{Zarządzanie procesem drukowania przez agenta:} Komponent \textit{AddiPi Agent} pobiera przypisany plik G-code z repozytorium \textit{Azure Blob Storage}, przekazuje go bezpośrednio do interfejsu oprogramowania \textit{OctoPrint} oraz inicjuje proces drukowania 3D. W trakcie pracy agent w sposób ciągły transmituje dane telemetryczne do usługi \textit{Azure IoT Hub}, raportując bieżący postęp, status ukończenia lub ewentualne błędy krytyczne.
+	\item \textbf{Zarządzanie procesem drukowania przez agenta:} Komponent \textit{AddiPi Agent} pobiera przypisany plik G-code z repozytorium \textit{Azure Blob Storage}~\cite{blobstorage}, przekazuje go bezpośrednio do interfejsu oprogramowania \textit{OctoPrint} oraz inicjuje proces drukowania 3D. W trakcie pracy agent w sposób ciągły transmituje dane telemetryczne do usługi \textit{Azure IoT Hub}, raportując bieżący postęp, status ukończenia lub ewentualne błędy krytyczne.
 	
 	\item \textbf{Odbiór telemetrii i aktualizacja stanu:} Usługa \textit{Printer Service} konsumuje strumień danych telemetrycznych za pośrednictwem punktu końcowego zgodnego ze specyfikacją \textit{Azure Event Hubs}, a następnie aktualizuje stan procesu w bazie \textit{Azure Cosmos DB}.
 	
@@ -1072,7 +1072,7 @@ export default requireAuth;
 
 \subsubsection{Opis ogólny}
 
-Usługa \textit{Files Service} stanowi mikroserwis zaimplementowany w języku Python~\cite{python} z wykorzystaniem mikroframeworka Flask~\cite{flask}. Komponent ten odpowiada za asynchroniczne przyjmowanie plików z kodem sterującym (G-code) od aplikacji klienckiej, ich bezpieczne utrwalanie w repozytorium obiektowym \textit{Azure Blob Storage} oraz rozgłaszanie zdarzeń systemowych za pośrednictwem magistrali komunikatów \textit{Azure Service Bus}.
+Usługa \textit{Files Service} stanowi mikroserwis zaimplementowany w języku Python~\cite{python} z wykorzystaniem mikroframeworka Flask~\cite{flask}. Komponent ten odpowiada za asynchroniczne przyjmowanie plików z kodem sterującym (G-code) od aplikacji klienckiej, ich bezpieczne utrwalanie w repozytorium obiektowym \textit{Azure Blob Storage}~\cite{blobstorage} oraz rozgłaszanie zdarzeń systemowych za pośrednictwem magistrali komunikatów \textit{Azure Service Bus}.
 
 \subsubsection{Procedura przetwarzania i przesyłania plików}
 
