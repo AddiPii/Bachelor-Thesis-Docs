@@ -560,7 +560,7 @@ W architekturze systemu \textit{AddiPi} usługa \textit{Printer Service} zdalnie
 
 \subsection{Interfejs użytkownika --- React oraz Vite}
 
-Warstwa prezentacji (interfejs użytkownika) została zaimplementowana z wykorzystaniem biblioteki \textit{React}~\cite{react} w wersji 18 oraz języka TypeScript. W charakterze środowiska deweloperskiego oraz narzędzia do automatyzacji procesu budowania (ang. \textit{bundler}) aplikacji wykorzystano framework \textit{Vite}~\cite{vite}, co pozwoliło na optymalizację czasu kompilacji kodu źródłowego.
+Warstwa prezentacji (interfejs użytkownika) została zaimplementowana z wykorzystaniem biblioteki \textit{React}~\cite{react} w wersji 18 oraz języka TypeScript~\cite{typescript}. W charakterze środowiska deweloperskiego oraz narzędzia do automatyzacji procesu budowania (ang. \textit{bundler}) aplikacji wykorzystano framework \textit{Vite}~\cite{vite}, co pozwoliło na optymalizację czasu kompilacji kodu źródłowego.
 
 Do zarządzania globalnym stanem aplikacji klienckiej zastosowano bibliotekę \textit{Zustand}~\cite{zustand}. Rozwiązanie to umożliwia wydajne współdzielenie danych pomiędzy komponentami drzewa DOM w sposób bezstanowy, eliminując konieczność implementowania nadmiarowej i złożonej architektury (takiej jak \textit{Redux}) przy jednoczesnym zachowaniu wysokiej reaktywności interfejsu.
 
@@ -852,7 +852,7 @@ Takie podejście pozwala na odseparowanie logiki biznesowej od mechanizmów infr
 
 Usługa \textit{Auth Service} odpowiada za procesy uwierzytelniania, autoryzacji oraz zarządzania kontami użytkowników. W zakres jej funkcjonalności wchodzi: rejestracja, logowanie i wylogowanie użytkowników, odświeżanie tokenów sesyjnych oraz weryfikacja adresów poczty elektronicznej.
 
-Komponent ten został zaimplementowany w środowisku uruchomieniowym Node.js z wykorzystaniem frameworka Express.js oraz języka TypeScript. Serwis realizuje operacje wejścia-wyjścia poprzez komunikację z bazą danych \textit{Azure Cosmos DB} (w ramach kontenerów \texttt{users} oraz \texttt{refresh-tokens}). Ponadto integruje się z zewnętrznym serwerem SMTP firmy Google w celu dystrybucji wiadomości aktywacyjnych, wykorzystując do tego celu bibliotekę \texttt{Nodemailer}~\cite{nodemailer}.
+Komponent ten został zaimplementowany w środowisku uruchomieniowym Node.js z wykorzystaniem frameworka Express.js oraz języka TypeScript~\cite{typescript}. Serwis realizuje operacje wejścia-wyjścia poprzez komunikację z bazą danych \textit{Azure Cosmos DB} (w ramach kontenerów \texttt{users} oraz \texttt{refresh-tokens}). Ponadto integruje się z zewnętrznym serwerem SMTP firmy Google w celu dystrybucji wiadomości aktywacyjnych, wykorzystując do tego celu bibliotekę \texttt{Nodemailer}~\cite{nodemailer}.
 
 
 \subsubsection{Punkty końcowe API}
@@ -1222,7 +1222,7 @@ W tabeli~\ref{tab:queue_endpoints} zestawiono punkty końcowe udostępniane prze
 
 \subsubsection{Opis ogólny}
 
-Usługa \textit{Printer Service} stanowi centralny komponent orkiestracji systemu, odpowiedzialny za zaawansowane harmonogramowanie, weryfikację stanów urządzeń oraz nadzór nad realizacją procesów wytwórczych. Mikroserwis ten został zaimplementowany w języku TypeScript i składa się z trzech autonomicznych podsystemów logicznych:
+Usługa \textit{Printer Service} stanowi centralny komponent orkiestracji systemu, odpowiedzialny za zaawansowane harmonogramowanie, weryfikację stanów urządzeń oraz nadzór nad realizacją procesów wytwórczych. Mikroserwis ten został zaimplementowany w języku TypeScript~\cite{typescript} i składa się z trzech autonomicznych podsystemów logicznych:
 
 \begin{itemize}
 	\item \textbf{Harmonogram zadań} (uruchamiany cyklicznie z interwałem jednominutowym) --- odpowiada za sekwencyjny wybór kolejnego zadania produkcyjnego przeznaczonego do realizacji na podstawie kryteriów czasowych.
@@ -1394,7 +1394,7 @@ W tabeli~\ref{tab:video_endpoints} zestawiono i opisano punkty końcowe (ang. \t
 
 \subsection{Struktura architektoniczna aplikacji klienckiej}
 
-Aplikacja frontendowa została zaimplementowana z wykorzystaniem biblioteki \textit{React} w wersji 18 oraz języka TypeScript. Jako środowisko deweloperskie i narzędzie budujące (ang. \textit{bundler}) wykorzystano \textit{Vite}, natomiast zarządzanie mapowaniem adresów URL i nawigacją realizowane jest przy użyciu biblioteki \textit{React Router}~\cite{router} w wersji 6.
+Aplikacja frontendowa została zaimplementowana z wykorzystaniem biblioteki \textit{React} w wersji 18 oraz języka TypeScript~\cite{typescript}. Jako środowisko deweloperskie i narzędzie budujące (ang. \textit{bundler}) wykorzystano \textit{Vite}, natomiast zarządzanie mapowaniem adresów URL i nawigacją realizowane jest przy użyciu biblioteki \textit{React Router}~\cite{router} w wersji 6.
 
 Zarządzanie globalnym stanem aplikacji klienckiej (obejmującym dane profilowe zalogowanego użytkownika, bieżący status operacyjny drukarki oraz metryki systemowe) powierzono bibliotece \textit{Zustand}. W celu zachowania ciągłości sesji i preferencji interfejsu (takich jak motyw graficzny czy wybrany język), wykorzystano oprogramowanie pośredniczące \texttt{persist}, które automatyzuje proces synchronizacji i trwałego przechowywania danych w pamięci podręcznej \texttt{localStorage} przeglądarki internetowej.
 
@@ -2425,7 +2425,7 @@ Opracowany system \textit{AddiPi} został zaprojektowany z zachowaniem paradygma
 
 Przeprowadzone prace projektowe, implementacyjne oraz walidacyjne potwierdziły, że integracja rozproszonej architektury mikroserwisowej z usługami chmurowymi w modelu PaaS (\textit{Platform as a Service}) stanowi wysoce efektywny paradygmat budowy systemów zarządzania autonomicznymi stanowiskami druku 3D. Wszystkie założone we wstępie cele pracy zostały w pełni zrealizowane. Opracowany system \textit{AddiPi} umożliwia w pełni bezpieczne, zdalne przesyłanie plików z kodem sterującym, elastyczne harmonogramowanie zadań, ciągłe monitorowanie parametrów środowiskowych procesu oraz orkiestrację urządzenia z poziomu uniwersalnego interfejsu webowego.
 
-Zastosowanie architektury zorientowanej na mikroserwisy~\cite{newman2022} okazało się właściwym i uzasadnionym wyborem projektowym dla systemu tej klasy. Dekompozycja funkcjonalna na niezależne komponenty uprościła rozwój poszczególnych warstw logicznych, zwiększyła ogólną modularność rozwiązania oraz umożliwiła bezprzerwowe, asynchroniczne wdrażanie aktualizacji (ang. \textit{zero-downtime deployment}). Jednocześnie realizacja projektu wykazała, że podejście mikroserwisowe generuje dodatkowy narzut architektoniczny (ang. \textit{overhead})~\cite{kleppmann2017}, związany z koniecznością zapewnienia spójności danych, scentralizowanego zarządzania konfiguracją środowiskową oraz monitorowania rozproszonych potoków komunikacyjnych. Kluczowym czynnikiem sukcesu było również rygorystyczne stosowanie zasad czystego kodu~\cite{martin2022}, co umożliwiło sprawną integrację heterogenicznych technologii (TypeScript, Python) w ramach jednego ekosystemu.
+Zastosowanie architektury zorientowanej na mikroserwisy~\cite{newman2022} okazało się właściwym i uzasadnionym wyborem projektowym dla systemu tej klasy. Dekompozycja funkcjonalna na niezależne komponenty uprościła rozwój poszczególnych warstw logicznych, zwiększyła ogólną modularność rozwiązania oraz umożliwiła bezprzerwowe, asynchroniczne wdrażanie aktualizacji (ang. \textit{zero-downtime deployment}). Jednocześnie realizacja projektu wykazała, że podejście mikroserwisowe generuje dodatkowy narzut architektoniczny (ang. \textit{overhead})~\cite{kleppmann2017}, związany z koniecznością zapewnienia spójności danych, scentralizowanego zarządzania konfiguracją środowiskową oraz monitorowania rozproszonych potoków komunikacyjnych. Kluczowym czynnikiem sukcesu było również rygorystyczne stosowanie zasad czystego kodu~\cite{martin2022}, co umożliwiło sprawną integrację heterogenicznych technologii (TypeScript~\cite{typescript}, Python) w ramach jednego ekosystemu.
 
 Wykorzystanie ekosystemu \textit{Microsoft Azure} pozwoliło na sprawną implementację kluczowych mechanizmów platformy bez konieczności ponoszenia kosztów budowy i utrzymania własnej infrastruktury serwerowej (ang. \textit{on-premise backend}). Krytyczne znaczenie dla stabilności systemu miało wdrożenie usług \textit{Azure IoT Hub}, \textit{Azure Service Bus} oraz \textit{Azure Cosmos DB}. Komponenty te umożliwiły bezbłędną realizację asynchronicznego routingu komunikatów, synchronicznego sterowania urządzeniem brzegowym przez protokół RPC oraz bezpiecznej persystencji obiektów JSON.
 
