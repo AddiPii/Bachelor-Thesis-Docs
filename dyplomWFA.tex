@@ -1695,7 +1695,7 @@ Klasa \texttt{OctoPrintClient} hermetyzuje i~realizuje komunikację sieciową z~
 Na listingu~\ref{lst:octoprint_methods} zestawiono kluczowe operacje zaimplementowane w~strukturze omawianej klasy wraz z~przypisanymi do nich punktami końcowymi (ang. \textit{endpoints}) oraz strukturami poleceń lokalnego interfejsu REST API.
 
 \begin{lstlisting}[language={},caption={Struktura metod klasy \texttt{OctoPrintClient} i~ich mapowanie na punkty końcowe API.},style=tsStyle,label={lst:octoprint_methods}]
-	// Definicja kluczowych metod wchodzących w~skład klasy OctoPrintClient:
+	// Definicja kluczowych metod wchodzących w skład klasy OctoPrintClient:
 	
 	get_printer_state()        --->  GET  /api/printer
 	upload_and_select_file()   --->  POST /api/files/local
@@ -1994,10 +1994,10 @@ Kompletny kod źródłowy tego mechanizmu zaprezentowano na listingu~\ref{lst:ba
 	VIDEO_SERVICE_URL="http://azure.com"
 	CAMERA_LOCAL_URL="http://localhost:8080"
 	
-	# Uruchomienie tunelu w~tle i~przekierowanie strumieni danych
+	# Uruchomienie tunelu w tle i przekierowanie strumieni danych
 	cloudflared tunnel --url "$CAMERA_LOCAL_URL" > "$LOG_FILE" 2>&1 &
 	
-	# Iteracyjne sondowanie logu w~celu ekstrakcji adresu (maks. 30 s)
+	# Iteracyjne sondowanie logu w celu ekstrakcji adresu (maks. 30 s)
 	TUNNEL_URL=""
 	for i~in $(seq 1 15); do
 	sleep 2
