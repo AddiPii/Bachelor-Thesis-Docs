@@ -188,6 +188,8 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/nowidow/nowidow.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/nowidow/nowidow.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
@@ -416,6 +418,10 @@ INPUT ./dyplomWFA.bbl
 INPUT ./dyplomWFA.bbl
 INPUT dyplomWFA.bbl
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmrc8t.tfm
+INPUT ./dyplomWFA.lol
+INPUT ./dyplomWFA.lol
+INPUT dyplomWFA.lol
+OUTPUT dyplomWFA.lol
 INPUT dyplomWFA.aux
 INPUT ./dyplomWFA.out
 INPUT ./dyplomWFA.out

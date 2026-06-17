@@ -63,6 +63,7 @@
 \renewcommand{\appendixtocname}{Załączniki}   % Nazwa w~spisie treści
 \renewcommand{\appendixpagename}{Załączniki}  % Nazwa na osobnej stronie nagłówkowej
 \renewcommand{\appendixname}{Załącznik}        % Nazwa pojedynczego załącznika
+\renewcommand{\lstlistlistingname}{Spis fragmentów kodu}
 
 \usepackage{hyperref}
 \hypersetup{
@@ -324,6 +325,9 @@
     {8}{{{\color{gray}8}}}1
     {9}{{{\color{gray}9}}}1
 }
+\usepackage[all]{nowidow}
+
+\hyphenpenalty=8000
 
 
 
@@ -353,7 +357,8 @@ Wydział Fizyki i~Astronomii\\
 
 \Large Oliwer Urbaniak \\
 \vspace{3.2cm}
-\Large System zarządzania pracą drukarki 3D w~laboratorium studenckim \\
+\Large System zarządzania pracą drukarki 3D\\
+w~laboratorium studenckim \\
 
 \end{center}
 \vspace{5.5cm}
@@ -388,7 +393,7 @@ Niniejsza praca inżynierska opisuje projekt, implementację oraz walidację roz
 
 Architektura systemu została oparta na paradygmacie mikroserwisowym. W~strukturze warstwy serwerowej wyodrębniono sześć niezależnych komponentów: usługę uwierzytelniania (\textit{Auth Service}), zarządzania profilami (\textit{User Service}), obsługi plików (\textit{Files Service}), orkiestracji kolejki zadań (\textit{Queue Service}), sterowania urządzeniem (\textit{Printer Service}) oraz agenta sprzętowego (\textit{AddiPi Agent}) uruchamianego na platformie Raspberry Pi. Warstwę prezentacji stanowi aplikacja kliencka (frontendowa) zbudowana z~wykorzystaniem biblioteki React, którą uzupełnia dedykowany serwis wideo (\textit{Video Service}) odpowiedzialny za dystrybucję strumienia wizyjnego.
 
-Komunikacja wewnątrz systemu realizowana jest hybrydowo --- za pomocą synchronicznego protokołu HTTP (architektura REST API) oraz asynchronicznej, chmurowej kolejki \textit{Azure Service Bus}. Dane aplikacyjne są utrwalane w~wielomodelowej bazie danych \textit{Azure Cosmos DB}, a~pliki G-code w~repozytorium obiektowym \textit{Azure Blob Storage}. Zarządzanie i~sterowanie fizyczną drukarką 3D odbywa się za pośrednictwem usługi \textit{Azure IoT Hub} przy użyciu mechanizmu metod bezpośrednich (ang. \textit{Direct Methods}) wywoływanych na mikrokomputerze, na którym osadzono oprogramowanie serwerowe \textit{OctoPrint}.
+Komunikacja wewnątrz systemu realizowana jest hybrydowo --- za pomocą synchronicznego protokołu HTTP (architektura REST API) oraz asynchronicznej, chmurowej kolejki \textit{Azure Service Bus}. Dane aplikacyjne są utrwalane w~wielomodelowej bazie danych \textit{Azure Cosmos DB}, a~pliki G-code w~repozytorium obiektowym \textit{Azure Blob Storage}. Zarządzanie i~sterowanie fizyczną drukarką 3D odbywa się za pośrednictwem usługi \textit{Azure IoT Hub} przy użyciu mechanizmu metod bezpośrednich (ang.~\textit{Direct Methods}) wywoływanych na mikrokomputerze, na którym osadzono oprogramowanie serwerowe \textit{OctoPrint}.
 
 Poszczególne serwisy zaimplementowano w~językach TypeScript (środowisko Node.js) oraz Python. Proces wdrożenia środowiska oparto na technologii konteneryzacji Docker, koordynowanej za pomocą narzędzia Docker Compose. 
 
@@ -420,17 +425,17 @@ Głównym celem niniejszej pracy jest zaprojektowanie, implementacja oraz walida
 Personelowi administracyjnemu laboratorium system zapewnia dedykowane narzędzia do zarządzania profilami użytkowników i~ich uprawnieniami, audytu historii wszystkich operacji oraz zdalnego sterowania infrastrukturą sprzętową i~priorytetami kolejki.
 
 \subsection{Zakres pracy}
-
+\begin{samepage}
 Zakres rzeczowy zrealizowanego projektu inżynierskiego obejmuje:
 \begin{enumerate}
 	\item przeprowadzenie analizy wymagań funkcjonalnych i~niefunkcjonalnych oraz wybór technologii,
 	\item opracowanie projektu rozproszonej architektury mikroserwisowej,
 	\item implementację komponentów serwerowych (backendowych) oraz aplikacji klienckiej (frontendowej),
-	\item konfigurację i~integrację dedykowanej infrastruktury chmurowej w~modelu PaaS (\textit{Microsoft Azure}),
+	\item konfigurację i~integrację dedykowanej infrastruktury chmurowej \textit{Microsoft Azure} w~modelu platforma jako usługa (ang.~\textit{Platform as a Service}, w skrócie PaaS),
 	\item konteneryzację oraz automatyzację procesu wdrożenia systemu przy użyciu narzędzi \textit{Docker} oraz \textit{Docker Compose},
 	\item przeprowadzenie testów weryfikacyjnych i~walidacji poprawności działania całego ekosystemu.
 \end{enumerate}
-
+\end{samepage}
 \subsection{Struktura pracy}
 
 Niniejsza praca dyplomowa została podzielona na logiczne segmenty, których zawartość odzwierciedla kolejne etapy realizacji projektu. Rozdział~\ref{sec:analiza} zawiera szczegółową analizę wymagań funkcjonalnych i~niefunkcjonalnych oraz krytyczny przegląd istniejących rozwiązań rynkowych. W~rozdziale~\ref{sec:technologie} omówiono wybrane technologie programistyczne i~chmurowe wraz z~technicznym uzasadnieniem podjętych decyzji projektowych. Projekt samej architektury rozproszonej oraz przepływy danych w~systemie zostały opisane w~rozdziale~\ref{sec:architektura}. 
@@ -457,9 +462,9 @@ Na podstawie szczegółowej analizy specyfiki oraz potrzeb akademickiego laborat
 \noindent\textbf{W obszarze kont użytkowników (rola standardowa):}
 \begin{itemize}
 	\item rejestracja konta powiązana z~dwuetapową weryfikacją adresu e-mail, ograniczoną wyłącznie do domeny akademickiej \texttt{@uwr.edu.pl},
-\item bezpieczne uwierzytelnianie i~autoryzacja z~wykorzystaniem mechanizmu podwójnych tokenów JWT (\textit{access token} oraz \textit{refresh token})~\cite{jwt},
-	\item asynchroniczne przesyłanie plików z~kodem sterującym (G-code) o~maksymalnym rozmiarze pojedynczego wolumenu do 50~MB i~rozszerzeniu \texttt{.gcode},
-	\item elastyczne harmonogramowanie procesów wytwórczych na wybrany termin kalendarzowy lub lokowanie ich w~ogólnej kolejce systemu,
+\item bezpieczne uwierzytelnianie i~autoryzacja z~wykorzystaniem mechanizmu podwójnych tokenów \textit{JSON Web Token} (JWT)~\cite{jwt},
+	\item asynchroniczne przesyłanie plików z~kodem sterującym (G-code) o~maksymalnym rozmiarze pojedynczego wolumenu do 50~MB i~rozszerzeniu \texttt{gcode},
+	\item elastyczne harmonogramowanie procesów wytwórczych na wybrany termin lub lokowanie ich w~ogólnej kolejce systemu,
 	\item przeglądanie historii własnych zleceń produkcyjnych z~opcją dynamicznego filtrowania według stanów maszyny,
 	\item monitorowanie parametrów środowiskowych i~postępu procesu druku 3D w~czasie rzeczywistym (weryfikacja paska postępu, temperatury dyszy oraz stołu roboczego, a~także podgląd wizyjny z~kamery),
 	\item możliwość manualnego anulowania lub ponownego inicjowania własnych zadań.
@@ -481,8 +486,8 @@ W celu zapewnienia odpowiedniej jakości, wydajności oraz stabilności działan
 \begin{itemize}
 	\item \textbf{Skalowalność}~\cite{kleppmann2017} --- architektura rozproszona powinna umożliwiać bezproblemową integrację i~rejestrację kolejnych fizycznych urządzeń drukujących bez konieczności modyfikacji lub przebudowy rdzenia systemu.
 	\item \textbf{Niezawodność i~tolerancja błędów} --- asynchroniczne przetwarzanie komunikatów z~wykorzystaniem magistrali powinno gwarantować, że chwilowa niedostępność komponentów nie spowoduje trwałej utraty zlecenia druku ani niespójności stanów w~bazie danych.
-	\item \textbf{Bezpieczeństwo danych} --- autoryzacja dostępu do interfejsów programistycznych REST API realizowana za pomocą kryptograficznie podpisanych tokenów JWT~\cite{jwt}, natomiast hasła użytkowników bezwzględnie utrwalane w~bazie danych w~postaci kryptograficznych skrótów (ang. \textit{hashes}) wygenerowanych algorytmem \textit{bcrypt}~\cite{bcrypt}.
-	\item \textbf{Responsywność interfejsu} --- warstwa prezentacji (aplikacja frontendowa) musi zostać zaprojektowana zgodnie z~paradygmatem RWD (ang. \textit{Responsive Web Design}), zapewniając pełną ergonomię i~poprawność wyświetlania zarówno na urządzeniach stacjonarnych, jak i~mobilnych.
+	\item \textbf{Bezpieczeństwo danych} --- autoryzacja dostępu do interfejsów programistycznych REST API realizowana za pomocą kryptograficznie podpisanych tokenów JWT~\cite{jwt}, natomiast hasła użytkowników bezwzględnie utrwalane w~bazie danych w~postaci kryptograficznych skrótów (ang.~\textit{hashes}) wygenerowanych algorytmem \textit{bcrypt}~\cite{bcrypt}.
+	\item \textbf{Responsywność interfejsu} --- warstwa prezentacji (aplikacja frontendowa) musi zostać zaprojektowana zgodnie z~paradygmatem RWD (ang.~\textit{Responsive Web Design}), zapewniając pełną ergonomię i~poprawność wyświetlania zarówno na urządzeniach stacjonarnych, jak i~mobilnych.
 	\item \textbf{Wydajność czasowa} --- czas odpowiedzi punktów końcowych API na zapytania synchroniczne nie powinien przekraczać 2 sekund w~warunkach standardowego, nominalnego obciążenia infrastruktury.
 	\item \textbf{Przenośność i~konteneryzacja} --- wszystkie komponenty, mikroserwisy oraz bazy danych wchodzące w~skład systemu muszą zostać spakowane w~niezależne kontenery środowiska \textit{Docker}, umożliwiając pełne uruchomienie całego ekosystemu za pomocą jednego polecenia skryptowego (\textit{Docker Compose}).
 \end{itemize}
@@ -491,17 +496,17 @@ W celu zapewnienia odpowiedniej jakości, wydajności oraz stabilności działan
 
 \subsubsection{OctoPrint}
 
-Oprogramowanie \textit{OctoPrint}~\cite{octoprint} stanowi obecnie jedno z~najpopularniejszych rozwiązań typu \textit{open-source} dedykowanych do zdalnego zarządzania i~monitorowania pojedynczych drukarek 3D. System ten, uruchamiany najczęściej jako usługa serwerowa w~środowisku Linux na mikrokomputerze Raspberry Pi, udostępnia responsywny interfejs webowy, programistyczny interfejs REST API oraz rozbudowany ekosystem wtyczek (ang. \textit{plugins}). Umożliwia on bezpośrednie kontrolowanie parametrów mechanicznych i~termicznych drukarki, wizualizację kodu sterującego, podgląd wideo z~kamery oraz analizę postępu prac.
+Oprogramowanie \textit{OctoPrint}~\cite{octoprint} stanowi obecnie jedno z~najpopularniejszych rozwiązań typu \textit{open-source} dedykowanych do zdalnego zarządzania i~monitorowania pojedynczych drukarek 3D. System ten, uruchamiany najczęściej jako usługa serwerowa w~środowisku Linux na mikrokomputerze Raspberry Pi, udostępnia responsywny interfejs webowy, programistyczny interfejs REST API oraz rozbudowany ekosystem wtyczek (ang.~\textit{plugins}). Umożliwia on bezpośrednie kontrolowanie parametrów mechanicznych i~termicznych drukarki, wizualizację kodu sterującego, podgląd wideo z~kamery oraz analizę postępu prac.
 
-Głównym ograniczeniem platformy \textit{OctoPrint} jest jednak jej monolityczna architektura, zaprojektowana z~myślą o~pojedynczym użytkowniku zarządzającym wyłącznie jedną maszyną. Oprogramowanie to nie oferuje natywnych mechanizmów globalnego kolejkowania zadań dla wielu niezależnych kont, zaawansowanego systemu kontroli dostępu opartego na rolach (RBAC) ani integracji z~infrastrukturą chmurową. Z~tego względu w~projekcie \textit{AddiPi} system \textit{OctoPrint} został wykorzystany wyłącznie w~charakterze lokalnego, niskopoziomowego sterownika sprzętowego, nad którym nadbudowano rozproszoną warstwę orkiestracji i~zarządzania.
+Głównym ograniczeniem platformy \textit{OctoPrint} jest jednak jej monolityczna architektura, zaprojektowana z~myślą o~pojedynczym użytkowniku zarządzającym wyłącznie jedną maszyną. Oprogramowanie to nie oferuje natywnych mechanizmów globalnego kolejkowania zadań dla wielu niezależnych kont, zaawansowanego systemu kontroli dostępu opartego na rolach (z ang.~RBAC, czyli \textit{Role-Based Access Control}) ani integracji z~infrastrukturą chmurową. Z~tego względu w~projekcie \textit{AddiPi} system \textit{OctoPrint} został wykorzystany wyłącznie w~charakterze lokalnego, niskopoziomowego sterownika sprzętowego, nad którym nadbudowano rozproszoną warstwę orkiestracji i~zarządzania.
 
 \subsubsection{Mainsail oraz Fluidd}
 
-Ekosystemy \textit{Mainsail} oraz \textit{Fluidd} to nowoczesne, wysoce zoptymalizowane interfejsy webowe współpracujące bezpośrednio z~oprogramowaniem układowym (firmware) \textit{Klipper}. Charakteryzują się one niskim narzutem wydajnościowym oraz zaawansowanymi algorytmami kompensacji drgań maszyn. Podobnie jednak jak w~przypadku oprogramowania \textit{OctoPrint}, ich architektura została zorientowana na scenariusz jednorodny (jeden operator --- jedno urządzenie) i~nie przewiduje mechanizmów współdzielenia zasobów sprzętowych ani wielodostępowej orkiestracji kolejki zadań.
+Ekosystemy \textit{Mainsail} oraz \textit{Fluidd} to nowoczesne, wysoce zoptymalizowane interfejsy webowe współpracujące bezpośrednio z~oprogramowaniem układowym (firmware) \textit{Klipper}. Charakteryzują się one niskim narzutem wydajnościowym oraz zaawansowanymi algorytmami kompensacji drgań maszyn. Podobnie jednak jak w~przypadku oprogramowania \textit{OctoPrint}, ich architektura została zorientowana na scenariusz jednorodny (jeden operator~--- jedno urządzenie) i~nie przewiduje mechanizmów współdzielenia zasobów sprzętowych ani wielodostępowej orkiestracji kolejki zadań.
 
 \subsubsection{Platformy komercyjne}
 
-Rozwiązania takie jak \textit{3DprinterOS}, \textit{Polar Cloud} czy \textit{Ultimaker Digital Factory} to komercyjne systemy klasy \textit{fleet management}, przeznaczone do scentralizowanego zarządzania rozproszoną flotą drukarek trójwymiarowych w~sektorze przemysłowym oraz edukacyjnym. Platformy te udostępniają zaawansowane moduły analityczne i~kolejki zadań, jednak ich implementacja wiąże się z~wysokimi, cyklicznymi kosztami subskrypcyjnymi. Dodatkowo są to systemy zamknięte, działające w~modelu SaaS (\textit{Software as a~Service}), co uniemożliwia pełną kontrolę nad integralnością i~lokalizacją przetwarzanych danych --- w~specyficznych warunkach laboratoriów akademickich stanowi to istotną barierę wdrożeniową.
+Rozwiązania takie jak \textit{3DprinterOS}, \textit{Polar Cloud} czy \textit{Ultimaker Digital Factory} to komercyjne systemy klasy \textit{fleet management}, przeznaczone do scentralizowanego zarządzania rozproszoną flotą drukarek trójwymiarowych w~sektorze przemysłowym oraz edukacyjnym. Platformy te udostępniają zaawansowane moduły analityczne i~kolejki zadań, jednak ich implementacja wiąże się z~wysokimi, cyklicznymi kosztami subskrypcyjnymi. Dodatkowo są to systemy zamknięte, działające w~modelu SaaS (ang.~\textit{Software as a~Service}), co uniemożliwia pełną kontrolę nad integralnością i~lokalizacją przetwarzanych danych~--- w~specyficznych warunkach laboratoriów akademickich stanowi to istotną barierę wdrożeniową.
 
 \subsubsection{Wnioski końcowe}
 
@@ -527,11 +532,11 @@ Platformę Node.js~\cite{nodejs} wybrano ze względu na asynchroniczny, niebloku
 
 \subsubsection{Python}
 
-Agent działający na platformie Raspberry Pi został zaimplementowany w~języku Python~\cite{python}. Biblioteki \texttt{azure-iot-device} oraz \texttt{azure-storage-blob} są w~tym środowisku powszechnie dostępne i~szczegółowo udokumentowane. Python stanowi standardowe rozwiązanie w~przypadku aplikacji uruchamianych na systemach wbudowanych oraz mikrokomputerach jednoukładowych (ang. \textit{Single-Board Computer}, SBC).
+Agent działający na platformie Raspberry Pi został zaimplementowany w~języku Python~\cite{python}. Biblioteki \texttt{azure-iot-device} oraz \texttt{azure-storage-blob} są w~tym środowisku powszechnie dostępne i~szczegółowo udokumentowane. Python stanowi standardowe rozwiązanie w~przypadku aplikacji uruchamianych na systemach wbudowanych oraz mikrokomputerach jednoukładowych (ang.~\textit{Single-Board Computer}, w skrócie SBC).
 
 \subsection{Framework webowy --- Express.js}
 
-Wszystkie serwisy warstwy Node.js~\cite{nodejs} wykorzystują framework Express.js~\cite{express} w~wersji stabilnej 5.0. Rozwiązanie to charakteryzuje się minimalistyczną architekturą i~niskim narzutem wydajnościowym. Framework nie narzuca sztywnej struktury katalogów (ang. \textit{unopinionated framework}), co pozwala na elastyczne dostosowanie architektury każdego z~mikroserwisów do jego specyficznych wymagań. Express.js zapewnia również ustandaryzowane mechanizmy obsługi żądań pośredniczących (ang. \textit{middleware}), routingu oraz zarządzania błędami.
+Wszystkie serwisy warstwy Node.js~\cite{nodejs} wykorzystują framework Express.js~\cite{express} w~wersji stabilnej 5.0. Rozwiązanie to charakteryzuje się minimalistyczną architekturą i~niskim narzutem wydajnościowym. Framework nie narzuca sztywnej struktury katalogów (ang.~\textit{unopinionated framework}), co pozwala na elastyczne dostosowanie architektury każdego z~mikroserwisów do jego specyficznych wymagań. Express.js zapewnia również ustandaryzowane mechanizmy obsługi żądań pośredniczących (ang.~\textit{middleware}), rutingu oraz zarządzania błędami.
 
 \subsection{Baza danych --- Azure Cosmos DB}
 
@@ -540,57 +545,57 @@ Wszystkie serwisy warstwy Node.js~\cite{nodejs} wykorzystują framework Express.
 Wybór tej technologii został podyktowany następującymi czynnikami:
 \begin{itemize}
 	\item \textbf{Model usługowy PaaS (Platform as a~Service)} --- pełne zarządzanie infrastrukturą przez dostawcę chmurowego eliminuje konieczność administracji serwerem bazy danych,
-	\item \textbf{Elastyczny schemat danych} --- poszczególne mikroserwisy przechowują obiekty o~zróżnicowanej, heterogenicznej strukturze w~ramach jednej bazy danych (\texttt{addi pi})~\cite{kleppmann2017}, z~podziałem na dedykowane kontenery (\texttt{users}, \texttt{jobs}, \texttt{refresh-tokens}),
-	\item \textbf{Natywna integracja} --- bezszwowe współdziałanie z~pozostałymi komponentami ekosystemu chmurowego \textit{Microsoft Azure},
+	\item \textbf{Elastyczny schemat danych} --- poszczególne mikroserwisy przechowują obiekty o~zróżnicowanej strukturze w~ramach jednej bazy danych (\texttt{addipi-cosmos})~\cite{kleppmann2017}, z~podziałem na dedykowane kontenery (\texttt{users}, \texttt{jobs}, \texttt{refresh-tokens}),
+	\item \textbf{Natywna integracja} --- transparentne współdziałanie z~pozostałymi komponentami ekosystemu chmurowego \textit{Microsoft Azure},
 	\item \textbf{Automatyczne indeksowanie} --- domyślne indeksowanie wszystkich pól w~strukturze dokumentu, co optymalizuje czas wykonywania zapytań.
 \end{itemize}
 
 \subsection{Repozytorium obiektowe --- Azure Blob Storage}
 
-Pliki G-code przesyłane przez użytkowników są przechowywane w~usłudze repozytorium obiektowego \textit{Azure Blob Storage}~\cite{blobstorage} w~ramach dedykowanego kontenera o~nazwie \texttt{gcode}. Usługa ta zapewnia niemal nieograniczoną przestrzeń magazynową, wysoki poziom dostępności, relatywnie niskie koszty utrzymania danych oraz zoptymalizowany interfejs API dedykowany do bezpiecznego przesyłania i~pobierania dużych obiektów binarnych (ang. \textit{Binary Large Objects}, BLOB).
+Pliki G-code przesyłane przez użytkowników są przechowywane w~usłudze repozytorium obiektowego \textit{Azure Blob Storage}~\cite{blobstorage} w~ramach dedykowanego kontenera o~nazwie \texttt{gcode}. Usługa ta zapewnia niemal nieograniczoną przestrzeń magazynową, wysoki poziom dostępności, relatywnie niskie koszty utrzymania danych oraz zoptymalizowany interfejs API dedykowany do bezpiecznego przesyłania i~pobierania dużych obiektów binarnych (ang.~\textit{Binary Large Objects}, w skrócie BLOB).
 
 \subsection{Broker komunikatów --- Azure Service Bus}
 
-\textit{Azure Service Bus}~\cite{servicebus} to chmurowa usługa kolejkowania komunikatów i~zarządzania strumieniami danych klasy korporacyjnej. W~architekturze systemu \textit{AddiPi} pełni ona kluczową rolę brokera komunikatów (ang. \textit{message broker}) odpowiedzialnego za asynchroniczne i~bezprzerwowe pośrednictwo pomiędzy usługą \textit{Files Service} (producentem komunikatów) a~komponentem \textit{Queue Service} (konsumentem)~\cite{richardson2020}.
+\textit{Azure Service Bus}~\cite{servicebus} to chmurowa usługa kolejkowania komunikatów i~zarządzania strumieniami danych klasy korporacyjnej. W~architekturze systemu \textit{AddiPi} pełni ona kluczową rolę brokera komunikatów (ang.~\textit{message broker}) odpowiedzialnego za asynchroniczne i~bezprzerwowe pośrednictwo pomiędzy usługą \textit{Files Service} (producent komunikatów) a~komponentem \textit{Queue Service} (konsument komunikatów)~\cite{richardson2020}.
 
 Dedykowana kolejka \texttt{print-queue} zapewnia niezawodną semantykę dostarczania wiadomości typu \textit{at-least-once} (co najmniej raz)~\cite{kleppmann2017}. Rozwiązanie to gwarantuje, że w~przypadku awarii usługi konsumenckiej lub utraty połączenia sieciowego, komunikat nie zostanie skasowany --- pozostaje on zabezpieczony w~strukturze magistrali chmurowej i~może zostać przetworzony powtórnie po przywróceniu operacyjności konsumenta, co bezpośrednio realizuje wymaganie niefunkcjonalne dotyczące tolerancji błędów.
 
 \subsection{Sterowanie urządzeniem --- Azure IoT Hub}
 
-\textit{Azure IoT Hub}~\cite{iothub} to usługa chmurowa przeznaczona do scentralizowanego zarządzania, bezpiecznego uwierzytelniania oraz monitorowania urządzeń Internetu Rzeczy (IoT). Usługa ta umożliwia pełną dwukierunkową komunikację (ang. \textit{Device-to-Cloud} oraz \textit{\newline Cloud-to-Device}), a~także udostępnia mechanizm metod bezpośrednich (ang. \textit{Direct Methods}). Metody te stanowią synchroniczny wzorzec wywołań typu RPC (ang. \textit{Remote Procedure Call}), realizowany na urządzeniach brzegowych komunikujących się za pośrednictwem protokołów MQTT lub AMQP.
+\textit{Azure IoT Hub}~\cite{iothub} to usługa chmurowa przeznaczona do scentralizowanego zarządzania, bezpiecznego uwierzytelniania oraz monitorowania urządzeń Internetu Rzeczy (IoT). Usługa ta umożliwia pełną dwukierunkową komunikację (ang.~\textit{Device-to-Cloud} oraz \textit{\newline Cloud-to-Device}), a~także udostępnia mechanizm metod bezpośrednich (ang.~\textit{Direct Methods}). Metody te stanowią synchroniczny wzorzec wywołań typu RPC (ang.~\textit{Remote Procedure Call}), realizowany na urządzeniach brzegowych komunikujących się za pośrednictwem protokołów przesyłania wiadomości MQTT i/lub kolejkowania AMQP.
 
 W architekturze systemu \textit{AddiPi} usługa \textit{Printer Service} zdalnie wywołuje na agencie (uruchomionym na platformie Raspberry Pi) metody bezpośrednie: \texttt{startPrint}, \texttt{cancelPrint} oraz \texttt{getStatus}. W~odpowiedzi zwrotnej agent transmituje asynchroniczny strumień danych telemetrycznych w~postaci zdarzeń systemowych (m.in. \texttt{print\_started}, \texttt{print\_progress} czy \texttt{print\_completed}). Komunikaty te są agregowane przez usługę \textit{Printer Service} za pośrednictwem punktu końcowego zgodnego ze specyfikacją \textit{Azure Event Hubs}.
 
 \subsection{Interfejs użytkownika --- React oraz Vite}
 
-Warstwa prezentacji (interfejs użytkownika) została zaimplementowana z~wykorzystaniem biblioteki \textit{React}~\cite{react} w~wersji 18 oraz języka TypeScript~\cite{typescript}. W~charakterze środowiska deweloperskiego oraz narzędzia do automatyzacji procesu budowania (ang. \textit{bundler}) aplikacji wykorzystano framework \textit{Vite}~\cite{vite}, co pozwoliło na optymalizację czasu kompilacji kodu źródłowego.
+Warstwa prezentacji (interfejs użytkownika) została zaimplementowana z~wykorzystaniem biblioteki \textit{React}~\cite{react} w~wersji 18 oraz języka TypeScript~\cite{typescript}. W~charakterze środowiska deweloperskiego oraz narzędzia do automatyzacji procesu budowania (ang.~\textit{bundler}) aplikacji wykorzystano framework \textit{Vite}~\cite{vite}, co pozwoliło na optymalizację czasu kompilacji kodu źródłowego.
 
 Do zarządzania globalnym stanem aplikacji klienckiej zastosowano bibliotekę \textit{Zustand}~\cite{zustand}. Rozwiązanie to umożliwia wydajne współdzielenie danych pomiędzy komponentami drzewa DOM w~sposób bezstanowy, eliminując konieczność implementowania nadmiarowej i~złożonej architektury (takiej jak \textit{Redux}) przy jednoczesnym zachowaniu wysokiej reaktywności interfejsu.
 
-Projekt graficzny oraz warstwa stylów zostały zrealizowane przy użyciu frameworka \textit{Tailwind CSS}~\cite{tailwind}. Narzędzie to bazuje na architekturze klas narzędziowych (ang. \textit{utility-first}), w~której style interfejsu są komponowane bezpośrednio w~strukturze kodu za pomocą predefiniowanych klas reprezentujących pojedyncze właściwości kaskadowych arkuszy stylów.
+Projekt graficzny oraz warstwa stylów zostały zrealizowane przy użyciu frameworka \textit{Tailwind CSS}~\cite{tailwind}. Narzędzie to bazuje na architekturze klas narzędziowych (ang.~\textit{utility-first}), w~której style interfejsu są komponowane bezpośrednio w~strukturze kodu za pomocą predefiniowanych klas reprezentujących pojedyncze właściwości kaskadowych arkuszy stylów.
 
 \subsection{Konteneryzacja --- Docker oraz Docker Compose}
 
-W celu zapewnienia powtarzalności środowiska uruchomieniowego, każdy z~mikroserwisów wchodzących w~skład ekosystemu posiada dedykowany plik konfiguracyjny \texttt{Dockerfile}. Proces budowania obrazów realizuje mechanizm wieloetapowy (ang. \textit{multi-stage build}). Podejście to pozwala na drastyczne ograniczenie rozmiaru finalnych obrazów kontenerów oraz całkowite odizolowanie środowiska kompilacji i~zależności deweloperskich od produkcyjnego środowiska uruchomieniowego.
+W celu zapewnienia powtarzalności środowiska uruchomieniowego, każdy z~mikroserwisów wchodzących w~skład ekosystemu posiada dedykowany plik konfiguracyjny \texttt{Dockerfile}. Proces budowania obrazów realizuje mechanizm wieloetapowy (ang.~\textit{multi-stage build}). Podejście to pozwala na drastyczne ograniczenie rozmiaru finalnych obrazów kontenerów oraz całkowite odizolowanie środowiska kompilacji i~zależności deweloperskich od produkcyjnego środowiska uruchomieniowego.
 
-Narzędzie \textit{Docker Compose}~\cite{docker} wykorzystano do zautomatyzowanej orkiestracji i~zarządzania cyklem życia wszystkich kontenerów zarówno w~środowisku lokalnym, jak i~produkcyjnym. Narzędzie to definiuje odizolowaną, wspólną sieć wirtualną \texttt{addipi-\allowbreak{}network} oraz odpowiada za bezpieczne wstrzykiwanie zmiennych środowiskowych odczytywanych z~pliku \texttt{.env}.
+Narzędzie \textit{Docker Compose}~\cite{docker} wykorzystano do zautomatyzowanej orkiestracji i~zarządzania cyklem życia wszystkich kontenerów zarówno w~środowisku lokalnym, jak i~produkcyjnym. Narzędzie to definiuje odizolowaną, wspólną sieć wirtualną \texttt{addipi-\allowbreak{}network} oraz odpowiada za bezpieczne wstrzykiwanie zmiennych środowiskowych odczytywanych z~pliku \texttt{env}.
 
 \subsection{Automatyzacja infrastruktury chmurowej --- Terraform}
 
-Do zarządzania rozproszonymi zasobami chmurowymi wykorzystano narzędzie \textit{Terraform}~\cite{terraform}, implementujące paradygmat deklaratywnego definiowania środowisk systemowych jako kod (ang. \textit{Infrastructure as Code}, IaC). Architektura wdrożeniowa została podzielona na dwa niezależne moduły: \texttt{terraform/} dedykowany dla usług platformy \textit{Microsoft Azure} (z użyciem dostawcy \texttt{hashicorp/azurerm}) oraz \texttt{terraform-oci/} konfigurujący zasoby w~chmurze \textit{Oracle Cloud Infrastructure (OCI)}~\cite{oci} (oparty na dostawcy \texttt{oracle/oci}). Wybór tego rozwiązania gwarantuje pełną powtarzalność środowisk produkcyjnych oraz automatyzację procesów aprowizacji.
+Do zarządzania rozproszonymi zasobami chmurowymi wykorzystano narzędzie \textit{Terraform}~\cite{terraform}, implementujące paradygmat deklaratywnego definiowania środowisk systemowych jako kod (ang.~\textit{Infrastructure as Code}, w skrócie IaC). Architektura wdrożeniowa została podzielona na dwa niezależne moduły: \texttt{terraform/} dedykowany dla usług platformy \textit{Microsoft Azure} (z użyciem dostawcy \texttt{hashicorp/azurerm}) oraz \texttt{terraform-oci/} konfigurujący zasoby w~chmurze \textit{Oracle Cloud Infrastructure (OCI)}~\cite{oci} (oparty na dostawcy \texttt{oracle/oci}). Wybór tego rozwiązania gwarantuje pełną powtarzalność środowisk produkcyjnych oraz automatyzację procesów aprowizacji.
 
 \subsection{Środowisko hostingowe warstwy serwerowej --- Oracle Cloud Infrastructure}
 
-Kontenery aplikacyjne warstwy serwerowej (\textit{Auth}, \textit{User}, \textit{Files}, \textit{Queue} oraz \textit{Printer Service}) są uruchamiane na maszynie wirtualnej wewnątrz chmury \textit{Oracle Cloud Infrastructure} (OCI)~\cite{oci}. W~projekcie wykorzystano instancję \texttt{VM.Standard.E2.1.Micro} udostępnianą w~bezpłatnym programie \textit{Always Free} (specyfikacja sprzętowa: 1 OCPU, 1~GB pamięci RAM). Platformę OCI wybrano z~uwagi na dostępność autonomicznych zasobów obliczeniowych działających bez restrykcji czasowych, co stanowi ekonomicznie optymalną alternatywę dla rozwiązań komercyjnych rozliczanych w~modelu subskrypcyjnym lub za faktyczny czas pracy instancji.
+Kontenery aplikacyjne warstwy serwerowej (\textit{Auth}, \textit{User}, \textit{Files}, \textit{Queue} oraz \textit{Printer Service}) są uruchamiane na maszynie wirtualnej wewnątrz chmury OCI~\cite{oci}. W~projekcie wykorzystano instancję \texttt{VM.Standard.E2.1.Micro} udostępnianą w~bezpłatnym programie \textit{Always Free} (specyfikacja sprzętowa: 1 OCPU, 1~GB pamięci RAM). Platformę OCI wybrano z~uwagi na dostępność autonomicznych zasobów obliczeniowych działających bez restrykcji czasowych, co stanowi ekonomicznie optymalną alternatywę dla rozwiązań komercyjnych rozliczanych w~modelu subskrypcyjnym lub za faktyczny czas pracy instancji.
 
 
-\subsection{CAD - SolidWorks}
+\subsection{Środowisko CAD - SolidWorks}
 
-Projekt mechaniczny obudowy urządzenia wykonano w~programie \textbf{SolidWorks}~\cite{solidworks}, stanowiącym środowisko do parametrycznego modelowania bryłowego oraz projektowania złożeń mechanicznych. Oprogramowanie umożliwia tworzenie asocjatywnych modeli 3D, w~których modyfikacja parametrów części powoduje automatyczną aktualizację złożeń oraz dokumentacji technicznej.
+Projekt mechaniczny obudowy urządzenia wykonano w~programie \textit{SolidWorks}~\cite{solidworks}, stanowiącym środowisko do parametrycznego modelowania bryłowego oraz projektowania złożeń mechanicznych. Oprogramowanie umożliwia tworzenie asocjatywnych modeli 3D, w~których modyfikacja parametrów części powoduje automatyczną aktualizację złożeń oraz dokumentacji technicznej.
 
-Wybór programu SolidWorks był podyktowany dostępnością oprogramowania w~ramach licencji studenckiej oraz szerokim wsparciem dla formatów eksportu modeli, takich jak \texttt{.STEP} (neutralny format wymiany modeli CAD), \texttt{.STL} (format wykorzystywany w~procesie przygotowania modeli o~druku 3D) oraz \texttt{.3MF}~\cite{gibson2021} (format wymiany zawierający dodatkowe metadane procesu druku).
+Wybór programu \textit{SolidWorks} był podyktowany dostępnością oprogramowania w~ramach licencji studenckiej oraz szerokim wsparciem dla formatów eksportu modeli, takich jak \texttt{STEP} (neutralny format wymiany modeli CAD), \texttt{STL} (format wykorzystywany w~procesie przygotowania modeli o~druku 3D) oraz \texttt{3MF}~\cite{gibson2021} (format wymiany zawierający dodatkowe metadane procesu druku).
 
-Projekt został podzielony na pliki \texttt{.SLDPRT}, reprezentujące pojedyncze części, oraz \texttt{.SLDASM}, definiujące kompletne złożenia mechaniczne.
+Projekt został podzielony na pliki \texttt{SLDPRT}, reprezentujące pojedyncze części, oraz \texttt{SLDASM}, definiujące kompletne złożenia mechaniczne.
 
 \subsection{Porównanie wybranych alternatyw}
 
@@ -603,7 +608,7 @@ Proces projektowania systemu wymagał wielokryterialnej analizy dostępnych rozw
 	\label{fig:tech_comparison}
 \end{figure}
 
-Głównym założeniem przy wyborze warstwy backendowej oraz frontendowej było ujednolicenie stosu technologicznego wokół języka TypeScript oraz środowiska Node.js. Pozwoliło to na współdzielenie typów danych między aplikacją webową (React 18 + Vite) a~usługami serwerowymi, co znacząco przyspieszyło proces implementacji. Wyjątek stanowi mikrousługa \textit{Files Service} oraz komponent agenta uruchamiany na platformie Raspberry Pi, gdzie ze względu na specyfikę obsługi interfejsów sprzętowych zdecydowano się na wykorzystanie języka Python~\cite{python}. 
+Głównym założeniem przy wyborze warstwy backendowej oraz frontendowej było ujednolicenie stosu technologicznego wokół języka TypeScript oraz środowiska Node.js. Pozwoliło to na współdzielenie typów danych między aplikacją webową (React 18) a~usługami serwerowymi, co znacząco przyspieszyło proces implementacji. Wyjątek stanowi mikrousługa \textit{Files Service} oraz komponent agenta uruchamiany na platformie Raspberry Pi, gdzie ze względu na specyfikę obsługi interfejsów sprzętowych zdecydowano się na wykorzystanie języka Python~\cite{python}. 
 
 Kluczowe znaczenie dla stabilności systemu miało precyzyjne dobranie silnika bazy danych oraz mechanizmu wymiany komunikatów. Szczegółowe porównanie cech rozważanych systemów bazodanowych oraz systemów kolejkowych zestawiono odpowiednio w~tabeli~\ref{tab:porownanie_baz} oraz tabeli~\ref{tab:porownanie_kolejek}.
 
@@ -616,15 +621,15 @@ Kluczowe znaczenie dla stabilności systemu miało precyzyjne dobranie silnika b
 		\textbf{Cecha} & \textbf{Cosmos DB}~\cite{cosmosdb} & \textbf{PostgreSQL}~\cite{postgresql} & \textbf{MongoDB Atlas}~\cite{mongodb_atlas} \\
 		\midrule
 		Model danych & Dokument (JSON) & Relacyjny & Dokument (BSON) \\
-		Zarządzanie & PaaS (bez serwera) & Samodzielny/PaaS & PaaS \\
-		Integracja z~\textit{Azure} & Natywna & Ograniczona & Pośrednia \\
-		\makecell[l]{Elastyczny \\ schemat danych} & Tak & Nie & Tak \\
-		\makecell[l]{Dostępność \\ bezpłatnego planu} & Tak (400 RU/s) & Tak (self-hosted) & Tak (512 MB) \\
+		\rule{0pt}{13pt}Zarządzanie & PaaS (bez serwera) & Samodzielny/PaaS & PaaS \\
+		\rule{0pt}{13pt}Integracja z~\textit{Azure} & Natywna & Ograniczona & Pośrednia \\
+		\makecell[l]{\rule{0pt}{13pt}Elastyczny \\ schemat danych} & Tak & Nie & Tak \\
+		\makecell[l]{\rule{0pt}{13pt}Dostępność \\ bezpłatnego planu} & Tak (400 RU/s) & Tak (self-hosted) & Tak (512 MB) \\
 		\bottomrule
 	\end{tabular}
 \end{table}
 
-Jak wynika z~tabeli~\ref{tab:porownanie_baz}, baza \textit{Azure Cosmos DB} została wybrana ze względu na bezobsługowy model bezserwerowy (Serverless PaaS) oraz natywną integrację z~ekosystemem \textit{Azure}. Wybór modelu NoSQL zamiast relacyjnego PostgreSQL~\cite{postgresql} podyktowany był dążeniem do minimalizacji narzutu związanego z~migracjami schematu, co w~systemach intensywnie korzystających z~danych pozwala na szybszą iterację i~skalowanie~\cite{kleppmann2017}.
+\noindent Jak wynika z~tabeli~\ref{tab:porownanie_baz}, baza \textit{Azure Cosmos DB} została wybrana ze względu na bezobsługowy model bezserwerowy (ang.~Serverless PaaS) oraz natywną integrację z~ekosystemem \textit{Azure}. Wybór modelu NoSQL zamiast relacyjnego PostgreSQL~\cite{postgresql} podyktowany był dążeniem do minimalizacji narzutu związanego z~migracjami schematu, co w~systemach intensywnie korzystających z~danych pozwala na szybszą iterację i~skalowanie~\cite{kleppmann2017}.
 
 \begin{table}[h!]
 	\centering
@@ -635,17 +640,17 @@ Jak wynika z~tabeli~\ref{tab:porownanie_baz}, baza \textit{Azure Cosmos DB} zost
 		\textbf{Cecha} & \textbf{Azure Service Bus} & \textbf{RabbitMQ}~\cite{rabbitmq} & \textbf{Apache Kafka}~\cite{apache_kafka} \\
 		\midrule
 		Model wdrożenia & PaaS & Self-hosted & Self-hosted / PaaS \\
-		Semantyka dostarczania & At-least-once & At-least-once & At-least-once \\
-		Złożoność konfiguracji & Niska & Średnia & Wysoka \\
-		Integracja z~\textit{Azure} & Natywna & Ograniczona & Pośrednia \\
-		Skalowalność & Automatyczna & Ręczna & Wysoka \\
+		\rule{0pt}{13pt}Semantyka dostarczania & At-least-once & At-least-once & At-least-once \\
+		\rule{0pt}{13pt}Złożoność konfiguracji & Niska & Średnia & Wysoka \\
+		\rule{0pt}{13pt}Integracja z~\textit{Azure} & Natywna & Ograniczona & Pośrednia \\
+		\rule{0pt}{13pt}Skalowalność & Automatyczna & Ręczna & Wysoka \\
 		\bottomrule
 	\end{tabular}
 \end{table}
 
-W przypadku infrastruktury kolejki (tab. \ref{tab:porownanie_kolejek}), usługa \textit{Azure Service Bus}~\cite{servicebus} przewyższyła alternatywy brakiem konieczności samodzielnego zarządzania serwerem oraz wbudowaną automatyczną skalowalnością. Narzut konfiguracyjny rozwiązań takich jak \textit{Apache Kafka}~\cite{apache_kafka} okazał się nieuzasadniony w~stosunku do skali projektu, natomiast \textit{Azure Service Bus} zapewnił wymaganą semantykę dostarczania wiadomości \textit{at-least-once} bezpośrednio po uruchomieniu usługi.
+W przypadku infrastruktury kolejki (tabela~\ref{tab:porownanie_kolejek}), usługa \textit{Azure Service Bus}~\cite{servicebus} przewyższyła alternatywy brakiem konieczności samodzielnego zarządzania serwerem oraz wbudowaną automatyczną skalowalnością. Narzut konfiguracyjny rozwiązań takich jak \textit{Apache Kafka}~\cite{apache_kafka} okazał się nieuzasadniony w~stosunku do skali projektu, natomiast \textit{Azure Service Bus} zapewnił wymaganą semantykę dostarczania wiadomości \textit{at-least-once} bezpośrednio po uruchomieniu usługi.
 
-Ostatnim etapem konfiguracji było zdefiniowanie środowiska uruchomieniowego. Odrzucono złożone systemy orkiestracji (Kubernetes) oraz instalacje bezpośrednie (bare metal) na rzecz narzędzia Docker + Compose. Zapewniło to pełną przenośność kodu, powtarzalność wdrożeń przy użyciu wieloetapowego budowania obrazów (\textit{multi-stage build}) oraz bezpieczną izolację usług w~ramach dedykowanej sieci wirtualnej o~nazwie \texttt{addipi-\allowbreak{}network}.
+Ostatnim etapem konfiguracji było zdefiniowanie środowiska uruchomieniowego. Odrzucono złożone systemy orkiestracji (\textit{Kubernetes}) oraz instalacje bezpośrednie (ang.~bare metal) na rzecz narzędzia \textit{Docker} z \textit{Compose}. Zapewniło to pełną przenośność kodu, powtarzalność wdrożeń przy użyciu wieloetapowego budowania obrazów (ang.~\textit{multi-stage build}) oraz bezpieczną izolację usług w~ramach dedykowanej sieci wirtualnej o~nazwie \texttt{addipi-\allowbreak{}network}.
 \newpage
 % ============================================================
 %  ROZDZIAŁ 4 — ARCHITEKTURA SYSTEMU
@@ -674,14 +679,14 @@ W ramach systemu wyodrębniono następujące komponenty:
 	
 	\item \textbf{AddiPi Agent} (Raspberry Pi) --- agent uruchamiany na urządzeniu Raspberry Pi, pośredniczący pomiędzy \textit{Azure IoT Hub} a~systemem \textit{OctoPrint}.
 	
-	\item \textbf{AddiPi Frontend} (Vercel~\cite{vercel} / port 5173) --- aplikacja webowa zbudowana z~wykorzystaniem biblioteki \textit{React}~\cite{react} oraz narzędzia \textit{Vite}~\cite{vite}.
+	\item \textbf{AddiPi Frontend} (zdalnie Vercel~\cite{vercel} / lokalnie port 5173) --- aplikacja webowa zbudowana z~wykorzystaniem biblioteki \textit{React}~\cite{react} oraz narzędzia \textit{Vite}~\cite{vite}.
 \end{enumerate}
-
+\newpage
 \subsection{Diagram architektury}
 
 Na rysunku~\ref{fig:architektura} przedstawiono sekwencyjny przepływ danych pomiędzy poszczególnymi komponentami zaprojektowanego systemu.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{diagram-architektury.pdf} 
 	\caption{Diagram architektury systemu.}
@@ -691,33 +696,33 @@ Na rysunku~\ref{fig:architektura} przedstawiono sekwencyjny przepływ danych pom
 
 
 \begin{enumerate}
-	\item \textbf{Uwierzytelnianie użytkownika:} Użytkownik loguje się w~systemie za pośrednictwem aplikacji klienckiej (frontendowej). Aplikacja nawiązuje komunikację z~usługą \textit{Auth Service}, która po pomyślnej weryfikacji tożsamości zwraca parę tokenów JWT (\textit{JSON Web Token})~\cite{jwt}.
+	\item \textbf{Uwierzytelnianie użytkownika:} Użytkownik loguje się w~systemie za pośrednictwem aplikacji klienckiej (frontendowej). Aplikacja nawiązuje komunikację z~usługą \textit{Auth Service}, która po pomyślnej weryfikacji tożsamości zwraca parę tokenów JWT (\textit{access token} oraz \textit{refresh token})~\cite{jwt}.
 	
-	\item \textbf{Przesyłanie pliku produkcyjnego:} Użytkownik przesyła plik z~kodem sterującym (G-code). Aplikacja frontendowa wywołuje punkt końcowy (ang. \textit{endpoint}) \texttt{POST /files/upload} w~ramach usługi \textit{Files Service}. Następnie komponent ten zapisuje plik w~repozytorium \textit{Azure Blob Storage}~\cite{blobstorage} oraz publikuje komunikat \texttt{file\_uploaded} w~kolejce usługi \textit{Azure Service Bus}.
+	\item \textbf{Przesyłanie pliku produkcyjnego:} Użytkownik przesyła plik z~kodem sterującym (G-code). Aplikacja frontendowa wywołuje punkt końcowy (ang.~\textit{endpoint}) \texttt{POST /files/upload} w~ramach usługi \textit{Files Service}. Następnie komponent ten zapisuje plik w~repozytorium \textit{Azure Blob Storage}~\cite{blobstorage} oraz w~kolejce usługi \textit{Azure Service Bus} publikuje komunikat \texttt{file\_uploaded}.
 	
 	\item \textbf{Inicjalizacja zadania w~bazie danych:} Usługa \textit{Queue Service} asynchronicznie odbiera komunikaty z~kolejki i~na ich podstawie tworzy dokument zadania w~bazie danych \textit{Azure Cosmos DB} (w ramach kontenera \texttt{jobs}), przypisując mu status początkowy \texttt{pending} lub \texttt{scheduled}.
 	
 	\item \textbf{Harmonogramowanie i~weryfikacja stanu urządzenia:} Usługa \textit{Printer Service} w~sposób cykliczny (z interwałem jednominutowym) weryfikuje dostępność zadań oczekujących na realizację. Jeżeli urządzenie drukujące jest wolne, a~zadanie spełnia kryteria rozpoczęcia procesu wytwórczego, status transakcji jest zmieniany na \texttt{waiting\_for\_printer\_ready}. System przechodzi wówczas w~stan oczekiwania na potwierdzenie gotowości operacyjnej drukarki.
 	
-	\item \textbf{Inicjacja komunikacji IoT:} Po autoryzacji gotowości urządzenia przez użytkownika lub administratora, usługa \textit{Printer Service} zdalnie wywołuje metodę bezpośrednią (ang. \textit{Direct Method}) \texttt{startPrint} na dedykowanym agencie, wykorzystując do tego celu usługę \textit{Azure IoT Hub}.
+	\item \textbf{Inicjacja komunikacji IoT:} Po autoryzacji gotowości urządzenia przez użytkownika lub administratora, usługa \textit{Printer Service} zdalnie wywołuje metodę bezpośrednią (ang.~\textit{Direct Method}) \texttt{startPrint} na dedykowanym agencie, wykorzystując do tego celu usługę \textit{Azure IoT Hub}.
 	
 	\item \textbf{Zarządzanie procesem drukowania przez agenta:} Komponent \textit{AddiPi Agent} pobiera przypisany plik G-code z~repozytorium \textit{Azure Blob Storage}~\cite{blobstorage}, przekazuje go bezpośrednio do interfejsu oprogramowania \textit{OctoPrint} oraz inicjuje proces drukowania 3D. W~trakcie pracy agent w~sposób ciągły transmituje dane telemetryczne do usługi \textit{Azure IoT Hub}, raportując bieżący postęp, status ukończenia lub ewentualne błędy krytyczne.
 	
 	\item \textbf{Odbiór telemetrii i~aktualizacja stanu:} Usługa \textit{Printer Service} konsumuje strumień danych telemetrycznych za pośrednictwem punktu końcowego zgodnego ze specyfikacją \textit{Azure Event Hubs}, a~następnie aktualizuje stan procesu w~bazie \textit{Azure Cosmos DB}.
 	
-	\item \textbf{Odświeżanie danych w~interfejsie:} Aplikacja kliencka (frontendowa) realizuje cykliczne zapytania sondujące (ang. \textit{polling} z~interwałem 5 sekund) do mikroserwisów, zapewniając bieżącą aktualizację stanu systemu prezentowanego użytkownikowi.
+	\item \textbf{Odświeżanie danych w~interfejsie:} Aplikacja kliencka (frontendowa) realizuje cykliczne zapytania sondujące z~interwałem 5 sekund do mikroserwisów (ang.~\textit{polling}), zapewniając bieżącą aktualizację stanu systemu prezentowanego użytkownikowi.
 \end{enumerate}
 
 \subsection{Model danych}
 
 W bazie danych \textit{Azure Cosmos DB}~\cite{cosmosdb} dane są strukturyzowane i~przechowywane w~postaci dokumentów w~formacie JSON~\cite{kleppmann2017}. Zostały one pogrupowane w~logicznych kontenerach, odpowiadających poszczególnym domenom biznesowym systemu.
 
-Na rysunku~\ref{fig:db_schema} przedstawiono fizyczny diagram encji i~relacji (ang. \textit{Entity-Relationship Diagram}, ERD) zaprojektowanej bazy danych \texttt{addipi-cosmos}. Diagram ten odwzorowuje logiczne powiązania referencyjne pomiędzy dokumentami w~poszczególnych kontenerach.
+Na rysunku~\ref{fig:db_schema} przedstawiono fizyczny diagram encji i~relacji (ang.~\textit{Entity-Relationship Diagram}, ERD) zaprojektowanej bazy danych \texttt{addipi-cosmos}. Diagram ten odwzorowuje logiczne powiązania referencyjne pomiędzy dokumentami w~poszczególnych kontenerach.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{AddiPi-CosmosDB3.pdf} 
-	\caption{Diagram bazy danych \texttt{addipi-cosmos} w~notacji Crow's Foot (ptasiej łapki).}
+	\caption{Diagram bazy danych \texttt{addipi-cosmos} w~notacji Crow's Foot (kurzej łapki).}
 	\label{fig:db_schema}
 \end{figure}
 
@@ -769,17 +774,16 @@ Dokument zadania (listing~\ref{lst:json_job}) agreguje informacje o~pliku steruj
 \end{lstlisting}
 
 Pole \texttt{status} może przyjmować wartości:
-\texttt{pending}, \texttt{scheduled},
-\texttt{waiting\_for\_printer\_ready},
+\texttt{waiting\_for\_printer\_ready}, \texttt{pending}, \texttt{scheduled},
 \texttt{delayed}, \texttt{printing},
 \texttt{completed}, \texttt{failed},
 \texttt{cancelled}.
 
 \subsubsection{Token odświeżania (kontener \texttt{refresh-tokens})}
 
-W celu zapewnienia bezpiecznej, bezstanowej autoryzacji sesji, tokeny odświeżania (ang. \textit{refresh tokens}) są utrwalane w~dedykowanym kontenerze (listing~\ref{lst:json_token}).
+W celu zapewnienia bezpiecznej, bezstanowej autoryzacji sesji, tokeny odświeżania (ang.~\textit{refresh tokens}) są utrwalane w~dedykowanym kontenerze (listing~\ref{lst:json_token}).
 
-\begin{lstlisting}[language=,caption={Przykładowy dokument refresh tokena},style=jsonStyle, label={lst:json_token}]
+\begin{lstlisting}[language=,caption={Przykładowy dokument refresh token},style=jsonStyle, label={lst:json_token}]
 	{
 		"id": "<userId>_<timestamp>",
 		"userId": "user_<timestamp>",
@@ -798,7 +802,7 @@ Zadanie w~procesie przetwarzania i~realizacji może znajdować się w~jednym z~n
 	
 	\item \textbf{scheduled} --- zadanie posiadające ściśle zaplanowany termin realizacji, oczekujące na osiągnięcie wskazanego czasu rozpoczęcia. Po nadejściu zaplanowanego czasu zadanie to otrzymuje najwyższy priorytet wykonania.
 	
-	\item \textbf{waiting\_for\_printer\_ready} --- usługa harmonogramująca (ang. \textit{scheduler}) wybrała zadanie do realizacji; system oczekuje na manualne potwierdzenie gotowości urządzenia przez użytkownika.
+	\item \textbf{waiting\_for\_printer\_ready} --- usługa harmonogramująca (ang.~\textit{scheduler}) wybrała zadanie do realizacji; system oczekuje na manualne potwierdzenie gotowości urządzenia przez użytkownika.
 	
 	\item \textbf{delayed} --- stan opóźnienia, w~którym system oczekuje na potwierdzenie gotowości drukarki dłużej niż 3~h; do użytkownika wysyłane jest automatyczne powiadomienie przypominające.
 	
@@ -822,22 +826,22 @@ Na rysunku~\ref{fig:state_machine} przedstawiono formalny model maszyny stanów,
 
 \subsection{Bezpieczeństwo i~uwierzytelnianie}
 
-W celu zapewnienia poufności danych oraz kontroli dostępu, w~systemie zaimplementowano dwutokenowy model uwierzytelniania oparty na standardzie JWT (\textit{JSON Web Token})~\cite{jwt}~\cite{newman2022}. Mechanizm ten wykorzystuje dwa rodzaje obiektów:
+W celu zapewnienia poufności danych oraz kontroli dostępu, w~systemie zaimplementowano dwutokenowy model uwierzytelniania oparty na standardzie JWT~\cite{jwt}~\cite{newman2022}. \newline Mechanizm ten wykorzystuje dwa rodzaje obiektów:
 
 \begin{itemize}
 	\item \textbf{Access token} --- token dostępu o~krótkim czasie autoryzacji (ważny przez 15 minut), przekazywany w~nagłówku protokołu HTTP (\texttt{Authorization: Bearer <token>}). Integralność i~autentyczność tokenu są weryfikowane kryptograficznie przy użyciu klucza symetrycznego \texttt{JWT\_SECRET}.
 	
-	\item \textbf{Refresh token} --- token odświeżający o~wydłużonym czasie ważności (wynoszącym 7 dni), utrwalany w~bazie danych \textit{Azure Cosmos DB} oraz przechowywany po stronie aplikacji klienckiej. Podpisywany jest przy użyciu dedykowanego klucza \texttt{JWT\_REFRESH\_SECRET}. Służy do generowania nowej pary tokenów bez konieczności ponownego wprowadzania danych uwierzytelniających przez użytkownika.
+	\item \textbf{Refresh token} --- token odświeżający o~wydłużonym czasie ważności (wynoszącym 7 dni), utrwalany w~bazie danych \textit{Azure Cosmos DB} oraz przechowywany po stronie aplikacji klienckiej. Podpisywany jest przy użyciu dedykowanego klucza \texttt{\linebreak JWT\_REFRESH\_SECRET}. Służy do generowania nowej pary tokenów bez konieczności ponownego wprowadzania danych uwierzytelniających przez użytkownika.
 \end{itemize}
 
-Hasła użytkowników nie są przechowywane w~bazie danych w~postaci jawnej. Do ich zabezpieczenia wykorzystano algorytm funkcjonału skrótu \textit{bcrypt}~\cite{bcrypt} z~parametrem kosztu (ang. \textit{salt rounds}) ustawionym na wartość 10.
+Hasła użytkowników nie są przechowywane w~bazie danych w~postaci jawnej. Do ich zabezpieczenia wykorzystano algorytm funkcjonału skrótu \textit{bcrypt}~\cite{bcrypt} z~parametrem kosztu (ang.~\textit{salt rounds}) ustawionym na wartość 10.
 
 Proces rejestracji nowych kont został ze względów bezpieczeństwa ograniczony wyłącznie do adresów poczty elektronicznej w~domenie akademickiej \texttt{@uwr.edu.pl}. Pełna aktywacja profilu wymaga weryfikacji dwuetapowej poprzez kliknięcie w~unikalny link aktywacyjny przesłany na adres e-mail użytkownika.
 
-Kontrola dostępu na poziomie kodu realizowana jest za pomocą oprogramowania pośredniczącego (ang. \textit{middleware}):
+Kontrola dostępu na poziomie kodu realizowana jest za pomocą oprogramowania pośredniczącego (ang.~\textit{middleware}):
 \begin{itemize}
-	\item \texttt{requireAuth} --- odpowiada za ekstrakcję i~weryfikację tokenu dostępu poprzez wysłanie wewnętrznego żądania weryfikacyjnego do punktu końcowego \texttt{POST /auth/verify} usługi \textit{Auth Service}.
-	\item \texttt{requireAdmin} --- realizuje mechanizm kontroli dostępu opartej na rolach (ang. \textit{Role-Based Access Control}, RBAC), sprawdzając, czy zdekodowany profil użytkownika posiada przypisane uprawnienia klasy \texttt{admin}.
+	\item \texttt{requireAuth} --- odpowiada za ekstrakcję i~weryfikację tokenu dostępu poprzez wysłanie wewnętrznego żądania weryfikacyjnego \texttt{POST /auth/verify} do punktu końcowego usługi \textit{Auth Service}.
+	\item \texttt{requireAdmin} --- realizuje mechanizm kontroli dostępu opartej na rolach (RBAC), sprawdzając, czy zdekodowany profil użytkownika posiada przypisane uprawnienia klasy \texttt{admin}.
 \end{itemize}
 Takie podejście pozwala na odseparowanie logiki biznesowej od mechanizmów infrastrukturalnych, co zwiększa czytelność i~ułatwia testowanie poszczególnych modułów systemu~\cite{martin2022}.
 
@@ -849,7 +853,7 @@ Takie podejście pozwala na odseparowanie logiki biznesowej od mechanizmów infr
 \section{Implementacja serwisów warstwy serwerowej}
 \label{sec:backend}
 
-\subsection{Auth Service}
+\subsection{Autoryzacja (Auth Service)}
 
 \subsubsection{Opis ogólny}
 
@@ -860,7 +864,7 @@ Komponent ten został zaimplementowany w~środowisku uruchomieniowym Node.js~\ci
 
 \subsubsection{Punkty końcowe API}
 
-W tabeli~\ref{tab:auth_endpoints} zestawiono i~opisano punkty końcowe (ang. \textit{endpoints}) udostępniane przez usługę \textit{Auth Service}.
+W tabeli~\ref{tab:auth_endpoints} zestawiono i~opisano punkty końcowe (ang.~\textit{endpoints}) udostępniane przez usługę \textit{Auth Service}.
 
 \begin{xltabular}{\textwidth}{llX}
 	\caption{Punkty końcowe usługi Auth Service.} \label{tab:auth_endpoints} \\
@@ -896,7 +900,7 @@ W tabeli~\ref{tab:auth_endpoints} zestawiono i~opisano punkty końcowe (ang. \te
 	\addlinespace
 	POST & \texttt{/auth/resend-verification} & Ponowne wygenerowanie i~wysłanie wiadomości weryfikacyjnej na adres e-mail. \\
 	\addlinespace
-	GET & \texttt{/health} & Punkt końcowy diagnostyki stanu działania usługi (ang. \textit{health check}). \\
+	GET & \texttt{/health} & Punkt końcowy diagnostyki stanu działania usługi (ang.~\textit{health check}). \\
 \end{xltabular}
 
 
@@ -923,7 +927,7 @@ export function generateRefreshToken(user: User): string {
 }
 \end{lstlisting}
 
-Proces walidacji tokenu odświeżającego (ang. \textit{refresh token}) jest dwuetapowy. Obejmuje zarówno kryptograficzną weryfikację poprawności podpisu cyfrowego struktury JWT, jak i~asynchroniczne sprawdzenie obecności oraz ważności powiązanego rekordu w~bazie danych \textit{Azure Cosmos DB}. Takie podejście architektoniczne umożliwia natychmiastowe, zdalne unieważnianie sesji (ang. \textit{token revocation}) w~momencie wylogowania się użytkownika z~systemu. Kod realizujący tę procedurę zaprezentowano na listingu~\ref{lst:jwt_validation}.
+Proces walidacji tokenu odświeżającego (ang.~\textit{refresh token}) jest dwuetapowy. Obejmuje zarówno kryptograficzną weryfikację poprawności podpisu cyfrowego struktury JWT, jak i~asynchroniczne sprawdzenie obecności oraz ważności powiązanego rekordu w~bazie danych \textit{Azure Cosmos DB}. Takie podejście architektoniczne umożliwia natychmiastowe, zdalne unieważnianie sesji (ang.~\textit{token revocation}) w~momencie wylogowania się użytkownika z~systemu. Kod realizujący tę procedurę zaprezentowano na listingu~\ref{lst:jwt_validation}.
 
 \begin{lstlisting}[language=TypeScript,caption={Implementacja walidacji refresh tokenu (\texttt{token-service.ts})},style=tsStyle,label={lst:jwt_validation}]
 export async function validateRefreshToken(
@@ -965,9 +969,9 @@ Wygenerowany identyfikator jest zapisywany w~bazie danych wraz z~datą ważnośc
 	\texttt{GET /auth/verify-email?token=<hex>}
 \end{center}
 
-Po odebraniu żądania przez usługę \textit{Auth Service}, system przeprowadza weryfikację poprawności oraz ważności tokenu. W~przypadku pozytywnego rezultatu walidacji, atrybut \texttt{isVerified} w~dokumencie użytkownika przyjmuje wartość \texttt{true}, a~konto zostaje w~pełni aktywowane. Na zakończenie procesu serwer wykonuje przekierowanie (ang. \textit{HTTP redirect}) przeglądarki użytkownika do adresu bazowego aplikacji klienckiej.
+Po odebraniu żądania przez usługę \textit{Auth Service}, system przeprowadza weryfikację poprawności oraz ważności tokenu. W~przypadku pozytywnego rezultatu walidacji, atrybut \texttt{isVerified} w~dokumencie użytkownika przyjmuje wartość \texttt{true}, a~konto zostaje w~pełni aktywowane. Na zakończenie procesu serwer wykonuje przekierowanie (ang.~\textit{HTTP redirect}) przeglądarki użytkownika do adresu bazowego aplikacji klienckiej.
 
-\subsection{User Service}
+\subsection{Zarządzanie profilami użytkowników (User Service)}
 
 \subsubsection{Opis ogólny}
 
@@ -977,7 +981,7 @@ Autoryzacja żądań oraz weryfikacja tożsamości użytkowników są realizowan
 
 \subsubsection{Punkty końcowe API}
 
-W tabeli~\ref{tab:user_endpoints} wyszczególniono i~opisano punkty końcowe (ang. \textit{endpoints}) udostępniane przez usługę \textit{User Service}, z~uwzględnieniem podziału na operacje standardowe oraz administracyjne.
+W tabeli~\ref{tab:user_endpoints} wyszczególniono i~opisano punkty końcowe (ang.~\textit{endpoints}) udostępniane przez usługę \textit{User Service}, z~uwzględnieniem podziału na operacje standardowe oraz administracyjne.
 
 \begin{xltabular}{\textwidth}{llX}
 	\caption{Punkty końcowe usługi User Service.} \label{tab:user_endpoints} \\
@@ -1026,9 +1030,9 @@ W tabeli~\ref{tab:user_endpoints} wyszczególniono i~opisano punkty końcowe (an
 
 Na listingu~\ref{lst:middleware_auth_real} zaprezentowano produkcyjną implementację oprogramowania pośredniczącego \texttt{requireAuth}. Komponent ten w~pełni wykorzystuje silne typowanie języka TypeScript, w~tym parametry generyczne interfejsów \texttt{Request} oraz \texttt{Response} z~biblioteki \texttt{express}~\cite{express}. 
 
-Procedura autoryzacji polega na bezpiecznej ekstrakcji tokenu dostępu z~nagłówka \texttt{Authorization}, a~następnie wykonaniu asynchronicznego żądania sieciowego metodą \texttt{POST} do punktu końcowego usługi \textit{Auth Service}. Po odebraniu odpowiedzi struktura danych jest rzutowana na dedykowany typ \texttt{Data}. W~przypadku poprawnej walidacji następuje asercja typu obiektu żądania, wstrzyknięcie profilu użytkownika do pola \texttt{user} oraz wywołanie funkcji \texttt{next()}, która przekazuje sterowanie do kolejnego elementu w~potoku przetwarzania~\cite{martin2022} (ang. \textit{middleware chain}).
+Procedura autoryzacji polega na bezpiecznej ekstrakcji tokenu dostępu z~nagłówka \texttt{Authorization}, a~następnie wykonaniu asynchronicznego żądania sieciowego metodą \texttt{POST} do punktu końcowego usługi \textit{Auth Service}. Po odebraniu odpowiedzi struktura danych jest rzutowana na dedykowany typ \texttt{Data}. W~przypadku poprawnej walidacji następuje asercja typu obiektu żądania, wstrzyknięcie profilu użytkownika do pola \texttt{user} oraz wywołanie funkcji \texttt{next()}, która przekazuje sterowanie do kolejnego elementu w~potoku przetwarzania~\cite{martin2022} (ang.~\textit{middleware chain}).
 
-\begin{lstlisting}[language=TypeScript,caption={Implementacja oprogramowania pośredniczącego \texttt{requireAuth} (\texttt{requireAuth.ts})},style=tsStyle,label={lst:middleware_auth_real}]
+\begin{lstlisting}[language=TypeScript,caption={Implementacja oprogramowania pośredniczącego \texttt{requireAuth} \protect\linebreak(\texttt{requireAuth.ts})},style=tsStyle,label={lst:middleware_auth_real}]
 import { CONFIG } from "../config/config";
 import type { Request, Response, NextFunction } from "express";
 import { Data, AuthUser } from "./mwTypes";
@@ -1071,7 +1075,7 @@ next: NextFunction
 export default requireAuth;
 \end{lstlisting}
 
-\subsection{Files Service}
+\subsection{Obsługa plików (Files Service)}
 
 \subsubsection{Opis ogólny}
 
@@ -1084,7 +1088,7 @@ Przebieg procesu przesyłania pliku oraz jego rejestracji w~systemie realizowany
 \begin{enumerate}
 	\item \textbf{Inicjacja żądania:} Aplikacja kliencka wysyła żądanie \texttt{POST /files/upload} zawierające plik zakodowany w~formacie \texttt{multipart/form-data}.
 	\item \textbf{Weryfikacja uprawnień:} Oprogramowanie pośredniczące \texttt{require\_auth} deleguje proces walidacji tokenu uwierzytelniającego do usługi \textit{Auth Service}.
-	\item \textbf{Walidacja potoku wejściowego:} System weryfikuje poprawność formatu pliku (akceptowane jest wyłącznie rozszerzenie \texttt{.gcode}), jego rozmiar (wprowadzono limit do 50~MB) oraz opcjonalnie strukturę wewnętrzną (w przypadku aktywacji flagi konfiguracyjnej \texttt{STRICT\_CONTENT\_CHECK}).
+	\item \textbf{Walidacja potoku wejściowego:} System weryfikuje poprawność formatu pliku (akceptowane jest wyłącznie rozszerzenie \texttt{gcode}), jego rozmiar (wprowadzono limit do 50~MB) oraz opcjonalnie strukturę wewnętrzną (w przypadku aktywacji flagi konfiguracyjnej \texttt{STRICT\_CONTENT\_CHECK}).
 	\item \textbf{Sanitaryzacja i~unikalność nazw:} Nazwa pliku wejściowego jest modyfikowana poprzez dodanie prefiksu czasowego zawierającego kompletną datę i~godzinę odebrania żądania (np. \texttt{20251203\_014648\_model.gcode}), co zapobiega konfliktom nadpisywania zasobów.
 	\item \textbf{Utrwalenie zasobu:} Plik w~formacie binarnym zostaje przesłany i~zapisany w~dedykowanym kontenerze \texttt{gcode} w~ramach usługi \textit{Azure Blob Storage}.
 	\item \textbf{Publikacja zdarzenia:} Do kolejki \texttt{print-queue} magistrali \textit{Azure Service Bus} wysyłany jest komunikat w~formacie JSON, który inicjuje dalsze etapy cyklu życia zadania.
@@ -1126,17 +1130,17 @@ except Exception as e:
 
 
 
-\subsection{Queue Service}
+\subsection{Usługa kolejkowania (Queue Service)}
 
 \subsubsection{Opis ogólny}
 
-Usługa \textit{Queue Service} to mikroserwis zaimplementowany w~środowisku uruchomieniowym Node.js~\cite{nodejs} przy użyciu języka JavaScript oraz standardu modułów ECMAScript (ang. \textit{ECMAScript Modules}, ESM). Głównym zadaniem komponentu jest asynchroniczne i~bezprzerwowe nasłuchiwanie (ang. \textit{listening}) komunikatów publikowanych w~magistrali \textit{Azure Service Bus}~\cite{richardson2020}, a~następnie ich transformacja i~utrwalanie w~postaci dokumentów zadań produkcyjnych w~bazie danych \textit{Azure Cosmos DB}.
+Usługa \textit{Queue Service} to mikroserwis zaimplementowany w~środowisku uruchomieniowym Node.js~\cite{nodejs} przy użyciu języka JavaScript oraz standardu modułów ECMAScript (ang.~\textit{ECMAScript Modules}, ESM). Głównym zadaniem komponentu jest asynchroniczne i~bezprzerwowe nasłuchiwanie (ang.~\textit{listening}) komunikatów publikowanych w~magistrali \textit{Azure Service Bus}~\cite{richardson2020}, a~następnie ich transformacja i~utrwalanie w~postaci dokumentów zadań produkcyjnych w~bazie danych \textit{Azure Cosmos DB}.
 
 Dodatkowo serwis udostępnia dedykowany interfejs programistyczny HTTP API, który umożliwia innym komponentom systemu (w tym aplikacji klienckiej) monitorowanie stanu kolejki oraz zarządzanie priorytetami zadań.
 
 \subsubsection{Mechanizm nasłuchiwania kolejki}
 
-Na listingu~\ref{lst:queue_listener} przedstawiono implementację procedury odpowiedzialnej za rejestrację i~obsługę potoku zdarzeń pochodzących z~kolejki chmurowej. Logika biznesowa realizuje bezpieczne parsowanie komunikatów w~formacie JSON oraz obsługuje scenariusz awaryjny (ang. \textit{dead-lettering/abandonment})~\cite{richardson2020} poprzez wywołanie metody \texttt{abandonMessage()}, co pozwala na zachowanie spójności danych w~przypadku wystąpienia błędów infrastrukturalnych.
+Na listingu~\ref{lst:queue_listener} przedstawiono implementację procedury odpowiedzialnej za rejestrację i~obsługę potoku zdarzeń pochodzących z~kolejki chmurowej. Logika biznesowa realizuje bezpieczne parsowanie komunikatów w~formacie JSON oraz obsługuje scenariusz awaryjny (ang.~\textit{dead-lettering/abandonment})~\cite{richardson2020} poprzez wywołanie metody \texttt{abandonMessage()}, co pozwala na zachowanie spójności danych w~przypadku wystąpienia błędów infrastrukturalnych.
 
 \begin{lstlisting}[language=JavaScript,caption={Implementacja mechanizmu nasłuchiwania kolejki (\texttt{printQueueListener.js})},style=jsStyle,label={lst:queue_listener}]
 export function startPrintQueueListener(container, receiver) {
@@ -1229,12 +1233,12 @@ W tabeli~\ref{tab:queue_endpoints} zestawiono punkty końcowe udostępniane prze
 	\addlinespace
 	GET & \texttt{/queues} & Pobranie metryk i~informacji o~stanie kolejek w~ramach usługi \textit{Azure Service Bus} (dostęp dla administratora). \\
 	\addlinespace
-	GET & \texttt{/health} & Punkt końcowy diagnostyki stanu działania mikroserwisu (ang. \textit{health check}). \\
+	GET & \texttt{/health} & Punkt końcowy diagnostyki stanu działania mikroserwisu (ang.~\textit{health check}). \\
 \end{xltabular}
 
 
 
-\subsection{Printer Service}
+\subsection{Koordynacja pracy drukarki (Printer Service)}
 
 \subsubsection{Opis ogólny}
 
@@ -1243,9 +1247,9 @@ Usługa \textit{Printer Service} stanowi centralny komponent orkiestracji system
 \begin{itemize}
 	\item \textbf{Harmonogram zadań} (uruchamiany cyklicznie z~interwałem jednominutowym) --- odpowiada za sekwencyjny wybór kolejnego zadania produkcyjnego przeznaczonego do realizacji na podstawie kryteriów czasowych.
 	
-	\item \textbf{Monitor gotowości urządzenia} (uruchamiany cyklicznie z~interwałem pięciominutowym) --- nadzoruje i~weryfikuje statusy zadań oczekujących na manualne potwierdzenie gotowości drukarki, egzekwując zdefiniowane limity czasowe (ang. \textit{timeouts}).
+	\item \textbf{Monitor gotowości urządzenia} (uruchamiany cyklicznie z~interwałem pięciominutowym) --- nadzoruje i~weryfikuje statusy zadań oczekujących na manualne potwierdzenie gotowości drukarki, egzekwując zdefiniowane limity czasowe (ang.~\textit{timeouts}).
 	
-	\item \textbf{Odbiornik telemetrii} (ang. \textit{Telemetry Listener}) --- asynchroniczny komponent zintegrowany z~usługą \textit{Azure Event Hubs}, którego zadaniem jest ciągły odbiór zdarzeń telemetrycznych transmitowanych przez agenta sprzętowego oraz bieżąca aktualizacja stanów zadań w~bazie danych.
+	\item \textbf{Odbiornik telemetrii} (ang.~\textit{Telemetry Listener}) --- asynchroniczny komponent zintegrowany z~usługą \textit{Azure Event Hubs}, którego zadaniem jest ciągły odbiór zdarzeń telemetrycznych transmitowanych przez agenta sprzętowego oraz bieżąca aktualizacja stanów zadań w~bazie danych.
 \end{itemize}
 
 \subsubsection{Mechanizm harmonogramowania}
@@ -1324,7 +1328,7 @@ Usługa \textit{Printer Service} konsumuje strumień danych telemetrycznych za p
 
 \subsubsection{Punkty końcowe HTTP API}
 
-W tabeli~\ref{tab:printer_endpoints} zestawiono i~opisano punkty końcowe (ang. \textit{endpoints}) wystawione przez interfejs sieciowy usługi \textit{Printer Service}.
+W tabeli~\ref{tab:printer_endpoints} zestawiono i~opisano punkty końcowe (ang.~\textit{endpoints}) wystawione przez interfejs sieciowy usługi \textit{Printer Service}.
 
 \begin{xltabular}{\textwidth}{llX}
 	\caption{Punkty końcowe usługi Printer Service.} \label{tab:printer_endpoints} \\
@@ -1366,21 +1370,21 @@ W tabeli~\ref{tab:printer_endpoints} zestawiono i~opisano punkty końcowe (ang. 
 	\addlinespace
 	GET & \texttt{/printer/metrics} & Pobranie zagregowanych metryk statystycznych systemowych zadań z~podziałem na statusy. \\
 	\addlinespace
-	GET & \texttt{/health} & Punkt końcowy diagnostyki stanu działania mikroserwisu (ang. \textit{health check}). \\
+	GET & \texttt{/health} & Punkt końcowy diagnostyki stanu działania mikroserwisu (ang.~\textit{health check}). \\
 \end{xltabular}
 
 
-\subsection{Video Service}
+\subsection{Usługa przekazywania wideo (Video Service)}
 
 \subsubsection{Opis ogólny}
 
-Usługa \textit{Video Service} to mikroserwis zaimplementowany w~środowisku uruchomieniowym Node.js~\cite{nodejs} z~wykorzystaniem frameworka Express.js~\cite{express} oraz języka JavaScript. Komponent ten odpowiada za tymczasowe przechowywanie aktualnego adresu URL strumienia wideo z~kamery systemu \textit{OctoPrint} w~pamięci operacyjnej serwera (ang. \textit{in-memory storage}), co eliminuje konieczność ciągłego odpytywania bazy danych o~wolnozmienne parametry sieciowe.
+Usługa \textit{Video Service} to mikroserwis zaimplementowany w~środowisku uruchomieniowym Node.js~\cite{nodejs} z~wykorzystaniem frameworka Express.js~\cite{express} oraz języka JavaScript. Komponent ten odpowiada za tymczasowe przechowywanie aktualnego adresu URL strumienia wideo z~kamery systemu \textit{OctoPrint} w~pamięci operacyjnej serwera (ang.~\textit{in-memory storage}), co eliminuje konieczność ciągłego odpytywania bazy danych o~wolnozmienne parametry sieciowe.
 
 Agent uruchamiany na mikrokomputerze Raspberry Pi rejestruje bieżący adres kamery (lokalny adres IP lub adres publiczny udostępniany za pośrednictwem tunelu sieciowego \textit{Cloudflare}) po każdym zainicjowaniu systemu operacyjnego. Aplikacja kliencka (frontendowa) cyklicznie pobiera ten adres i~renderuje dynamiczny strumień wideo bezpośrednio w~interfejsie użytkownika w~elemencie \texttt{<img>} z~wykorzystaniem formatu MJPEG (\textit{Motion JPEG}).
 
 \subsubsection{Punkty końcowe API}
 
-W tabeli~\ref{tab:video_endpoints} zestawiono i~opisano punkty końcowe (ang. \textit{endpoints}) udostępniane przez interfejs sieciowy usługi \textit{Video Service}.
+W tabeli~\ref{tab:video_endpoints} zestawiono i~opisano punkty końcowe (ang.~\textit{endpoints}) udostępniane przez interfejs sieciowy usługi \textit{Video Service}.
 
 \begin{table}[htbp]
 	\centering
@@ -1394,7 +1398,7 @@ W tabeli~\ref{tab:video_endpoints} zestawiono i~opisano punkty końcowe (ang. \t
 		\addlinespace
 		GET & \texttt{/camera-url} & Pobranie aktualnego adresu URL kamery w~celu poprawnego wyrenderowania podglądu. \\
 		\addlinespace
-		GET & \texttt{/health} & Punkt końcowy diagnostyki stanu działania mikroserwisu (ang. \textit{health check}). \\
+		GET & \texttt{/health} & Punkt końcowy diagnostyki stanu działania mikroserwisu (ang.~\textit{health check}). \\
 		\bottomrule
 	\end{tabular}
 \end{table}
@@ -1410,7 +1414,7 @@ W tabeli~\ref{tab:video_endpoints} zestawiono i~opisano punkty końcowe (ang. \t
 
 \subsection{Struktura architektoniczna aplikacji klienckiej}
 
-Aplikacja kliencka została zaimplementowana z~wykorzystaniem biblioteki \textit{React}~\cite{react} w~wersji 18 oraz języka TypeScript~\cite{typescript}. Jako środowisko deweloperskie i~narzędzie budujące (ang. \textit{bundler}) wykorzystano \textit{Vite}~\cite{vite}, natomiast zarządzanie mapowaniem adresów URL i~nawigacją realizowane jest przy użyciu biblioteki \textit{React Router}~\cite{router} w~wersji 6.
+Aplikacja kliencka została zaimplementowana z~wykorzystaniem biblioteki \textit{React}~\cite{react} w~wersji 18 oraz języka TypeScript~\cite{typescript}. Jako środowisko deweloperskie i~narzędzie budujące (ang.~\textit{bundler}) wykorzystano \textit{Vite}~\cite{vite}, natomiast zarządzanie mapowaniem adresów URL i~nawigacją realizowane jest przy użyciu biblioteki \textit{React Router}~\cite{router} w~wersji 6.
 
 Zarządzanie globalnym stanem aplikacji klienckiej (obejmującym dane profilowe zalogowanego użytkownika, bieżący status operacyjny drukarki oraz metryki systemowe) powierzono bibliotece \textit{Zustand}~\cite{zustand}. W~celu zachowania ciągłości sesji i~preferencji interfejsu (takich jak motyw graficzny czy wybrany język), wykorzystano oprogramowanie pośredniczące \texttt{persist}, które automatyzuje proces synchronizacji i~trwałego przechowywania danych w~pamięci podręcznej \texttt{localStorage} przeglądarki internetowej.
 
@@ -1419,7 +1423,7 @@ Struktura drzewa katalogów aplikacji została zorganizowana w~sposób modułowy
 	\item \texttt{src/components/} --- komponenty interfejsu użytkownika wielokrotnego użytku, odpowiadające za renderowanie pojedynczych elementów (m.in. \texttt{Card}, \texttt{StatusBadge}, \texttt{ProgressBar}, \texttt{ConfirmDialog}, \texttt{Layout}, \texttt{LoadingSpinner}),
 	\item \texttt{src/pages/} --- komponenty wysokiego poziomu reprezentujące autonomiczne widoki aplikacji (m.in. \texttt{HomePage}, \texttt{LoginPage}, \texttt{RegisterPage}, \texttt{DashboardPage}, \texttt{UploadPage}, \texttt{ProfilePage}, \texttt{PrintControlPage}, \texttt{AdminDashboard}),
 	\item \texttt{src/services/api.ts} --- implementacja scentralizowanego klienta API odpowiedzialnego za komunikację sieciową z~serwerową warstwą mikroserwisów,
-	\item \texttt{src/store/useStore.ts} --- implementacja globalnego magazynu stanu (ang. \textit{store}) biblioteki \textit{Zustand}~\cite{zustand},
+	\item \texttt{src/store/useStore.ts} --- implementacja globalnego magazynu stanu (ang.~\textit{store}) biblioteki \textit{Zustand}~\cite{zustand},
 	\item \texttt{src/i18n/} --- konfiguracja internacjonalizacji aplikacji oparta na bibliotece \textit{i18next} wraz z~plikami translacji interfejsu,
 	\item \texttt{src/types/} --- definicje interfejsów i~typów języka TypeScript, w~tym struktur \texttt{User}, \texttt{Job} oraz \texttt{PrinterStatus},
 	\item \texttt{src/utils/formatters.ts} --- funkcje pomocnicze realizujące operacje bezstanowe, takie jak formatowanie dat, rozmiarów plików czy czasu.
@@ -1429,7 +1433,7 @@ Struktura drzewa katalogów aplikacji została zorganizowana w~sposób modułowy
 
 Komunikacja z~rozproszoną warstwą backendową realizowana jest przez klasę \texttt{ApiClient} zdefiniowaną w~module \texttt{api.ts}. Klasa ta enkapsuluje i~konfiguruje niezależne instancje biblioteki \textit{Axios}~\cite{axios} dedykowane dla poszczególnych mikroserwisów systemu (\textit{Auth Service}, \textit{User Service}, \textit{Printer Service} oraz \textit{Files Service}).
 
-W celu automatyzacji obsługi protokołu HTTP, w~konfiguracji instancji zaimplementowano mechanizmy przechwytujące (ang. \textit{interceptors}). Odpowiadają one za automatyczne wstrzykiwanie tokenu dostępu do nagłówka \texttt{Authorization} (w standardzie \textit{Bearer}) dla każdego żądania wychodzącego, a~także realizują asynchroniczną procedurę odświeżania sesji w~przypadku przechwycenia odpowiedzi z~kodem błędu HTTP 401 (\textit{Unauthorized}).
+W celu automatyzacji obsługi protokołu HTTP, w~konfiguracji instancji zaimplementowano mechanizmy przechwytujące (ang.~\textit{interceptors}). Odpowiadają one za automatyczne wstrzykiwanie tokenu dostępu do nagłówka \texttt{Authorization} (w standardzie \textit{Bearer}) dla każdego żądania wychodzącego, a~także realizują asynchroniczną procedurę odświeżania sesji w~przypadku przechwycenia odpowiedzi z~kodem błędu HTTP 401 (\textit{Unauthorized}).
 
 Na listingu~\ref{lst:axios_interceptor} przedstawiono implementację interceptora odpowiedzi, który w~sposób reaktywny zarządza odświeżaniem tokenów i~ponawianiem pierwotnych żądań sieciowych.
 
@@ -1465,9 +1469,9 @@ client.interceptors.response.use(
 );
 \end{lstlisting}
 
-\subsection{Mechanizm routingu i~ochrona tras}
+\subsection{Mechanizm rutingu i~ochrona tras}
 
-W celu zapewnienia selektywnej kontroli dostępu do zasobów warstwy prezentacji, w~aplikacji zaimplementowano mechanizm tras chronionych (ang. \textit{protected routes})~\cite{router}. Wykorzystuje on autorski komponent opakowujący, który dynamicznie weryfikuje stan sesji użytkownika. Dostęp do widoków domenowych wymaga aktywnego uwierzytelnienia, podczas gdy trasy administracyjne realizują dodatkową autoryzację opartą na rolach (RBAC), sprawdzając uprawnienia użytkownika przed wyrenderowaniem komponentów docelowych.
+W celu zapewnienia selektywnej kontroli dostępu do zasobów warstwy prezentacji, w~aplikacji zaimplementowano mechanizm tras chronionych (ang.~\textit{protected routes})~\cite{router}. Wykorzystuje on autorski komponent opakowujący, który dynamicznie weryfikuje stan sesji użytkownika. Dostęp do widoków domenowych wymaga aktywnego uwierzytelnienia, podczas gdy trasy administracyjne realizują dodatkową autoryzację opartą na rolach (RBAC), sprawdzając uprawnienia użytkownika przed wyrenderowaniem komponentów docelowych.
 
 Na listingu~\ref{lst:protected_route} zaprezentowano deklaratywną implementację komponentu \texttt{ProtectedRoute}, zintegrowanego z~globalnym magazynem stanu systemu.
 
@@ -1492,7 +1496,7 @@ function ProtectedRoute({ children, requireAdmin = false }: { children: React.Re
 
 \subsubsection{Strona główna systemu}
 
-Strona główna (ang. \textit{landing page}) agreguje i~prezentuje kluczowe parametry operacyjne całego ekosystemu. Na widoku tym wyświetlany jest aktualny status fizycznej drukarki 3D, postęp procentowy i~czasowy realizacji bieżącego procesu produkcyjnego, rejestr ostatnio ukończonych wydruków oraz lista nadchodzących zadań zaplanowanych w~kolejce. W~celu zapewnienia wysokiej reaktywności, dane prezentowane w~interfejsie są cyklicznie odświeżane z~interwałem 5 sekund. Graficzną reprezentację tego ekranu przedstawiono na rysunku~\ref{fig:website_home}.
+Strona główna (ang.~\textit{landing page}) agreguje i~prezentuje kluczowe parametry operacyjne całego ekosystemu. Na widoku tym wyświetlany jest aktualny status fizycznej drukarki 3D, postęp procentowy i~czasowy realizacji bieżącego procesu produkcyjnego, rejestr ostatnio ukończonych wydruków oraz lista nadchodzących zadań zaplanowanych w~kolejce. W~celu zapewnienia wysokiej reaktywności, dane prezentowane w~interfejsie są cyklicznie odświeżane z~interwałem 5 sekund. Graficzną reprezentację tego ekranu przedstawiono na rysunku~\ref{fig:website_home}.
 
 \begin{figure}[H]
 	\centering
@@ -1503,14 +1507,14 @@ Strona główna (ang. \textit{landing page}) agreguje i~prezentuje kluczowe para
 
 \subsubsection{Panel użytkownika}
 
-Panel użytkownika (ang. \textit{User Dashboard}) stanowi spersonalizowane centrum dowodzenia procesami wytwórczymi przypisanymi do danego konta. Widok ten zaprezentowano na rysunku~\ref{fig:website_dashboard}. Ekran ten udostępnia:
+Panel użytkownika (ang.~\textit{User Dashboard}) stanowi spersonalizowane centrum dowodzenia procesami wytwórczymi przypisanymi do danego konta. Widok ten zaprezentowano na rysunku~\ref{fig:website_dashboard}. Ekran ten udostępnia:
 \begin{itemize}
 	\item zagregowane statystyki zadań (liczbę przesłanych zleceń z~podziałem na statusy),
 	\item parametry aktywnego procesu drukowania, obejmujące dynamiczny pasek postępu oraz estymowany czas pozostały do zakończenia operacji,
 	\item kompletną historię druków z~modułem wyszukiwania i~filtrowania danych.
 \end{itemize}
 
-Z poziomu tego panelu zalogowany operator posiada uprawnienia do manualnego anulowania aktywnego zadania, ponownego zakolejkowania procesu zakończenia niepowodzeniem (ang. \textit{retry flow}) oraz bezpośredniego przejścia do dedykowanego ekranu szczegółowej kontroli procesu drukowania.
+Z poziomu tego panelu zalogowany operator posiada uprawnienia do manualnego anulowania aktywnego zadania, ponownego zakolejkowania procesu zakończenia niepowodzeniem (ang.~\textit{retry flow}) oraz bezpośredniego przejścia do dedykowanego ekranu szczegółowej kontroli procesu drukowania.
 
 \begin{figure}[H]
 	\centering
@@ -1521,9 +1525,9 @@ Z poziomu tego panelu zalogowany operator posiada uprawnienia do manualnego anul
 
 \subsubsection{Przesyłanie i~planowanie zadań}
 
-Ekran przesyłania plików (\texttt{UploadPage}), zaprezentowany na rysunku~\ref{fig:website_upload}, udostępnia użytkownikom intuicyjny interfejs typu \textit{drag-and-drop} (przeciągnij i~upuść). Komponent ten realizuje wstępną walidację po stronie klienta, weryfikując poprawne rozszerzenie (\texttt{.gcode}) oraz dopuszczalny rozmiar przesyłanego wolumenu. 
+Ekran przesyłania plików (\texttt{UploadPage}), zaprezentowany na rysunku~\ref{fig:website_upload}, udostępnia użytkownikom intuicyjny interfejs typu \textit{drag-and-drop} (przeciągnij i~upuść). Komponent ten realizuje wstępną walidację po stronie klienta, weryfikując poprawne rozszerzenie (\texttt{gcode}) oraz dopuszczalny rozmiar przesyłanego wolumenu. 
 
-Widok został wyposażony w~opcjonalny moduł harmonogramowania terminu realizacji zadania, bazujący na selektorze daty i~godziny (ang. \textit{date-time picker}). Interfejs w~sposób reaktywny informuje operatora o~statusie operacji sieciowej, wyświetlając dedykowane komunikaty o~poprawnym przetworzeniu lub błędzie zapytania HTTP.
+Widok został wyposażony w~opcjonalny moduł harmonogramowania terminu realizacji zadania, bazujący na selektorze daty i~godziny (ang.~\textit{date-time picker}). Interfejs w~sposób reaktywny informuje operatora o~statusie operacji sieciowej, wyświetlając dedykowane komunikaty o~poprawnym przetworzeniu lub błędzie zapytania HTTP.
 
 \begin{figure}[H]
 	\centering
@@ -1547,7 +1551,7 @@ Interfejs został wyposażony w~panel akcji operacyjnych, który umożliwia upra
 
 \subsubsection{Panel administracyjny}
 
-Panel administracyjny (ang. \textit{Admin Dashboard}) udostępnia personelowi zarządzającemu globalny wgląd w~rejestry wszystkich kont użytkowników oraz zadań produkcyjnych w~systemie. Dane te są prezentowane w~postaci ustrukturyzowanych tabel zaimplementowanych z~modułami zaawansowanego sortowania, wyszukiwania i~filtrowania, co zobrazowano na rysunku~\ref{fig:admin_panel}.
+Panel administracyjny (ang.~\textit{Admin Dashboard}) udostępnia personelowi zarządzającemu globalny wgląd w~rejestry wszystkich kont użytkowników oraz zadań produkcyjnych w~systemie. Dane te są prezentowane w~postaci ustrukturyzowanych tabel zaimplementowanych z~modułami zaawansowanego sortowania, wyszukiwania i~filtrowania, co zobrazowano na rysunku~\ref{fig:admin_panel}.
 
 Z poziomu tego widoku administrator posiada uprawnienia do:
 \begin{itemize}
@@ -1567,11 +1571,11 @@ Z poziomu tego widoku administrator posiada uprawnienia do:
 
 W celu zapewnienia uniwersalności oraz dostępności systemu, interfejs użytkownika został przygotowany w~dwóch wersjach językowych: polskiej (ustawionej jako domyślna) oraz angielskiej. Warstwa translacji opiera się na bibliotece \textit{i18next}~\cite{i18next}, a~same tłumaczenia poszczególnych fraz i~etykiet są przechowywane w~ustrukturyzowanych plikach formatu JSON (\texttt{pl.json} oraz \texttt{en.json}), zlokalizowanych w~dedykowanym katalogu \texttt{src/i18n/locales/}.
 
-Przełączanie wersji językowej realizowane jest w~sposób dynamiczny i~asynchroniczny, eliminując konieczność ponownego przeładowania struktury dokumentu DOM przez przeglądarkę internetową. Jako dowód poprawnego działania mechanizmu umiędzynarodowienia (ang. \textit{internationalization}), na opisanym wcześniej rysunku~\ref{fig:website_upload} zaprezentowano widok panelu przesyłania zadań z~aktywnym językiem angielskim.
+Przełączanie wersji językowej realizowane jest w~sposób dynamiczny i~asynchroniczny, eliminując konieczność ponownego przeładowania struktury dokumentu DOM przez przeglądarkę internetową. Jako dowód poprawnego działania mechanizmu umiędzynarodowienia (ang.~\textit{internationalization}), na opisanym wcześniej rysunku~\ref{fig:website_upload} zaprezentowano widok panelu przesyłania zadań z~aktywnym językiem angielskim.
 
 \subsection{Zarządzanie motywami graficznymi interfejsu}
 
-Aplikacja kliencka w~pełni obsługuje dwa warianty wizualne interfejsu użytkownika: motyw jasny (ang. \textit{light mode}) oraz ciemny (ang. \textit{dark mode}). Architektura tego mechanizmu bazuje na natywnych zmiennych CSS (ang. \textit{CSS custom properties}), które zdefiniowano w~selektorach \texttt{:root} oraz \texttt{.dark}. Są one dynamicznie interpretowane i~wstrzykiwane przez silnik frameworka \textit{Tailwind CSS}~\cite{tailwind}.
+Aplikacja kliencka w~pełni obsługuje dwa warianty wizualne interfejsu użytkownika: motyw jasny (ang.~\textit{light mode}) oraz ciemny (ang.~\textit{dark mode}). Architektura tego mechanizmu bazuje na natywnych zmiennych CSS (ang.~\textit{CSS custom properties}), które zdefiniowano w~selektorach \texttt{:root} oraz \texttt{dark}. Są one dynamicznie interpretowane i~wstrzykiwane przez silnik frameworka \textit{Tailwind CSS}~\cite{tailwind}.
 
 Bieżąca preferencja operatora dotycząca wybranego schematu kolorów jest utrwalana w~pamięci podręcznej \texttt{localStorage} z~wykorzystaniem mechanizmu automatycznej persystencji stanu globalnego biblioteki \textit{Zustand}~\cite{zustand}. Pozwala to na zachowanie wybranego wariantu przy kolejnych sesjach użytkownika. Dla porównania walorów wizualnych, na przytoczonym wcześniej rysunku~\ref{fig:admin_panel} przedstawiono interfejs panelu administracyjnego z~aktywnym motywem jasnym, podczas gdy pozostałe ekrany zobrazowano w~domyślnym wariancie ciemnym.
 
@@ -1586,7 +1590,7 @@ Bieżąca preferencja operatora dotycząca wybranego schematu kolorów jest utrw
 
 \subsection{Opis ogólny}
 
-Komponent \textit{AddiPi Agent} stanowi lokalną warstwę oprogramowania uruchamianą bezpośrednio na mikrokomputerze Raspberry Pi. Pełni on rolę dwukierunkowego pośrednika (ang. \textit{proxy}) pomiędzy rozproszoną architekturą chmurową (usługami \textit{Azure IoT Hub} oraz \textit{Azure Blob Storage}) a~niskopoziomowym, lokalnym interfejsem sterującym drukarki 3D, którym zarządza serwer \textit{OctoPrint}~\cite{octoprint}.
+Komponent \textit{AddiPi Agent} stanowi lokalną warstwę oprogramowania uruchamianą bezpośrednio na mikrokomputerze Raspberry Pi. Pełni on rolę dwukierunkowego pośrednika (ang.~\textit{proxy}) pomiędzy rozproszoną architekturą chmurową (usługami \textit{Azure IoT Hub} oraz \textit{Azure Blob Storage}) a~niskopoziomowym, lokalnym interfejsem sterującym drukarki 3D, którym zarządza serwer \textit{OctoPrint}~\cite{octoprint}.
 
 Agent został zaimplementowany w~języku Python~\cite{python}. Architektura operacyjna tego komponentu została zaprojektowana w~taki sposób, aby funkcjonował on jako proces działający w~pętli ciągłej. W~zależności od konfiguracji docelowej, jego cyklem życia zarządza demon systemowy oprogramowania układowego \texttt{systemd} lub odizolowany kontener środowiska \textit{Docker}~\cite{docker}.
 
@@ -1599,12 +1603,12 @@ W celu zapewnienia wysokiej modularności oraz łatwości rozbudowy kodu źród�
 	
 	\item \textbf{OctoPrintClient} --- stanowi warstwę abstrakcji nad interfejsem sieciowym REST API systemu \textit{OctoPrint}. Klasa ta enkapsuluje operacje wejścia-wyjścia odpowiedzialne za odczyt bieżących temperatur i~stanów mechanicznych drukarki, buforowanie plików w~pamięci lokalnej urządzenia, a~także bezpośrednie sterowanie procesem wytwórczym (rozpoczynanie, wstrzymywanie i~anulowanie druku).
 	
-	\item \textbf{ConfigLoader} --- komponent pomocniczy odpowiedzialny za bezpieczne wczytywanie parametrów startowych, sekretów chmurowych oraz zmiennych środowiskowych utrwalonych w~pliku konfiguracyjnym \texttt{.env}.
+	\item \textbf{ConfigLoader} --- komponent pomocniczy odpowiedzialny za bezpieczne wczytywanie parametrów startowych, sekretów chmurowych oraz zmiennych środowiskowych utrwalonych w~pliku konfiguracyjnym \texttt{env}.
 \end{itemize}
 
 \subsection{Połączenie z~IoT Hub}
 
-Agent sprzętowy inicjuje i~utrzymuje stałe połączenie z~usługą \textit{Azure IoT Hub}~\cite{iothub} za pośrednictwem protokołu MQTT, wykorzystując do tego celu unikalny ciąg uwierzytelniający urządzenia (ang. \textit{device connection string}). Na listingu~\ref{lst:python_iot_init} przedstawiono fragment kodu odpowiedzialny za instancjonowanie asynchronicznego klienta oraz rejestrację funkcji zwrotnej (ang. \textit{callback function}) dedykowanej do obsługi przychodzących żądań RPC.
+Agent sprzętowy inicjuje i~utrzymuje stałe połączenie z~usługą \textit{Azure IoT Hub}~\cite{iothub} za pośrednictwem protokołu MQTT, wykorzystując do tego celu unikalny ciąg uwierzytelniający urządzenia (ang.~\textit{device connection string}). Na listingu~\ref{lst:python_iot_init} przedstawiono fragment kodu odpowiedzialny za instancjonowanie asynchronicznego klienta oraz rejestrację funkcji zwrotnej (ang.~\textit{callback function}) dedykowanej do obsługi przychodzących żądań RPC.
 
 \begin{lstlisting}[language=Python,caption={Inicjalizacja klienta usługi \textit{Azure IoT Hub} (\texttt{printer\_agent.py})}, style=pyStyle, label={lst:python_iot_init}]
 	self.iot_client = IoTHubDeviceClient.
@@ -1621,7 +1625,7 @@ Agent sprzętowy inicjuje i~utrzymuje stałe połączenie z~usługą \textit{Azu
 
 \subsection{Obsługiwane metody bezpośrednie}
 
-Komponent realizuje zestaw metod bezpośrednich (ang. \textit{Direct Methods}) udostępnianych przez chmurę obliczeniową. W~tabeli~\ref{tab:agent_methods} wyszczególniono metody zaimplementowane w~strukturze agenta wraz z~ich parametrami wejściowymi oraz opisem wywoływanych akcji.
+Komponent realizuje zestaw metod bezpośrednich (ang.~\textit{Direct Methods}) udostępnianych przez chmurę obliczeniową. W~tabeli~\ref{tab:agent_methods} wyszczególniono metody zaimplementowane w~strukturze agenta wraz z~ich parametrami wejściowymi oraz opisem wywoływanych akcji.
 
 \begin{table}[h!]
 	\centering
@@ -1692,7 +1696,7 @@ W trakcie aktywnego procesu produkcyjnego, agent sprzętowy w~sposób ciągły m
 
 Klasa \texttt{OctoPrintClient} hermetyzuje i~realizuje komunikację sieciową z~systemem \textit{OctoPrint}~\cite{octoprint} w~ramach lokalnej sieci komputerowej (z wykorzystaniem lokalnego mapowania adresów, np. \texttt{http://prusai3mk3.local}). Autoryzacja i~bezpieczeństwo zapytań HTTP są zapewniane poprzez wstrzykiwanie unikalnego klucza dostępowego do nagłówka \texttt{X-Api-Key} każdego żądania.
 
-Na listingu~\ref{lst:octoprint_methods} zestawiono kluczowe operacje zaimplementowane w~strukturze omawianej klasy wraz z~przypisanymi do nich punktami końcowymi (ang. \textit{endpoints}) oraz strukturami poleceń lokalnego interfejsu REST API.
+Na listingu~\ref{lst:octoprint_methods} zestawiono kluczowe operacje zaimplementowane w~strukturze omawianej klasy wraz z~przypisanymi do nich punktami końcowymi (ang.~\textit{endpoints}) oraz strukturami poleceń lokalnego interfejsu REST API.
 
 \begin{lstlisting}[language={},caption={Struktura metod klasy \texttt{OctoPrintClient} i~ich mapowanie na punkty końcowe API.},style=tsStyle,label={lst:octoprint_methods}]
 	// Definicja kluczowych metod wchodzących w skład klasy OctoPrintClient:
@@ -1709,7 +1713,7 @@ W celu zobrazowania środowiska niskopoziomowego, z~którym bezpośrednio integr
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{octoprint-panel.png} 
+	\includegraphics[width=0.87\textwidth]{octoprint-panel.png} 
 	\caption{Interfejs systemu \textit{OctoPrint} z~widokiem aktywnego procesu druku.}
 	\label{fig:octoprint_panel}
 \end{figure}
@@ -1725,7 +1729,7 @@ W celu zobrazowania środowiska niskopoziomowego, z~którym bezpośrednio integr
 
 Kompletna implementacja systemu \textit{AddiPi} --- poza warstwą stricte programową --- wymaga fizycznego osadzenia mikrokomputera Raspberry Pi w~bezpośrednim sąsiedztwie urządzenia wytwórczego wraz z~integracją modułu kamery cyfrowej monitorującej stół roboczy drukarki 3D. 
 
-W ramach niniejszej pracy inżynierskiej opracowano, a~następnie wytworzono technologią przyrostową (ang. \textit{Additive Manufacturing})~\cite{gibson2021} dedykowany zestaw komponentów mechanicznych. Został on podzielony na dwa główne moduły strukturalne:
+W ramach niniejszej pracy inżynierskiej opracowano, a~następnie wytworzono technologią przyrostową (ang.~\textit{Additive Manufacturing})~\cite{gibson2021} dedykowany zestaw komponentów mechanicznych. Został on podzielony na dwa główne moduły strukturalne:
 
 \begin{itemize}
 	\item \textbf{CASE} --- obudowa ochronna mikrokomputera Raspberry Pi zintegrowana z~gniazdem montażowym modułu kamery brzegowej,
@@ -1733,9 +1737,9 @@ W ramach niniejszej pracy inżynierskiej opracowano, a~następnie wytworzono tec
 	\item \textbf{STAND} --- regulowane ramię pozycjonujące (uchwyt), umożliwiające swobodną zmianę kąta widzenia i~stabilizację zestawu względem pola roboczego drukarki 3D.
 \end{itemize}
 
-Trójwymiarowe modele geometryczne (CAD) opracowano w~programie \textit{SolidWorks}~\cite{solidworks} (format \texttt{.SLDPRT} dla pojedynczych części oraz \texttt{.SLDASM} dla złożeń).
+Trójwymiarowe modele geometryczne (CAD) opracowano w~programie \textit{SolidWorks}~\cite{solidworks} (format \texttt{SLDPRT} dla pojedynczych części oraz \texttt{SLDASM} dla złożeń).
 
-W celu zapewnienia otwartości projektu, w~repozytorium zasobów systemu --- obok natywnych formatów oprogramowania \textit{SolidWorks} --- umieszczono modele w~neutralnym formacie wymiany danych \texttt{.STEP}, umożliwiającym dalszą edycję w~innych środowiskach CAD, a~także pliki \texttt{.3MF} i~\texttt{.gcode} przygotowane do wydruku na drukarce Prusa MK3S wyposażonej w~dyszę o~średnicy 0{,}6~mm z~wykorzystaniem filamentu PLA.
+W celu zapewnienia otwartości projektu, w~repozytorium zasobów systemu --- obok natywnych formatów oprogramowania \textit{SolidWorks} --- umieszczono modele w~neutralnym formacie wymiany danych \texttt{STEP}, umożliwiającym dalszą edycję w~innych środowiskach CAD, a~także pliki \texttt{3MF} i~\texttt{gcode} przygotowane do wydruku na drukarce Prusa MK3S wyposażonej w~dyszę o~średnicy 0{,}6~mm z~wykorzystaniem filamentu PLA.
 
 \subsection{Moduł CASE --- obudowa Raspberry Pi z~kamerą}
 
@@ -1781,11 +1785,11 @@ Uchwyt pozycjonuje kamerę pod stałym kątem skierowanym w~stronę pola robocze
 		\textbf{Katalog / plik} & \textbf{Zawartość} \\
 		\midrule
 		
-		\texttt{CASE/files/} & Edytowalne modele SolidWorks (\texttt{.SLDPRT}, \texttt{.SLDASM}) oraz modele w~formacie wymiany \texttt{.STEP} \\
+		\texttt{CASE/files/} & Edytowalne modele \textit{SolidWorks} (\texttt{SLDPRT}, \texttt{SLDASM}) oraz modele w~formacie wymiany \texttt{STEP} \\
 		
 		\texttt{CASE/gcode/} & Wygenerowane pliki G-code przygotowane dla drukarki Prusa MK3S z~dyszą 0{,}6~mm i~filamentem PLA \\
 		
-		\texttt{CASE/Ready To Print/} & Modele \texttt{.3MF} oraz \texttt{.STL} przygotowane do otwarcia w~programie PrusaSlicer \\
+		\texttt{CASE/Ready To Print/} & Modele \texttt{3MF} oraz \texttt{STL} przygotowane do otwarcia w~programie PrusaSlicer \\
 		
 		\texttt{CASE/grabcad/} & Oryginalne pliki referencyjne projektu GrabCAD~\cite{grabcad219} dla Raspberry Pi 4 \\
 		
@@ -1797,7 +1801,7 @@ Uchwyt pozycjonuje kamerę pod stałym kątem skierowanym w~stronę pola robocze
 
 Moduł \texttt{STAND} stanowi zaprojektowany od podstaw, autorski mechanizm wsporczy, umożliwiający precyzyjne pozycjonowanie obudowy \texttt{CASE} wraz z~kamerą względem ramy kinematycznej drukarki 3D. 
 
-Konstrukcja ramienia opiera się na połączeniach przegubowych i~zapewnia dwa stopnie swobody. Układ ten pozwala na płynną regulację kąta nachylenia osi optycznej obiektywu w~płaszczyźnie pionowej oraz dostosowanie wysokości punktu akwizycji obrazu. Dzięki temu możliwe jest optymalne dopasowanie pola widzenia (ang. \textit{Field of View}, FOV) do specyfiki geometrii przestrzeni roboczej danego urządzenia. Fizyczne wdrożenie gotowego zestawu montażowego zamontowanego przy drukarce 3D przedstawiono na rysunku~\ref{fig:physical_stand}.
+Konstrukcja ramienia opiera się na połączeniach przegubowych i~zapewnia dwa stopnie swobody. Układ ten pozwala na płynną regulację kąta nachylenia osi optycznej obiektywu w~płaszczyźnie pionowej oraz dostosowanie wysokości punktu akwizycji obrazu. Dzięki temu możliwe jest optymalne dopasowanie pola widzenia (ang.~\textit{Field of View}, FOV) do specyfiki geometrii przestrzeni roboczej danego urządzenia. Fizyczne wdrożenie gotowego zestawu montażowego zamontowanego przy drukarce 3D przedstawiono na rysunku~\ref{fig:physical_stand}.
 
 \begin{figure}[H]
 	\centering
@@ -1806,11 +1810,11 @@ Konstrukcja ramienia opiera się na połączeniach przegubowych i~zapewnia dwa s
 	\label{fig:physical_stand}
 \end{figure}
 
-Parametryczne modele źródłowe środowiska \textit{SolidWorks} są przechowywane w~dedykowanym katalogu \texttt{STAND/own parts/}. Z~kolei pliki przygotowane do bezpośredniego procesu przygotowania druku (w formatach \texttt{.3MF} oraz \texttt{.STL}) zlokalizowano w~folderze \texttt{STAND/Ready To Print/}, a~skompilowane instrukcje sterujące G-code umieszczono w~katalogu \texttt{STAND/gcode/}.
+Parametryczne modele źródłowe środowiska \textit{SolidWorks} są przechowywane w~dedykowanym katalogu \texttt{STAND/own parts/}. Z~kolei pliki przygotowane do bezpośredniego procesu przygotowania druku (w formatach \texttt{3MF} oraz \texttt{STL}) zlokalizowano w~folderze \texttt{STAND/Ready To Print/}, a~skompilowane instrukcje sterujące G-code umieszczono w~katalogu \texttt{STAND/gcode/}.
 
 \subsection{Złożenie kompletnego modelu geometrycznego}
 
-Plik źródłowy \texttt{CAD/Full Assembly.SLDASM} zawiera kompletne złożenie (ang. \textit{assembly}) obu zaprojektowanych modułów (\texttt{CASE} oraz \texttt{STAND}) wraz z~zaimportowanym modelem mikrokomputera Raspberry Pi, pełniącym funkcję komponentu referencyjnego. Definicja relacji montażowych (ang. \textit{mates}) wewnątrz struktury modelu umożliwia weryfikację poprawności dopasowania tolerancji wymiarowych, przeprowadzenie analizy potencjalnych kolizji geometrycznych oraz kontrolę parametrów montażowych przed rozpoczęciem docelowego procesu wytwarzania przyrostowego.
+Plik źródłowy \texttt{CAD/Full Assembly.SLDASM} zawiera kompletne złożenie (ang.~\textit{assembly}) obu zaprojektowanych modułów (\texttt{CASE} oraz \texttt{STAND}) wraz z~zaimportowanym modelem mikrokomputera Raspberry Pi, pełniącym funkcję komponentu referencyjnego. Definicja relacji montażowych (ang.~\textit{mates}) wewnątrz struktury modelu umożliwia weryfikację poprawności dopasowania tolerancji wymiarowych, przeprowadzenie analizy potencjalnych kolizji geometrycznych oraz kontrolę parametrów montażowych przed rozpoczęciem docelowego procesu wytwarzania przyrostowego.
 
 Wizualizację trójwymiarową tak przygotowanego środowiska projektowego przedstawiono na rysunku~\ref{fig:full_assembly}. Z~kolei na rysunku~\ref{fig:cad_schematic} zaprezentowano strukturalny schemat hierarchii plików i~formatów eksportu, który szczegółowo obrazuje architekturę całego pakietu mechanicznego --- od parametrycznych plików źródłowych części, przez fazę przygotowania wydruku (slicing), aż po końcowy kod maszynowy.
 
@@ -1852,7 +1856,7 @@ W celu zapewnienia powtarzalności geometrycznej, odpowiedniej wytrzymałości m
 		
 		Podpory & Niewymagane dla większości modeli \\
 		
-		Orientacja wydruku & Zgodna z~konfiguracją w~plikach \texttt{.3MF} \\
+		Orientacja wydruku & Zgodna z~konfiguracją w~plikach \texttt{3MF} \\
 		
 		Drukarka referencyjna & Prusa MK3S \\
 		
@@ -1865,7 +1869,7 @@ W celu zapewnienia powtarzalności geometrycznej, odpowiedniej wytrzymałości m
 Proces montażu oraz kalibracji przestrzennej zestawu komponentów mechanicznych realizowany jest sekwencyjnie według następującego scenariusza:
 
 \begin{enumerate}
-	\item \textbf{Wytworzenie komponentów:} Wydrukowanie elementów składowych obudowy i~ramienia na podstawie plików sterujących \texttt{.gcode} lub projektów technologicznych \texttt{.3MF} oraz \texttt{.STL} zlokalizowanych w~katalogach \texttt{Ready To Print}.
+	\item \textbf{Wytworzenie komponentów:} Wydrukowanie elementów składowych obudowy i~ramienia na podstawie plików sterujących \texttt{gcode} lub projektów technologicznych \texttt{3MF} oraz \texttt{STL} zlokalizowanych w~katalogach \texttt{Ready To Print}.
 	\item \textbf{Instalacja elektroniki:} Zamontowanie mikrokomputera Raspberry Pi w~dolnej części obudowy (\texttt{BottomShell}) z~wykorzystaniem czterech śrub montażowych M2.5 oraz dedykowanych nakrętek.
 	\item \textbf{Integracja magistrali CSI:} Podłączenie taśmy sygnałowej interfejsu CSI do modułu kamery oraz precyzyjne przeprowadzenie jej przez dedykowany przepust osłonowy w~korpusie obudowy.
 	\item \textbf{Asemblacja korpusu:} Zamknięcie obudowy poprzez nałożenie górnej pokrywy (\texttt{TopShell}) oraz mechaniczne zabezpieczenie konstrukcji za pomocą zintegrowanych zatrzasków geometrycznych.
@@ -1917,7 +1921,7 @@ Procedura instalacji komponentu \textit{AddiPi Agent} sprowadza się do pobrania
 
 \subsection{Automatyzacja uruchamiania za pomocą systemd}
 
-W celu zapewnienia bezobsługowości systemu brzegowego i~automatycznego restartu aplikacji po awarii lub restarcie mikrokomputera, skonfigurowano dedykowaną usługę \textit{systemd}. Plik konfiguracyjny jednostki (ang. \textit{unit file}) zlokalizowano w~ścieżce \newline\texttt{/etc/systemd/system/addipi-agent.service}, a~jego strukturę zaprezentowano na listingu~\ref{lst:systemd_unit}.
+W celu zapewnienia bezobsługowości systemu brzegowego i~automatycznego restartu aplikacji po awarii lub restarcie mikrokomputera, skonfigurowano dedykowaną usługę \textit{systemd}. Plik konfiguracyjny jednostki (ang.~\textit{unit file}) zlokalizowano w~ścieżce \newline\texttt{/etc/systemd/system/addipi-agent.service}, a~jego strukturę zaprezentowano na listingu~\ref{lst:systemd_unit}.
 
 \begin{lstlisting}[language=bash,style=plListing,caption={Plik jednostki konfiguracji addipi-agent.service dla menedżera systemd.},label={lst:systemd_unit}]
 	[Unit]
@@ -1938,7 +1942,7 @@ W celu zapewnienia bezobsługowości systemu brzegowego i~automatycznego restart
 	WantedBy=multi-user.target
 \end{lstlisting}
 
-Dyrektywa \texttt{After=network-online.target} gwarantuje uruchomienie skryptu dopiero po poprawnym zainicjowaniu stosu sieciowego. Zapobiega to błędom gniazd sieciowych (ang. \textit{sockets}) podczas próby nawiązania połączenia przez protokół MQTT z~usługą \textit{Azure IoT Hub}. Aktywację i~uruchomienie demona realizuje się sekwencyjnie za pomocą poleceń systemowych: \texttt{sudo systemctl daemon-reload}, \texttt{sudo systemctl enable addipi-agent} oraz \texttt{sudo systemctl start addipi-agent}. Bieżący stan procesu weryfikowany jest instrukcją \texttt{sudo systemctl status addipi-agent}.
+Dyrektywa \texttt{After=network-online.target} gwarantuje uruchomienie skryptu dopiero po poprawnym zainicjowaniu stosu sieciowego. Zapobiega to błędom gniazd sieciowych (ang.~\textit{sockets}) podczas próby nawiązania połączenia przez protokół MQTT z~usługą \textit{Azure IoT Hub}. Aktywację i~uruchomienie demona realizuje się sekwencyjnie za pomocą poleceń systemowych: \texttt{sudo systemctl daemon-reload}, \texttt{sudo systemctl enable addipi-agent} oraz \texttt{sudo systemctl start addipi-agent}. Bieżący stan procesu weryfikowany jest instrukcją \texttt{sudo systemctl status addipi-agent}.
 
 Kompletną sekwencję zdarzeń oraz zależność potoków rozruchowych usług systemowych i~skryptów harmonogramu po restarcie platformy sprzętowej przedstawiono na rysunku~\ref{fig:rpi_boot}.
 
@@ -2111,7 +2115,7 @@ W tabeli~\ref{tab:rpi_summary} zestawiono oraz sklasyfikowano wszystkie kluczowe
 
 \subsection{Hybrydowa strategia architektoniczna}
 
-Infrastruktura produkcyjna systemu \textit{AddiPi} bazuje na paradygmacie wielochmurowym (ang. \textit{Multi-Cloud}). Podział odpowiedzialności pomiędzy dostawców zasobów został podyktowany ich specyfikacją techniczną, modelami usługowymi oraz dostępnością bezpłatnych pakietów deweloperskich (ang. \textit{free tier}). 
+Infrastruktura produkcyjna systemu \textit{AddiPi} bazuje na paradygmacie wielochmurowym (ang.~\textit{Multi-Cloud}). Podział odpowiedzialności pomiędzy dostawców zasobów został podyktowany ich specyfikacją techniczną, modelami usługowymi oraz dostępnością bezpłatnych pakietów deweloperskich (ang.~\textit{free tier}). 
 
 W tabeli~\ref{tab:infrastructure_split} zestawiono szczegółową strukturę lokowania poszczególnych komponentów systemu, przypisane im platformy sprzętowo-programowe oraz modele dostarczania usług.
 
@@ -2134,7 +2138,7 @@ W tabeli~\ref{tab:infrastructure_split} zestawiono szczegółową strukturę lok
 	\end{tabular}
 \end{table}
 
-Przyjęta topologia wynika bezpośrednio z~limitów platformy \textit{Vercel}, która uniemożliwia egzekucję procesów długotrwale działających (ang. \textit{long-running processes}), takich jak stałe nasłuchiwanie kolejki \textit{Service Bus} czy cykliczne zadania orkiestracji. Komponenty wymagające ciągłej aktywności ulokowano na bezpłatnej instancji \texttt{VM.Standard. \newline E2.1.Micro} w~chmurze \textit{Oracle}~\cite{oci}, podczas gdy \textit{Microsoft Azure} dostarcza standaryzowane, w~pełni zarządzane interfejsy zapisu oraz wymiany komunikatów.
+Przyjęta topologia wynika bezpośrednio z~limitów platformy \textit{Vercel}, która uniemożliwia egzekucję procesów długotrwale działających (ang.~\textit{long-running processes}), takich jak stałe nasłuchiwanie kolejki \textit{Service Bus} czy cykliczne zadania orkiestracji. Komponenty wymagające ciągłej aktywności ulokowano na bezpłatnej instancji \texttt{VM.Standard. \newline E2.1.Micro} w~chmurze \textit{Oracle}~\cite{oci}, podczas gdy \textit{Microsoft Azure} dostarcza standaryzowane, w~pełni zarządzane interfejsy zapisu oraz wymiany komunikatów.
 
 
 \subsection{Zarządzane usługi integracji danych i~komunikacji chmurowej}
@@ -2168,9 +2172,9 @@ Kompletna infrastruktura chmurowa systemu została zdefiniowana w~sposób deklar
 	\item \texttt{terraform/} --- konfiguracja zasobów \textit{Microsoft Azure} (grupa zasobów \texttt{AddiPi-RG}, \textit{Storage Account}, \textit{Service Bus}, \textit{Cosmos DB} oraz \textit{IoT Hub}) z~wykorzystaniem dostawcy \texttt{hashicorp/azurerm} w~wersji \texttt{\textasciitilde{}> 4.0},
 	\item \texttt{terraform-oci/} --- konfiguracja zasobów \textit{Oracle Cloud} (sieć \texttt{vcn-addipi}, reguły bezpieczeństwa dla portów: 3001, 3002, 3050, 3070, 5000, instancja \texttt{VM.Stan- dard.E2.1.Micro} o~parametrach 1 OCPU i~1~GB RAM oraz publiczny adres IP) z~użyciem dostawcy \texttt{oracle/oci} w~wersji \texttt{\textasciitilde{}> 6.0}.
 \end{itemize}
-Oba moduły wykorzystują pliki \texttt{imports.tf} zawierające deklaratywne bloki \texttt{import}, co pozwala na asymilację istniejącej infrastruktury do pliku stanu (ang. \textit{state file}) bez konieczności niszczenia i~ponownego tworzenia obiektów chmurowych.
+Oba moduły wykorzystują pliki \texttt{imports.tf} zawierające deklaratywne bloki \texttt{import}, co pozwala na asymilację istniejącej infrastruktury do pliku stanu (ang.~\textit{state file}) bez konieczności niszczenia i~ponownego tworzenia obiektów chmurowych.
 
-Proces inicjalizacji dla wybranego środowiska (katalog \texttt{terraform/} dla \textit{Azure} lub \texttt{terraform-oci/} dla OCI) polega na przygotowaniu parametrów wejściowych w~pliku \texttt{terraform.tfvars} (na podstawie dostarczonego szablonu \texttt{.example}) i~wykonaniu sekwencji instrukcji zaprezentowanych na listingu~\ref{lst:terraform_cmd}.
+Proces inicjalizacji dla wybranego środowiska (katalog \texttt{terraform/} dla \textit{Azure} lub \texttt{terraform-oci/} dla OCI) polega na przygotowaniu parametrów wejściowych w~pliku \texttt{terraform.tfvars} (na podstawie dostarczonego szablonu \texttt{example}) i~wykonaniu sekwencji instrukcji zaprezentowanych na listingu~\ref{lst:terraform_cmd}.
 
 \begin{lstlisting}[language=bash,caption={Inicjalizacja i~aplikacja planu infrastruktury przez Terraform~\cite{terraform}.},style=plListing,label={lst:terraform_cmd}]
 	# Inicjalizacja providerów i~wdrożenie konfiguracji
@@ -2179,12 +2183,12 @@ Proces inicjalizacji dla wybranego środowiska (katalog \texttt{terraform/} dla 
 	terraform apply
 \end{lstlisting}
 
-Po pomyślnym zastosowaniu planu, wygenerowane wartości niejawne (ang. \textit{sensitive outputs}), takie jak parametry połączeniowe czy klucze główne baz danych, pobiera się bezpośrednio z~poziomu konsoli za pomocą instrukcji typu \texttt{terraform output -raw <nazwa\_zmiennej>} (np. dla zmiennych \texttt{storage\_connection\_string}, \texttt{service\_bus\_connection\_string}, \texttt{cosmos\_endpoint} oraz \texttt{cosmos\_key}). Pozyskane w~ten sposób sekrety są następnie wstrzykiwane do pliku konfiguracyjnego \texttt{.env} na produkcyjnej maszynie wirtualnej OCI.
+Po pomyślnym zastosowaniu planu, wygenerowane wartości niejawne (ang.~\textit{sensitive outputs}), takie jak parametry połączeniowe czy klucze główne baz danych, pobiera się bezpośrednio z~poziomu konsoli za pomocą instrukcji typu \texttt{terraform output -raw <nazwa\_zmiennej>} (np. dla zmiennych \texttt{storage\_connection\_string}, \texttt{service\_bus\_connection\_string}, \texttt{cosmos\_endpoint} oraz \texttt{cosmos\_key}). Pozyskane w~ten sposób sekrety są następnie wstrzykiwane do pliku konfiguracyjnego \texttt{env} na produkcyjnej maszynie wirtualnej OCI.
 
 
 \subsection{Specyfikacja konteneryzacji i~optymalizacja obrazów}
 
-W celu zapewnienia powtarzalności środowisk uruchomieniowych, każdy z~mikroserwisów został odizolowany w~strukturze kontenera \textit{Docker}~\cite{docker}. Dla usług opartych na technologii \textit{Node.js}~\cite{nodejs} wdrożono mechanizm wieloetapowego budowania (ang. \textit{multi-stage build}), którego celem jest separacja zależności deweloperskich i~procesu kompilacji \textit{TypeScript} (etap \texttt{builder}) od lekkiego obrazu produkcyjnego. Wzorcową konfigurację tego potoku dla usługi \textit{Auth Service} zaprezentowano na listingu~\ref{lst:dockerfile_node}.
+W celu zapewnienia powtarzalności środowisk uruchomieniowych, każdy z~mikroserwisów został odizolowany w~strukturze kontenera \textit{Docker}~\cite{docker}. Dla usług opartych na technologii \textit{Node.js}~\cite{nodejs} wdrożono mechanizm wieloetapowego budowania (ang.~\textit{multi-stage build}), którego celem jest separacja zależności deweloperskich i~procesu kompilacji \textit{TypeScript} (etap \texttt{builder}) od lekkiego obrazu produkcyjnego. Wzorcową konfigurację tego potoku dla usługi \textit{Auth Service} zaprezentowano na listingu~\ref{lst:dockerfile_node}.
 
 \begin{lstlisting}[language=,caption={Wieloetapowy plik konfiguracyjny Dockerfile serwisu Node.js.},style=plListing,label={lst:dockerfile_node}]
 	FROM node:20-alpine AS builder
@@ -2224,14 +2228,14 @@ Z kolei usługa \textit{Files Service} (Python) z~uwagi na interpretowany charak
 
 \subsection{Automatyzacja procesów CI/CD}
 
-W celu zautomatyzowania cyklu wydawniczego oprogramowania, każde repozytorium źródłowe zostało zintegrowane z~usługą \textit{GitHub Actions}. Zdefiniowane potoki automatyzacji (ang. \textit{workflows}) są wyzwalane po zdarzeniu \texttt{push} do gałęzi \texttt{main} i~realizują następujące etapy:
+W celu zautomatyzowania cyklu wydawniczego oprogramowania, każde repozytorium źródłowe zostało zintegrowane z~usługą \textit{GitHub Actions}. Zdefiniowane potoki automatyzacji (ang.~\textit{workflows}) są wyzwalane po zdarzeniu \texttt{push} do gałęzi \texttt{main} i~realizują następujące etapy:
 \begin{enumerate}[noitemsep,topsep=3pt]
 	\item \textbf{Kompilacja i~budowanie:} Kompilacja kodu źródłowego oraz budowanie produkcyjnego obrazu \textit{Docker}.
 	\item \textbf{Tagowanie zasobu:} Nadanie unikalnego tagu rejestru w~postaci\newline \texttt{ghcr.io/AddiPii/<nazwa-serwisu>:latest}.
 	\item \textbf{Publikacja artefaktu:} Automatyczna publikacja gotowego obrazu wewnątrz \textit{GitHub Container Registry} (GHCR).
 \end{enumerate}
 
-Na produkcyjnej maszynie wirtualnej OCI osadzono autonomiczny komponent \textit{Watchtower}~\cite{watchtower}. Narzędzie to cyklicznie sonduje rejestr GHCR, weryfikuje sygnatury obrazów i~po wykryciu nowej kompilacji automatycznie pobiera warstwy oraz restartuje odpowiednie kontenery. Podejście to w~pełni realizuje założenia paradygmatu ciągłego wdrażania (ang. \textit{Continuous Deployment}), uniezależniając proces aktualizacji produkcyjnej od manualnej interwencji administratora na serwerze.
+Na produkcyjnej maszynie wirtualnej OCI osadzono autonomiczny komponent \textit{Watchtower}~\cite{watchtower}. Narzędzie to cyklicznie sonduje rejestr GHCR, weryfikuje sygnatury obrazów i~po wykryciu nowej kompilacji automatycznie pobiera warstwy oraz restartuje odpowiednie kontenery. Podejście to w~pełni realizuje założenia paradygmatu ciągłego wdrażania (ang.~\textit{Continuous Deployment}), uniezależniając proces aktualizacji produkcyjnej od manualnej interwencji administratora na serwerze.
 
 
 \subsection{Orkiestracja kontenerowa warstwy serwerowej --- Docker Compose}
@@ -2280,9 +2284,9 @@ Ciągłość operacyjną środowiska zabezpiecza wspomniany wcześniej kontener 
 
 \subsection{Zarządzanie konfiguracją i~sekretami przez zmienne środowiskowe}
 
-Konfiguracja serwisów uruchamianych na instancji OCI realizowana jest przy pomocy zmiennych środowiskowych przekazywanych do kontenerów \textit{Docker}~\cite{docker} za pośrednictwem pliku \texttt{.env}. Mechanizm ten umożliwia oddzielenie konfiguracji od kodu źródłowego, co upraszcza wdrażanie aplikacji w~różnych środowiskach oraz zwiększa bezpieczeństwo poprzez eliminację konieczności przechowywania poufnych danych w~repozytoriach kodu.
+Konfiguracja serwisów uruchamianych na instancji OCI realizowana jest przy pomocy zmiennych środowiskowych przekazywanych do kontenerów \textit{Docker}~\cite{docker} za pośrednictwem pliku \texttt{env}. Mechanizm ten umożliwia oddzielenie konfiguracji od kodu źródłowego, co upraszcza wdrażanie aplikacji w~różnych środowiskach oraz zwiększa bezpieczeństwo poprzez eliminację konieczności przechowywania poufnych danych w~repozytoriach kodu.
 
-W środowisku produkcyjnym plik \texttt{.env} udostępniany jest wszystkim serwisom za pomocą dyrektywy \texttt{env\_file} w~konfiguracji Docker Compose. Repozytorium projektu zawiera również plik \texttt{.env.example}, stanowiący szablon wymaganej konfiguracji i~dokumentujący znaczenie poszczególnych parametrów.
+W środowisku produkcyjnym plik \texttt{env} udostępniany jest wszystkim serwisom za pomocą dyrektywy \texttt{env\_file} w~konfiguracji Docker Compose. Repozytorium projektu zawiera również plik \texttt{env.example}, stanowiący szablon wymaganej konfiguracji i~dokumentujący znaczenie poszczególnych parametrów.
 
 Tabela~\ref{tab:env_variables} przedstawia najważniejsze zmienne środowiskowe wykorzystywane przez system.
 
@@ -2314,9 +2318,9 @@ Tabela~\ref{tab:env_variables} przedstawia najważniejsze zmienne środowiskowe 
 
 \subsection{Wdrożenie warstwy prezentacji oraz usługi wideo}
 
-Aplikacja kliencka (frontendowa) oraz usługa \textit{Video Service} zostały wdrożone na platformie chmurowej \textit{Vercel}~\cite{vercel}, co zapewnia ich globalną dystrybucję za pośrednictwem sieci CDN (ang. \textit{Content Delivery Network}). Proces budowania i~aktualizacji zasobów statycznych pod adresem \url{https://addipi.vercel.app} realizowany jest w~pełni automatycznie w~modelu CD po każdym zdarzeniu \texttt{push} do gałęzi \texttt{main} repozytorium \textit{GitHub}, uruchamiając komendę produkcyjną środowiska \textit{Vite}~\cite{vite} \texttt{npm run build}.
+Aplikacja kliencka (frontendowa) oraz usługa \textit{Video Service} zostały wdrożone na platformie chmurowej \textit{Vercel}~\cite{vercel}, co zapewnia ich globalną dystrybucję za pośrednictwem sieci CDN (ang.~\textit{Content Delivery Network}). Proces budowania i~aktualizacji zasobów statycznych pod adresem \url{https://addipi.vercel.app} realizowany jest w~pełni automatycznie w~modelu CD po każdym zdarzeniu \texttt{push} do gałęzi \texttt{main} repozytorium \textit{GitHub}, uruchamiając komendę produkcyjną środowiska \textit{Vite}~\cite{vite} \texttt{npm run build}.
 
-Specyfika platformy \textit{Vercel} opiera się na paradygmacie bezserwerowym (ang. \textit{Serverless}), który narzuca sztywne ograniczenia czasowe na egzekucję kodu (ang. \textit{execution timeouts}). Z~tego względu infrastruktura ta została wykorzystana wyłącznie do hostowania interfejsu użytkownika oraz lekkiej, bezstanowej usługi \textit{Video Service}, przechowującej adres URL strumienia w~pamięci RAM. Mikroserwisy wymagające ciągłego, asynchronicznego nasłuchiwania kolejek komunikatów (\textit{Queue Service}) oraz orkiestracji zadań telemetrycznych (\textit{Printer Service}) charakteryzują się naturą procesów długotrwale działających (ang. \textit{long-running processes}). Ich implementacja w~modelu \textit{Serverless} byłaby niemożliwa, co w~pełni uzasadnia ich lokowanie na dedykowanej maszynie wirtualnej OCI.
+Specyfika platformy \textit{Vercel} opiera się na paradygmacie bezserwerowym (ang.~\textit{Serverless}), który narzuca sztywne ograniczenia czasowe na egzekucję kodu (ang.~\textit{execution timeouts}). Z~tego względu infrastruktura ta została wykorzystana wyłącznie do hostowania interfejsu użytkownika oraz lekkiej, bezstanowej usługi \textit{Video Service}, przechowującej adres URL strumienia w~pamięci RAM. Mikroserwisy wymagające ciągłego, asynchronicznego nasłuchiwania kolejek komunikatów (\textit{Queue Service}) oraz orkiestracji zadań telemetrycznych (\textit{Printer Service}) charakteryzują się naturą procesów długotrwale działających (ang.~\textit{long-running processes}). Ich implementacja w~modelu \textit{Serverless} byłaby niemożliwa, co w~pełni uzasadnia ich lokowanie na dedykowanej maszynie wirtualnej OCI.
 
 \subsection{Wdrożenie komponentu brzegowego}
 
@@ -2367,7 +2371,7 @@ W ramach realizacji projektu inżynierskiego opracowano i~zaimplementowano nast�
 	\item \textbf{Rozproszona architektura mikroserwisowa}~\cite{richardson2020}~\cite{newman2022} --- struktura warstwy serwerowej złożona z~sześciu autonomicznych serwisów komunikujących się hybrydowo za pośrednictwem synchronicznych interfejsów REST API oraz asynchronicznej magistrali komunikatów \textit{Azure Service Bus},
 	\item \textbf{Scentralizowany podsystem bezpieczeństwa} --- model uwierzytelniania i~autoryzacji bazujący na standardzie podwójnych tokenów JWT~\cite{jwt}, integrujący mechanizm bezpiecznego odświeżania sesji, dwuetapową weryfikację adresów e-mail w~domenie akademickiej oraz kontrolę dostępu opartą na rolach (RBAC),
 	\item \textbf{Mechanizm orkiestracji i~harmonogramowania zadań} --- zaawansowany algorytm zarządzania kolejką produkcyjną, pozwalający zarówno na natychmiastową alokację zasobów sprzętowych, jak i~długoterminowe planowanie kalendarzowe procesów przyrostowych,
-	\item \textbf{Integracja brzegowa IoT} --- powiązanie platformy sprzętowej z~usługą \textit{Azure IoT Hub}~\cite{iothub}, umożliwiające synchroniczne sterowanie drukarką 3D za pomocą wywołań metod bezpośrednich (ang. \textit{Direct Methods}) w~standardzie RPC,
+	\item \textbf{Integracja brzegowa IoT} --- powiązanie platformy sprzętowej z~usługą \textit{Azure IoT Hub}~\cite{iothub}, umożliwiające synchroniczne sterowanie drukarką 3D za pomocą wywołań metod bezpośrednich (ang.~\textit{Direct Methods}) w~standardzie RPC,
 	\item \textbf{System monitorowania w~czasie rzeczywistym} --- mechanizm akwizycji danych telemetrycznych urządzenia (metryki termiczne i~statusy mechaniczne) oraz asynchronicznej dystrybucji strumienia wideo z~kamery CSI w~formacie MJPEG,
 	\item \textbf{Wielojęzyczna aplikacja kliencka} --- responsywna warstwa prezentacji zbudowana w~oparciu o~bibliotekę \textit{React}~\cite{react} oraz język TypeScript, wspierająca architekturę dynamicznych motywów graficznych (jasny i~ciemny) oraz wzorzec projektowy RWD,
 	\item \textbf{Infrastruktura jako kod (IaC)} --- deklaratywne szablony konfiguracyjne narzędzia \textit{Terraform}~\cite{terraform}, automatyzujące procesy aprowizacji i~replikacji zasobów chmurowych w~architekturze hybrydowej \textit{Microsoft Azure} oraz \textit{Oracle Cloud Infrastructure}~\cite{oci},
@@ -2392,7 +2396,7 @@ Realizacja rozproszonego systemu \textit{AddiPi} wiązała się z~konieczności�
 	Poszczególne warstwy systemu natywnie operowały na zróżnicowanych standardach zapisu dat i~czasu. Informacje generowane przez silnik bazy danych, usługi backendowe oraz biblioteki frontendowe nie zawsze cechowały się identyczną strukturą, co generowało błędy w~interpretacji i~renderowaniu harmonogramów zadań. Problem ten rozwiązano na poziomie warstwy prezentacji poprzez implementację scentralizowanego modułu normalizacji danych chronologicznych, wykorzystującego autorską funkcję \texttt{normalizeDateString}.
 	
 	\item \textbf{Koordynacja sekwencyjności startu mikroserwisów} \\
-	W~fazie wdrażania środowiska kontenerowego zidentyfikowano, że natywna dyrektywa \texttt{depends\_on} w~konfiguracji \textit{Docker Compose} gwarantuje wyłącznie kolejność inicjalizacji procesów, nie weryfikując rzeczywistej gotowości operacyjnej API do obsługi żądań sieciowych. Prowadziło to do błędów połączeń w~sytuacji, gdy serwisy zależne próbowały komunikować się z~komponentami będącymi jeszcze w~fazie wewnętrznego rozruchu. Wyzwanie to zaadresowano poprzez zaimplementowanie mechanizmów diagnostycznych stanu działania (ang. \textit{health checks}) oraz procedurę ponawiania prób z~wykładniczym czasem oczekiwania (ang. \textit{retry with exponential backoff}) po stronie klientów HTTP.
+	W~fazie wdrażania środowiska kontenerowego zidentyfikowano, że natywna dyrektywa \texttt{depends\_on} w~konfiguracji \textit{Docker Compose} gwarantuje wyłącznie kolejność inicjalizacji procesów, nie weryfikując rzeczywistej gotowości operacyjnej API do obsługi żądań sieciowych. Prowadziło to do błędów połączeń w~sytuacji, gdy serwisy zależne próbowały komunikować się z~komponentami będącymi jeszcze w~fazie wewnętrznego rozruchu. Wyzwanie to zaadresowano poprzez zaimplementowanie mechanizmów diagnostycznych stanu działania (ang.~\textit{health checks}) oraz procedurę ponawiania prób z~wykładniczym czasem oczekiwania (ang.~\textit{retry with exponential backoff}) po stronie klientów HTTP.
 	
 	\item \textbf{Kompatybilność systemów modułów CommonJS oraz ESM} \\
 	Podczas integracji warstwy serwerowej z~bibliotekami SDK \textit{Azure IoT} w~środowisku Node.js napotkano na konflikty struktur modułów \textit{CommonJS} oraz \textit{ECMAScript Modules} (ESM). Wybrane pakiety zależne eksportowały swoje składowe w~sposób silnie uzależniony od kontekstu uruchomieniowego. W~celu zapewnienia pełnej kompatybilności i~stabilności kodu, w~strukturze usługi \textit{Printer Service} zaimplementowano mechanizm defensywnej detekcji i~dynamicznej ekstrakcji dostępnych interfejsów eksportu.
@@ -2401,7 +2405,7 @@ Realizacja rozproszonego systemu \textit{AddiPi} wiązała się z~konieczności�
 	Ponieważ serwer \textit{OctoPrint} operuje wewnątrz lokalnej sieci prywatnej, strumień wizyjny MJPEG nie był domyślnie trasowany do publicznego Internetu, co uniemożliwiało jego odbiór przez aplikację webową. Dodatkową barierę stanowiła zmienność adresów URL przy każdej renegocjacji połączenia tunelowego. Wyzwanie to rozwiązano za pomocą technologii \textit{Cloudflare Tunnel}~\cite{cloudflare} połączonej z~autonomiczną usługą \textit{Video Service}, która działa jako dynamiczny rejestrator aktualnego punktu końcowego wideo.
 	
 	\item \textbf{Obsługa opóźnień w~synchronicznej komunikacji IoT} \\
-	Sterowanie parametrami fizycznej maszyny przy użyciu metod bezpośrednich (ang. \textit{Direct Methods}) generowało opóźnienia rzędu kilku sekund w~warunkach gorszej przepustowości sieciowej węzła brzegowego. Zjawisko to zostało uwzględnione na poziomie projektowania interfejsu użytkownika (UX) poprzez wprowadzenie asynchronicznych stanów ładowania, blokad przycisków przed wielokrotnym kliknięciem (ang. \textit{debouncers}) oraz deterministycznej obsługi przekroczenia czasu oczekiwania (ang. \textit{timeouts}).
+	Sterowanie parametrami fizycznej maszyny przy użyciu metod bezpośrednich (ang.~\textit{Direct Methods}) generowało opóźnienia rzędu kilku sekund w~warunkach gorszej przepustowości sieciowej węzła brzegowego. Zjawisko to zostało uwzględnione na poziomie projektowania interfejsu użytkownika (UX) poprzez wprowadzenie asynchronicznych stanów ładowania, blokad przycisków przed wielokrotnym kliknięciem (ang.~\textit{debouncers}) oraz deterministycznej obsługi przekroczenia czasu oczekiwania (ang.~\textit{timeouts}).
 \end{itemize}
 
 Pomimo opisanych trudności, wszystkie zidentyfikowane bariery technologiczne zostały pomyślnie wyeliminowane na etapie implementacji. Pozwoliło to na uzyskanie w~pełni stabilnego, rozproszonego systemu, który w~sposób bezwzględny spełnia wszystkie założenia inżynierskie określone w~wymaganiach projektu.
@@ -2429,10 +2433,10 @@ Opracowany system \textit{AddiPi} został zaprojektowany z~zachowaniem paradygma
 	\item \textbf{Obsługa środowiska wielourządzeniowego (farma drukarek)} --- rozszerzenie obecnej struktury dokumentów JSON o~unikalne identyfikatory fizycznych maszyn oraz powiązanie z~nimi odrębnych, izolowanych potoków kolejkowych, co umożliwi scentralizowane zarządzanie rozproszonym parkiem maszynowym z~poziomu pojedynczej instancji aplikacji,
 	\item \textbf{Autonomiczny system powiadomień natychmiastowych} --- integracja architektury sieciowej z~technologiami \textit{Web Push} lub infrastrukturą \textit{Firebase Cloud Messaging} (FCM) w~celu natywnego informowania operatorów o~zmianach stanów zadania (rozpoczęcie, sukces, awaria) bez konieczności utrzymywania aktywnej sesji w~przeglądarce,
 	\item \textbf{Statyczna analiza plików G-code przed wydrukiem} --- implementacja modułu analizy składniowej kodu sterującego na etapie jego przesyłania do \textit{Files Service}, co pozwoliłoby na precyzyjne, niezależne szacowanie czasu druku, wolumetrycznego zużycia filamentu oraz automatyczne wykrywanie błędów konfiguracji slicera,
-	\item \textbf{Detekcja anomalii produkcyjnych z~wykorzystaniem sztucznej inteligencji} --- integracja strumienia wideo MJPEG z~modelami uczenia maszynowego (np. konwolucyjnymi sieciami neuronowymi) w~celu automatycznego wykrywania krytycznych wad druku w~czasie rzeczywistym, takich jak odklejenie warstwy bazowej od stołu, zjawisko utraty spójności (ang. \textit{spaghetti failure}) czy zablokowanie ekstrudera,
-	\item \textbf{Rozbudowa mechanizmów federacyjnego uwierzytelniania} --- implementacja protokołów \textit{OAuth 2.0} oraz \textit{OpenID Connect} (OIDC), co umożliwi bezpieczną integrację z~zewnętrznymi dostawcami tożsamości (ang. \textit{Identity Providers}), takimi jak konta \textit{Microsoft}, \textit{Google} lub \textit{GitHub},
+	\item \textbf{Detekcja anomalii produkcyjnych z~wykorzystaniem sztucznej inteligencji} --- integracja strumienia wideo MJPEG z~modelami uczenia maszynowego (np. konwolucyjnymi sieciami neuronowymi) w~celu automatycznego wykrywania krytycznych wad druku w~czasie rzeczywistym, takich jak odklejenie warstwy bazowej od stołu, zjawisko utraty spójności (ang.~\textit{spaghetti failure}) czy zablokowanie ekstrudera,
+	\item \textbf{Rozbudowa mechanizmów federacyjnego uwierzytelniania} --- implementacja protokołów \textit{OAuth 2.0} oraz \textit{OpenID Connect} (OIDC), co umożliwi bezpieczną integrację z~zewnętrznymi dostawcami tożsamości (ang.~\textit{Identity Providers}), takimi jak konta \textit{Microsoft}, \textit{Google} lub \textit{GitHub},
 	\item \textbf{Dedykowana aplikacja mobilna} --- implementacja natywnej lub hybrydowej warstwy prezentacji (np. w~technologii \textit{React Native}), co podniosłoby ergonomię monitorowania telemetrii urządzenia na ekranach przenośnych,
-	\item \textbf{Skalowanie i~orkiestracja infrastruktury produkcyjnej} --- przeniesienie struktury kontenerowej do środowiska orkiestracji \textit{Kubernetes} (K8s) w~celu wdrożenia mechanizmów automatycznego skalowania pionowego i~poziomego, zaawansowanego równoważenia obciążenia (ang. \textit{load balancing}) oraz scentralizowanego routingu usług,
+	\item \textbf{Skalowanie i~orkiestracja infrastruktury produkcyjnej} --- przeniesienie struktury kontenerowej do środowiska orkiestracji \textit{Kubernetes} (K8s) w~celu wdrożenia mechanizmów automatycznego skalowania pionowego i~poziomego, zaawansowanego równoważenia obciążenia (ang.~\textit{load balancing}) oraz scentralizowanego routingu usług,
 	\item \textbf{Rozszerzenie warstwy jakości i~odporności oprogramowania} --- uzupełnienie kodu źródłowego o~pełne pokrycie testami automatycznymi~\cite{martin2022}, generowanie żywej dokumentacji API w~standardzie \textit{OpenAPI/Swagger} oraz wdrożenie mechanizmów ochrony przed przeciążeniem interfejsów, takich jak \textit{rate limiting} czy warstwa buforowania \textit{Redis}.
 \end{itemize}
 
@@ -2441,9 +2445,9 @@ Opracowany system \textit{AddiPi} został zaprojektowany z~zachowaniem paradygma
 
 Przeprowadzone prace projektowe, implementacyjne oraz walidacyjne potwierdziły, że integracja rozproszonej architektury mikroserwisowej z~usługami chmurowymi w~modelu PaaS (\textit{Platform as a~Service}) stanowi wysoce efektywny paradygmat budowy systemów zarządzania autonomicznymi stanowiskami druku 3D. Wszystkie założone we wstępie cele pracy zostały w~pełni zrealizowane. Opracowany system \textit{AddiPi} umożliwia w~pełni bezpieczne, zdalne przesyłanie plików z~kodem sterującym, elastyczne harmonogramowanie zadań, ciągłe monitorowanie parametrów środowiskowych procesu oraz orkiestrację urządzenia z~poziomu uniwersalnego interfejsu webowego.
 
-Zastosowanie architektury zorientowanej na mikroserwisy~\cite{newman2022} okazało się właściwym i~uzasadnionym wyborem projektowym dla systemu tej klasy. Dekompozycja funkcjonalna na niezależne komponenty uprościła rozwój poszczególnych warstw logicznych, zwiększyła ogólną modularność rozwiązania oraz umożliwiła bezprzerwowe, asynchroniczne wdrażanie aktualizacji (ang. \textit{zero-downtime deployment}). Jednocześnie realizacja projektu wykazała, że podejście mikroserwisowe generuje dodatkowy narzut architektoniczny (ang. \textit{overhead})~\cite{kleppmann2017}~\cite{richardson2020}, związany z~koniecznością zapewnienia spójności danych, scentralizowanego zarządzania konfiguracją środowiskową oraz monitorowania rozproszonych potoków komunikacyjnych. Kluczowym czynnikiem sukcesu było również rygorystyczne stosowanie zasad czystego kodu~\cite{martin2022}, co umożliwiło sprawną integrację heterogenicznych technologii (TypeScript~\cite{typescript}, Python~\cite{python}) w~ramach jednego ekosystemu.
+Zastosowanie architektury zorientowanej na mikroserwisy~\cite{newman2022} okazało się właściwym i~uzasadnionym wyborem projektowym dla systemu tej klasy. Dekompozycja funkcjonalna na niezależne komponenty uprościła rozwój poszczególnych warstw logicznych, zwiększyła ogólną modularność rozwiązania oraz umożliwiła bezprzerwowe, asynchroniczne wdrażanie aktualizacji (ang.~\textit{zero-downtime deployment}). Jednocześnie realizacja projektu wykazała, że podejście mikroserwisowe generuje dodatkowy narzut architektoniczny (ang.~\textit{overhead})~\cite{kleppmann2017}~\cite{richardson2020}, związany z~koniecznością zapewnienia spójności danych, scentralizowanego zarządzania konfiguracją środowiskową oraz monitorowania rozproszonych potoków komunikacyjnych. Kluczowym czynnikiem sukcesu było również rygorystyczne stosowanie zasad czystego kodu~\cite{martin2022}, co umożliwiło sprawną integrację heterogenicznych technologii (TypeScript~\cite{typescript}, Python~\cite{python}) w~ramach jednego ekosystemu.
 
-Wykorzystanie ekosystemu \textit{Microsoft Azure} pozwoliło na sprawną implementację kluczowych mechanizmów platformy bez konieczności ponoszenia kosztów budowy i~utrzymania stacjonarnej infrastruktury serwerowej (ang. \textit{on-premise backend}). Krytyczne znaczenie dla stabilności systemu miało wdrożenie usług \textit{Azure IoT Hub}, \textit{Azure Service Bus}~\cite{servicebus} oraz \textit{Azure Cosmos DB}~\cite{cosmosdb}. Komponenty te umożliwiły bezbłędną realizację asynchronicznego routingu komunikatów, synchronicznego sterowania urządzeniem brzegowym przez protokół RPC oraz bezpiecznej persystencji obiektów JSON.
+Wykorzystanie ekosystemu \textit{Microsoft Azure} pozwoliło na sprawną implementację kluczowych mechanizmów platformy bez konieczności ponoszenia kosztów budowy i~utrzymania stacjonarnej infrastruktury serwerowej (ang.~\textit{on-premise backend}). Krytyczne znaczenie dla stabilności systemu miało wdrożenie usług \textit{Azure IoT Hub}, \textit{Azure Service Bus}~\cite{servicebus} oraz \textit{Azure Cosmos DB}~\cite{cosmosdb}. Komponenty te umożliwiły bezbłędną realizację asynchronicznego routingu komunikatów, synchronicznego sterowania urządzeniem brzegowym przez protokół RPC oraz bezpiecznej persystencji obiektów JSON.
 
 Realizacja warstwy sprzętowej potwierdziła, że mikrokomputer Raspberry Pi zintegrowany z~serwerem \textit{OctoPrint}~\cite{octoprint} stanowi stabilną, skalowalną i~elastyczną platformę pośredniczącą pomiędzy fizyczną kinematyką drukarki 3D a~systemami rozproszonymi. Opracowany komponent \textit{AddiPi Agent} zabezpiecza poprawną i~dwukierunkową wymianę informacji, gwarantując zarówno niskopoziomowe sterowanie maszyną, jak i~ciągłą akwizycję danych telemetrycznych w~czasie rzeczywistym.
 
@@ -2461,6 +2465,8 @@ Uzyskane rezultaty aplikacyjne wskazują, że system \textit{AddiPi} posiada wys
 \bibliography{bibliografia}\textsc{}
 
 \newpage
+
+\lstlistoflistings
 
 % ============================================================
 %  DODATKI
