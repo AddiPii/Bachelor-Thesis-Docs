@@ -418,10 +418,6 @@ INPUT ./dyplomWFA.bbl
 INPUT ./dyplomWFA.bbl
 INPUT dyplomWFA.bbl
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmrc8t.tfm
-INPUT ./dyplomWFA.lol
-INPUT ./dyplomWFA.lol
-INPUT dyplomWFA.lol
-OUTPUT dyplomWFA.lol
 INPUT dyplomWFA.aux
 INPUT ./dyplomWFA.out
 INPUT ./dyplomWFA.out
