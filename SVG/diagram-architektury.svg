@@ -27,9 +27,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.97638868"
-     inkscape:cx="159.77244"
-     inkscape:cy="270.89622"
+     inkscape:zoom="1.3808221"
+     inkscape:cx="374.41463"
+     inkscape:cy="294.38984"
      inkscape:window-width="1920"
      inkscape:window-height="939"
      inkscape:window-x="0"
@@ -40,12 +40,13 @@
      id="defs3873">
     <marker
        id="arrow"
-       viewBox="0 0 10 10"
+       viewBox="0 0 7.4999398 9.5"
        refX="8"
        refY="5"
-       markerWidth="6"
-       markerHeight="6"
-       orient="auto-start-reverse">
+       markerWidth="4.4999638"
+       markerHeight="5.6999998"
+       orient="auto-start-reverse"
+       preserveAspectRatio="xMidYMid">
       <path
          d="M 2,1 8,5 2,9"
          fill="none"
@@ -300,12 +301,13 @@
     </mask>
     <marker
        id="marker3921"
-       viewBox="0 0 10 10"
+       viewBox="0 0 7.4999398 9.5"
        refX="8"
        refY="5"
-       markerWidth="6"
-       markerHeight="6"
-       orient="auto-start-reverse">
+       markerWidth="4.4999638"
+       markerHeight="5.6999998"
+       orient="auto-start-reverse"
+       preserveAspectRatio="xMidYMid">
       <path
          d="M 2,1 8,5 2,9"
          fill="none"
@@ -560,12 +562,13 @@
     </mask>
     <marker
        id="marker3987"
-       viewBox="0 0 10 10"
+       viewBox="0 0 7.4999398 9.5"
        refX="8"
        refY="5"
-       markerWidth="6"
-       markerHeight="6"
-       orient="auto-start-reverse">
+       markerWidth="4.4999638"
+       markerHeight="5.6999998"
+       orient="auto-start-reverse"
+       preserveAspectRatio="xMidYMid">
       <path
          d="M 2,1 8,5 2,9"
          fill="none"
@@ -820,12 +823,13 @@
     </mask>
     <marker
        id="marker4053"
-       viewBox="0 0 10 10"
+       viewBox="0 0 7.4999398 9.5"
        refX="8"
        refY="5"
-       markerWidth="6"
-       markerHeight="6"
-       orient="auto-start-reverse">
+       markerWidth="4.4999638"
+       markerHeight="5.6999998"
+       orient="auto-start-reverse"
+       preserveAspectRatio="xMidYMid">
       <path
          d="M 2,1 8,5 2,9"
          fill="none"
@@ -2983,6 +2987,42 @@
          rx="2"
          id="rect4595" />
     </mask>
+    <marker
+       id="marker3921-6"
+       viewBox="0 0 7.4999398 9.5"
+       refX="8"
+       refY="5"
+       markerWidth="4.4999638"
+       markerHeight="5.6999998"
+       orient="auto-start-reverse"
+       preserveAspectRatio="xMidYMid">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path3919-7" />
+    </marker>
+    <marker
+       id="marker3921-3"
+       viewBox="0 0 7.4999398 9.5"
+       refX="8"
+       refY="5"
+       markerWidth="4.4999638"
+       markerHeight="5.6999998"
+       orient="auto-start-reverse"
+       preserveAspectRatio="xMidYMid">
+      <path
+         d="M 2,1 8,5 2,9"
+         fill="none"
+         stroke="context-stroke"
+         stroke-width="1.5"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path3919-5" />
+    </marker>
   </defs>
   <g
      inkscape:label="Warstwa 1"
@@ -3016,16 +3056,6 @@
          style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#b4b2a9;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
          id="text83">przeglądarka</text>
     </g>
-    <line
-       x1="340"
-       y1="64"
-       x2="340"
-       y2="100"
-       marker-end="url(#arrow)"
-       mask="url(#imagine-text-gaps-1gfwhv)"
-       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter"
-       id="line87"
-       transform="matrix(0.23297409,0,0,0.23297409,25.943978,2.6947589)" />
     <g
        style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
        id="g95"
@@ -3054,52 +3084,6 @@
          style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#afa9ec;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
          id="text93">addipi.vercel.app</text>
     </g>
-    <line
-       x1="77.382507"
-       y1="33.302361"
-       x2="38.585987"
-       y2="51.037952"
-       marker-end="url(#arrow)"
-       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:0.41567px;stroke-linecap:butt;stroke-linejoin:miter"
-       id="line97" />
-    <line
-       x1="295"
-       y1="144"
-       x2="220"
-       y2="208"
-       marker-end="url(#arrow)"
-       mask="url(#imagine-text-gaps-1gfwhv)"
-       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter"
-       id="line99"
-       transform="matrix(0.23297409,0,0,0.23297409,25.943978,2.6947589)" />
-    <line
-       x1="340"
-       y1="144"
-       x2="340"
-       y2="208"
-       marker-end="url(#arrow)"
-       mask="url(#imagine-text-gaps-1gfwhv)"
-       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter"
-       id="line101"
-       transform="matrix(0.23297409,0,0,0.23297409,25.943978,2.6947589)" />
-    <line
-       x1="385"
-       y1="144"
-       x2="460"
-       y2="208"
-       marker-end="url(#arrow)"
-       mask="url(#imagine-text-gaps-1gfwhv)"
-       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter"
-       id="line103"
-       transform="matrix(0.24084643,0,0,0.24084643,22.916889,1.5656088)" />
-    <line
-       x1="133.2144"
-       y1="33.877544"
-       x2="171.59084"
-       y2="51.420799"
-       marker-end="url(#arrow)"
-       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:0.411151px;stroke-linecap:butt;stroke-linejoin:miter"
-       id="line105" />
     <g
        style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
        id="g113"
@@ -3240,22 +3224,6 @@
          style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#b4b2a9;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
          id="text143">camera URL · :3003</text>
     </g>
-    <line
-       x1="105.15511"
-       y1="64.200058"
-       x2="86.517311"
-       y2="81.43998"
-       marker-end="url(#arrow)"
-       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:0.349449px;stroke-linecap:butt;stroke-linejoin:miter"
-       id="line147" />
-    <line
-       x1="109.81467"
-       y1="64.200058"
-       x2="119.13348"
-       y2="81.43998"
-       marker-end="url(#arrow)"
-       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:0.349449px;stroke-linecap:butt;stroke-linejoin:miter"
-       id="line149" />
     <g
        style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
        id="g157"
@@ -3312,16 +3280,6 @@
          style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#ef9f27;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
          id="text163">print-queue</text>
     </g>
-    <line
-       x1="430"
-       y1="382"
-       x2="350"
-       y2="426"
-       marker-end="url(#arrow)"
-       mask="url(#imagine-text-gaps-1gfwhv)"
-       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter"
-       id="line167"
-       transform="matrix(0.23297409,0,0,0.23297409,25.943978,2.6947589)" />
     <g
        style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
        id="g175"
@@ -3350,16 +3308,6 @@
          style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#85b7eb;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
          id="text173">Cosmos DB · :3070</text>
     </g>
-    <line
-       x1="460"
-       y1="264"
-       x2="460"
-       y2="428"
-       marker-end="url(#arrow)"
-       mask="url(#imagine-text-gaps-1gfwhv)"
-       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter"
-       id="line177"
-       transform="matrix(0.23297409,0,0,0.23297409,25.943978,2.6947589)" />
     <g
        style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
        id="g185"
@@ -3388,25 +3336,6 @@
          style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#ef9f27;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
          id="text183">Direct Methods · MQTT</text>
     </g>
-    <line
-       x1="430"
-       y1="472"
-       x2="370"
-       y2="520"
-       marker-end="url(#arrow)"
-       mask="url(#imagine-text-gaps-1gfwhv)"
-       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter"
-       id="line187"
-       transform="matrix(0.23297409,0,0,0.23297409,25.943978,2.6947589)" />
-    <path
-       d="m 105.15504,123.84145 q 0,-5.59133 13.97868,-9.31932"
-       fill="none"
-       stroke="var(--s)"
-       stroke-width="1"
-       stroke-dasharray="4 3"
-       marker-end="url(#arrow)"
-       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#c2c0b6;stroke-width:0.232953px;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:0.93192px, 0.698898px"
-       id="path189" />
     <g
        style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
        id="g197"
@@ -3445,16 +3374,6 @@
            x="265.09778"
            y="40.591434">`</tspan></text>
     </g>
-    <line
-       x1="250"
-       y1="576"
-       x2="110"
-       y2="520"
-       marker-end="url(#arrow)"
-       mask="url(#imagine-text-gaps-1gfwhv)"
-       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter"
-       id="line199"
-       transform="matrix(0.1780412,0,0,0.1780412,31.949471,31.149182)" />
     <g
        style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
        id="g207"
@@ -3483,16 +3402,10 @@
          style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#b4b2a9;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
          id="text205">sterowanie drukarką</text>
     </g>
-    <line
-       x1="80"
-       y1="520"
-       x2="60"
-       y2="574"
-       marker-end="url(#arrow)"
-       mask="url(#imagine-text-gaps-1gfwhv)"
-       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter"
-       id="line209"
-       transform="matrix(0.23297409,0,0,0.23297409,25.943978,2.6947589)" />
+    <path
+       style="fill:#aaaaaa;fill-opacity:0.0117647;stroke:#c2c0b6;stroke-width:0.53343;stroke-dasharray:0.53343, 0.53343;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker3921)"
+       d="m 189.7725,64.457311 c 0,0 18.18684,72.942819 -74.82508,67.937649"
+       id="path101962" />
     <g
        style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
        id="g215"
@@ -3514,38 +3427,92 @@
          style="color:#ffffff;font-weight:500;font-size:14px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:central;text-anchor:middle;opacity:1;fill:#d3d1c7;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
          id="text213">Drukarka 3D</text>
     </g>
+    <circle
+       id="path16657"
+       style="fill:#000000;stroke:#ffffff;stroke-width:0.264583"
+       cx="-18.035564"
+       cy="23.44264"
+       r="0.025522653" />
     <path
-       d="M 490,264 Q 540,420 380,540"
-       fill="none"
-       stroke="var(--s)"
-       stroke-width="1"
-       stroke-dasharray="4 3"
-       marker-end="url(#arrow)"
-       mask="url(#imagine-text-gaps-1gfwhv)"
-       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#c2c0b6;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:4px, 3px"
-       id="path217"
-       transform="matrix(0.23297409,0,0,0.23297409,25.943978,2.6947589)" />
+       style="fill:#aaaaaa;fill-opacity:0.0117647;stroke:#9c9a92;stroke-width:0.535;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker3921)"
+       d="m 25.491668,50.224134 51.540806,-19.14212 v 0"
+       id="path24408" />
+    <path
+       style="fill:#aaaaaa;fill-opacity:0.0117647;stroke:#9c9a92;stroke-width:0.535;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker3921-3)"
+       d="m 184.83094,50.223884 -51.5409,-19.14212 v 0"
+       id="path24408-6" />
+    <path
+       style="fill:#aaaaaa;fill-opacity:0.0117647;stroke:#9c9a92;stroke-width:0.765;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 74.468592,32.859956 Z"
+       id="path29051" />
+    <path
+       style="fill:#aaaaaa;fill-opacity:0.0117647;stroke:#9c9a92;stroke-width:0.535;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker3921)"
+       d="m 64.199257,50.600965 26.649653,-14.09882 -0.121728,0.04093"
+       id="path35327" />
+    <path
+       style="fill:#aaaaaa;fill-opacity:0.0117647;stroke:#9c9a92;stroke-width:0.535;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker3921-6)"
+       d="m 145.76737,50.601371 -26.6498,-14.09882 0.12173,0.04093"
+       id="path35327-5" />
+    <path
+       style="fill:#aaaaaa;fill-opacity:0.0117647;stroke:#9c9a92;stroke-width:0.535;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker3987)"
+       d="m 105.22286,25.509538 v -8.156791 l -0.0213,0.08421"
+       id="path46405" />
+    <path
+       style="fill:#aaaaaa;fill-opacity:0.0117647;stroke:#9c9a92;stroke-width:0.530879;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker3987)"
+       d="M 105.2258,50.953734 V 36.231213"
+       id="path48305" />
+    <path
+       style="fill:#aaaaaa;fill-opacity:0.0117647;stroke:#9c9a92;stroke-width:0.535;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker3921)"
+       d="M 86.2656,80.93855 99.919379,64.585359"
+       id="path57058" />
+    <path
+       style="fill:#aaaaaa;fill-opacity:0.0117647;stroke:#9c9a92;stroke-width:0.535;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker3921)"
+       d="M 130.70906,80.962345 111.06446,64.692074"
+       id="path61016" />
+    <path
+       style="fill:#aaaaaa;fill-opacity:0.0117647;stroke:#9c9a92;stroke-width:0.535001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker3921)"
+       d="m 72.329582,130.65493 -8.084986,-6.54166"
+       id="path69320" />
+    <path
+       style="fill:#aaaaaa;fill-opacity:0.0117647;stroke:#9c9a92;stroke-width:0.535001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker3987)"
+       d="m 51.768329,124.09818 -6.465186,12.02348"
+       id="path73286" />
+    <path
+       style="fill:#aaaaaa;fill-opacity:0.0117647;stroke:#9c9a92;stroke-width:0.535001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker3987)"
+       d="M 107.70778,104.72955 130.23914,92.107048"
+       id="path79856" />
+    <path
+       style="fill:#aaaaaa;fill-opacity:0.0117647;stroke:#9c9a92;stroke-width:0.535001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 141.46384,64.385303 V 82.278656"
+       id="path84912" />
+    <path
+       style="fill:#aaaaaa;fill-opacity:0.0117647;stroke:#9c9a92;stroke-width:0.535;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker3921)"
+       d="M 141.50613,90.820398 V 101.82697"
+       id="path84912-7" />
+    <path
+       style="fill:#aaaaaa;fill-opacity:0.0117647;stroke:#9c9a92;stroke-width:0.535001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker3987)"
+       d="m 96.811294,122.70411 35.224966,-9.5305"
+       id="path98796" />
+    <path
+       style="fill:#aaaaaa;fill-opacity:0.0117647;stroke:#c2c0b6;stroke-width:0.535001;stroke-dasharray:0.535001, 0.535001;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker3921)"
+       d="m 157.47204,64.312603 c 0,0 35.16304,66.224827 -42.59227,63.156697"
+       id="path107439" />
+    <path
+       style="fill:#aaaaaa;fill-opacity:0.0117647;stroke:#c2c0b6;stroke-width:0.535001;stroke-dasharray:0.535001, 0.535001;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker3921)"
+       d="m 92.29886,123.46121 c 0,0 7.616595,-10.03161 19.51173,-14.97067"
+       id="path112119" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.358777;stroke-dasharray:0.358777, 0.358777;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect118350"
+       width="5.0178628"
+       height="5.0459313"
+       x="187.75032"
+       y="90.271378" />
     <text
-       x="156.40923"
-       y="95.884483"
+       x="192.09825"
+       y="93.45388"
        text-anchor="middle"
        style="color:#ffffff;font-weight:400;font-size:2.79559px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;fill:#c2c0b6;stroke:none;stroke-width:0.232953px;stroke-linecap:butt;stroke-linejoin:miter"
        id="text219">URL kamery</text>
-    <text
-       x="37.437935"
-       y="104.77696"
-       text-anchor="middle"
-       style="color:#ffffff;font-weight:400;font-size:2.79559px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;fill:#c2c0b6;stroke:none;stroke-width:0.232953px;stroke-linecap:butt;stroke-linejoin:miter"
-       id="text221">Cosmos DB</text>
-    <line
-       x1="100"
-       y1="455"
-       x2="218"
-       y2="460"
-       marker-end="url(#arrow)"
-       mask="url(#imagine-text-gaps-1gfwhv)"
-       style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter"
-       id="line223"
-       transform="matrix(0.23297409,0,0,0.23297409,14.140654,-0.06129584)" />
   </g>
 </svg>
