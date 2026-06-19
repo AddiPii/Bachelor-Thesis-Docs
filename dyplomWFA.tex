@@ -834,7 +834,7 @@ W celu zapewnienia poufności danych oraz kontroli dostępu, w~systemie zaimplem
 	\item \textbf{Refresh token} --- token odświeżający o~wydłużonym czasie ważności (wynoszącym 7 dni), utrwalany w~bazie danych \textit{Azure Cosmos DB} oraz przechowywany po stronie aplikacji klienckiej. Podpisywany jest przy użyciu dedykowanego klucza \texttt{\linebreak JWT\_REFRESH\_SECRET}. Służy do generowania nowej pary tokenów bez konieczności ponownego wprowadzania danych uwierzytelniających przez użytkownika.
 \end{itemize}
 
-Hasła użytkowników nie są przechowywane w~bazie danych w~postaci jawnej. Do ich zabezpieczenia wykorzystano algorytm funkcjonału skrótu \textit{bcrypt}~\cite{bcrypt} z~parametrem kosztu (ang.~\textit{salt rounds}) ustawionym na wartość 10.
+\noindent Hasła użytkowników nie są przechowywane w~bazie danych w~postaci jawnej. Do ich zabezpieczenia wykorzystano algorytm funkcjonału skrótu \textit{bcrypt}~\cite{bcrypt} z~parametrem kosztu (ang.~\textit{salt rounds}) ustawionym na wartość 10.
 
 Proces rejestracji nowych kont został ze względów bezpieczeństwa ograniczony wyłącznie do adresów poczty elektronicznej w~domenie akademickiej \texttt{@uwr.edu.pl}. Pełna aktywacja profilu wymaga weryfikacji dwuetapowej poprzez kliknięcie w~unikalny link aktywacyjny przesłany na adres e-mail użytkownika.
 
