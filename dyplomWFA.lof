@@ -1,0 +1,19 @@
+\babel@toc {polish}{}\relax 
+\contentsline {figure}{\numberline {1}{\ignorespaces Zbiorcze zestawienie wybranej architektury technologicznej, odrzuconych alternatyw oraz kluczowych powodów decyzyjnych.}}{19}{figure.caption.1}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Diagram architektury systemu.}}{22}{figure.caption.4}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Diagram bazy danych \texttt {addipi-cosmos} w~notacji Crow's Foot (kurzej łapki).}}{24}{figure.caption.5}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Diagram maszyny stanów cyklu życia zadania do wydruku.}}{27}{figure.caption.6}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Przepływ przesyłania pliku G-code --- od zapytania HTTP do integracji z~kolejką.}}{37}{figure.caption.7}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Widok strony głównej portalu \textit {AddiPi}.}}{50}{figure.caption.10}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Widok panelu użytkownika portalu \textit {AddiPi}.}}{51}{figure.caption.11}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Widok panelu przesyłania i~planowania zadań w~portalu \textit {AddiPi}.}}{52}{figure.caption.12}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Widok panelu kontroli procesu drukowania w~portalu \textit {AddiPi}.}}{53}{figure.caption.13}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Widok panelu administracyjnego portalu \textit {AddiPi}.}}{54}{figure.caption.14}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Diagram sekwencji obsługi metody bezpośredniej \texttt {startPrint} przez \textit {Azure IoT Hub}.}}{58}{figure.caption.16}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Interfejs systemu \textit {OctoPrint} z~widokiem aktywnego procesu druku.}}{60}{figure.caption.17}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Gotowa konstrukcja mechaniczna zainstalowana przy urządzeniu wytwórczym.}}{64}{figure.caption.19}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Trójwymiarowy widok złożenia modułów CASE oraz STAND w~środowisku \textit {SolidWorks}~\cite {solidworks}.}}{65}{figure.caption.20}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Struktura hierarchiczna złożeń, komponentów oraz formatów produkcyjnych modułów \textit {SolidWorks}~\cite {solidworks}.}}{65}{figure.caption.21}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Diagram potoku rozruchowego mikrokomputera po restarcie systemu.}}{69}{figure.caption.23}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Diagram architektury kontenerów Docker Compose i~ich relacji zależności.}}{81}{figure.caption.26}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Widok zarejestrowanego i~połączonego mikrokomputera w~panelu usługi Azure IoT Hub.}}{83}{figure.caption.28}%

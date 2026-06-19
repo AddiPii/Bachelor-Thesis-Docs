@@ -3,44 +3,44 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: dyplomWFA.aux
 The style file: unsrt.bst
 Database file #1: bibliografia.bib
-You've used 38 entries,
+You've used 39 entries,
             1791 wiz_defined-function locations,
-            600 strings with 7735 characters,
-and the built_in function-call counts, 5314 in all, are:
-= -- 463
-> -- 177
+            604 strings with 8639 characters,
+and the built_in function-call counts, 5448 in all, are:
+= -- 475
+> -- 181
 < -- 0
-+ -- 83
-- -- 45
++ -- 85
+- -- 46
 * -- 42
-:= -- 849
-add.period$ -- 145
-call.type$ -- 38
-change.case$ -- 36
+:= -- 870
+add.period$ -- 149
+call.type$ -- 39
+change.case$ -- 37
 chr.to.int$ -- 0
-cite$ -- 38
-duplicate$ -- 223
-empty$ -- 691
-format.name$ -- 45
-if$ -- 1259
+cite$ -- 39
+duplicate$ -- 228
+empty$ -- 709
+format.name$ -- 46
+if$ -- 1291
 int.to.chr$ -- 0
-int.to.str$ -- 38
+int.to.str$ -- 39
 missing$ -- 11
-newline$ -- 224
-num.names$ -- 38
-pop$ -- 259
+newline$ -- 230
+num.names$ -- 39
+pop$ -- 266
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 77
+skip$ -- 79
 stack$ -- 0
 substring$ -- 0
-swap$ -- 38
+swap$ -- 39
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 38
-width$ -- 40
-write$ -- 416
+while$ -- 39
+width$ -- 41
+write$ -- 427

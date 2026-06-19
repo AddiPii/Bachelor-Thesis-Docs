@@ -311,19 +311,19 @@
 	{ą}{{\k{a}}}1 {ć}{{\'c}}1 {ę}{{\k{e}}}1 {ł}{{\l{}}}1 {ń}{{\'n}}1 {ó}{{\'o}}1 {ś}{{\'s}}1 {ź}{{\'z}}1 {ż}{{\'z}}1
 	{Ą}{{\k{A}}}1 {Ć}{{\'C}}1 {Ę}{{\k{E}}}1 {Ł}{{\L{}}}1 {Ń}{{\'N}}1 {Ó}{{\'O}}1 {Ś}{{\'S}}1 {Ź}{{\'Z}}1 {Ż}{{\'Z}}1
 }
- 
+
 \lstset{style=mystyle}
 \lstset{literate=%
-    *{0}{{{\color{gray}0}}}1
-    {1}{{{\color{gray}1}}}1
-    {2}{{{\color{gray}2}}}1
-    {3}{{{\color{gray}3}}}1
-    {4}{{{\color{gray}4}}}1
-    {5}{{{\color{gray}5}}}1
-    {6}{{{\color{gray}6}}}1
-    {7}{{{\color{gray}7}}}1
-    {8}{{{\color{gray}8}}}1
-    {9}{{{\color{gray}9}}}1
+	*{0}{{{\color{gray}0}}}1
+	{1}{{{\color{gray}1}}}1
+	{2}{{{\color{gray}2}}}1
+	{3}{{{\color{gray}3}}}1
+	{4}{{{\color{gray}4}}}1
+	{5}{{{\color{gray}5}}}1
+	{6}{{{\color{gray}6}}}1
+	{7}{{{\color{gray}7}}}1
+	{8}{{{\color{gray}8}}}1
+	{9}{{{\color{gray}9}}}1
 }
 \usepackage[all]{nowidow}
 
@@ -345,32 +345,32 @@
 
 
 \begin{center}
-
-\thispagestyle{empty}
-
-%UNIWERSYTET WROCŁAWSKI\\
-\Large 
-Uniwersytet Wrocławski\\
-Wydział Fizyki i~Astronomii\\
-\vspace{0.8cm}
-\vspace{1.8cm}
-
-\Large Oliwer Urbaniak \\
-\vspace{3.2cm}
-\Large System zarządzania pracą drukarki 3D\\
-w~laboratorium studenckim \\
-
+	
+	\thispagestyle{empty}
+	
+	%UNIWERSYTET WROCŁAWSKI\\
+	\Large 
+	Uniwersytet Wrocławski\\
+	Wydział Fizyki i~Astronomii\\
+	\vspace{0.8cm}
+	\vspace{1.8cm}
+	
+	\Large Oliwer Urbaniak \\
+	\vspace{3.2cm}
+	\Large System zarządzania pracą drukarki 3D\\
+	w~laboratorium studenckim \\
+	
 \end{center}
 \vspace{5.5cm}
 \begin{flushright}
-\large{ Praca inżynierska na kierunku \\Informatyka Stosowana i~Systemy Pomiarowe \\}
-\vspace{0.5cm}
-\large{ Opiekun \\ dr Bartosz Brzostowski}
+	\large{ Praca inżynierska na kierunku \\Informatyka Stosowana i~Systemy Pomiarowe \\}
+	\vspace{0.5cm}
+	\large{ Opiekun \\ dr Bartosz Brzostowski}
 \end{flushright}
 \vspace{2.2cm}
 
 \begin{center}
-\large Wrocław, \today
+	\large Wrocław, \today
 \end{center}
 
 \newpage
@@ -426,15 +426,15 @@ Personelowi administracyjnemu laboratorium system zapewnia dedykowane narzędzia
 
 \subsection{Zakres pracy}
 \begin{samepage}
-Zakres rzeczowy zrealizowanego projektu inżynierskiego obejmuje:
-\begin{enumerate}
-	\item przeprowadzenie analizy wymagań funkcjonalnych i~niefunkcjonalnych oraz wybór technologii,
-	\item opracowanie projektu rozproszonej architektury mikroserwisowej,
-	\item implementację komponentów serwerowych (backendowych) oraz aplikacji klienckiej (frontendowej),
-	\item konfigurację i~integrację dedykowanej infrastruktury chmurowej \textit{Microsoft Azure} w~modelu platforma jako usługa (ang.~\textit{Platform as a Service}, w skrócie PaaS),
-	\item konteneryzację oraz automatyzację procesu wdrożenia systemu przy użyciu narzędzi \textit{Docker} oraz \textit{Docker Compose},
-	\item przeprowadzenie testów weryfikacyjnych i~walidacji poprawności działania całego ekosystemu.
-\end{enumerate}
+	Zakres rzeczowy zrealizowanego projektu inżynierskiego obejmuje:
+	\begin{enumerate}
+		\item przeprowadzenie analizy wymagań funkcjonalnych i~niefunkcjonalnych oraz wybór technologii,
+		\item opracowanie projektu rozproszonej architektury mikroserwisowej,
+		\item implementację komponentów serwerowych (backendowych) oraz aplikacji klienckiej (frontendowej),
+		\item konfigurację i~integrację dedykowanej infrastruktury chmurowej \textit{Microsoft Azure} w~modelu platforma jako usługa (ang.~\textit{Platform as a Service}, w skrócie PaaS),
+		\item konteneryzację oraz automatyzację procesu wdrożenia systemu przy użyciu narzędzi \textit{Docker} oraz \textit{Docker Compose},
+		\item przeprowadzenie testów weryfikacyjnych i~walidacji poprawności działania całego ekosystemu.
+	\end{enumerate}
 \end{samepage}
 \subsection{Struktura pracy}
 
@@ -462,7 +462,7 @@ Na podstawie szczegółowej analizy specyfiki oraz potrzeb akademickiego laborat
 \noindent\textbf{W obszarze kont użytkowników (rola standardowa):}
 \begin{itemize}
 	\item rejestracja konta powiązana z~dwuetapową weryfikacją adresu e-mail, ograniczoną wyłącznie do domeny akademickiej \texttt{@uwr.edu.pl},
-\item bezpieczne uwierzytelnianie i~autoryzacja z~wykorzystaniem mechanizmu podwójnych tokenów \textit{JSON Web Token} (JWT)~\cite{jwt},
+	\item bezpieczne uwierzytelnianie i~autoryzacja z~wykorzystaniem mechanizmu podwójnych tokenów \textit{JSON Web Token} (JWT)~\cite{jwt},
 	\item asynchroniczne przesyłanie plików z~kodem sterującym (G-code) o~maksymalnym rozmiarze pojedynczego wolumenu do 50~MB i~rozszerzeniu \texttt{gcode},
 	\item elastyczne harmonogramowanie procesów wytwórczych na wybrany termin lub lokowanie ich w~ogólnej kolejce systemu,
 	\item przeglądanie historii własnych zleceń produkcyjnych z~opcją dynamicznego filtrowania według stanów maszyny,
@@ -578,7 +578,7 @@ Projekt graficzny oraz warstwa stylów zostały zrealizowane przy użyciu framew
 
 W celu zapewnienia powtarzalności środowiska uruchomieniowego, każdy z~mikroserwisów wchodzących w~skład ekosystemu posiada dedykowany plik konfiguracyjny \texttt{Dockerfile}. Proces budowania obrazów realizuje mechanizm wieloetapowy (ang.~\textit{multi-stage build}). Podejście to pozwala na drastyczne ograniczenie rozmiaru finalnych obrazów kontenerów oraz całkowite odizolowanie środowiska kompilacji i~zależności deweloperskich od produkcyjnego środowiska uruchomieniowego.
 
-Narzędzie \textit{Docker Compose}~\cite{docker} wykorzystano do zautomatyzowanej orkiestracji i~zarządzania cyklem życia wszystkich kontenerów zarówno w~środowisku lokalnym, jak i~produkcyjnym. Narzędzie to definiuje odizolowaną, wspólną sieć wirtualną \texttt{addipi-\allowbreak{}network} oraz odpowiada za bezpieczne wstrzykiwanie zmiennych środowiskowych odczytywanych z~pliku \texttt{env}.
+Narzędzie \textit{Docker Compose}~\cite{docker} wykorzystano do zautomatyzowanej orkiestracji i~zarządzania cyklem życia wszystkich kontenerów zarówno w~środowisku lokalnym, jak i~produkcyjnym. Narzędzie to definiuje odizolowaną, wspólną sieć wirtualną \texttt{addipi-\allowbreak{}network} oraz odpowiada za bezpieczne wstrzykiwanie zmiennych środowiskowych odczytywanych z~pliku \texttt{.env}.
 
 \subsection{Automatyzacja infrastruktury chmurowej --- Terraform}
 
@@ -874,7 +874,7 @@ W tabeli~\ref{tab:auth_endpoints} zestawiono i~opisano punkty końcowe (ang.~\te
 	\endfirsthead
 	
 	\multicolumn{3}{c}%
-	{{\bfseries \tablename\ \thetable{} -- Kontynuacja z~poprzedniej strony}} \\
+	{{\tablename\ \thetable{} -- Kontynuacja z~poprzedniej strony}} \\
 	\toprule
 	\textbf{Metoda} & \textbf{Ścieżka} & \textbf{Opis} \\
 	\midrule
@@ -900,7 +900,7 @@ W tabeli~\ref{tab:auth_endpoints} zestawiono i~opisano punkty końcowe (ang.~\te
 	\addlinespace
 	POST & \texttt{/auth/resend-verification} & Ponowne wygenerowanie i~wysłanie wiadomości weryfikacyjnej na adres e-mail. \\
 	\addlinespace
-	GET & \texttt{/health} & Punkt końcowy diagnostyki stanu działania usługi (ang.~\textit{health check}). \\
+	GET & \texttt{/health} & Punkt końcowy diagnostyki stanu działania usługi (ang.~\textit{health check}).
 \end{xltabular}
 
 
@@ -909,55 +909,55 @@ W tabeli~\ref{tab:auth_endpoints} zestawiono i~opisano punkty końcowe (ang.~\te
 Na listingu~\ref{lst:jwt_generation} przedstawiono implementację funkcji odpowiedzialnych za generowanie tokenu dostępu oraz tokenu odświeżającego przy użyciu biblioteki \texttt{jsonwebtoken}~\cite{jwt}.
 
 \begin{lstlisting}[language=TypeScript,caption={Implementacja generowania tokenów JWT (\texttt{token-service.ts})},style=tsStyle,label={lst:jwt_generation}]
-export function generateAccessToken(user: User): string {
-	const payload: JWTPayload = {
-		userId: user.id,
-		email: user.email,
-		role: user.role
-	};
-	return jwt.sign(payload, CONFIG.JWT_SECRET, { expiresIn: '15m' });
-}
-
-export function generateRefreshToken(user: User): string {
-	return jwt.sign(
-	{ userId: user.id },
-	CONFIG.JWT_REFRESH_SECRET,
-	{ expiresIn: '7d' }
-	);
-}
+	export function generateAccessToken(user: User): string {
+		const payload: JWTPayload = {
+			userId: user.id,
+			email: user.email,
+			role: user.role
+		};
+		return jwt.sign(payload, CONFIG.JWT_SECRET, { expiresIn: '15m' });
+	}
+	
+	export function generateRefreshToken(user: User): string {
+		return jwt.sign(
+		{ userId: user.id },
+		CONFIG.JWT_REFRESH_SECRET,
+		{ expiresIn: '7d' }
+		);
+	}
 \end{lstlisting}
 
-Proces walidacji tokenu odświeżającego (ang.~\textit{refresh token}) jest dwuetapowy. Obejmuje zarówno kryptograficzną weryfikację poprawności podpisu cyfrowego struktury JWT, jak i~asynchroniczne sprawdzenie obecności oraz ważności powiązanego rekordu w~bazie danych \textit{Azure Cosmos DB}. Takie podejście architektoniczne umożliwia natychmiastowe, zdalne unieważnianie sesji (ang.~\textit{token revocation}) w~momencie wylogowania się użytkownika z~systemu. Kod realizujący tę procedurę zaprezentowano na listingu~\ref{lst:jwt_validation}.
+\noindent Proces walidacji tokenu odświeżającego (ang.~\textit{refresh token}) jest dwuetapowy. Obejmuje zarówno kryptograficzną weryfikację poprawności podpisu cyfrowego struktury JWT, jak i~asynchroniczne sprawdzenie obecności oraz ważności powiązanego rekordu w~bazie danych \textit{Azure Cosmos DB}. Takie podejście architektoniczne umożliwia natychmiastowe, zdalne unieważnianie sesji (ang.~\textit{token revocation}) w~momencie wylogowania się użytkownika z~systemu. Kod realizujący tę procedurę zaprezentowano na listingu~\ref{lst:jwt_validation}.
 
 \begin{lstlisting}[language=TypeScript,caption={Implementacja walidacji refresh tokenu (\texttt{token-service.ts})},style=tsStyle,label={lst:jwt_validation}]
-export async function validateRefreshToken(
-token: string
-): Promise<string | null> {
-	try {
-		const decoded = jwt.verify(
-		token,
-		CONFIG.JWT_REFRESH_SECRET
-		) as { userId: string };
-		
-		const query = `SELECT * FROM c
-		WHERE c.token = @token
-		AND c.userId = @userId
-		AND c.expiresAt > @now`;
-		
-		const { resources } = await refreshTokensContainer.items.query({
-			query,
-			parameters: [
-			{ name: '@token', value: token },
-			{ name: '@userId', value: decoded.userId },
-			{ name: '@now', value: new Date().toISOString() }
-			]
-		}).fetchAll();
-		
-		return resources.length > 0 ? decoded.userId : null;
-	} catch {
-		return null;
+	export async function validateRefreshToken(
+	token: string
+	): Promise<string | null> {
+		try {
+			const decoded = jwt.verify(
+			token,
+			CONFIG.JWT_REFRESH_SECRET
+			) as { userId: string };
+			
+			const query = `SELECT * FROM c
+			WHERE c.token = @token
+			AND c.userId = @userId
+			AND c.expiresAt > @now`;
+			
+			const { resources } = await refreshTokensContainer.items.query({
+				query,
+				parameters: [
+				{ name: '@token', value: token },
+				{ name: '@userId', value: decoded.userId },
+				{ name: '@now', value: new Date().toISOString() }
+				]
+			}).fetchAll();
+			
+			return resources.length > 0 ? decoded.userId : null;
+		} catch {
+			return null;
+		}
 	}
-}
 \end{lstlisting}
 
 \subsubsection{Weryfikacja adresu poczty elektronicznej}
@@ -969,7 +969,7 @@ Wygenerowany identyfikator jest zapisywany w~bazie danych wraz z~datą ważnośc
 	\texttt{GET /auth/verify-email?token=<hex>}
 \end{center}
 
-Po odebraniu żądania przez usługę \textit{Auth Service}, system przeprowadza weryfikację poprawności oraz ważności tokenu. W~przypadku pozytywnego rezultatu walidacji, atrybut \texttt{isVerified} w~dokumencie użytkownika przyjmuje wartość \texttt{true}, a~konto zostaje w~pełni aktywowane. Na zakończenie procesu serwer wykonuje przekierowanie (ang.~\textit{HTTP redirect}) przeglądarki użytkownika do adresu bazowego aplikacji klienckiej.
+\noindent Po odebraniu żądania przez usługę \textit{Auth Service}, system przeprowadza weryfikację poprawności oraz ważności tokenu. W~przypadku pozytywnego rezultatu walidacji, atrybut \texttt{isVerified} w~dokumencie użytkownika przyjmuje wartość \texttt{true}, a~konto zostaje w~pełni aktywowane. Na zakończenie procesu serwer wykonuje przekierowanie (ang.~\textit{HTTP redirect}) przeglądarki użytkownika do adresu bazowego aplikacji klienckiej.
 
 \subsection{Zarządzanie profilami użytkowników (User Service)}
 
@@ -991,7 +991,7 @@ W tabeli~\ref{tab:user_endpoints} wyszczególniono i~opisano punkty końcowe (an
 	\endfirsthead
 	
 	% Nagłówek powtarzany na kolejnej stronie
-	\multicolumn{3}{c}{{\bfseries \tablename\ \thetable{} -- ciąg dalszy z~poprzedniej strony}} \\
+	\multicolumn{3}{c}{{\tablename\ \thetable{} -- ciąg dalszy z~poprzedniej strony}} \\
 	\toprule
 	\textbf{Metoda} & \textbf{Ścieżka} & \textbf{Opis} \\
 	\midrule
@@ -1032,47 +1032,47 @@ Na listingu~\ref{lst:middleware_auth_real} zaprezentowano produkcyjną implement
 
 Procedura autoryzacji polega na bezpiecznej ekstrakcji tokenu dostępu z~nagłówka \texttt{Authorization}, a~następnie wykonaniu asynchronicznego żądania sieciowego metodą \texttt{POST} do punktu końcowego usługi \textit{Auth Service}. Po odebraniu odpowiedzi struktura danych jest rzutowana na dedykowany typ \texttt{Data}. W~przypadku poprawnej walidacji następuje asercja typu obiektu żądania, wstrzyknięcie profilu użytkownika do pola \texttt{user} oraz wywołanie funkcji \texttt{next()}, która przekazuje sterowanie do kolejnego elementu w~potoku przetwarzania~\cite{martin2022} (ang.~\textit{middleware chain}).
 
-\begin{lstlisting}[language=TypeScript,caption={Implementacja oprogramowania pośredniczącego \texttt{requireAuth} \protect\linebreak(\texttt{requireAuth.ts})},style=tsStyle,label={lst:middleware_auth_real}]
-import { CONFIG } from "../config/config";
-import type { Request, Response, NextFunction } from "express";
-import { Data, AuthUser } from "./mwTypes";
-
-const requireAuth = async (
-req: Request<{}, unknown, {}, {}>,
-res: Response<{error: string}>,
-next: NextFunction
-): Promise<void | {error: string}> => {
-	try {
-		const token: string | undefined = req.headers.authorization?.replace('Bearer ', '');
-		
-		if (!token) {
-			res.status(401).json({ error: 'Missing authentication token' });
-			return;
-		}
-		
-		const response: globalThis.Response = await fetch(`${CONFIG.AUTH_SERVICE_URL}/auth/verify`, {
-			method: 'POST',
-			headers: {
-				'Authorization': `Bearer ${token}`,
-				'Content-Type': 'application/json'
+\begin{lstlisting}[language=TypeScript,caption={[Implementacja oprogramowania pośredniczącego \texttt{requireAuth}]Implementacja oprogramowania pośredniczącego \texttt{requireAuth} \protect\vspace{-6pt}\newline\phantom{Listing 6: }(\texttt{requireAuth.ts})},style=tsStyle,label={lst:middleware_auth_real}]
+	import { CONFIG } from "../config/config";
+	import type { Request, Response, NextFunction } from "express";
+	import { Data, AuthUser } from "./mwTypes";
+	
+	const requireAuth = async (
+	req: Request<{}, unknown, {}, {}>,
+	res: Response<{error: string}>,
+	next: NextFunction
+	): Promise<void | {error: string}> => {
+		try {
+			const token: string | undefined = req.headers.authorization?.replace('Bearer ', '');
+			
+			if (!token) {
+				res.status(401).json({ error: 'Missing authentication token' });
+				return;
 			}
-		});
-		
-		const data: Data = await response.json() as Data;
-		
-		if (!response.ok) {
-			throw new Error('Authentication failed');
+			
+			const response: globalThis.Response = await fetch(`${CONFIG.AUTH_SERVICE_URL}/auth/verify`, {
+				method: 'POST',
+				headers: {
+					'Authorization': `Bearer ${token}`,
+					'Content-Type': 'application/json'
+				}
+			});
+			
+			const data: Data = await response.json() as Data;
+			
+			if (!response.ok) {
+				throw new Error('Authentication failed');
+			}
+			
+			(req as any).user = data.user;
+			
+			next();
+		} catch (err) {
+			res.status(401).json({ error: 'Invalid authentication token' });
 		}
-		
-		(req as any).user = data.user;
-		
-		next();
-	} catch (err) {
-		res.status(401).json({ error: 'Invalid authentication token' });
-	}
-};
-
-export default requireAuth;
+	};
+	
+	export default requireAuth;
 \end{lstlisting}
 
 \subsection{Obsługa plików (Files Service)}
@@ -1105,7 +1105,7 @@ Na rysunku~\ref{fig:upload_flow} zobrazowano schematyczny przepływ danych podcz
 
 Na listingu~\ref{lst:flask_upload} zaprezentowano implementację końcowego etapu obsługi żądania w~ramach kontrolera usługi \textit{Files Service}. Po pomyślnej walidacji i~zapisie pliku w~repozytorium obiektowym, struktura danych reprezentująca zdarzenie jest serializowana do formatu JSON i~przekazywana do metody nadawczej klienta \textit{Azure Service Bus}. Całość operacji została otoczona blokiem obsługi wyjątków (\texttt{try-except}), co gwarantuje stabilność działania mikroserwisu i~zwrócenie ustrukturyzowanej odpowiedzi o~błędzie w~formacie JSON wraz ze statusem HTTP 500 w~przypadku awarii infrastruktury chmurowej.
 
-\begin{lstlisting}[language=Python,caption={Implementacja publikacji komunikatu w~Azure Service Bus (\texttt{files\_controller.py})},style=pyStyle,label={lst:flask_upload}]
+\begin{lstlisting}[language=Python,caption={[Implementacja publikacji komunikatu w~Azure Service Bus]Implementacja publikacji komunikatu w~Azure Service Bus \protect\vspace{-6pt}\newline\phantom{Listing 7: }(\texttt{files\_controller.py})},style=pyStyle,label={lst:flask_upload}]
 	message = {
 		'event': 'file_uploaded',
 		'fileId': filename,
@@ -1118,13 +1118,13 @@ Na listingu~\ref{lst:flask_upload} zaprezentowano implementację końcowego etap
 	
 	sb_client = current_app.config.get('SERVICE_BUS_CLIENT')
 	if sb_client:
-		with sb_client:
-			sender = sb_client.get_queue_sender(queue_name='print-queue')
-			sender.send_messages([{'body': json.dumps(message)}])
+	with sb_client:
+	sender = sb_client.get_queue_sender(queue_name='print-queue')
+	sender.send_messages([{'body': json.dumps(message)}])
 	
 	return jsonify({'status': 'success', 'fileId': filename}), 200
 	
-except Exception as e:
+	except Exception as e:
 	return jsonify({'error': str(e)}), 500
 \end{lstlisting}
 
@@ -1142,61 +1142,61 @@ Dodatkowo serwis udostępnia dedykowany interfejs programistyczny HTTP API, któ
 
 Na listingu~\ref{lst:queue_listener} przedstawiono implementację procedury odpowiedzialnej za rejestrację i~obsługę potoku zdarzeń pochodzących z~kolejki chmurowej. Logika biznesowa realizuje bezpieczne parsowanie komunikatów w~formacie JSON oraz obsługuje scenariusz awaryjny (ang.~\textit{dead-lettering/abandonment})~\cite{richardson2020} poprzez wywołanie metody \texttt{abandonMessage()}, co pozwala na zachowanie spójności danych w~przypadku wystąpienia błędów infrastrukturalnych.
 
-\begin{lstlisting}[language=JavaScript,caption={Implementacja mechanizmu nasłuchiwania kolejki (\texttt{printQueueListener.js})},style=jsStyle,label={lst:queue_listener}]
-export function startPrintQueueListener(container, receiver) {
-	if (!container) throw new Error('container is required for printQueueListener');
-	if (!receiver) throw new Error('receiver is required for printQueueListener');
-	
-	const messageHandler = async (message) => {
-		try {
-			let data = message.body;
-			if (typeof data === 'string') {
+\begin{lstlisting}[language=JavaScript,caption={[Implementacja mechanizmu nasłuchiwania kolejki]Implementacja mechanizmu nasłuchiwania kolejki (\texttt{printQueueListener.js})},style=jsStyle,label={lst:queue_listener}]
+	export function startPrintQueueListener(container, receiver) {
+		if (!container) throw new Error('container is required for printQueueListener');
+		if (!receiver) throw new Error('receiver is required for printQueueListener');
+		
+		const messageHandler = async (message) => {
+			try {
+				let data = message.body;
+				if (typeof data === 'string') {
+					try { 
+						data = JSON.parse(data); 
+					} catch(e) { 
+						await receiver.abandonMessage(message); 
+						return; 
+					}
+				}
+				
+				if (!data || data.event !== 'file_uploaded') {
+					return;
+				}
+				
+				const job = {
+					id: Date.now().toString(),
+					fileId: data.fileId,
+					originalFileName: data.originalFileName || null,
+					userId: data.userId,
+					userEmail: data.userEmail,
+					status: data.scheduledAt ? 'scheduled' : 'pending',
+					scheduledAt: data.scheduledAt || null,
+					createdAt: getLocalISO(),
+				};
+				
+				try {
+					await container.items.upsert(job);
+				} catch(upErr) {
+					throw upErr;
+				}
+			} catch(err) {
 				try { 
-					data = JSON.parse(data); 
-				} catch(e) { 
 					await receiver.abandonMessage(message); 
-					return; 
+				} catch(e) { 
+					// Obsługa błędu komunikacji z repozytorium kolejki
 				}
 			}
-			
-			if (!data || data.event !== 'file_uploaded') {
-				return;
-			}
-			
-			const job = {
-				id: Date.now().toString(),
-				fileId: data.fileId,
-				originalFileName: data.originalFileName || null,
-				userId: data.userId,
-				userEmail: data.userEmail,
-				status: data.scheduledAt ? 'scheduled' : 'pending',
-				scheduledAt: data.scheduledAt || null,
-				createdAt: getLocalISO(),
-			};
-			
-			try {
-				await container.items.upsert(job);
-			} catch(upErr) {
-				throw upErr;
-			}
-		} catch(err) {
-			try { 
-				await receiver.abandonMessage(message); 
-			} catch(e) { 
-				// Obsługa błędu komunikacji z repozytorium kolejki
-			}
-		}
-	};
-	
-	const errorHandler = (error) => {
-		console.error('EVENT ERROR:', error);
-	};
-	
-	receiver.subscribe({ 
-		processMessage: messageHandler, 
-		processError: errorHandler 
-	});
-}
+		};
+		
+		const errorHandler = (error) => {
+			console.error('EVENT ERROR:', error);
+		};
+		
+		receiver.subscribe({ 
+			processMessage: messageHandler, 
+			processError: errorHandler 
+		});
+	}
 \end{lstlisting}
 
 \subsubsection{Punkty końcowe HTTP API}
@@ -1211,7 +1211,7 @@ W tabeli~\ref{tab:queue_endpoints} zestawiono punkty końcowe udostępniane prze
 	\endfirsthead
 	
 	% Nagłówek powtarzany na kolejnej stronie w przypadku podziału
-	\multicolumn{3}{c}{{\bfseries \tablename\ \thetable{} -- ciąg dalszy z poprzedniej strony}} \\
+	\multicolumn{3}{c}{{\tablename\ \thetable{} -- ciąg dalszy z poprzedniej strony}} \\
 	\toprule
 	\textbf{Metoda} & \textbf{Ścieżka} & \textbf{Opis} \\
 	\midrule
@@ -1264,28 +1264,28 @@ W ramach każdej minutowej iteracji usługa harmonogramująca wykonuje sekwencj�
 	\item \textbf{Wybór i~alokacja zasobu:} W~przypadku braku blokad, system wyszukuje zadanie o~statusie \texttt{pending} lub \texttt{scheduled} o~najwcześniejszej sygnaturze czasowej (\texttt{scheduledAt}), a~następnie dokonuje atomowej zmiany jego statusu na \texttt{waiting\_for\_printer\_ready}.
 \end{enumerate}
 
-Na listingu~\ref{lst:start_scheduled_jobs} zaprezentowano implementację logiki wyboru oraz rezerwacji zadania, z~uwzględnieniem dialektu zapytań SQL specyficznego dla bazy danych \textit{Azure Cosmos DB}.
+\noindent Na listingu~\ref{lst:start_scheduled_jobs} zaprezentowano implementację logiki wyboru oraz rezerwacji zadania, z~uwzględnieniem dialektu zapytań SQL specyficznego dla bazy danych \textit{Azure Cosmos DB}.
 
 
-\begin{lstlisting}[language=TypeScript,caption={Implementacja mechanizmu wyboru i~rezerwacji zadań z~kolejki (\texttt{startScheduledJobs.ts})},style=tsStyle,label={lst:start_scheduled_jobs}]
-const query = `
+\begin{lstlisting}[language=TypeScript,caption={[Implementacja mechanizmu wyboru i~rezerwacji zadań z~kolejki]Implementacja mechanizmu wyboru i~rezerwacji zadań z~kolejki \protect\vspace{-6pt}\newline\phantom{Listing 9: }(\texttt{startScheduledJobs.ts})},style=tsStyle,label={lst:start_scheduled_jobs}]
+	const query = `
 	SELECT TOP 1 * FROM c
 	WHERE (c.status = 'scheduled' OR c.status = 'pending')
 	AND (c.scheduledAt <= "${now}"
 	OR IS_NULL(c.scheduledAt)
 	OR NOT IS_DEFINED(c.scheduledAt))
 	ORDER BY c.scheduledAt ASC
-`;
-const { resources: jobs } = await container.items.query(query).fetchAll();
-
-for (const job of jobs) {
-	if(!job.id) continue;
+	`;
+	const { resources: jobs } = await container.items.query(query).fetchAll();
 	
-	job.status = 'waiting_for_printer_ready';
-	job.waitingStartedAt = nowDate;
-	
-	await container.item(job.id, job.id).replace(job);
-}
+	for (const job of jobs) {
+		if(!job.id) continue;
+		
+		job.status = 'waiting_for_printer_ready';
+		job.waitingStartedAt = nowDate;
+		
+		await container.item(job.id, job.id).replace(job);
+	}
 \end{lstlisting}
 
 \subsubsection{Monitor gotowości urządzenia}
@@ -1299,7 +1299,7 @@ Monitor gotowości odpowiada za stałe nadzorowanie zadań znajdujących się w~
 	\item \textbf{Po 48 godzinach} --- proces oczekiwania zostaje przerwany, a~zadanie otrzymuje status terminalny \texttt{cancelled}.
 \end{itemize}
 
-Dystrybucja komunikatów alarmowych i~powiadomień realizowana jest za pośrednictwem uniwersalnego mechanizmu sieciowego typu Webhook, którego adres docelowy jest definiowany w~konfiguracji systemu poprzez zmienną środowiskową \texttt{ALERT\_WEBHOOK\_URL}.
+\noindent Dystrybucja komunikatów alarmowych i~powiadomień realizowana jest za pośrednictwem uniwersalnego mechanizmu sieciowego typu Webhook, którego adres docelowy jest definiowany w~konfiguracji systemu poprzez zmienną środowiskową \texttt{ALERT\_WEBHOOK\_URL}.
 
 \subsubsection{Odbiornik telemetrii}
 
@@ -1338,7 +1338,7 @@ W tabeli~\ref{tab:printer_endpoints} zestawiono i~opisano punkty końcowe (ang.~
 	\endfirsthead
 	
 	% Nagłówek powtarzany na kolejnej stronie w~przypadku podziału
-	\multicolumn{3}{c}{{\bfseries \tablename\ \thetable{} -- ciąg dalszy z~poprzedniej strony}} \\
+	\multicolumn{3}{c}{{\tablename\ \thetable{} -- ciąg dalszy z~poprzedniej strony}} \\
 	\toprule
 	\textbf{Metoda} & \textbf{Ścieżka} & \textbf{Opis} \\
 	\midrule
@@ -1438,8 +1438,8 @@ W celu automatyzacji obsługi protokołu HTTP, w~konfiguracji instancji zaimplem
 Na listingu~\ref{lst:axios_interceptor} przedstawiono implementację interceptora odpowiedzi, który w~sposób reaktywny zarządza odświeżaniem tokenów i~ponawianiem pierwotnych żądań sieciowych.
 
 
-\begin{lstlisting}[language=TypeScript,caption={Implementacja interceptora automatycznego odświeżania tokenów JWT (\texttt{api.ts})},style=tsStyle,label={lst:axios_interceptor}]
-client.interceptors.response.use(
+\begin{lstlisting}[language=TypeScript,caption={[Implementacja interceptora automatycznego odświeżania tokenów JWT]Implementacja interceptora automatycznego odświeżania tokenów JWT \protect\vspace{-6pt}\newline\phantom{Listing 10: } (\texttt{api.ts})},style=tsStyle,label={lst:axios_interceptor}]
+	client.interceptors.response.use(
 	response => response,
 	async (error: AxiosError) => {
 		if (error.response?.status === 401) {
@@ -1448,10 +1448,10 @@ client.interceptors.response.use(
 				if (refreshToken) {
 					const { data } =
 					await this.authClient.patch<
-						Omit<AuthResponse, 'user'>
+					Omit<AuthResponse, 'user'>
 					>(
-						'/auth/refresh',
-						{ refreshToken }
+					'/auth/refresh',
+					{ refreshToken }
 					);
 					localStorage.setItem('accessToken', data.accessToken);
 					localStorage.setItem('refreshToken', data.refreshToken);
@@ -1466,7 +1466,7 @@ client.interceptors.response.use(
 		}
 		return Promise.reject(error);
 	}
-);
+	);
 \end{lstlisting}
 
 \subsection{Mechanizm rutingu i~ochrona tras}
@@ -1476,20 +1476,20 @@ W celu zapewnienia selektywnej kontroli dostępu do zasobów warstwy prezentacji
 Na listingu~\ref{lst:protected_route} zaprezentowano deklaratywną implementację komponentu \texttt{ProtectedRoute}, zintegrowanego z~globalnym magazynem stanu systemu.
 
 \begin{lstlisting}[language=TypeScript,caption={Implementacja komponentu tras chronionych (\texttt{App.tsx})},style=tsStyle,label={lst:protected_route}]
-function ProtectedRoute({ children, requireAdmin = false }: { children: React.ReactNode; requireAdmin?: boolean }) {
-	
-	const { isAuthenticated, user } = useStore();
-	
-	if (!isAuthenticated) {
-		return <Navigate to="/login" replace />;
+	function ProtectedRoute({ children, requireAdmin = false }: { children: React.ReactNode; requireAdmin?: boolean }) {
+		
+		const { isAuthenticated, user } = useStore();
+		
+		if (!isAuthenticated) {
+			return <Navigate to="/login" replace />;
+		}
+		
+		if (requireAdmin && user?.role !== 'admin') {
+			return <Navigate to="/" replace />;
+		}
+		
+		return <>{children}</>;
 	}
-	
-	if (requireAdmin && user?.role !== 'admin') {
-		return <Navigate to="/" replace />;
-	}
-	
-	return <>{children}</>;
-}
 \end{lstlisting}
 
 \subsection{Ekrany aplikacji klienckiej}
@@ -1603,7 +1603,7 @@ W celu zapewnienia wysokiej modularności oraz łatwości rozbudowy kodu źród�
 	
 	\item \textbf{OctoPrintClient} --- stanowi warstwę abstrakcji nad interfejsem sieciowym REST API systemu \textit{OctoPrint}. Klasa ta enkapsuluje operacje wejścia-wyjścia odpowiedzialne za odczyt bieżących temperatur i~stanów mechanicznych drukarki, buforowanie plików w~pamięci lokalnej urządzenia, a~także bezpośrednie sterowanie procesem wytwórczym (rozpoczynanie, wstrzymywanie i~anulowanie druku).
 	
-	\item \textbf{ConfigLoader} --- komponent pomocniczy odpowiedzialny za bezpieczne wczytywanie parametrów startowych, sekretów chmurowych oraz zmiennych środowiskowych utrwalonych w~pliku konfiguracyjnym \texttt{env}.
+	\item \textbf{ConfigLoader} --- komponent pomocniczy odpowiedzialny za bezpieczne wczytywanie parametrów startowych, sekretów chmurowych oraz zmiennych środowiskowych utrwalonych w~pliku konfiguracyjnym \texttt{.env}.
 \end{itemize}
 
 \subsection{Połączenie z~IoT Hub}
@@ -1612,14 +1612,14 @@ Agent sprzętowy inicjuje i~utrzymuje stałe połączenie z~usługą \textit{Azu
 
 \begin{lstlisting}[language=Python,caption={Inicjalizacja klienta usługi \textit{Azure IoT Hub} (\texttt{printer\_agent.py})}, style=pyStyle, label={lst:python_iot_init}]
 	self.iot_client = IoTHubDeviceClient.
-		create_from_connection_string(
-			device_connection_string
-		)
+	create_from_connection_string(
+	device_connection_string
+	)
 	
 	self.iot_client.connect()
 	
 	self.iot_client.on_method_request_received = (
-		self.handle_method_request
+	self.handle_method_request
 	)
 \end{lstlisting}
 
@@ -1694,11 +1694,11 @@ W trakcie aktywnego procesu produkcyjnego, agent sprzętowy w~sposób ciągły m
 
 \subsection{Niskopoziomowa komunikacja z~serwerem OctoPrint}
 
-Klasa \texttt{OctoPrintClient} hermetyzuje i~realizuje komunikację sieciową z~systemem \textit{OctoPrint}~\cite{octoprint} w~ramach lokalnej sieci komputerowej (z wykorzystaniem lokalnego mapowania adresów, np. \texttt{http://prusai3mk3.local}). Autoryzacja i~bezpieczeństwo zapytań HTTP są zapewniane poprzez wstrzykiwanie unikalnego klucza dostępowego do nagłówka \texttt{X-Api-Key} każdego żądania.
+Klasa \texttt{OctoPrintClient} hermetyzuje i~realizuje komunikację sieciową z~systemem \textit{OctoPrint}~\cite{octoprint} w~ramach lokalnej sieci komputerowej (z wykorzystaniem lokalnego mapowania adresów, np. \texttt{http://prusai3mk3.local}). Autoryzacja i~bezpieczeństwo zapytań HTTP są zapewniane poprzez wstrzykiwanie unikalnego klucza dostępowego do nagłówka \linebreak\texttt{X-Api-Key} każdego żądania.
 
 Na listingu~\ref{lst:octoprint_methods} zestawiono kluczowe operacje zaimplementowane w~strukturze omawianej klasy wraz z~przypisanymi do nich punktami końcowymi (ang.~\textit{endpoints}) oraz strukturami poleceń lokalnego interfejsu REST API.
 
-\begin{lstlisting}[language={},caption={Struktura metod klasy \texttt{OctoPrintClient} i~ich mapowanie na punkty końcowe API.},style=tsStyle,label={lst:octoprint_methods}]
+\begin{lstlisting}[language={},caption={[Struktura metod klasy \texttt{OctoPrintClient} i~ich mapowanie na punkty końcowe API.]\textls[-37]{Struktura metod klasy \texttt{OctoPrintClient} i~ich mapowanie na punkty końcowe API.}},style=tsStyle,label={lst:octoprint_methods}]
 	// Definicja kluczowych metod wchodzących w skład klasy OctoPrintClient:
 	
 	get_printer_state()        --->  GET  /api/printer
@@ -1745,7 +1745,7 @@ W celu zapewnienia otwartości projektu, w~repozytorium zasobów systemu --- obo
 
 \subsubsection{Podstawa projektowa}
 
-Moduł CASE nie został zaprojektowany od podstaw --- jako bazę konstrukcyjną wykorzystano otwarty projekt udostępniony w~serwisie \textit{GrabCAD} przez \textit{219 Design}~\cite{grabcad219}, opublikowany na licencji \textbf{CC BY 4.0}.
+Moduł CASE nie został zaprojektowany od podstaw --- jako bazę konstrukcyjną wykorzystano otwarty projekt udostępniony w~serwisie \textit{GrabCAD} przez \textit{219 Design}~\cite{grabcad219}, opublikowany na licencji \textbf{CC BY 4.0} \cite{cc4}.
 
 Oryginalny model geometryczny dedykowany był dla platformy \textbf{Raspberry Pi 4 Model B}. Ze względu na zastosowanie w~systemie \textit{AddiPi} urządzenia \textbf{Raspberry Pi 3 Model B}, konieczne było wprowadzenie szeregu modyfikacji konstrukcyjnych.
 
@@ -1774,7 +1774,7 @@ Uchwyt pozycjonuje kamerę pod stałym kątem skierowanym w~stronę pola robocze
 
 \subsubsection{Struktura plików i~organizacja zasobów modułu CASE}
 
-	W~celu zapewnienia przejrzystości oraz ułatwienia ewentualnej replikacji lub dalszej modyfikacji projektu mechanicznego, zasoby cyfrowe powiązane z~modułem \texttt{CASE} zostały ustrukturyzowane w~dedykowanym repozytorium. W~tabeli~\ref{tab:case_file_structure} zestawiono strukturę katalogów oraz opisano zawartość poszczególnych zbiorów danych.
+W~celu zapewnienia przejrzystości oraz ułatwienia ewentualnej replikacji lub dalszej modyfikacji projektu mechanicznego, zasoby cyfrowe powiązane z~modułem \texttt{CASE} zostały ustrukturyzowane w~dedykowanym repozytorium. W~tabeli~\ref{tab:case_file_structure} zestawiono strukturę katalogów oraz opisano zawartość poszczególnych zbiorów danych.
 
 \begin{table}[h!]
 	\centering
@@ -1820,14 +1820,14 @@ Wizualizację trójwymiarową tak przygotowanego środowiska projektowego przeds
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.75\textwidth]{Full_Assembly.png} 
+	\includegraphics[width=0.65\textwidth]{Full_Assembly.png} 
 	\caption{Trójwymiarowy widok złożenia modułów CASE oraz STAND w~środowisku \textit{SolidWorks}~\cite{solidworks}.}
 	\label{fig:full_assembly}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.75\textwidth]{cad_assembly.pdf} 
+	\includegraphics[width=0.9\textwidth]{cad_assembly.pdf} 
 	\caption{Struktura hierarchiczna złożeń, komponentów oraz formatów produkcyjnych modułów \textit{SolidWorks}~\cite{solidworks}.}
 	\label{fig:cad_schematic}
 \end{figure}
@@ -1948,7 +1948,7 @@ Kompletną sekwencję zdarzeń oraz zależność potoków rozruchowych usług sy
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.75\textwidth]{rpi_boot.pdf} 
+	\includegraphics[width=0.9\textwidth]{rpi_boot.pdf} 
 	\caption{Diagram potoku rozruchowego mikrokomputera po restarcie systemu.}
 	\label{fig:rpi_boot}
 \end{figure}
@@ -1992,7 +1992,7 @@ Po uruchomieniu tunelu Cloudflare usługa \texttt{cloudflared} przydziela nowy, 
 
 Kompletny kod źródłowy tego mechanizmu zaprezentowano na listingu~\ref{lst:bash_script}.
 
-\begin{lstlisting}[language=bash,caption={Skrypt automatycznej rejestracji dynamicznego adresu URL tunelu (\texttt{publish-camera-url.sh}).},style=plListing,label={lst:bash_script}]
+\begin{lstlisting}[language=bash,caption={[Skrypt automatycznej rejestracji dynamicznego adresu URL tunelu]Skrypt automatycznej rejestracji dynamicznego adresu URL tunelu \protect\vspace{-6pt}\newline\phantom{Listing 17: }(\texttt{publish-camera-url.sh}).},style=plListing,label={lst:bash_script}]
 	#!/bin/bash
 	LOG_FILE="/tmp/cloudflared.log"
 	VIDEO_SERVICE_URL="http://azure.com"
@@ -2082,7 +2082,7 @@ W tabeli~\ref{tab:rpi_summary} zestawiono oraz sklasyfikowano wszystkie kluczowe
 	\midrule
 	\endfirsthead
 	
-	\multicolumn{3}{c}{{\bfseries \tablename\ \thetable{} -- ciąg dalszy z~poprzedniej strony}} \\
+	\multicolumn{3}{c}{{\tablename\ \thetable{} -- ciąg dalszy z~poprzedniej strony}} \\
 	\toprule
 	\textbf{Usługa / komponent} & \textbf{Mechanizm uruchomieniowy} & \textbf{Opis realizowanej odpowiedzialności} \\
 	\midrule
@@ -2183,7 +2183,7 @@ Proces inicjalizacji dla wybranego środowiska (katalog \texttt{terraform/} dla 
 	terraform apply
 \end{lstlisting}
 
-Po pomyślnym zastosowaniu planu, wygenerowane wartości niejawne (ang.~\textit{sensitive outputs}), takie jak parametry połączeniowe czy klucze główne baz danych, pobiera się bezpośrednio z~poziomu konsoli za pomocą instrukcji typu \texttt{terraform output -raw <nazwa\_zmiennej>} (np. dla zmiennych \texttt{storage\_connection\_string}, \texttt{service\_bus\_connection\_string}, \texttt{cosmos\_endpoint} oraz \texttt{cosmos\_key}). Pozyskane w~ten sposób sekrety są następnie wstrzykiwane do pliku konfiguracyjnego \texttt{env} na produkcyjnej maszynie wirtualnej OCI.
+\noindent Po pomyślnym zastosowaniu planu, wygenerowane wartości niejawne (ang.~\textit{sensitive outputs}), takie jak parametry połączeniowe czy klucze główne baz danych, pobiera się bezpośrednio z~poziomu konsoli za pomocą instrukcji typu \texttt{terraform output -raw <nazwa\_zmiennej>} (dla wybranych zmiennych \texttt{storage\_connection\_string}, \texttt{service\_bus\_connection\_string}, \texttt{cosmos\_endpoint} oraz \texttt{cosmos\_key}). Pozyskane w~ten sposób sekrety są następnie wstrzykiwane do pliku konfiguracyjnego \texttt{.env} na produkcyjnej maszynie wirtualnej OCI.
 
 
 \subsection{Specyfikacja konteneryzacji i~optymalizacja obrazów}
@@ -2244,39 +2244,39 @@ Uruchomienie mikroserwisów warstwy serwerowej na instancji \textit{Oracle Cloud
 
 Na listingu~\ref{lst:docker_compose_yaml} przedstawiono reprezentatywny fragment produkcyjnego pliku konfiguracyjnego.
 
-\begin{lstlisting}[language=,caption={Fragment produkcyjnego pliku konfiguracyjnego docker-compose.ghcr.yml.},style=plListing,label={lst:docker_compose_yaml}]
+\begin{lstlisting}[language=,caption={\protect{\textls[-10]{Fragment produkcyjnego pliku konfiguracyjnego docker-compose.ghcr.yml.}}},style=plListing,label={lst:docker_compose_yaml}]
 	version: '3.9'
 	
 	services:
-		auth:
-			image: ghcr.io/AddiPii/AddiPi-Auth-Service:latest
-			env_file: .env
-			ports:
-			- "3001:3001"
-			restart: unless-stopped
-		
-		user:
-			image: ghcr.io/AddiPii/AddiPi-User-Service:latest
-			env_file: .env
-			ports:
-			- "3002:3002"
-			depends_on: [auth]
-			restart: unless-stopped
-			
-		printer:
-			image: ghcr.io/AddiPii/AddiPi-Printer-Service:latest
-			env_file: .env
-			ports:
-			- "3050:3050"
-			depends_on: [queue, auth]
-			restart: unless-stopped
+	auth:
+	image: ghcr.io/AddiPii/AddiPi-Auth-Service:latest
+	env_file: .env
+	ports:
+	- "3001:3001"
+	restart: unless-stopped
+	
+	user:
+	image: ghcr.io/AddiPii/AddiPi-User-Service:latest
+	env_file: .env
+	ports:
+	- "3002:3002"
+	depends_on: [auth]
+	restart: unless-stopped
+	
+	printer:
+	image: ghcr.io/AddiPii/AddiPi-Printer-Service:latest
+	env_file: .env
+	ports:
+	- "3050:3050"
+	depends_on: [queue, auth]
+	restart: unless-stopped
 \end{lstlisting}
 
 Ciągłość operacyjną środowiska zabezpiecza wspomniany wcześniej kontener \textit{Watchtower}~\cite{watchtower}, działający w~tle jako demon aktualizacyjny. Bezpieczeństwo sieciowe instancji maszyn wirtualnych OCI egzekwowane jest na poziomie warstwy sieciowej chmury, ograniczając ruch przychodzący wyłącznie do niezbędnych portów: 22 (SSH), 3001 (\textit{Auth Service}), 3002 (\textit{User Service}), 3050 (\textit{Printer Service}), 3070 (\textit{Queue Service}) oraz 5000 (\textit{Files Service}). Reguły te są definiowane deklaratywnie w~module \texttt{terraform-oci/}. Topologię tak zorganizowanej sieci kontenerów oraz ich zależności startowe przedstawiono na rysunku~\ref{fig:container_schema}.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.61\textwidth]{docker_compose.pdf} 
+	\includegraphics[width=0.9\textwidth]{docker_compose.pdf} 
 	\caption{Diagram architektury kontenerów Docker Compose i~ich relacji zależności.}
 	\label{fig:container_schema}
 \end{figure}
@@ -2284,9 +2284,9 @@ Ciągłość operacyjną środowiska zabezpiecza wspomniany wcześniej kontener 
 
 \subsection{Zarządzanie konfiguracją i~sekretami przez zmienne środowiskowe}
 
-Konfiguracja serwisów uruchamianych na instancji OCI realizowana jest przy pomocy zmiennych środowiskowych przekazywanych do kontenerów \textit{Docker}~\cite{docker} za pośrednictwem pliku \texttt{env}. Mechanizm ten umożliwia oddzielenie konfiguracji od kodu źródłowego, co upraszcza wdrażanie aplikacji w~różnych środowiskach oraz zwiększa bezpieczeństwo poprzez eliminację konieczności przechowywania poufnych danych w~repozytoriach kodu.
+Konfiguracja serwisów uruchamianych na instancji OCI realizowana jest przy pomocy zmiennych środowiskowych przekazywanych do kontenerów \textit{Docker}~\cite{docker} za pośrednictwem pliku \texttt{.env}. Mechanizm ten umożliwia oddzielenie konfiguracji od kodu źródłowego, co upraszcza wdrażanie aplikacji w~różnych środowiskach oraz zwiększa bezpieczeństwo poprzez eliminację konieczności przechowywania poufnych danych w~repozytoriach kodu.
 
-W środowisku produkcyjnym plik \texttt{env} udostępniany jest wszystkim serwisom za pomocą dyrektywy \texttt{env\_file} w~konfiguracji Docker Compose. Repozytorium projektu zawiera również plik \texttt{env.example}, stanowiący szablon wymaganej konfiguracji i~dokumentujący znaczenie poszczególnych parametrów.
+W środowisku produkcyjnym plik \texttt{.env} udostępniany jest wszystkim serwisom za pomocą dyrektywy \texttt{env\_file} w~konfiguracji Docker Compose. Repozytorium projektu zawiera również plik \texttt{.env.example}, stanowiący szablon wymaganej konfiguracji i~dokumentujący znaczenie poszczególnych parametrów.
 
 Tabela~\ref{tab:env_variables} przedstawia najważniejsze zmienne środowiskowe wykorzystywane przez system.
 
@@ -2408,7 +2408,7 @@ Realizacja rozproszonego systemu \textit{AddiPi} wiązała się z~konieczności�
 	Sterowanie parametrami fizycznej maszyny przy użyciu metod bezpośrednich (ang.~\textit{Direct Methods}) generowało opóźnienia rzędu kilku sekund w~warunkach gorszej przepustowości sieciowej węzła brzegowego. Zjawisko to zostało uwzględnione na poziomie projektowania interfejsu użytkownika (UX) poprzez wprowadzenie asynchronicznych stanów ładowania, blokad przycisków przed wielokrotnym kliknięciem (ang.~\textit{debouncers}) oraz deterministycznej obsługi przekroczenia czasu oczekiwania (ang.~\textit{timeouts}).
 \end{itemize}
 
-Pomimo opisanych trudności, wszystkie zidentyfikowane bariery technologiczne zostały pomyślnie wyeliminowane na etapie implementacji. Pozwoliło to na uzyskanie w~pełni stabilnego, rozproszonego systemu, który w~sposób bezwzględny spełnia wszystkie założenia inżynierskie określone w~wymaganiach projektu.
+\noindent Pomimo opisanych trudności, wszystkie zidentyfikowane bariery technologiczne zostały pomyślnie wyeliminowane na etapie implementacji. Pozwoliło to na uzyskanie w~pełni stabilnego, rozproszonego systemu, który w~sposób bezwzględny spełnia wszystkie założenia inżynierskie określone w~wymaganiach projektu.
 
 \subsection{Ograniczenia przyjętego rozwiązania}
 
@@ -2465,9 +2465,14 @@ Uzyskane rezultaty aplikacyjne wskazują, że system \textit{AddiPi} posiada wys
 \bibliography{bibliografia}\textsc{}
 
 \newpage
-
-%\lstlistoflistings
-
+\listoftables
+\newpage
+\listoffigures
+\newpage
+\lstlistoflistings
+	
+	
+	
 % ============================================================
 %  DODATKI
 % ============================================================
@@ -2483,9 +2488,9 @@ Uzyskane rezultaty aplikacyjne wskazują, że system \textit{AddiPi} posiada wys
 %\section{Struktura repozytoriów}
 
 %\section{Endpointy API - podsumowanie}
-
+	
 %\end{appendices}
-
+	
 \end{document}
 
 

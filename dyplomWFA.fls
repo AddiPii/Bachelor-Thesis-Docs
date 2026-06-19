@@ -364,6 +364,8 @@ INPUT ./agent_startprint.pdf
 INPUT ./agent_startprint.pdf
 INPUT ./agent_startprint.pdf
 INPUT ./agent_startprint.pdf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8t.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectt1200.tfm
 INPUT ./octoprint-panel.png
 INPUT ./octoprint-panel.png
 INPUT ./octoprint-panel.png
@@ -404,6 +406,7 @@ INPUT ./rpi_boot.pdf
 INPUT ./rpi_boot.pdf
 INPUT ./rpi_boot.pdf
 INPUT ./rpi_boot.pdf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8t.tfm
 INPUT ./docker_compose.pdf
 INPUT ./docker_compose.pdf
 INPUT ./docker_compose.pdf
@@ -418,6 +421,18 @@ INPUT ./dyplomWFA.bbl
 INPUT ./dyplomWFA.bbl
 INPUT dyplomWFA.bbl
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmrc8t.tfm
+INPUT ./dyplomWFA.lot
+INPUT ./dyplomWFA.lot
+INPUT dyplomWFA.lot
+OUTPUT dyplomWFA.lot
+INPUT ./dyplomWFA.lof
+INPUT ./dyplomWFA.lof
+INPUT dyplomWFA.lof
+OUTPUT dyplomWFA.lof
+INPUT ./dyplomWFA.lol
+INPUT ./dyplomWFA.lol
+INPUT dyplomWFA.lol
+OUTPUT dyplomWFA.lol
 INPUT dyplomWFA.aux
 INPUT ./dyplomWFA.out
 INPUT ./dyplomWFA.out

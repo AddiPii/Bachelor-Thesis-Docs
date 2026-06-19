@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.1)  19 JUN 2026 02:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.1)  20 JUN 2026 01:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1015,30 +1015,30 @@ Overfull \hbox (4.39345pt too wide) in paragraph at lines 1426--1427
  []
 
 [47] [48] [49]
-<strona-glowna2.png, id=1545, 480.5955pt x 645.612pt>
+<strona-glowna2.png, id=1527, 480.5955pt x 645.612pt>
 File: strona-glowna2.png Graphic file (type png)
 <use strona-glowna2.png>
 Package pdftex.def Info: strona-glowna2.png  used on input line 1503.
 (pdftex.def)             Requested size: 245.88512pt x 330.3089pt.
 [50 <./strona-glowna2.png>]
-<dashboard2.png, id=1556, 775.09575pt x 478.78876pt>
+<dashboard2.png, id=1538, 775.09575pt x 478.78876pt>
 File: dashboard2.png Graphic file (type png)
 <use dashboard2.png>
 Package pdftex.def Info: dashboard2.png  used on input line 1521.
 (pdftex.def)             Requested size: 426.79135pt x 263.63416pt.
 [51 <./dashboard2.png>]
-<upload-print.png, id=1565, 983.675pt x 745.78625pt>
+<upload-print.png, id=1547, 983.675pt x 745.78625pt>
 File: upload-print.png Graphic file (type png)
 <use upload-print.png>
 Package pdftex.def Info: upload-print.png  used on input line 1534.
 (pdftex.def)             Requested size: 405.45047pt x 307.40166pt.
-<print-control2.png, id=1567, 662.475pt x 492.03825pt>
+<print-control2.png, id=1549, 662.475pt x 492.03825pt>
 File: print-control2.png Graphic file (type png)
 <use print-control2.png>
 Package pdftex.def Info: print-control2.png  used on input line 1547.
 (pdftex.def)             Requested size: 426.79135pt x 316.9906pt.
 [52 <./upload-print.png>]
-<admin-panel.png, id=1575, 1245.65375pt x 761.84625pt>
+<admin-panel.png, id=1557, 1245.65375pt x 761.84625pt>
 File: admin-panel.png Graphic file (type png)
 <use admin-panel.png>
 Package pdftex.def Info: admin-panel.png  used on input line 1565.
@@ -1047,13 +1047,13 @@ Package pdftex.def Info: admin-panel.png  used on input line 1565.
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <14> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 1649.
 [57]
-<agent_startprint.pdf, id=1627, 518.70288pt x 391.4625pt>
+<agent_startprint.pdf, id=1609, 518.70288pt x 391.4625pt>
 File: agent_startprint.pdf Graphic file (type pdf)
 <use agent_startprint.pdf>
 Package pdftex.def Info: agent_startprint.pdf  used on input line 1655.
 (pdftex.def)             Requested size: 384.1096pt x 289.89275pt.
 [58 <./agent_startprint.pdf>] [59]
-<octoprint-panel.png, id=1897, 819.06pt x 579.66562pt>
+<octoprint-panel.png, id=1872, 819.06pt x 579.66562pt>
 File: octoprint-panel.png Graphic file (type png)
 <use octoprint-panel.png>
 Package pdftex.def Info: octoprint-panel.png  used on input line 1716.
@@ -1069,7 +1069,7 @@ Overfull \hbox (5.20607pt too wide) in paragraph at lines 1783--1798
  [][] 
  []
 
-<physical-stand.jpeg, id=1931, 1032.0156pt x 703.428pt>
+<physical-stand.jpeg, id=1908, 1032.0156pt x 703.428pt>
 File: physical-stand.jpeg Graphic file (type jpg)
 <use physical-stand.jpeg>
 Package pdftex.def Info: physical-stand.jpeg  used on input line 1808.
@@ -1081,28 +1081,28 @@ ta-lo-wana przy urz¡-dze-niu
  []
 
 [63]
-<Full_Assembly.png, id=1940, 630.55576pt x 433.62pt>
+<Full_Assembly.png, id=1917, 630.55576pt x 433.62pt>
 File: Full_Assembly.png Graphic file (type png)
 <use Full_Assembly.png>
 Package pdftex.def Info: Full_Assembly.png  used on input line 1823.
-(pdftex.def)             Requested size: 320.0935pt x 220.12433pt.
+(pdftex.def)             Requested size: 277.41176pt x 190.77353pt.
 [64 <./physical-stand.jpeg>]
-<cad_assembly.pdf, id=1949, 511.9125pt x 304.13625pt>
+<cad_assembly.pdf, id=1926, 511.9125pt x 304.13625pt>
 File: cad_assembly.pdf Graphic file (type pdf)
 <use cad_assembly.pdf>
 Package pdftex.def Info: cad_assembly.pdf  used on input line 1830.
-(pdftex.def)             Requested size: 320.0935pt x 190.17285pt.
+(pdftex.def)             Requested size: 384.1096pt x 228.20836pt.
 [65 <./Full_Assembly.png> <./cad_assembly.pdf>] [66] (/usr/share/texlive/texmf-
 dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) [67]
-<rpi_boot.pdf, id=2019, 511.9125pt x 385.44pt>
+<rpi_boot.pdf, id=1995, 511.9125pt x 385.44pt>
 File: rpi_boot.pdf Graphic file (type pdf)
 <use rpi_boot.pdf>
 Package pdftex.def Info: rpi_boot.pdf  used on input line 1951.
-(pdftex.def)             Requested size: 320.0935pt x 241.01115pt.
+(pdftex.def)             Requested size: 384.1096pt x 289.21455pt.
 [68] [69 <./rpi_boot.pdf>] [70] [71] [72]
 Underfull \hbox (badness 10000) in paragraph at lines 2104--2104
 []|\T1/ptm/b/n/12 (+20) Mechanizm
@@ -1172,11 +1172,11 @@ Underfull \hbox (badness 1735) in paragraph at lines 2162--2163
  []
 
 [76] [77] [78] [79]
-<docker_compose.pdf, id=2274, 511.9125pt x 346.29375pt>
+<docker_compose.pdf, id=2251, 511.9125pt x 346.29375pt>
 File: docker_compose.pdf Graphic file (type pdf)
 <use docker_compose.pdf>
 Package pdftex.def Info: docker_compose.pdf  used on input line 2279.
-(pdftex.def)             Requested size: 260.34297pt x 176.11606pt.
+(pdftex.def)             Requested size: 384.1096pt x 259.84119pt.
 [80]
 Overfull \hbox (1.44728pt too wide) in paragraph at lines 2297--2316
  [][] 
@@ -1185,31 +1185,37 @@ Overfull \hbox (1.44728pt too wide) in paragraph at lines 2297--2316
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[81 <./docker_compose.pdf>]
-<IoT_hub.png, id=2346, 1199.48125pt x 376.40625pt>
+[81 <./docker_compose.pdf>] [82]
+<IoT_hub.png, id=2327, 1199.48125pt x 376.40625pt>
 File: IoT_hub.png Graphic file (type png)
 <use IoT_hub.png>
 Package pdftex.def Info: IoT_hub.png  used on input line 2333.
 (pdftex.def)             Requested size: 384.1096pt x 120.53287pt.
-[82] [83 <./IoT_hub.png>] [84] [85] [86]
+[83 <./IoT_hub.png>] [84] [85] [86]
 Overfull \hbox (6.20078pt too wide) in paragraph at lines 2407--2409
 \T1/ptm/m/n/12 (-20) Sterowanie pa-ra-me-trami fi-zycz-nej ma-szyny przy u»y-ci
 u me-tod bez-po-±red-nich (ang. \T1/ptm/m/it/12 (-20) Di-
  []
 
-[87] [88] [89] [90] [91] (./dyplomWFA.bbl [92]
-Underfull \hbox (badness 1127) in paragraph at lines 85--89
-[]\T1/ptm/m/n/12 (+20) Microsoft Cor-po-ra-tion.  Azure IoT Hub do-cu-men-ta-ti
-on.  [][]$\T1/cmtt/l/it/12 https : / / learn .
+[87] [88] [89] [90] [91] (./dyplomWFA.bbl [92] [93] [94] [95]
+Underfull \hbox (badness 10000) in paragraph at lines 231--237
+[][]$\T1/cmtt/l/it/12 https : / / developers . cloudflare . com / cloudflare-[]
+one / connections /
  []
 
-[93]
-Underfull \hbox (badness 2662) in paragraph at lines 219--224
-[]\T1/ptm/m/n/12 (+20) Cloudflare Inc.  Clo-ud-flare Tun-nel ^^V Se-cu-rely con
--nect your in-fra-struc-
- []
+[96]) [97] (./dyplomWFA.lot)
+\tf@lot=\write5
+\openout5 = `dyplomWFA.lot'.
 
-) [94] (./dyplomWFA.aux)
+[98] (./dyplomWFA.lof)
+\tf@lof=\write6
+\openout6 = `dyplomWFA.lof'.
+
+[99] (./dyplomWFA.lol)
+\tf@lol=\write7
+\openout7 = `dyplomWFA.lol'.
+
+[100] (./dyplomWFA.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1221,11 +1227,11 @@ Package rerunfilecheck Info: File `dyplomWFA.out' has not changed.
 (rerunfilecheck)             Checksum: 0F0F937A76839ED8A08A542EC15BE2FB;28321.
  ) 
 Here is how much of TeX's memory you used:
- 21048 strings out of 476147
- 330200 string characters out of 5794720
- 2115975 words of memory out of 5000000
- 41584 multiletter control sequences out of 15000+600000
- 617690 words of font info for 340 fonts, out of 8000000 for 9000
+ 21105 strings out of 476147
+ 331005 string characters out of 5794720
+ 2143975 words of memory out of 5000000
+ 41609 multiletter control sequences out of 15000+600000
+ 621902 words of font info for 351 fonts, out of 8000000 for 9000
  34 hyphenation exceptions out of 8191
  79i,16n,93p,1089b,2175s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1440.600
@@ -1237,10 +1243,10 @@ pk> </home/ovezo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecit1000.60
 share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/times/utmri8a.pfb>
-Output written on dyplomWFA.pdf (94 pages, 4680821 bytes).
+Output written on dyplomWFA.pdf (100 pages, 4629672 bytes).
 PDF statistics:
- 2892 PDF objects out of 2984 (max. 8388607)
- 2289 compressed objects within 23 object streams
- 772 named destinations out of 1000 (max. 500000)
- 53291 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 2945 PDF objects out of 2984 (max. 8388607)
+ 2344 compressed objects within 24 object streams
+ 779 named destinations out of 1000 (max. 500000)
+ 57899 words of extra memory for PDF output out of 61914 (max. 10000000)
 

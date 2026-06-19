@@ -7,7 +7,7 @@
    version="1.1"
    id="svg204"
    sodipodi:docname="agent_startprint.svg"
-   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,12 +23,12 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="1.5403846"
-     inkscape:cx="274.28215"
-     inkscape:cy="291.81024"
+     inkscape:cx="298.30213"
+     inkscape:cy="254.80649"
      inkscape:window-width="1920"
-     inkscape:window-height="939"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-height="1051"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg204" />
   <title
@@ -4083,7 +4083,7 @@
      x="340"
      y="73"
      text-anchor="middle"
-     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
+     style="fill:#f2f2f2;stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
      id="text106">Cron wyzwala harmonogramator (co 1 min)</text>
   <!-- 1. confirm-ready → invokeDeviceMethod -->
   <line
@@ -4093,27 +4093,27 @@
      y2="90"
      marker-end="url(#arrow)"
      mask="url(#imagine-text-gaps-qacuof)"
-     style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     style="fill:#666666;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
      id="line108" />
   <text
      x="168"
      y="86"
      text-anchor="middle"
-     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
+     style="fill:#666666;stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
      id="text110">invokeDeviceMethod</text>
   <!-- 2. IoT Hub → Agent (MQTT) -->
   <text
      x="341"
      y="106"
      text-anchor="middle"
-     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
+     style="fill:#666666;stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
      id="text114">Direct Method: startPrint (MQTT)</text>
   <!-- 3. Agent: sprawdź drukarkę -->
   <text
      x="511"
      y="126"
      text-anchor="middle"
-     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#c2c0b6;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#666666;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
      id="text118">GET /api/printer (OctoPrint)</text>
   <line
      x1="592"
@@ -4124,7 +4124,7 @@
      stroke="var(--s)"
      stroke-dasharray="4 3"
      mask="url(#imagine-text-gaps-qacuof)"
-     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:4px, 3px"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#666666;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:4px, 3px"
      id="line120"
      transform="translate(0,2)" />
   <line
@@ -4136,7 +4136,7 @@
      stroke="var(--s)"
      stroke-dasharray="4 3"
      mask="url(#imagine-text-gaps-qacuof-5)"
-     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:4px, 3px;marker-end:url(#arrow-37)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#666666;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:4px, 3px;marker-end:url(#arrow-37)"
      id="line120-8"
      transform="translate(-5.4173672e-5,75.155)" />
   <line
@@ -4148,47 +4148,47 @@
      stroke="var(--s)"
      stroke-dasharray="4 3"
      mask="url(#imagine-text-gaps-qacuof-5-8-9)"
-     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:4px, 3px;marker-end:url(#arrow-37-9-0)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#666666;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:4px, 3px;marker-end:url(#arrow-37-9-0)"
      id="line120-8-6-0"
      transform="translate(-170.5182,143.01941)" />
   <text
      x="511"
      y="146"
      text-anchor="middle"
-     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#c2c0b6;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#666666;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
      id="text122">state: Operational</text>
   <!-- 4. pobierz plik z Blob -->
   <text
      x="511"
      y="166"
      text-anchor="middle"
-     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#c2c0b6;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#666666;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
      id="text126">download_blob(fileId)</text>
   <text
      x="511"
      y="184"
      text-anchor="middle"
-     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#c2c0b6;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#666666;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
      id="text130">plik .gcode → /tmp/addipi_files/</text>
   <!-- 5. upload do OctoPrint -->
   <text
      x="511"
      y="206"
      text-anchor="middle"
-     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#c2c0b6;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#666666;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
      id="text134">POST /api/files/local (select=true)</text>
   <text
      x="511"
      y="228"
      text-anchor="middle"
-     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#c2c0b6;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#666666;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
      id="text138">201 Created</text>
   <!-- 6. start print -->
   <text
      x="511"
      y="246"
      text-anchor="middle"
-     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#c2c0b6;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#666666;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
      id="text142">POST /api/job { command: start }</text>
   <line
      x1="592"
@@ -4199,7 +4199,7 @@
      stroke="var(--s)"
      stroke-dasharray="4 3"
      mask="url(#imagine-text-gaps-qacuof)"
-     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:4px, 3px"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#666666;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:4px, 3px"
      id="line144"
      transform="translate(0,3.575)" />
   <line
@@ -4211,21 +4211,21 @@
      stroke="var(--s)"
      stroke-dasharray="4 3"
      mask="url(#imagine-text-gaps-qacuof-8)"
-     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:4px, 3px;marker-end:url(#arrow-4)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#666666;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:4px, 3px;marker-end:url(#arrow-4)"
      id="line144-0"
      transform="translate(-2.3031713,-72.326194)" />
   <text
      x="511"
      y="270"
      text-anchor="middle"
-     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#c2c0b6;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#666666;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
      id="text146">204 No Content</text>
   <!-- 7. odpowiedź Method → IoT Hub → Printer -->
   <text
      x="345"
      y="284"
      text-anchor="middle"
-     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#c2c0b6;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#666666;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
      id="text150">{ status: printing_started, jobId }</text>
   <line
      x1="252"
@@ -4236,14 +4236,14 @@
      stroke="var(--s)"
      stroke-dasharray="4 3"
      mask="url(#imagine-text-gaps-qacuof)"
-     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:4px, 3px"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#666666;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:4px, 3px"
      id="line152"
      transform="translate(0,4)" />
   <text
      x="172"
      y="306.845"
      text-anchor="middle"
-     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#c2c0b6;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+     style="color:#ffffff;font-weight:400;font-size:12px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:middle;opacity:1;fill:#666666;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
      id="text154">MethodResponse 200</text>
   <!-- FAZA 2: Telemetria -->
   <rect
@@ -4260,14 +4260,14 @@
      x="340"
      y="325"
      text-anchor="middle"
-     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
+     style="fill:#ececec;stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
      id="text158">Telemetria (co ~10 s podczas druku)</text>
   <!-- print_started -->
   <text
      x="349"
      y="340"
      text-anchor="middle"
-     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
+     style="fill:#666666;stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
      id="text162">D2C: event=print_started</text>
   <line
      x1="260"
@@ -4285,7 +4285,7 @@
      y2="360"
      marker-end="url(#arrow-3)"
      mask="url(#imagine-text-gaps-qacuof-7)"
-     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#arrow-3)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#666666;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#arrow-3)"
      id="line164-8"
      transform="matrix(-1,0,0,1,345,-270)" />
   <line
@@ -4295,7 +4295,7 @@
      y2="360"
      marker-end="url(#arrow-3-9)"
      mask="url(#imagine-text-gaps-qacuof-7-3)"
-     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#arrow-3-9)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#666666;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#arrow-3-9)"
      id="line164-8-9"
      transform="matrix(-1,0,0,1,516.87836,-246.09572)" />
   <line
@@ -4305,7 +4305,7 @@
      y2="360"
      marker-end="url(#arrow-3-9-2)"
      mask="url(#imagine-text-gaps-qacuof-7-3-6)"
-     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#arrow-3-9-2)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#666666;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#arrow-3-9-2)"
      id="line164-8-9-2"
      transform="matrix(-1,0,0,1,687.239,-148.197)" />
   <line
@@ -4315,7 +4315,7 @@
      y2="360"
      marker-end="url(#arrow-3-9-2-9)"
      mask="url(#imagine-text-gaps-qacuof-7-3-6-2)"
-     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#arrow-3-9-2-9)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#666666;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#arrow-3-9-2-9)"
      id="line164-8-9-2-1"
      transform="matrix(-1,0,0,1,687.239,-105.75803)" />
   <line
@@ -4325,7 +4325,7 @@
      y2="360"
      marker-end="url(#arrow-3-9-3)"
      mask="url(#imagine-text-gaps-qacuof-7-3-7)"
-     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#arrow-3-9-3)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#666666;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#arrow-3-9-3)"
      id="line164-8-9-0"
      transform="matrix(-1,0,0,1,687.23868,-190.83202)" />
   <line
@@ -4335,14 +4335,14 @@
      y2="360"
      marker-end="url(#arrow-3-9-3-5)"
      mask="url(#imagine-text-gaps-qacuof-7-3-7-1)"
-     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#arrow-3-9-3-5)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#666666;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#arrow-3-9-3-5)"
      id="line164-8-9-0-4"
      transform="matrix(-1,0,0,1,687.239,-227.19954)" />
   <text
      x="176"
      y="356"
      text-anchor="middle"
-     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
+     style="fill:#666666;stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
      id="text166">Event Hub endpoint</text>
   <rect
      x="20"
@@ -4357,14 +4357,14 @@
      x="85"
      y="382"
      text-anchor="middle"
-     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
+     style="fill:#e6e6e6;stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
      id="text170">status → printing</text>
   <!-- print_progress -->
   <text
      x="349"
      y="394"
      text-anchor="middle"
-     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
+     style="fill:#666666;stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
      id="text174">D2C: event=print_progress, progress=45%</text>
   <line
      x1="260"
@@ -4382,14 +4382,14 @@
      y2="414"
      marker-end="url(#arrow-46)"
      mask="url(#imagine-text-gaps-qacuof-4)"
-     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#arrow-46)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#666666;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#arrow-46)"
      id="line176-5"
      transform="translate(175.18539,-66.407733)" />
   <text
      x="176"
      y="410"
      text-anchor="middle"
-     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
+     style="fill:#666666;stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
      id="text178">Event Hub endpoint</text>
   <rect
      x="20"
@@ -4404,14 +4404,14 @@
      x="85"
      y="436"
      text-anchor="middle"
-     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
+     style="fill:#e6e6e6;stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
      id="text182">progress w Cosmos DB</text>
   <!-- print_completed -->
   <text
      x="349"
      y="452"
      text-anchor="middle"
-     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
+     style="fill:#666666;stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
      id="text186">D2C: event=print_completed</text>
   <line
      x1="260"
@@ -4426,7 +4426,7 @@
      x="176"
      y="468"
      text-anchor="middle"
-     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
+     style="fill:#666666;stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
      id="text190">Event Hub endpoint</text>
   <rect
      x="20"
@@ -4441,7 +4441,7 @@
      x="85"
      y="494"
      text-anchor="middle"
-     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
+     style="fill:#e6e6e6;stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto"
      id="text194">status → completed</text>
   <!-- Legenda -->
   <line
@@ -4451,12 +4451,12 @@
      y2="492"
      stroke-width="1.5"
      marker-end="url(#arrow)"
-     style="fill:none;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     style="fill:#666666;stroke:rgb(156, 154, 146);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
      id="line196" />
   <text
      x="466"
      y="496"
-     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     style="fill:#666666;stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto"
      id="text198">żądanie</text>
   <line
      x1="530"
@@ -4468,12 +4468,12 @@
      stroke-dasharray="4 3"
      fill="none"
      marker-end="url(#arrow)"
-     style="fill:none;stroke:rgb(194, 192, 182);color:rgb(255, 255, 255);stroke-width:1px;stroke-dasharray:4px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     style="fill:#666666;stroke:rgb(194, 192, 182);color:rgb(255, 255, 255);stroke-width:1px;stroke-dasharray:4px, 3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
      id="line200" />
   <text
      x="576"
      y="496"
-     style="fill:rgb(194, 192, 182);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     style="fill:#666666;stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto"
      id="text202">odpowiedź / event</text>
   <line
      x1="260"
@@ -4482,7 +4482,7 @@
      y2="414"
      marker-end="url(#arrow-2)"
      mask="url(#imagine-text-gaps-qacuof-87)"
-     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#arrow-2)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#666666;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#arrow-2)"
      id="line176-9"
      transform="translate(180.59655,-11.318001)" />
   <line
@@ -4492,7 +4492,7 @@
      y2="414"
      marker-end="url(#arrow-7)"
      mask="url(#imagine-text-gaps-qacuof-53)"
-     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:none;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#arrow-7)"
+     style="color:#ffffff;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;fill:#666666;stroke:#9c9a92;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#arrow-7)"
      id="line176-2"
      transform="translate(175.18495,46.458061)" />
 </svg>

@@ -98,7 +98,7 @@
 \contentsline {subsection}{\numberline {9.2}Instalacja agenta}{67}{subsection.9.2}%
 \contentsline {subsection}{\numberline {9.3}Automatyzacja uruchamiania za pomocą systemd}{68}{subsection.9.3}%
 \contentsline {subsection}{\numberline {9.4}Udostępnianie strumienia wideo przez Cloudflare Tunnel}{69}{subsection.9.4}%
-\contentsline {subsubsection}{\numberline {9.4.1}Instalacja narzędzia cloudflared}{69}{subsubsection.9.4.1}%
+\contentsline {subsubsection}{\numberline {9.4.1}Instalacja narzędzia cloudflared}{70}{subsubsection.9.4.1}%
 \contentsline {subsubsection}{\numberline {9.4.2}Skrypt automatyzacji publikacji adresu sieciowego}{70}{subsubsection.9.4.2}%
 \contentsline {subsubsection}{\numberline {9.4.3}Automatyzacja odnawiania adresu w~harmonogramie cron}{71}{subsubsection.9.4.3}%
 \contentsline {subsection}{\numberline {9.5}Konfiguracja harmonogramu zadań crontab}{72}{subsection.9.5}%
